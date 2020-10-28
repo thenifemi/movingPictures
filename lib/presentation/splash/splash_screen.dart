@@ -12,12 +12,6 @@ class SplashScreen extends StatelessWidget {
         statusBarIconBrightness: Brightness.light,
       ),
       child: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Movies',
-            style: Theme.of(context).textTheme.headline5,
-          ),
-        ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
