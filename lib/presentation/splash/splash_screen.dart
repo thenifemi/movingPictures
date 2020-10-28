@@ -12,6 +12,12 @@ class SplashScreen extends StatelessWidget {
         statusBarIconBrightness: Brightness.light,
       ),
       child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'Movies',
+            style: Theme.of(context).textTheme.headline5,
+          ),
+        ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -40,6 +46,13 @@ class SplashScreen extends StatelessWidget {
                 "Button text",
                 style: Theme.of(context).textTheme.button,
               ),
+              RaisedButton(
+                  color: Theme.of(context).buttonColor,
+                  onPressed: () {},
+                  child: Text(
+                    'Watch',
+                    style: Theme.of(context).textTheme.button,
+                  ))
             ],
           ),
         ),

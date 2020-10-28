@@ -55,12 +55,14 @@ ThemeData appTheme() {
       size: 20.0,
     ),
     primaryColor: AppColors.black,
+    accentColor: AppColors.gray,
     scaffoldBackgroundColor: AppColors.black,
     buttonColor: AppColors.red,
     backgroundColor: AppColors.black,
     appBarTheme: base.appBarTheme.copyWith(
       brightness: Brightness.dark,
       color: Colors.transparent,
+      elevation: 0.0,
     ),
     tabBarTheme: base.tabBarTheme.copyWith(
       labelColor: AppColors.white,
