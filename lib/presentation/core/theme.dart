@@ -5,19 +5,14 @@ import 'app_colors.dart';
 ThemeData appTheme() {
   TextTheme _appTextTheme(TextTheme base) {
     return base.copyWith(
-      headline1: base.headline5.copyWith(
-        fontFamily: 'Roboto',
-        fontSize: 18.0,
+      headline5: base.headline5.copyWith(
+        fontFamily: 'Montserrat',
+        fontSize: 30.0,
         color: AppColors.white,
       ),
       headline6: base.headline6.copyWith(
         fontFamily: 'Roboto',
         fontSize: 15.0,
-        color: AppColors.white,
-      ),
-      headline5: base.headline5.copyWith(
-        fontFamily: 'Roboto',
-        fontSize: 22.0,
         color: AppColors.white,
       ),
       headline4: base.headline4.copyWith(
