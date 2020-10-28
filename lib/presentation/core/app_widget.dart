@@ -1,5 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:movingPictures/presentation/core/constants.dart';
+
+import '../routes/router.gr.dart';
+import 'constants.dart';
 
 class App extends StatelessWidget {
   @override
@@ -7,6 +10,9 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: appName,
       debugShowCheckedModeBanner: false,
+      builder: ExtendedNavigator.builder(
+        router: AppRouter(),
+      ),
     );
   }
 }

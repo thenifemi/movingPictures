@@ -1,5 +1,6 @@
 name: movingPictures
-description: Real-world movie database mobile application with the Flutter SDK and DDD clean architecture.
+description: Real-world movie database mobile application with the Flutter SDK
+  and DDD clean architecture.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -15,12 +16,14 @@ dependencies:
     sdk: flutter
   auto_route: ^0.6.9
   cupertino_icons: ^1.0.0
+  freezed: ^0.12.2
+  freezed_annotation: ^0.12.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: ^1.10.4
   auto_route_generator: ^0.6.10
+  build_runner: ^1.10.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
