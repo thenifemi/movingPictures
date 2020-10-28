@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:movingPictures/presentation/core/constants.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key key}) : super(key: key);
@@ -13,13 +14,9 @@ class SplashScreen extends StatelessWidget {
       ),
       child: Scaffold(
         body: Center(
-          child: RaisedButton(
-            color: Theme.of(context).buttonColor,
-            onPressed: () {},
-            child: Text(
-              'Watch',
-              style: Theme.of(context).textTheme.button,
-            ),
+          child: Image.asset(
+            movingPicturesLogoRed,
+            width: 200.0,
           ),
         ),
       ),
