@@ -13,41 +13,13 @@ class SplashScreen extends StatelessWidget {
       ),
       child: Scaffold(
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Heading",
-                style: Theme.of(context).textTheme.headline5,
-              ),
-              Text(
-                "Title",
-                style: Theme.of(context).textTheme.headline6,
-              ),
-              Text(
-                "body",
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
-              Text(
-                "subtext",
-                style: Theme.of(context).textTheme.subtitle1,
-              ),
-              Text(
-                "regular text",
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
-              Text(
-                "Button text",
-                style: Theme.of(context).textTheme.button,
-              ),
-              RaisedButton(
-                  color: Theme.of(context).buttonColor,
-                  onPressed: () {},
-                  child: Text(
-                    'Watch',
-                    style: Theme.of(context).textTheme.button,
-                  ))
-            ],
+          child: RaisedButton(
+            color: Theme.of(context).buttonColor,
+            onPressed: () {},
+            child: Text(
+              'Watch',
+              style: Theme.of(context).textTheme.button,
+            ),
           ),
         ),
       ),

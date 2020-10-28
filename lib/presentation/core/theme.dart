@@ -50,7 +50,7 @@ ThemeData appTheme() {
   final ThemeData base = ThemeData();
   return base.copyWith(
     textTheme: _appTextTheme(base.textTheme),
-    iconTheme: IconThemeData(
+    iconTheme: const IconThemeData(
       color: AppColors.gray,
       size: 20.0,
     ),
