@@ -5,6 +5,22 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(
+        child: Column(
+          children: [
+            Text(
+              "Heading",
+              style: Theme.of(context).textTheme.headline5,
+            ),
+            Text("title"),
+            Text("body"),
+            Text("subtext"),
+            Text("regular text"),
+            Text("button text"),
+          ],
+        ),
+      ),
+    );
   }
 }

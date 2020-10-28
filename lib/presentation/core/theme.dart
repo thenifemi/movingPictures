@@ -5,6 +5,11 @@ import 'app_colors.dart';
 ThemeData appTheme() {
   TextTheme _appTextTheme(TextTheme base) {
     return base.copyWith(
+      headline1: base.headline5.copyWith(
+        fontFamily: 'Roboto',
+        fontSize: 18.0,
+        color: AppColors.white,
+      ),
       headline6: base.headline6.copyWith(
         fontFamily: 'Roboto',
         fontSize: 15.0,
@@ -44,5 +49,13 @@ ThemeData appTheme() {
     scaffoldBackgroundColor: AppColors.black,
     buttonColor: AppColors.red,
     backgroundColor: AppColors.black,
+    appBarTheme: base.appBarTheme.copyWith(
+      brightness: Brightness.dark,
+      color: Colors.transparent,
+    ),
+    tabBarTheme: base.tabBarTheme.copyWith(
+      labelColor: AppColors.white,
+      unselectedLabelColor: AppColors.gray,
+    ),
   );
 }
