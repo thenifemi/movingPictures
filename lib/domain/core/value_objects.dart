@@ -27,7 +27,7 @@ abstract class ValueObject<T> extends Equatable {
   List<Object> get props => [value];
 }
 
-class UniqueId extends ValueObject {
+class UniqueId extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 

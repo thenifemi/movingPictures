@@ -7,7 +7,7 @@ import '../../domain/auth/auth_failure.dart';
 import '../../domain/auth/auth_repository_interface.dart';
 import 'firebase_user_mapper.dart';
 
-class FirebaseAuthRepository implements AuthRepositoryInterface {
+class FirebaseAuthRepository implements AuthInterface {
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
 
