@@ -38,12 +38,6 @@ flutter:
     - assets/logos/
  
   fonts:
-    - family: Roboto
-      fonts:
-        - asset: fonts/Roboto/Roboto-Light.ttf
-        - asset: fonts/Roboto/Roboto-Regular.ttf
-        - asset: fonts/Roboto/Roboto-Medium.ttf
-          weight: 500
     - family: Montserrat
       fonts:
         - asset: fonts/Montserrat/Montserrat-Light.ttf
