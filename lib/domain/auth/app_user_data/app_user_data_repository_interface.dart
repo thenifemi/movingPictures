@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:movingPictures/domain/auth/app_user_data.dart';
 
+import 'app_user_data.dart';
 import 'app_user_data_failure.dart';
 
 abstract class AppUserDataInterface {
