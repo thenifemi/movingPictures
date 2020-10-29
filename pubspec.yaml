@@ -18,8 +18,11 @@ dependencies:
   cupertino_icons: ^1.0.0
   dartz: ^0.9.2
   equatable: ^1.2.5
+  firebase_auth: ^0.18.2
+  firebase_core: ^0.5.1
   freezed: ^0.12.2
   freezed_annotation: ^0.12.0
+  google_sign_in: ^4.5.5
   uuid: ^2.2.2
 
 dev_dependencies:
