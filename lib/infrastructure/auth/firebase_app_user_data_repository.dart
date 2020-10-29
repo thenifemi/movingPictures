@@ -1,13 +1,21 @@
-import 'package:movingPictures/domain/auth/app_user_data_failure.dart';
-import 'package:movingPictures/domain/auth/app_user_data.dart';
 import 'package:dartz/dartz.dart';
-import 'package:movingPictures/domain/auth/app_user_data_repository_interface.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import '../../domain/auth/app_user_data.dart';
+
+import '../../domain/auth/app_user_data_failure.dart';
+import '../../domain/auth/app_user_data_repository_interface.dart';
+import '../core/firestore_helper.dart';
 
 class FirebaseAppUserDataRepository implements AppUserDataInterface {
+  final FirebaseFirestore _firestore;
+
+  FirebaseAppUserDataRepository(this._firestore);
+
   @override
-  Future<Either<AppUserDataFailure, Unit>> create(AppUserData appUserData) {
-    // TODO: implement create
-    throw UnimplementedError();
+  Future<Either<AppUserDataFailure, Unit>> create(
+      AppUserData appUserData) async {
+    final userDoc = await _firestore.userDocument();
+    // await userDoc.userDataCollection.doc(appUserData.id.getOrCrash()).set();
   }
 
   @override
