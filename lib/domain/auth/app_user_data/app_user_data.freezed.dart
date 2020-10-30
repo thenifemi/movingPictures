@@ -17,10 +17,12 @@ class _$AppUserDataTearOff {
   _AppUserData call(
       {@required UniqueId id,
       @required String name,
+      @required String email,
       @required String photoUrl}) {
     return _AppUserData(
       id: id,
       name: name,
+      email: email,
       photoUrl: photoUrl,
     );
   }
@@ -34,6 +36,7 @@ const $AppUserData = _$AppUserDataTearOff();
 mixin _$AppUserData {
   UniqueId get id;
   String get name;
+  String get email;
   String get photoUrl;
 
   $AppUserDataCopyWith<AppUserData> get copyWith;
@@ -44,7 +47,7 @@ abstract class $AppUserDataCopyWith<$Res> {
   factory $AppUserDataCopyWith(
           AppUserData value, $Res Function(AppUserData) then) =
       _$AppUserDataCopyWithImpl<$Res>;
-  $Res call({UniqueId id, String name, String photoUrl});
+  $Res call({UniqueId id, String name, String email, String photoUrl});
 }
 
 /// @nodoc
@@ -59,11 +62,13 @@ class _$AppUserDataCopyWithImpl<$Res> implements $AppUserDataCopyWith<$Res> {
   $Res call({
     Object id = freezed,
     Object name = freezed,
+    Object email = freezed,
     Object photoUrl = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as UniqueId,
       name: name == freezed ? _value.name : name as String,
+      email: email == freezed ? _value.email : email as String,
       photoUrl: photoUrl == freezed ? _value.photoUrl : photoUrl as String,
     ));
   }
@@ -76,7 +81,7 @@ abstract class _$AppUserDataCopyWith<$Res>
           _AppUserData value, $Res Function(_AppUserData) then) =
       __$AppUserDataCopyWithImpl<$Res>;
   @override
-  $Res call({UniqueId id, String name, String photoUrl});
+  $Res call({UniqueId id, String name, String email, String photoUrl});
 }
 
 /// @nodoc
@@ -93,11 +98,13 @@ class __$AppUserDataCopyWithImpl<$Res> extends _$AppUserDataCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object name = freezed,
+    Object email = freezed,
     Object photoUrl = freezed,
   }) {
     return _then(_AppUserData(
       id: id == freezed ? _value.id : id as UniqueId,
       name: name == freezed ? _value.name : name as String,
+      email: email == freezed ? _value.email : email as String,
       photoUrl: photoUrl == freezed ? _value.photoUrl : photoUrl as String,
     ));
   }
@@ -106,9 +113,13 @@ class __$AppUserDataCopyWithImpl<$Res> extends _$AppUserDataCopyWithImpl<$Res>
 /// @nodoc
 class _$_AppUserData extends _AppUserData with DiagnosticableTreeMixin {
   const _$_AppUserData(
-      {@required this.id, @required this.name, @required this.photoUrl})
+      {@required this.id,
+      @required this.name,
+      @required this.email,
+      @required this.photoUrl})
       : assert(id != null),
         assert(name != null),
+        assert(email != null),
         assert(photoUrl != null),
         super._();
 
@@ -117,11 +128,13 @@ class _$_AppUserData extends _AppUserData with DiagnosticableTreeMixin {
   @override
   final String name;
   @override
+  final String email;
+  @override
   final String photoUrl;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AppUserData(id: $id, name: $name, photoUrl: $photoUrl)';
+    return 'AppUserData(id: $id, name: $name, email: $email, photoUrl: $photoUrl)';
   }
 
   @override
@@ -131,6 +144,7 @@ class _$_AppUserData extends _AppUserData with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('type', 'AppUserData'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('email', email))
       ..add(DiagnosticsProperty('photoUrl', photoUrl));
   }
 
@@ -142,6 +156,8 @@ class _$_AppUserData extends _AppUserData with DiagnosticableTreeMixin {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)) &&
             (identical(other.photoUrl, photoUrl) ||
                 const DeepCollectionEquality()
                     .equals(other.photoUrl, photoUrl)));
@@ -152,6 +168,7 @@ class _$_AppUserData extends _AppUserData with DiagnosticableTreeMixin {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(photoUrl);
 
   @override
@@ -164,12 +181,15 @@ abstract class _AppUserData extends AppUserData {
   const factory _AppUserData(
       {@required UniqueId id,
       @required String name,
+      @required String email,
       @required String photoUrl}) = _$_AppUserData;
 
   @override
   UniqueId get id;
   @override
   String get name;
+  @override
+  String get email;
   @override
   String get photoUrl;
   @override

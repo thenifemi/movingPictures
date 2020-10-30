@@ -14,9 +14,16 @@ class _$AppUserTearOff {
   const _$AppUserTearOff();
 
 // ignore: unused_element
-  _AppUser call({@required UniqueId id}) {
+  _AppUser call(
+      {@required UniqueId id,
+      @required String name,
+      @required String photoUrl,
+      @required String email}) {
     return _AppUser(
       id: id,
+      name: name,
+      photoUrl: photoUrl,
+      email: email,
     );
   }
 }
@@ -28,6 +35,9 @@ const $AppUser = _$AppUserTearOff();
 /// @nodoc
 mixin _$AppUser {
   UniqueId get id;
+  String get name;
+  String get photoUrl;
+  String get email;
 
   $AppUserCopyWith<AppUser> get copyWith;
 }
@@ -36,7 +46,7 @@ mixin _$AppUser {
 abstract class $AppUserCopyWith<$Res> {
   factory $AppUserCopyWith(AppUser value, $Res Function(AppUser) then) =
       _$AppUserCopyWithImpl<$Res>;
-  $Res call({UniqueId id});
+  $Res call({UniqueId id, String name, String photoUrl, String email});
 }
 
 /// @nodoc
@@ -50,9 +60,15 @@ class _$AppUserCopyWithImpl<$Res> implements $AppUserCopyWith<$Res> {
   @override
   $Res call({
     Object id = freezed,
+    Object name = freezed,
+    Object photoUrl = freezed,
+    Object email = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as UniqueId,
+      name: name == freezed ? _value.name : name as String,
+      photoUrl: photoUrl == freezed ? _value.photoUrl : photoUrl as String,
+      email: email == freezed ? _value.email : email as String,
     ));
   }
 }
@@ -62,7 +78,7 @@ abstract class _$AppUserCopyWith<$Res> implements $AppUserCopyWith<$Res> {
   factory _$AppUserCopyWith(_AppUser value, $Res Function(_AppUser) then) =
       __$AppUserCopyWithImpl<$Res>;
   @override
-  $Res call({UniqueId id});
+  $Res call({UniqueId id, String name, String photoUrl, String email});
 }
 
 /// @nodoc
@@ -77,23 +93,43 @@ class __$AppUserCopyWithImpl<$Res> extends _$AppUserCopyWithImpl<$Res>
   @override
   $Res call({
     Object id = freezed,
+    Object name = freezed,
+    Object photoUrl = freezed,
+    Object email = freezed,
   }) {
     return _then(_AppUser(
       id: id == freezed ? _value.id : id as UniqueId,
+      name: name == freezed ? _value.name : name as String,
+      photoUrl: photoUrl == freezed ? _value.photoUrl : photoUrl as String,
+      email: email == freezed ? _value.email : email as String,
     ));
   }
 }
 
 /// @nodoc
 class _$_AppUser implements _AppUser {
-  const _$_AppUser({@required this.id}) : assert(id != null);
+  const _$_AppUser(
+      {@required this.id,
+      @required this.name,
+      @required this.photoUrl,
+      @required this.email})
+      : assert(id != null),
+        assert(name != null),
+        assert(photoUrl != null),
+        assert(email != null);
 
   @override
   final UniqueId id;
+  @override
+  final String name;
+  @override
+  final String photoUrl;
+  @override
+  final String email;
 
   @override
   String toString() {
-    return 'AppUser(id: $id)';
+    return 'AppUser(id: $id, name: $name, photoUrl: $photoUrl, email: $email)';
   }
 
   @override
@@ -101,12 +137,23 @@ class _$_AppUser implements _AppUser {
     return identical(this, other) ||
         (other is _AppUser &&
             (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)));
+                const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.photoUrl, photoUrl) ||
+                const DeepCollectionEquality()
+                    .equals(other.photoUrl, photoUrl)) &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(id);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(photoUrl) ^
+      const DeepCollectionEquality().hash(email);
 
   @override
   _$AppUserCopyWith<_AppUser> get copyWith =>
@@ -114,10 +161,20 @@ class _$_AppUser implements _AppUser {
 }
 
 abstract class _AppUser implements AppUser {
-  const factory _AppUser({@required UniqueId id}) = _$_AppUser;
+  const factory _AppUser(
+      {@required UniqueId id,
+      @required String name,
+      @required String photoUrl,
+      @required String email}) = _$_AppUser;
 
   @override
   UniqueId get id;
+  @override
+  String get name;
+  @override
+  String get photoUrl;
+  @override
+  String get email;
   @override
   _$AppUserCopyWith<_AppUser> get copyWith;
 }

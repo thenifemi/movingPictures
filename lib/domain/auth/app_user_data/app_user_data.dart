@@ -9,6 +9,7 @@ abstract class AppUserData implements _$AppUserData {
   const factory AppUserData({
     @required UniqueId id,
     @required String name,
+    @required String email,
     @required String photoUrl,
   }) = _AppUserData;
 
@@ -17,6 +18,7 @@ abstract class AppUserData implements _$AppUserData {
   factory AppUserData.empty() => AppUserData(
         id: UniqueId(),
         name: '',
+        email: '',
         photoUrl: '',
       );
 }

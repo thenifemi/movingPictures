@@ -35,8 +35,7 @@ GetIt $initGetIt(
       () => FirebaseAppUserDataRepository(get<FirebaseFirestore>()));
   gh.lazySingleton<AuthInterface>(
       () => FirebaseAuthRepository(get<FirebaseAuth>(), get<GoogleSignIn>()));
-  gh.factory<SignInBloc>(
-      () => SignInBloc(get<AuthInterface>(), get<AppUserDataInterface>()));
+  gh.factory<SignInBloc>(() => SignInBloc(get<AuthInterface>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<AuthInterface>()));
   return get;
 }
