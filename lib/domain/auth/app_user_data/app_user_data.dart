@@ -15,10 +15,10 @@ abstract class AppUserData implements _$AppUserData {
 
   const AppUserData._();
 
-  factory AppUserData.empty() => AppUserData(
-        id: UniqueId(),
-        name: '',
-        email: '',
-        photoUrl: '',
-      );
+  // factory AppUserData.empty() => AppUserData(
+  //       id: UniqueId(),
+  //       name: '',
+  //       email: '',
+  //       photoUrl: '',
+  //     );
 }
