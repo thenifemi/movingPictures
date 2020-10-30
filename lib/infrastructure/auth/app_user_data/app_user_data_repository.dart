@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 import 'package:movingPictures/infrastructure/auth/app_user_data/app_user_data_dtos.dart';
 
 import '../../../domain/auth/app_user_data/app_user_data.dart';
@@ -7,6 +8,7 @@ import '../../../domain/auth/app_user_data/app_user_data_failure.dart';
 import '../../../domain/auth/app_user_data/app_user_data_interface.dart';
 import '../../core/firestore_helper.dart';
 
+@LazySingleton(as: AppUserDataInterface)
 class FirebaseAppUserDataRepository implements AppUserDataInterface {
   final FirebaseFirestore _firestore;
 
