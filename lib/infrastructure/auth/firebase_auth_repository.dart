@@ -3,7 +3,6 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
-import 'package:movingPictures/domain/core/value_objects.dart';
 
 import '../../domain/auth/app_user.dart';
 import '../../domain/auth/auth_failure.dart';
