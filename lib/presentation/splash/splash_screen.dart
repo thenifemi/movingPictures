@@ -16,7 +16,7 @@ class SplashScreen extends StatelessWidget {
         body: Center(
           child: Image.asset(
             movingPicturesLogoRed,
-            width: 200.0,
+            width: 250.0,
           ),
         ),
       ),

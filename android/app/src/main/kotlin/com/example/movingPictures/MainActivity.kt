@@ -1,4 +1,4 @@
-package com.example.movingPictures
+package com.nifemi.movingPictures
 
 import io.flutter.embedding.android.FlutterActivity
 
