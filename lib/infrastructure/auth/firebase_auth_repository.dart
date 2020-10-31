@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -6,16 +7,21 @@ import 'package:injectable/injectable.dart';
 import '../../domain/auth/app_user.dart';
 import '../../domain/auth/auth_failure.dart';
 import '../../domain/auth/auth_repository_interface.dart';
+import '../../domain/core/errors.dart';
+import '../../injection.dart';
+import '../core/firestore_helper.dart';
 import 'firebase_user_mapper.dart';
 
 @LazySingleton(as: AuthInterface)
 class FirebaseAuthRepository implements AuthInterface {
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
+  final FirebaseFirestore _firestore;
 
   FirebaseAuthRepository(
     this._firebaseAuth,
     this._googleSignIn,
+    this._firestore,
   );
 
   @override
@@ -51,4 +57,31 @@ class FirebaseAuthRepository implements AuthInterface {
         _googleSignIn.signOut(),
         _firebaseAuth.signOut(),
       ]);
+
+  @override
+  Future<Either<AuthFailure, Unit>> storeGoogleUser() async {
+    try {
+      final userDoc = await _firestore.userDocument();
+
+      final userOption = await getIt<AuthInterface>().getSignedInUser();
+      final user = userOption.getOrElse(() => throw NotAuthenticatedError());
+      final Map<String, dynamic> userData = {
+        "email": user.email,
+        "name": user.name,
+        "photoURL": user.photoUrl,
+        "uid": user.id
+      };
+
+      await userDoc.set(userData);
+
+      return right(unit);
+    } on FirebaseException catch (e) {
+      if (e.message.contains('PERMISSION_DENIED')) {
+        return left(const AuthFailure.serverError());
+      } else {
+        //log error
+        return left(const AuthFailure.unexpected());
+      }
+    }
+  }
 }

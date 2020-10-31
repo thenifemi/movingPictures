@@ -33,6 +33,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         await _authInterface.signOut();
         yield const AuthState.unAuthenticated();
       },
+      storeGoogleUser: (e) async* {
+        await _authInterface.storeGoogleUser();
+      },
     );
   }
 }

@@ -28,6 +28,7 @@ class SignInScaffoldWidget extends StatelessWidget {
               message: failure.map(
                 cancelledByUser: (_) => 'Cancelled',
                 serverError: (_) => 'Oops! A server error occured.',
+                unexpected: (_) => 'Unexpected Error!',
               ),
             ),
             (_) {
@@ -178,6 +179,7 @@ class SignInButton extends StatelessWidget {
             context
                 .bloc<SignInBloc>()
                 .add(const SignInEvent.signInwithGooglePressed());
+            context.bloc<AuthBloc>().add(const AuthEvent.storeGoogleUser());
           }
         },
         color: AppColors.red,

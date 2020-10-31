@@ -22,6 +22,11 @@ class _$AuthEventTearOff {
   _SignedOut signedOut() {
     return const _SignedOut();
   }
+
+// ignore: unused_element
+  _StoreGoogleUser storeGoogleUser() {
+    return const _StoreGoogleUser();
+  }
 }
 
 /// @nodoc
@@ -34,22 +39,26 @@ mixin _$AuthEvent {
   Result when<Result extends Object>({
     @required Result authCheckRequested(),
     @required Result signedOut(),
+    @required Result storeGoogleUser(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result authCheckRequested(),
     Result signedOut(),
+    Result storeGoogleUser(),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result authCheckRequested(_AuthCheckRequested value),
     @required Result signedOut(_SignedOut value),
+    @required Result storeGoogleUser(_StoreGoogleUser value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result authCheckRequested(_AuthCheckRequested value),
     Result signedOut(_SignedOut value),
+    Result storeGoogleUser(_StoreGoogleUser value),
     @required Result orElse(),
   });
 }
@@ -110,9 +119,11 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
   Result when<Result extends Object>({
     @required Result authCheckRequested(),
     @required Result signedOut(),
+    @required Result storeGoogleUser(),
   }) {
     assert(authCheckRequested != null);
     assert(signedOut != null);
+    assert(storeGoogleUser != null);
     return authCheckRequested();
   }
 
@@ -121,6 +132,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
   Result maybeWhen<Result extends Object>({
     Result authCheckRequested(),
     Result signedOut(),
+    Result storeGoogleUser(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -135,9 +147,11 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
   Result map<Result extends Object>({
     @required Result authCheckRequested(_AuthCheckRequested value),
     @required Result signedOut(_SignedOut value),
+    @required Result storeGoogleUser(_StoreGoogleUser value),
   }) {
     assert(authCheckRequested != null);
     assert(signedOut != null);
+    assert(storeGoogleUser != null);
     return authCheckRequested(this);
   }
 
@@ -146,6 +160,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
   Result maybeMap<Result extends Object>({
     Result authCheckRequested(_AuthCheckRequested value),
     Result signedOut(_SignedOut value),
+    Result storeGoogleUser(_StoreGoogleUser value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -199,9 +214,11 @@ class _$_SignedOut implements _SignedOut {
   Result when<Result extends Object>({
     @required Result authCheckRequested(),
     @required Result signedOut(),
+    @required Result storeGoogleUser(),
   }) {
     assert(authCheckRequested != null);
     assert(signedOut != null);
+    assert(storeGoogleUser != null);
     return signedOut();
   }
 
@@ -210,6 +227,7 @@ class _$_SignedOut implements _SignedOut {
   Result maybeWhen<Result extends Object>({
     Result authCheckRequested(),
     Result signedOut(),
+    Result storeGoogleUser(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -224,9 +242,11 @@ class _$_SignedOut implements _SignedOut {
   Result map<Result extends Object>({
     @required Result authCheckRequested(_AuthCheckRequested value),
     @required Result signedOut(_SignedOut value),
+    @required Result storeGoogleUser(_StoreGoogleUser value),
   }) {
     assert(authCheckRequested != null);
     assert(signedOut != null);
+    assert(storeGoogleUser != null);
     return signedOut(this);
   }
 
@@ -235,6 +255,7 @@ class _$_SignedOut implements _SignedOut {
   Result maybeMap<Result extends Object>({
     Result authCheckRequested(_AuthCheckRequested value),
     Result signedOut(_SignedOut value),
+    Result storeGoogleUser(_StoreGoogleUser value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -247,6 +268,102 @@ class _$_SignedOut implements _SignedOut {
 
 abstract class _SignedOut implements AuthEvent {
   const factory _SignedOut() = _$_SignedOut;
+}
+
+/// @nodoc
+abstract class _$StoreGoogleUserCopyWith<$Res> {
+  factory _$StoreGoogleUserCopyWith(
+          _StoreGoogleUser value, $Res Function(_StoreGoogleUser) then) =
+      __$StoreGoogleUserCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$StoreGoogleUserCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements _$StoreGoogleUserCopyWith<$Res> {
+  __$StoreGoogleUserCopyWithImpl(
+      _StoreGoogleUser _value, $Res Function(_StoreGoogleUser) _then)
+      : super(_value, (v) => _then(v as _StoreGoogleUser));
+
+  @override
+  _StoreGoogleUser get _value => super._value as _StoreGoogleUser;
+}
+
+/// @nodoc
+class _$_StoreGoogleUser implements _StoreGoogleUser {
+  const _$_StoreGoogleUser();
+
+  @override
+  String toString() {
+    return 'AuthEvent.storeGoogleUser()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _StoreGoogleUser);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result authCheckRequested(),
+    @required Result signedOut(),
+    @required Result storeGoogleUser(),
+  }) {
+    assert(authCheckRequested != null);
+    assert(signedOut != null);
+    assert(storeGoogleUser != null);
+    return storeGoogleUser();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result authCheckRequested(),
+    Result signedOut(),
+    Result storeGoogleUser(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (storeGoogleUser != null) {
+      return storeGoogleUser();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result authCheckRequested(_AuthCheckRequested value),
+    @required Result signedOut(_SignedOut value),
+    @required Result storeGoogleUser(_StoreGoogleUser value),
+  }) {
+    assert(authCheckRequested != null);
+    assert(signedOut != null);
+    assert(storeGoogleUser != null);
+    return storeGoogleUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result authCheckRequested(_AuthCheckRequested value),
+    Result signedOut(_SignedOut value),
+    Result storeGoogleUser(_StoreGoogleUser value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (storeGoogleUser != null) {
+      return storeGoogleUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _StoreGoogleUser implements AuthEvent {
+  const factory _StoreGoogleUser() = _$_StoreGoogleUser;
 }
 
 /// @nodoc

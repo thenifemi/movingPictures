@@ -9,5 +9,7 @@ abstract class AuthInterface {
 
   Future<Option<AppUser>> getSignedInUser();
 
+  Future<Either<AuthFailure, Unit>> storeGoogleUser();
+
   Future<void> signOut();
 }

@@ -10,10 +10,8 @@ import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import 'domain/auth/app_user_data/app_user_data_interface.dart';
 import 'application/auth/auth_bloc.dart';
 import 'domain/auth/auth_repository_interface.dart';
-import 'infrastructure/auth/app_user_data/app_user_data_repository.dart';
 import 'infrastructure/auth/firebase_auth_repository.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
 import 'application/auth/sign_in_bloc/sign_in_bloc.dart';
@@ -31,10 +29,11 @@ GetIt $initGetIt(
   gh.lazySingleton<FirebaseAuth>(() => firebaseinjectableModule.firebaseAuth);
   gh.lazySingleton<FirebaseFirestore>(() => firebaseinjectableModule.firestore);
   gh.lazySingleton<GoogleSignIn>(() => firebaseinjectableModule.googleSignIn);
-  gh.lazySingleton<AppUserDataInterface>(
-      () => FirebaseAppUserDataRepository(get<FirebaseFirestore>()));
-  gh.lazySingleton<AuthInterface>(
-      () => FirebaseAuthRepository(get<FirebaseAuth>(), get<GoogleSignIn>()));
+  gh.lazySingleton<AuthInterface>(() => FirebaseAuthRepository(
+        get<FirebaseAuth>(),
+        get<GoogleSignIn>(),
+        get<FirebaseFirestore>(),
+      ));
   gh.factory<SignInBloc>(() => SignInBloc(get<AuthInterface>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<AuthInterface>()));
   return get;

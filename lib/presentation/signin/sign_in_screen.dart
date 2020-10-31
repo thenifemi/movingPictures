@@ -10,8 +10,12 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
-      body: BlocProvider(
-        create: (context) => getIt<SignInBloc>(),
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => getIt<SignInBloc>(),
+          ),
+        ],
         child: const SignInScaffoldWidget(),
       ),
     );
