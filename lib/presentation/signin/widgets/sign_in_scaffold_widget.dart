@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movingPictures/presentation/core/language_constants.dart';
 
 import '../../core/constants.dart';
 
@@ -56,6 +57,24 @@ class DarkOverlayWidget extends StatelessWidget {
       color: Colors.black.withOpacity(0.6),
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              signInWelcomeMessage,
+              style: TextStyle(
+                fontFamily: 'Montserrat',
+                color: Theme.of(context).textTheme.headline5.color,
+                fontWeight: FontWeight.bold,
+                fontSize: 40.0,
+              ),
+              textAlign: TextAlign.center,
+            )
+          ],
+        ),
+      ),
     );
   }
 }
