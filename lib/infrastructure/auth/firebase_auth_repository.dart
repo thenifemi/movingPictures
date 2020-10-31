@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
+import 'package:movingPictures/domain/core/value_objects.dart';
 
 import '../../domain/auth/app_user.dart';
 import '../../domain/auth/auth_failure.dart';
@@ -42,6 +43,7 @@ class FirebaseAuthRepository implements AuthInterface {
       //returning [unit] because the transaction was successsful with no errors.
       return _firebaseAuth
           .signInWithCredential(authCredential)
+          .then((value) => storeGoogleUser())
           .then((r) => right(unit));
     } on FirebaseAuthException catch (_) {
       return left(const AuthFailure.serverError());
@@ -69,7 +71,7 @@ class FirebaseAuthRepository implements AuthInterface {
         "email": user.email,
         "name": user.name,
         "photoURL": user.photoUrl,
-        "uid": user.id
+        "uid": user.id.getOrCrash()
       };
 
       await userDoc.set(userData);

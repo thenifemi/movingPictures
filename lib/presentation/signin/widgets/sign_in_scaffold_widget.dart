@@ -179,7 +179,6 @@ class SignInButton extends StatelessWidget {
             context
                 .bloc<SignInBloc>()
                 .add(const SignInEvent.signInwithGooglePressed());
-            context.bloc<AuthBloc>().add(const AuthEvent.storeGoogleUser());
           }
         },
         color: AppColors.red,

@@ -34,7 +34,6 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 40.0),
               SignOutButton(appTextTheme: appTextTheme),
-              AllowAccess(appTextTheme: appTextTheme)
             ],
           ),
         ),
@@ -63,40 +62,6 @@ class SignOutButton extends StatelessWidget {
         color: AppColors.red,
         child: Text(
           "Sign out",
-          style: TextStyle(
-            fontFamily: appTextTheme.button.fontFamily,
-            color: appTextTheme.button.color,
-            fontWeight: appTextTheme.button.fontWeight,
-            fontSize: appTextTheme.button.fontSize,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class AllowAccess extends StatelessWidget {
-  const AllowAccess({
-    Key key,
-    @required this.appTextTheme,
-  }) : super(key: key);
-
-  final TextTheme appTextTheme;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width / 2,
-      child: RaisedButton(
-        padding: const EdgeInsets.all(8.0),
-        onPressed: () {
-          context.bloc<AuthBloc>().add(
-                const AuthEvent.storeGoogleUser(),
-              );
-        },
-        color: AppColors.red,
-        child: Text(
-          "Allow access",
           style: TextStyle(
             fontFamily: appTextTheme.button.fontFamily,
             color: appTextTheme.button.color,
