@@ -2,15 +2,14 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:movingPictures/application/auth/auth_bloc.dart';
-import 'package:movingPictures/application/auth/sign_in_bloc/sign_in_bloc.dart';
-import 'package:movingPictures/presentation/core/flushbar_method.dart';
-import 'package:movingPictures/presentation/core/saving_in_progress_widget.dart';
-import 'package:movingPictures/presentation/routes/router.gr.dart';
-
+import '../../../application/auth/auth_bloc.dart';
+import '../../../application/auth/sign_in_bloc/sign_in_bloc.dart';
 import '../../core/app_colors.dart';
 import '../../core/constants.dart';
+import '../../core/flushbar_method.dart';
 import '../../core/language_constants.dart';
+import '../../core/saving_in_progress_widget.dart';
+import '../../routes/router.gr.dart';
 
 class SignInScaffoldWidget extends StatelessWidget {
   const SignInScaffoldWidget({

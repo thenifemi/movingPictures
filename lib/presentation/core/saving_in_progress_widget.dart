@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movingPictures/presentation/core/app_colors.dart';
 
 class SavingInProgressOverlay extends StatelessWidget {
   final bool isSaving;
@@ -21,7 +22,9 @@ class SavingInProgressOverlay extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
-              CircularProgressIndicator(),
+              CircularProgressIndicator(
+                backgroundColor: AppColors.white,
+              ),
             ],
           ),
         ),
