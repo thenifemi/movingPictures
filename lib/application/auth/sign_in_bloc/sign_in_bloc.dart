@@ -25,18 +25,20 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
   Stream<SignInState> mapEventToState(
     SignInEvent event,
   ) async* {
-    yield* event.map(signInwithGooglePressed: (e) async* {
-      yield state.copyWith(
-        isSubmitting: true,
-        authFailureOrSuccessOption: none(),
-      );
+    yield* event.map(
+      signInwithGooglePressed: (e) async* {
+        yield state.copyWith(
+          isSubmitting: true,
+          authFailureOrSuccessOption: none(),
+        );
 
-      final failureOrSuccess = await _authInterface.signInWithGoogle();
+        final failureOrSuccess = await _authInterface.signInWithGoogle();
 
-      yield state.copyWith(
-        isSubmitting: true,
-        authFailureOrSuccessOption: some(failureOrSuccess),
-      );
-    });
+        yield state.copyWith(
+          isSubmitting: false,
+          authFailureOrSuccessOption: some(failureOrSuccess),
+        );
+      },
+    );
   }
 }

@@ -1,5 +1,12 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:movingPictures/application/auth/auth_bloc.dart';
+import 'package:movingPictures/application/auth/sign_in_bloc/sign_in_bloc.dart';
+import 'package:movingPictures/presentation/core/flushbar_method.dart';
 import 'package:movingPictures/presentation/core/saving_in_progress_widget.dart';
+import 'package:movingPictures/presentation/routes/router.gr.dart';
 
 import '../../core/app_colors.dart';
 import '../../core/constants.dart';
@@ -12,23 +19,49 @@ class SignInScaffoldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Column(
-          children: [
-            const TopRedBar(),
-            Expanded(
-              child: Stack(
-                children: const [
-                  BackgroundImage(),
-                  DarkOverlayWidget(),
-                ],
+    return BlocConsumer<SignInBloc, SignInState>(
+      listener: (context, state) {
+        state.authFailureOrSuccessOption.fold(
+          () {},
+          (either) => either.fold(
+            (failure) => showFlushbar(
+              context: context,
+              message: failure.map(
+                cancelledByUser: (_) => 'Cancelled',
+                serverError: (_) => 'Oops! A server error occured.',
               ),
             ),
+            (_) {
+              ExtendedNavigator.of(context).replace(Routes.homeScreen);
+              context
+                  .bloc<AuthBloc>()
+                  .add(const AuthEvent.authCheckRequested());
+            },
+          ),
+        );
+      },
+      buildWhen: (previous, current) =>
+          previous.isSubmitting != current.isSubmitting,
+      builder: (context, state) {
+        return Stack(
+          children: [
+            Column(
+              children: [
+                const TopRedBar(),
+                Expanded(
+                  child: Stack(
+                    children: [
+                      const BackgroundImage(),
+                      DarkOverlayWidget(state: state),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            SavingInProgressOverlay(isSaving: state.isSubmitting),
           ],
-        ),
-        const SavingInProgressOverlay(isSaving: false),
-      ],
+        );
+      },
     );
   }
 }
@@ -50,7 +83,11 @@ class BackgroundImage extends StatelessWidget {
 }
 
 class DarkOverlayWidget extends StatelessWidget {
-  const DarkOverlayWidget({Key key}) : super(key: key);
+  final SignInState state;
+  const DarkOverlayWidget({
+    Key key,
+    @required this.state,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +122,10 @@ class DarkOverlayWidget extends StatelessWidget {
               // textAlign: TextAlign.end,
             ),
             const SizedBox(height: 20.0),
-            SignInButton(appTextTheme: appTextTheme),
+            SignInButton(
+              appTextTheme: appTextTheme,
+              state: state,
+            ),
           ],
         ),
       ),
@@ -116,9 +156,12 @@ class TopRedBar extends StatelessWidget {
 }
 
 class SignInButton extends StatelessWidget {
+  final SignInState state;
+
   const SignInButton({
     Key key,
     @required this.appTextTheme,
+    @required this.state,
   }) : super(key: key);
 
   final TextTheme appTextTheme;
@@ -129,7 +172,15 @@ class SignInButton extends StatelessWidget {
       width: MediaQuery.of(context).size.width / 2,
       child: RaisedButton(
         padding: const EdgeInsets.all(8.0),
-        onPressed: () {},
+        onPressed: () {
+          if (state.isSubmitting) {
+            //Do nothing when state is submiting
+          } else {
+            context
+                .bloc<SignInBloc>()
+                .add(const SignInEvent.signInwithGooglePressed());
+          }
+        },
         color: AppColors.red,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

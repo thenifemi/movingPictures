@@ -22,6 +22,7 @@ dependencies:
   equatable: ^1.2.5
   firebase_auth: ^0.18.2
   firebase_core: ^0.5.1
+  flushbar: ^1.10.4
   flutter_bloc: ^6.0.6
   freezed: ^0.12.2
   freezed_annotation: ^0.12.0

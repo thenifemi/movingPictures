@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movingPictures/application/auth/auth_bloc.dart';
-import 'package:movingPictures/presentation/core/constants.dart';
-import 'package:movingPictures/presentation/routes/router.gr.dart';
+
+import '../../application/auth/auth_bloc.dart';
+import '../core/constants.dart';
+import '../routes/router.gr.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key key}) : super(key: key);
