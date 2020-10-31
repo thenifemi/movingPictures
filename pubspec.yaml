@@ -57,3 +57,9 @@ flutter:
         - asset: fonts/Montserrat/Montserrat-Regular.ttf
         - asset: fonts/Montserrat/Montserrat-Medium.ttf
           weight: 500
+    - family: Roboto
+      fonts:
+        - asset: fonts/Roboto/Roboto-Light.ttf
+        - asset: fonts/Roboto/Roboto-Regular.ttf
+        - asset: fonts/Roboto/Roboto-Medium.ttf
+          weight: 500

@@ -53,8 +53,10 @@ class DarkOverlayWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appTextTheme = Theme.of(context).textTheme;
+
     return Container(
-      color: Colors.black.withOpacity(0.6),
+      color: Colors.black.withOpacity(0.7),
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       child: Padding(
@@ -65,9 +67,9 @@ class DarkOverlayWidget extends StatelessWidget {
             Text(
               signInWelcomeMessage,
               style: TextStyle(
-                fontFamily: 'Montserrat',
-                color: Theme.of(context).textTheme.headline5.color,
-                fontWeight: FontWeight.bold,
+                fontFamily: appTextTheme.headline5.fontFamily,
+                color: appTextTheme.headline5.color,
+                fontWeight: FontWeight.w700,
                 fontSize: 40.0,
               ),
               textAlign: TextAlign.center,
