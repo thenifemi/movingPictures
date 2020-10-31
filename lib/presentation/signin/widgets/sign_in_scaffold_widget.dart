@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movingPictures/presentation/core/saving_in_progress_widget.dart';
 
 import '../../core/app_colors.dart';
 import '../../core/constants.dart';
@@ -11,17 +12,22 @@ class SignInScaffoldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
       children: [
-        const TopRedBar(),
-        Expanded(
-          child: Stack(
-            children: const [
-              BackgroundImage(),
-              DarkOverlayWidget(),
-            ],
-          ),
+        Column(
+          children: [
+            const TopRedBar(),
+            Expanded(
+              child: Stack(
+                children: const [
+                  BackgroundImage(),
+                  DarkOverlayWidget(),
+                ],
+              ),
+            ),
+          ],
         ),
+        const SavingInProgressOverlay(isSaving: false),
       ],
     );
   }
