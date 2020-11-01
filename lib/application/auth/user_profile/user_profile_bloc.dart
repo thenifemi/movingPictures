@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../domain/auth/app_user.dart';
 import '../../../domain/auth/app_user_failure.dart';
@@ -12,6 +13,7 @@ part 'user_profile_bloc.freezed.dart';
 part 'user_profile_event.dart';
 part 'user_profile_state.dart';
 
+@injectable
 class UserProfileBloc extends Bloc<UserProfileEvent, UserProfileState> {
   final AuthInterface _authInterface;
 
@@ -24,20 +26,23 @@ class UserProfileBloc extends Bloc<UserProfileEvent, UserProfileState> {
   Stream<UserProfileState> mapEventToState(
     UserProfileEvent event,
   ) async* {
-    event.map(profileRecieved: (e) async* {
-      yield const UserProfileState.loadingProgress();
+    event.map(
+      watchProfileStarted: (_WatchProfileStarted e) async* {
+        yield const UserProfileState.loadingProgress();
 
-      _appUserStreamSubscription = _authInterface.watchUserProfile().listen(
-            (failureOrProfile) => add(
-              UserProfileEvent.profileRecieved(failureOrProfile),
-            ),
-          );
-
-      yield e.failureOrProfile.fold(
-        (f) => UserProfileState.loadFailure(f),
-        (profile) => UserProfileState.loadSuccess(profile),
-      );
-    });
+        _appUserStreamSubscription = _authInterface.watchUserProfile().listen(
+              (failureOrProfile) => add(
+                UserProfileEvent.profileRecieved(failureOrProfile),
+              ),
+            );
+      },
+      profileRecieved: (e) async* {
+        yield e.failureOrProfile.fold(
+          (f) => UserProfileState.loadFailure(f),
+          (profile) => UserProfileState.loadSuccess(profile),
+        );
+      },
+    );
   }
 
   @override

@@ -15,6 +15,7 @@ import 'domain/auth/auth_repository_interface.dart';
 import 'infrastructure/auth/firebase_auth_repository.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
 import 'application/auth/sign_in/sign_in_bloc.dart';
+import 'application/auth/user_profile/user_profile_bloc.dart';
 
 /// adds generated dependencies
 /// to the provided [GetIt] instance
@@ -35,6 +36,7 @@ GetIt $initGetIt(
         get<FirebaseFirestore>(),
       ));
   gh.factory<SignInBloc>(() => SignInBloc(get<AuthInterface>()));
+  gh.factory<UserProfileBloc>(() => UserProfileBloc(get<AuthInterface>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<AuthInterface>()));
   return get;
 }

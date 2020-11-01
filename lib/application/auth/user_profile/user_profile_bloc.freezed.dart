@@ -14,6 +14,11 @@ class _$UserProfileEventTearOff {
   const _$UserProfileEventTearOff();
 
 // ignore: unused_element
+  _WatchProfileStarted watchProfileStarted() {
+    return const _WatchProfileStarted();
+  }
+
+// ignore: unused_element
   _ProfileRecieved profileRecieved(
       Either<AppUserFailure, AppUser> failureOrProfile) {
     return _ProfileRecieved(
@@ -28,30 +33,30 @@ const $UserProfileEvent = _$UserProfileEventTearOff();
 
 /// @nodoc
 mixin _$UserProfileEvent {
-  Either<AppUserFailure, AppUser> get failureOrProfile;
-
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required Result watchProfileStarted(),
     @required
         Result profileRecieved(
             Either<AppUserFailure, AppUser> failureOrProfile),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result watchProfileStarted(),
     Result profileRecieved(Either<AppUserFailure, AppUser> failureOrProfile),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required Result watchProfileStarted(_WatchProfileStarted value),
     @required Result profileRecieved(_ProfileRecieved value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result watchProfileStarted(_WatchProfileStarted value),
     Result profileRecieved(_ProfileRecieved value),
     @required Result orElse(),
   });
-
-  $UserProfileEventCopyWith<UserProfileEvent> get copyWith;
 }
 
 /// @nodoc
@@ -59,7 +64,6 @@ abstract class $UserProfileEventCopyWith<$Res> {
   factory $UserProfileEventCopyWith(
           UserProfileEvent value, $Res Function(UserProfileEvent) then) =
       _$UserProfileEventCopyWithImpl<$Res>;
-  $Res call({Either<AppUserFailure, AppUser> failureOrProfile});
 }
 
 /// @nodoc
@@ -70,26 +74,106 @@ class _$UserProfileEventCopyWithImpl<$Res>
   final UserProfileEvent _value;
   // ignore: unused_field
   final $Res Function(UserProfileEvent) _then;
-
-  @override
-  $Res call({
-    Object failureOrProfile = freezed,
-  }) {
-    return _then(_value.copyWith(
-      failureOrProfile: failureOrProfile == freezed
-          ? _value.failureOrProfile
-          : failureOrProfile as Either<AppUserFailure, AppUser>,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class _$ProfileRecievedCopyWith<$Res>
-    implements $UserProfileEventCopyWith<$Res> {
+abstract class _$WatchProfileStartedCopyWith<$Res> {
+  factory _$WatchProfileStartedCopyWith(_WatchProfileStarted value,
+          $Res Function(_WatchProfileStarted) then) =
+      __$WatchProfileStartedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$WatchProfileStartedCopyWithImpl<$Res>
+    extends _$UserProfileEventCopyWithImpl<$Res>
+    implements _$WatchProfileStartedCopyWith<$Res> {
+  __$WatchProfileStartedCopyWithImpl(
+      _WatchProfileStarted _value, $Res Function(_WatchProfileStarted) _then)
+      : super(_value, (v) => _then(v as _WatchProfileStarted));
+
+  @override
+  _WatchProfileStarted get _value => super._value as _WatchProfileStarted;
+}
+
+/// @nodoc
+class _$_WatchProfileStarted implements _WatchProfileStarted {
+  const _$_WatchProfileStarted();
+
+  @override
+  String toString() {
+    return 'UserProfileEvent.watchProfileStarted()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _WatchProfileStarted);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result watchProfileStarted(),
+    @required
+        Result profileRecieved(
+            Either<AppUserFailure, AppUser> failureOrProfile),
+  }) {
+    assert(watchProfileStarted != null);
+    assert(profileRecieved != null);
+    return watchProfileStarted();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result watchProfileStarted(),
+    Result profileRecieved(Either<AppUserFailure, AppUser> failureOrProfile),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (watchProfileStarted != null) {
+      return watchProfileStarted();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result watchProfileStarted(_WatchProfileStarted value),
+    @required Result profileRecieved(_ProfileRecieved value),
+  }) {
+    assert(watchProfileStarted != null);
+    assert(profileRecieved != null);
+    return watchProfileStarted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result watchProfileStarted(_WatchProfileStarted value),
+    Result profileRecieved(_ProfileRecieved value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (watchProfileStarted != null) {
+      return watchProfileStarted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WatchProfileStarted implements UserProfileEvent {
+  const factory _WatchProfileStarted() = _$_WatchProfileStarted;
+}
+
+/// @nodoc
+abstract class _$ProfileRecievedCopyWith<$Res> {
   factory _$ProfileRecievedCopyWith(
           _ProfileRecieved value, $Res Function(_ProfileRecieved) then) =
       __$ProfileRecievedCopyWithImpl<$Res>;
-  @override
   $Res call({Either<AppUserFailure, AppUser> failureOrProfile});
 }
 
@@ -150,10 +234,12 @@ class _$_ProfileRecieved implements _ProfileRecieved {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required Result watchProfileStarted(),
     @required
         Result profileRecieved(
             Either<AppUserFailure, AppUser> failureOrProfile),
   }) {
+    assert(watchProfileStarted != null);
     assert(profileRecieved != null);
     return profileRecieved(failureOrProfile);
   }
@@ -161,6 +247,7 @@ class _$_ProfileRecieved implements _ProfileRecieved {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result watchProfileStarted(),
     Result profileRecieved(Either<AppUserFailure, AppUser> failureOrProfile),
     @required Result orElse(),
   }) {
@@ -174,8 +261,10 @@ class _$_ProfileRecieved implements _ProfileRecieved {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required Result watchProfileStarted(_WatchProfileStarted value),
     @required Result profileRecieved(_ProfileRecieved value),
   }) {
+    assert(watchProfileStarted != null);
     assert(profileRecieved != null);
     return profileRecieved(this);
   }
@@ -183,6 +272,7 @@ class _$_ProfileRecieved implements _ProfileRecieved {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result watchProfileStarted(_WatchProfileStarted value),
     Result profileRecieved(_ProfileRecieved value),
     @required Result orElse(),
   }) {
@@ -198,9 +288,7 @@ abstract class _ProfileRecieved implements UserProfileEvent {
   const factory _ProfileRecieved(
       Either<AppUserFailure, AppUser> failureOrProfile) = _$_ProfileRecieved;
 
-  @override
   Either<AppUserFailure, AppUser> get failureOrProfile;
-  @override
   _$ProfileRecievedCopyWith<_ProfileRecieved> get copyWith;
 }
 
