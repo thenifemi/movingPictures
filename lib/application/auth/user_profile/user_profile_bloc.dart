@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:movingPictures/application/auth/sign_in/sign_in_bloc.dart';
 
 import '../../../domain/auth/app_user.dart';
 import '../../../domain/auth/app_user_failure.dart';
@@ -27,8 +28,10 @@ class UserProfileBloc extends Bloc<UserProfileEvent, UserProfileState> {
     UserProfileEvent event,
   ) async* {
     event.map(
-      watchProfileStarted: (_WatchProfileStarted e) async* {
+      watchProfileStarted: (e) async* {
         yield const UserProfileState.loadingProgress();
+
+        await _appUserStreamSubscription?.cancel();
 
         _appUserStreamSubscription = _authInterface.watchUserProfile().listen(
               (failureOrProfile) => add(
@@ -36,7 +39,7 @@ class UserProfileBloc extends Bloc<UserProfileEvent, UserProfileState> {
               ),
             );
       },
-      profileRecieved: (e) async* {
+      profileRecieved: (_ProfileRecieved e) async* {
         yield e.failureOrProfile.fold(
           (f) => UserProfileState.loadFailure(f),
           (profile) => UserProfileState.loadSuccess(profile),

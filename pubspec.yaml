@@ -24,8 +24,7 @@ dependencies:
   firebase_core: ^0.5.1
   flushbar: ^1.10.4
   flutter_bloc: ^6.0.6
-  freezed: ^0.12.2
-  freezed_annotation: ^0.12.0
+  freezed_annotation: 
   get_it: ^5.0.1
   google_sign_in: ^4.5.5
   injectable: ^1.0.5
@@ -36,7 +35,9 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   auto_route_generator: ^0.6.10
-  build_runner: ^1.10.4
+  build_runner:
+  freezed: 
+
   injectable_generator: ^1.0.6
   json_serializable: ^3.5.0
   lint: ^1.3.0

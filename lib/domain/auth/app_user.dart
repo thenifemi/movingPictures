@@ -18,6 +18,15 @@ abstract class AppUser implements _$AppUser {
 
   const AppUser._();
 
+  AppUser toDomain() {
+    return AppUser(
+      id: id,
+      name: name,
+      photoUrl: photoUrl,
+      email: email,
+    );
+  }
+
   factory AppUser.fromJson(Map<String, dynamic> json) =>
       _$AppUserFromJson(json);
 

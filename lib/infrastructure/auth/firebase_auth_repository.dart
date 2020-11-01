@@ -94,7 +94,7 @@ class FirebaseAuthRepository implements AuthInterface {
     yield* userDoc.userDataCollection
         .snapshots()
         .map((snapshot) => right<AppUserFailure, AppUser>(
-              AppUser.fromFirebase(snapshot.docs.first),
+              AppUser.fromFirebase(snapshot.docs.first).toDomain(),
             ))
         .handleError((e) {
       if (e is FirebaseException && e.message.contains('PERMISSION_DENIED')) {
