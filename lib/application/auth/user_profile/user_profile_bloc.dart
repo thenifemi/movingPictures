@@ -4,7 +4,6 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:movingPictures/application/auth/sign_in/sign_in_bloc.dart';
 
 import '../../../domain/auth/app_user.dart';
 import '../../../domain/auth/app_user_failure.dart';
