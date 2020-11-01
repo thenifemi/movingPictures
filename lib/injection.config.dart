@@ -14,7 +14,7 @@ import 'application/auth/auth_bloc.dart';
 import 'domain/auth/auth_repository_interface.dart';
 import 'infrastructure/auth/firebase_auth_repository.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
-import 'application/auth/sign_in_bloc/sign_in_bloc.dart';
+import 'application/auth/sign_in/sign_in_bloc.dart';
 
 /// adds generated dependencies
 /// to the provided [GetIt] instance
