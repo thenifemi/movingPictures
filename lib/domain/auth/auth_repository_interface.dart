@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 
 import 'app_user.dart';
+import 'app_user_failure.dart';
 import 'auth_failure.dart';
 
 abstract class AuthInterface {
@@ -12,4 +13,6 @@ abstract class AuthInterface {
   Future<Either<AuthFailure, Unit>> storeGoogleUser();
 
   Future<void> signOut();
+
+  Stream<Either<AppUserFailure, AppUser>> watchUserProfile();
 }

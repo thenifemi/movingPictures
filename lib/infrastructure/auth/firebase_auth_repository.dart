@@ -5,6 +5,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/auth/app_user.dart';
+import '../../domain/auth/app_user_failure.dart';
 import '../../domain/auth/auth_failure.dart';
 import '../../domain/auth/auth_repository_interface.dart';
 import '../../domain/core/errors.dart';
@@ -54,18 +55,13 @@ class FirebaseAuthRepository implements AuthInterface {
       optionOf(_firebaseAuth.currentUser?.toDomain());
 
   @override
-  Future<void> signOut() => Future.wait([
-        _googleSignIn.signOut(),
-        _firebaseAuth.signOut(),
-      ]);
-
-  @override
   Future<Either<AuthFailure, Unit>> storeGoogleUser() async {
     try {
       final userDoc = await _firestore.userDocument();
 
       final userOption = await getIt<AuthInterface>().getSignedInUser();
       final user = userOption.getOrElse(() => throw NotAuthenticatedError());
+
       final Map<String, dynamic> userData = {
         "email": user.email,
         "name": user.name,
@@ -73,7 +69,7 @@ class FirebaseAuthRepository implements AuthInterface {
         "uid": user.id.getOrCrash()
       };
 
-      await userDoc.set(userData);
+      await userDoc.userDataCollection.doc(user.name).set(userData);
 
       return right(unit);
     } on FirebaseException catch (e) {
@@ -84,5 +80,29 @@ class FirebaseAuthRepository implements AuthInterface {
         return left(const AuthFailure.unexpected());
       }
     }
+  }
+
+  @override
+  Future<void> signOut() => Future.wait([
+        _googleSignIn.signOut(),
+        _firebaseAuth.signOut(),
+      ]);
+
+  @override
+  Stream<Either<AppUserFailure, AppUser>> watchUserProfile() async* {
+    final userDoc = await _firestore.userDocument();
+    yield* userDoc.userDataCollection
+        .snapshots()
+        .map((snapshot) => right<AppUserFailure, AppUser>(
+              AppUser.fromFirebase(snapshot.docs.first),
+            ))
+        .handleError((e) {
+      if (e is FirebaseException && e.message.contains('PERMISSION_DENIED')) {
+        return left(const AppUserFailure.insufficientPermissions());
+      } else {
+        //log error
+        return left(const AppUserFailure.unexpected());
+      }
+    });
   }
 }

@@ -8,6 +8,9 @@ part of 'app_user.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+AppUser _$AppUserFromJson(Map<String, dynamic> json) {
+  return _AppUser.fromJson(json);
+}
 
 /// @nodoc
 class _$AppUserTearOff {
@@ -15,7 +18,7 @@ class _$AppUserTearOff {
 
 // ignore: unused_element
   _AppUser call(
-      {@required UniqueId id,
+      {@JsonKey(ignore: true) UniqueId id,
       @required String name,
       @required String photoUrl,
       @required String email}) {
@@ -26,6 +29,11 @@ class _$AppUserTearOff {
       email: email,
     );
   }
+
+// ignore: unused_element
+  AppUser fromJson(Map<String, Object> json) {
+    return AppUser.fromJson(json);
+  }
 }
 
 /// @nodoc
@@ -34,11 +42,13 @@ const $AppUser = _$AppUserTearOff();
 
 /// @nodoc
 mixin _$AppUser {
+  @JsonKey(ignore: true)
   UniqueId get id;
   String get name;
   String get photoUrl;
   String get email;
 
+  Map<String, dynamic> toJson();
   $AppUserCopyWith<AppUser> get copyWith;
 }
 
@@ -46,7 +56,11 @@ mixin _$AppUser {
 abstract class $AppUserCopyWith<$Res> {
   factory $AppUserCopyWith(AppUser value, $Res Function(AppUser) then) =
       _$AppUserCopyWithImpl<$Res>;
-  $Res call({UniqueId id, String name, String photoUrl, String email});
+  $Res call(
+      {@JsonKey(ignore: true) UniqueId id,
+      String name,
+      String photoUrl,
+      String email});
 }
 
 /// @nodoc
@@ -78,7 +92,11 @@ abstract class _$AppUserCopyWith<$Res> implements $AppUserCopyWith<$Res> {
   factory _$AppUserCopyWith(_AppUser value, $Res Function(_AppUser) then) =
       __$AppUserCopyWithImpl<$Res>;
   @override
-  $Res call({UniqueId id, String name, String photoUrl, String email});
+  $Res call(
+      {@JsonKey(ignore: true) UniqueId id,
+      String name,
+      String photoUrl,
+      String email});
 }
 
 /// @nodoc
@@ -106,19 +124,25 @@ class __$AppUserCopyWithImpl<$Res> extends _$AppUserCopyWithImpl<$Res>
   }
 }
 
+@JsonSerializable()
+
 /// @nodoc
-class _$_AppUser implements _AppUser {
+class _$_AppUser extends _AppUser {
   const _$_AppUser(
-      {@required this.id,
+      {@JsonKey(ignore: true) this.id,
       @required this.name,
       @required this.photoUrl,
       @required this.email})
-      : assert(id != null),
-        assert(name != null),
+      : assert(name != null),
         assert(photoUrl != null),
-        assert(email != null);
+        assert(email != null),
+        super._();
+
+  factory _$_AppUser.fromJson(Map<String, dynamic> json) =>
+      _$_$_AppUserFromJson(json);
 
   @override
+  @JsonKey(ignore: true)
   final UniqueId id;
   @override
   final String name;
@@ -158,16 +182,25 @@ class _$_AppUser implements _AppUser {
   @override
   _$AppUserCopyWith<_AppUser> get copyWith =>
       __$AppUserCopyWithImpl<_AppUser>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_AppUserToJson(this);
+  }
 }
 
-abstract class _AppUser implements AppUser {
+abstract class _AppUser extends AppUser {
+  const _AppUser._() : super._();
   const factory _AppUser(
-      {@required UniqueId id,
+      {@JsonKey(ignore: true) UniqueId id,
       @required String name,
       @required String photoUrl,
       @required String email}) = _$_AppUser;
 
+  factory _AppUser.fromJson(Map<String, dynamic> json) = _$_AppUser.fromJson;
+
   @override
+  @JsonKey(ignore: true)
   UniqueId get id;
   @override
   String get name;
