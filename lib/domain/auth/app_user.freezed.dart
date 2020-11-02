@@ -18,7 +18,7 @@ class _$AppUserTearOff {
 
 // ignore: unused_element
   _AppUser call(
-      {@JsonKey(ignore: true) UniqueId id,
+      {@JsonKey(ignore: true) String id,
       @required String name,
       @required String photoUrl,
       @required String email}) {
@@ -43,7 +43,7 @@ const $AppUser = _$AppUserTearOff();
 /// @nodoc
 mixin _$AppUser {
   @JsonKey(ignore: true)
-  UniqueId get id;
+  String get id;
   String get name;
   String get photoUrl;
   String get email;
@@ -57,7 +57,7 @@ abstract class $AppUserCopyWith<$Res> {
   factory $AppUserCopyWith(AppUser value, $Res Function(AppUser) then) =
       _$AppUserCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(ignore: true) UniqueId id,
+      {@JsonKey(ignore: true) String id,
       String name,
       String photoUrl,
       String email});
@@ -79,7 +79,7 @@ class _$AppUserCopyWithImpl<$Res> implements $AppUserCopyWith<$Res> {
     Object email = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as UniqueId,
+      id: id == freezed ? _value.id : id as String,
       name: name == freezed ? _value.name : name as String,
       photoUrl: photoUrl == freezed ? _value.photoUrl : photoUrl as String,
       email: email == freezed ? _value.email : email as String,
@@ -93,7 +93,7 @@ abstract class _$AppUserCopyWith<$Res> implements $AppUserCopyWith<$Res> {
       __$AppUserCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(ignore: true) UniqueId id,
+      {@JsonKey(ignore: true) String id,
       String name,
       String photoUrl,
       String email});
@@ -116,7 +116,7 @@ class __$AppUserCopyWithImpl<$Res> extends _$AppUserCopyWithImpl<$Res>
     Object email = freezed,
   }) {
     return _then(_AppUser(
-      id: id == freezed ? _value.id : id as UniqueId,
+      id: id == freezed ? _value.id : id as String,
       name: name == freezed ? _value.name : name as String,
       photoUrl: photoUrl == freezed ? _value.photoUrl : photoUrl as String,
       email: email == freezed ? _value.email : email as String,
@@ -143,7 +143,7 @@ class _$_AppUser extends _AppUser {
 
   @override
   @JsonKey(ignore: true)
-  final UniqueId id;
+  final String id;
   @override
   final String name;
   @override
@@ -192,7 +192,7 @@ class _$_AppUser extends _AppUser {
 abstract class _AppUser extends AppUser {
   const _AppUser._() : super._();
   const factory _AppUser(
-      {@JsonKey(ignore: true) UniqueId id,
+      {@JsonKey(ignore: true) String id,
       @required String name,
       @required String photoUrl,
       @required String email}) = _$_AppUser;
@@ -201,7 +201,7 @@ abstract class _AppUser extends AppUser {
 
   @override
   @JsonKey(ignore: true)
-  UniqueId get id;
+  String get id;
   @override
   String get name;
   @override

@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../../application/auth/user_profile/user_profile_bloc.dart';
+import '../../injection.dart';
 import '../core/app_colors.dart';
 import '../routes/router.gr.dart';
 
@@ -12,31 +13,39 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final appTextTheme = Theme.of(context).textTheme;
 
-    return MultiBlocListener(
-      listeners: [
-        BlocListener<AuthBloc, AuthState>(
-          listener: (context, state) {
-            state.maybeMap(
-              unAuthenticated: (_) =>
-                  ExtendedNavigator.of(context).replace(Routes.signInScreen),
-              orElse: () {},
-            );
-          },
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<UserProfileBloc>()
+            ..add(const UserProfileEvent.watchProfileStarted()),
         ),
       ],
-      child: Scaffold(
-        appBar: const MainAppBar(),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'Authenticated',
-                style: TextStyle(fontSize: 50.0, color: Colors.white),
-              ),
-              const SizedBox(height: 40.0),
-              SignOutButton(appTextTheme: appTextTheme),
-            ],
+      child: MultiBlocListener(
+        listeners: [
+          BlocListener<AuthBloc, AuthState>(
+            listener: (context, state) {
+              state.maybeMap(
+                unAuthenticated: (_) =>
+                    ExtendedNavigator.of(context).replace(Routes.signInScreen),
+                orElse: () {},
+              );
+            },
+          ),
+        ],
+        child: Scaffold(
+          appBar: const MainAppBar(),
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  'Authenticated',
+                  style: TextStyle(fontSize: 50.0, color: Colors.white),
+                ),
+                const SizedBox(height: 40.0),
+                SignOutButton(appTextTheme: appTextTheme),
+              ],
+            ),
           ),
         ),
       ),
@@ -63,7 +72,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
                 loadingProgress: (_) =>
                     const Center(child: CircularProgressIndicator()),
-                loadSuccess: (_) {
+                loadSuccess: (state) {
                   return const CircleAvatar(
                     backgroundColor: Colors.pink,
                   );

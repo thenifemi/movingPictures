@@ -66,7 +66,7 @@ class FirebaseAuthRepository implements AuthInterface {
         "email": user.email,
         "name": user.name,
         "photoURL": user.photoUrl,
-        "uid": user.id.getOrCrash()
+        "uid": user.id
       };
 
       await userDoc.userDataCollection.doc(user.name).set(userData);
@@ -91,11 +91,14 @@ class FirebaseAuthRepository implements AuthInterface {
   @override
   Stream<Either<AppUserFailure, AppUser>> watchUserProfile() async* {
     final userDoc = await _firestore.userDocument();
+
     yield* userDoc.userDataCollection
         .snapshots()
-        .map((snapshot) => right<AppUserFailure, AppUser>(
-              AppUser.fromFirebase(snapshot.docs.first).toDomain(),
-            ))
+        .map(
+          (snapshot) => right<AppUserFailure, AppUser>(
+            AppUser.fromFirebase(snapshot.docs.first).toDomain(),
+          ),
+        )
         .handleError((e) {
       if (e is FirebaseException && e.message.contains('PERMISSION_DENIED')) {
         return left(const AppUserFailure.insufficientPermissions());

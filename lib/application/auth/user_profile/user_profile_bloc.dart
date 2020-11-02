@@ -26,17 +26,15 @@ class UserProfileBloc extends Bloc<UserProfileEvent, UserProfileState> {
   Stream<UserProfileState> mapEventToState(
     UserProfileEvent event,
   ) async* {
-    event.map(
+    yield* event.map(
       watchProfileStarted: (e) async* {
         yield const UserProfileState.loadingProgress();
 
         await _appUserStreamSubscription?.cancel();
 
         _appUserStreamSubscription = _authInterface.watchUserProfile().listen(
-              (failureOrProfile) => add(
-                UserProfileEvent.profileRecieved(failureOrProfile),
-              ),
-            );
+            (failureOrProfile) =>
+                add(UserProfileEvent.profileRecieved(failureOrProfile)));
       },
       profileRecieved: (_ProfileRecieved e) async* {
         yield e.failureOrProfile.fold(

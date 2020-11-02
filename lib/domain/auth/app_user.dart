@@ -2,15 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../core/value_objects.dart';
-
 part 'app_user.freezed.dart';
 part 'app_user.g.dart';
 
 @freezed
 abstract class AppUser implements _$AppUser {
   const factory AppUser({
-    @JsonKey(ignore: true) UniqueId id,
+    @JsonKey(ignore: true) String id,
     @required String name,
     @required String photoUrl,
     @required String email,
@@ -31,7 +29,6 @@ abstract class AppUser implements _$AppUser {
       _$AppUserFromJson(json);
 
   factory AppUser.fromFirebase(DocumentSnapshot doc) {
-    return AppUser.fromJson(doc.data())
-        .copyWith(id: UniqueId.fromUniqueString(doc.id));
+    return AppUser.fromJson(doc.data()).copyWith(id: doc.id);
   }
 }

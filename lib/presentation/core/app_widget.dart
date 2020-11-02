@@ -18,10 +18,6 @@ class App extends StatelessWidget {
           create: (context) =>
               getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()),
         ),
-        BlocProvider(
-          create: (context) => getIt<UserProfileBloc>()
-            ..add(const UserProfileEvent.watchProfileStarted()),
-        ),
       ],
       child: MaterialApp(
         title: appName,
