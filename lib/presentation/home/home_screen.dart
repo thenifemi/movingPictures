@@ -77,7 +77,9 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                     backgroundColor: Colors.pink,
                   );
                 },
-                loadFailure: (_) => Container(color: AppColors.red),
+                loadFailure: (_) => const CircleAvatar(
+                  backgroundColor: Colors.red,
+                ),
               );
             },
           ),
