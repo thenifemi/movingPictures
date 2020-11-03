@@ -20,12 +20,12 @@ class _$AppUserTearOff {
   _AppUser call(
       {@JsonKey(ignore: true) String id,
       @required String name,
-      @required String photoUrl,
+      @required String photoURL,
       @required String email}) {
     return _AppUser(
       id: id,
       name: name,
-      photoUrl: photoUrl,
+      photoURL: photoURL,
       email: email,
     );
   }
@@ -45,7 +45,7 @@ mixin _$AppUser {
   @JsonKey(ignore: true)
   String get id;
   String get name;
-  String get photoUrl;
+  String get photoURL;
   String get email;
 
   Map<String, dynamic> toJson();
@@ -59,7 +59,7 @@ abstract class $AppUserCopyWith<$Res> {
   $Res call(
       {@JsonKey(ignore: true) String id,
       String name,
-      String photoUrl,
+      String photoURL,
       String email});
 }
 
@@ -75,13 +75,13 @@ class _$AppUserCopyWithImpl<$Res> implements $AppUserCopyWith<$Res> {
   $Res call({
     Object id = freezed,
     Object name = freezed,
-    Object photoUrl = freezed,
+    Object photoURL = freezed,
     Object email = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
       name: name == freezed ? _value.name : name as String,
-      photoUrl: photoUrl == freezed ? _value.photoUrl : photoUrl as String,
+      photoURL: photoURL == freezed ? _value.photoURL : photoURL as String,
       email: email == freezed ? _value.email : email as String,
     ));
   }
@@ -95,7 +95,7 @@ abstract class _$AppUserCopyWith<$Res> implements $AppUserCopyWith<$Res> {
   $Res call(
       {@JsonKey(ignore: true) String id,
       String name,
-      String photoUrl,
+      String photoURL,
       String email});
 }
 
@@ -112,13 +112,13 @@ class __$AppUserCopyWithImpl<$Res> extends _$AppUserCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object name = freezed,
-    Object photoUrl = freezed,
+    Object photoURL = freezed,
     Object email = freezed,
   }) {
     return _then(_AppUser(
       id: id == freezed ? _value.id : id as String,
       name: name == freezed ? _value.name : name as String,
-      photoUrl: photoUrl == freezed ? _value.photoUrl : photoUrl as String,
+      photoURL: photoURL == freezed ? _value.photoURL : photoURL as String,
       email: email == freezed ? _value.email : email as String,
     ));
   }
@@ -131,10 +131,10 @@ class _$_AppUser extends _AppUser {
   const _$_AppUser(
       {@JsonKey(ignore: true) this.id,
       @required this.name,
-      @required this.photoUrl,
+      @required this.photoURL,
       @required this.email})
       : assert(name != null),
-        assert(photoUrl != null),
+        assert(photoURL != null),
         assert(email != null),
         super._();
 
@@ -147,13 +147,13 @@ class _$_AppUser extends _AppUser {
   @override
   final String name;
   @override
-  final String photoUrl;
+  final String photoURL;
   @override
   final String email;
 
   @override
   String toString() {
-    return 'AppUser(id: $id, name: $name, photoUrl: $photoUrl, email: $email)';
+    return 'AppUser(id: $id, name: $name, photoURL: $photoURL, email: $email)';
   }
 
   @override
@@ -164,9 +164,9 @@ class _$_AppUser extends _AppUser {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.photoUrl, photoUrl) ||
+            (identical(other.photoURL, photoURL) ||
                 const DeepCollectionEquality()
-                    .equals(other.photoUrl, photoUrl)) &&
+                    .equals(other.photoURL, photoURL)) &&
             (identical(other.email, email) ||
                 const DeepCollectionEquality().equals(other.email, email)));
   }
@@ -176,7 +176,7 @@ class _$_AppUser extends _AppUser {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(photoUrl) ^
+      const DeepCollectionEquality().hash(photoURL) ^
       const DeepCollectionEquality().hash(email);
 
   @override
@@ -194,7 +194,7 @@ abstract class _AppUser extends AppUser {
   const factory _AppUser(
       {@JsonKey(ignore: true) String id,
       @required String name,
-      @required String photoUrl,
+      @required String photoURL,
       @required String email}) = _$_AppUser;
 
   factory _AppUser.fromJson(Map<String, dynamic> json) = _$_AppUser.fromJson;
@@ -205,7 +205,7 @@ abstract class _AppUser extends AppUser {
   @override
   String get name;
   @override
-  String get photoUrl;
+  String get photoURL;
   @override
   String get email;
   @override

@@ -7,7 +7,7 @@ extension FirebaseUserDomainX on firebase.User {
     return AppUser(
       id: uid,
       name: displayName,
-      photoUrl: photoURL,
+      photoURL: photoURL,
       email: email,
     );
   }

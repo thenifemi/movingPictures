@@ -10,7 +10,7 @@ abstract class AppUser implements _$AppUser {
   const factory AppUser({
     @JsonKey(ignore: true) String id,
     @required String name,
-    @required String photoUrl,
+    @required String photoURL,
     @required String email,
   }) = _AppUser;
 
@@ -20,7 +20,7 @@ abstract class AppUser implements _$AppUser {
     return AppUser(
       id: id,
       name: name,
-      photoUrl: photoUrl,
+      photoURL: photoURL,
       email: email,
     );
   }

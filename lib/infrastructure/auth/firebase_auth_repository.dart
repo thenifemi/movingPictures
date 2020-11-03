@@ -67,7 +67,7 @@ class FirebaseAuthRepository implements AuthInterface {
       final Map<String, dynamic> userData = {
         "email": user.email,
         "name": user.name,
-        "photoURL": user.photoUrl,
+        "photoURL": user.photoURL,
         "id": user.id
       };
 
@@ -97,27 +97,14 @@ class FirebaseAuthRepository implements AuthInterface {
     yield* userDoc.snapshots().map((snapshot) {
       final user = snapshot.data();
 
-      final Map<String, dynamic> appUser = {
-        "photoUrl":
-            'https://lh3.googleusercontent.com/a-/AOh14Gj-0JNGTqeI1bk7g_sw-PhQkGQIseZd967JTPFQiG4=s96-c',
-        "name": 'Nifemi',
-        "id": "PbZxlpUy0EQs6SZHRy61ZBXCLiT2",
-        "email": 'thenifemi@gmail.com',
-      };
+      final x = AppUser.fromJson(user);
 
-      print(user);
-      print(appUser);
+      return right<AppUserFailure, AppUser>(x);
 
-      final u = AppUser.fromJson(user).toDomain();
-
-      // return right<AppUserFailure, AppUser>(AppUser.fromJson(user));
-      return right<AppUserFailure, AppUser>(u);
-    }
-
-        // right<AppUserFailure, AppUser>(
-        //   AppUser.fromFirebase(snapshot.docs.first).toDomain(),
-        // ),
-        ).handleError((e) {
+      // right<AppUserFailure, AppUser>(
+      //   AppUser.fromFirebase(user).toDomain(),
+      // );
+    }).handleError((e) {
       if (e is FirebaseException && e.message.contains('PERMISSION_DENIED')) {
         return left(const AppUserFailure.insufficientPermissions());
       } else {

@@ -9,7 +9,7 @@ part of 'app_user.dart';
 _$_AppUser _$_$_AppUserFromJson(Map<String, dynamic> json) {
   return _$_AppUser(
     name: json['name'] as String,
-    photoUrl: json['photoUrl'] as String,
+    photoURL: json['photoURL'] as String,
     email: json['email'] as String,
   );
 }
@@ -17,6 +17,6 @@ _$_AppUser _$_$_AppUserFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$_$_AppUserToJson(_$_AppUser instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'photoUrl': instance.photoUrl,
+      'photoURL': instance.photoURL,
       'email': instance.email,
     };
