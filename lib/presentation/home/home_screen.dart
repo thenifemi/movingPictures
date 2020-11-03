@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movingPictures/application/test/test_bloc.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../../application/auth/user_profile/user_profile_bloc.dart';
@@ -18,6 +19,10 @@ class HomeScreen extends StatelessWidget {
         BlocProvider(
           create: (context) => getIt<UserProfileBloc>()
             ..add(const UserProfileEvent.watchProfileStarted()),
+        ),
+        BlocProvider(
+          create: (context) =>
+              getIt<TestBloc>()..add(const TestEvent.started()),
         ),
       ],
       child: MultiBlocListener(
@@ -38,6 +43,25 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                BlocBuilder<TestBloc, TestState>(
+                  builder: (context, state) {
+                    return state.map(
+                      initial: (_) {
+                        return const CircleAvatar(
+                          backgroundColor: Colors.pink,
+                        );
+                      },
+                      loading: (_) =>
+                          const Center(child: CircularProgressIndicator()),
+                      success: (e) {
+                        return Text(
+                          e.e,
+                          style: appTextTheme.headline5,
+                        );
+                      },
+                    );
+                  },
+                ),
                 const Text(
                   'Authenticated',
                   style: TextStyle(fontSize: 50.0, color: Colors.white),

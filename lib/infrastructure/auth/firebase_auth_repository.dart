@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -66,10 +68,10 @@ class FirebaseAuthRepository implements AuthInterface {
         "email": user.email,
         "name": user.name,
         "photoURL": user.photoUrl,
-        "uid": user.id
+        "id": user.id
       };
 
-      await userDoc.userDataCollection.doc(user.name).set(userData);
+      await userDoc.set(userData);
 
       return right(unit);
     } on FirebaseException catch (e) {
@@ -92,14 +94,30 @@ class FirebaseAuthRepository implements AuthInterface {
   Stream<Either<AppUserFailure, AppUser>> watchUserProfile() async* {
     final userDoc = await _firestore.userDocument();
 
-    yield* userDoc.userDataCollection
-        .snapshots()
-        .map(
-          (snapshot) => right<AppUserFailure, AppUser>(
-            AppUser.fromFirebase(snapshot.docs.first).toDomain(),
-          ),
-        )
-        .handleError((e) {
+    yield* userDoc.snapshots().map((snapshot) {
+      final user = snapshot.data();
+
+      final Map<String, dynamic> appUser = {
+        "photoUrl":
+            'https://lh3.googleusercontent.com/a-/AOh14Gj-0JNGTqeI1bk7g_sw-PhQkGQIseZd967JTPFQiG4=s96-c',
+        "name": 'Nifemi',
+        "id": "PbZxlpUy0EQs6SZHRy61ZBXCLiT2",
+        "email": 'thenifemi@gmail.com',
+      };
+
+      print(user);
+      print(appUser);
+
+      final u = AppUser.fromJson(user).toDomain();
+
+      // return right<AppUserFailure, AppUser>(AppUser.fromJson(user));
+      return right<AppUserFailure, AppUser>(u);
+    }
+
+        // right<AppUserFailure, AppUser>(
+        //   AppUser.fromFirebase(snapshot.docs.first).toDomain(),
+        // ),
+        ).handleError((e) {
       if (e is FirebaseException && e.message.contains('PERMISSION_DENIED')) {
         return left(const AppUserFailure.insufficientPermissions());
       } else {
