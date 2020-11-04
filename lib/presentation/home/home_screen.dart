@@ -97,12 +97,17 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                 loadingProgress: (_) =>
                     const Center(child: CircularProgressIndicator()),
                 loadSuccess: (state) {
-                  return const CircleAvatar(
-                    backgroundColor: Colors.pink,
+                  final user = state.appUser;
+                  return CircleAvatar(
+                    backgroundColor: AppColors.gray,
+                    backgroundImage: NetworkImage(
+                      user.photoURL,
+                    ),
                   );
                 },
                 loadFailure: (_) => const CircleAvatar(
                   backgroundColor: Colors.red,
+                  child: Text("!!"),
                 ),
               );
             },
