@@ -14,8 +14,9 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       actions: [
+        const Icon(Icons.notification_important_rounded, size: 25.0),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: BlocBuilder<UserProfileBloc, UserProfileState>(
             builder: (context, state) {
               return state.map(
