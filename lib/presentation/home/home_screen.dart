@@ -7,6 +7,7 @@ import '../../application/auth/user_profile/user_profile_bloc.dart';
 import '../../injection.dart';
 import '../core/app_colors.dart';
 import '../routes/router.gr.dart';
+import 'widgets/main_app_bar_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -51,50 +52,6 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
-}
-
-class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const MainAppBar({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      actions: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-          child: BlocBuilder<UserProfileBloc, UserProfileState>(
-            builder: (context, state) {
-              return state.map(
-                initial: (_) => const CircleAvatar(
-                  backgroundColor: AppColors.gray,
-                ),
-                loadingProgress: (_) =>
-                    const Center(child: CircularProgressIndicator()),
-                loadSuccess: (state) {
-                  final user = state.appUser;
-                  return CircleAvatar(
-                    backgroundColor: AppColors.gray,
-                    backgroundImage: NetworkImage(
-                      user.photoURL,
-                    ),
-                  );
-                },
-                loadFailure: (_) => const CircleAvatar(
-                  backgroundColor: Colors.red,
-                  child: Text("!!"),
-                ),
-              );
-            },
-          ),
-        )
-      ],
-    );
-  }
-
-  @override
-  Size get preferredSize => const Size(double.infinity, 50);
 }
 
 class SignOutButton extends StatelessWidget {
