@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movingPictures/application/test/test_bloc.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../../application/auth/user_profile/user_profile_bloc.dart';
@@ -19,10 +18,6 @@ class HomeScreen extends StatelessWidget {
         BlocProvider(
           create: (context) => getIt<UserProfileBloc>()
             ..add(const UserProfileEvent.watchProfileStarted()),
-        ),
-        BlocProvider(
-          create: (context) =>
-              getIt<TestBloc>()..add(const TestEvent.started()),
         ),
       ],
       child: MultiBlocListener(
