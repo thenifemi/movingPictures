@@ -43,25 +43,6 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                BlocBuilder<TestBloc, TestState>(
-                  builder: (context, state) {
-                    return state.map(
-                      initial: (_) {
-                        return const CircleAvatar(
-                          backgroundColor: Colors.pink,
-                        );
-                      },
-                      loading: (_) =>
-                          const Center(child: CircularProgressIndicator()),
-                      success: (e) {
-                        return Text(
-                          e.e,
-                          style: appTextTheme.headline5,
-                        );
-                      },
-                    );
-                  },
-                ),
                 const Text(
                   'Authenticated',
                   style: TextStyle(fontSize: 50.0, color: Colors.white),
