@@ -13,18 +13,6 @@ class MainBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      selectedItemColor: AppColors.white,
-      selectedLabelStyle: const TextStyle(
-        color: AppColors.white,
-        fontSize: 11.0,
-      ),
-      unselectedItemColor: AppColors.gray,
-      unselectedLabelStyle: const TextStyle(
-        color: AppColors.gray,
-        fontSize: 11.0,
-      ),
-      backgroundColor: AppColors.gray.withOpacity(0.3),
-      type: BottomNavigationBarType.fixed,
       items: [
         BottomNavigationBarItem(
           icon: Padding(
@@ -58,6 +46,18 @@ class MainBottomNavigationBar extends StatelessWidget {
           label: friends,
         ),
       ],
+      selectedLabelStyle: const TextStyle(
+        color: AppColors.white,
+        fontSize: 11.0,
+      ),
+      selectedItemColor: AppColors.white,
+      unselectedItemColor: AppColors.gray,
+      unselectedLabelStyle: const TextStyle(
+        color: AppColors.gray,
+        fontSize: 11.0,
+      ),
+      backgroundColor: AppColors.gray.withOpacity(0.3),
+      type: BottomNavigationBarType.fixed,
     );
   }
 }
