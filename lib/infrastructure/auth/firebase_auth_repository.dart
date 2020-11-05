@@ -43,10 +43,16 @@ class FirebaseAuthRepository implements AuthInterface {
       );
 
       //returning [unit] because the transaction was successsful with no errors.
-      return _firebaseAuth
-          .signInWithCredential(authCredential)
-          .then((value) => storeGoogleUser())
-          .then((r) => right(unit));
+      return _firebaseAuth.signInWithCredential(authCredential).then(
+        (_) async {
+          return storeGoogleUser().then(
+            (failureOrSuccess) => failureOrSuccess.fold(
+              (failure) => left(const AuthFailure.serverError()),
+              (_) => right(unit),
+            ),
+          );
+        },
+      );
     } on FirebaseAuthException catch (_) {
       return left(const AuthFailure.serverError());
     }
@@ -62,16 +68,10 @@ class FirebaseAuthRepository implements AuthInterface {
       final userDoc = await _firestore.userDocument();
 
       final userOption = await getIt<AuthInterface>().getSignedInUser();
-      final user = userOption.getOrElse(() => throw NotAuthenticatedError());
+      final user =
+          userOption.getOrElse(() => throw NotAuthenticatedError()).toJson();
 
-      final Map<String, dynamic> userData = {
-        "email": user.email,
-        "name": user.name,
-        "photoURL": user.photoURL,
-        "id": user.id
-      };
-
-      await userDoc.set(userData);
+      await userDoc.set(user);
 
       return right(unit);
     } on FirebaseException catch (e) {
