@@ -12,3 +12,4 @@ const String signInScreenBackgroundImage =
 //*ICONS
 // Icons made by "https://www.flaticon.com/authors/freepik"
 const String googleIcon = 'assets/icons/google_icon.png';
+const String notificationIcon = 'assets/icons/bell.svg';

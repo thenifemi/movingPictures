@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../application/auth/user_profile/user_profile_bloc.dart';
 import '../../core/app_colors.dart';
+import '../../core/constants.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MainAppBar({
@@ -14,7 +16,11 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       actions: [
-        const Icon(Icons.notification_important_rounded, size: 25.0),
+        SvgPicture.asset(
+          notificationIcon,
+          width: 26.0,
+          color: AppColors.white,
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: BlocBuilder<UserProfileBloc, UserProfileState>(
@@ -51,5 +57,5 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size(double.infinity, 50);
+  Size get preferredSize => const Size(double.infinity, 40);
 }
