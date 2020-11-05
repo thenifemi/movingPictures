@@ -22,10 +22,13 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
           width: 100.0,
         ),
         actions: [
-          SvgPicture.asset(
-            notificationIcon,
-            width: 24.0,
-            color: AppColors.white,
+          GestureDetector(
+            onTap: () {},
+            child: SvgPicture.asset(
+              notificationIcon,
+              width: 24.0,
+              color: AppColors.white,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
