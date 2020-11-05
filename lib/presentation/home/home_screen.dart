@@ -8,6 +8,7 @@ import '../../injection.dart';
 import '../core/app_colors.dart';
 import '../routes/router.gr.dart';
 import 'widgets/main_app_bar_widget.dart';
+import 'widgets/main_bottom_navigation_bar_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -48,32 +49,7 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          bottomNavigationBar: BottomNavigationBar(
-            selectedItemColor: AppColors.white,
-            selectedLabelStyle: const TextStyle(color: AppColors.white),
-            unselectedItemColor: AppColors.gray,
-            unselectedLabelStyle: const TextStyle(color: AppColors.gray),
-            backgroundColor: AppColors.gray.withOpacity(0.3),
-            type: BottomNavigationBarType.fixed,
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined),
-                label: "Home",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.search),
-                label: "Search",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.favorite),
-                label: "Favorites",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.people_alt),
-                label: "Friends",
-              ),
-            ],
-          ),
+          bottomNavigationBar: const MainBottomNavigationBar(),
         ),
       ),
     );
