@@ -14,45 +14,51 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      actions: [
-        SvgPicture.asset(
-          notificationIcon,
-          width: 26.0,
-          color: AppColors.white,
+    return Padding(
+      padding: const EdgeInsets.only(top: 5.0),
+      child: AppBar(
+        title: Image.asset(
+          movingPicturesLogoRed,
+          width: 100.0,
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: BlocBuilder<UserProfileBloc, UserProfileState>(
-            builder: (context, state) {
-              return state.map(
-                initial: (_) => const CircleAvatar(
-                  backgroundColor: AppColors.gray,
-                ),
-                loadingProgress: (_) => Shimmer.fromColors(
-                  baseColor: AppColors.gray,
-                  highlightColor: Colors.white60,
-                  child: const CircleAvatar(),
-                ),
-                loadSuccess: (state) {
-                  final user = state.appUser;
-
-                  return CircleAvatar(
-                    backgroundColor: AppColors.gray,
-                    backgroundImage: NetworkImage(
-                      user.photoURL,
-                    ),
-                  );
-                },
-                loadFailure: (_) => const CircleAvatar(
-                  backgroundColor: Colors.red,
-                  child: Text("!!"),
-                ),
-              );
-            },
+        actions: [
+          SvgPicture.asset(
+            notificationIcon,
+            width: 24.0,
+            color: AppColors.white,
           ),
-        )
-      ],
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: BlocBuilder<UserProfileBloc, UserProfileState>(
+              builder: (context, state) {
+                return state.map(
+                  initial: (_) => const CircleAvatar(
+                    backgroundColor: AppColors.gray,
+                  ),
+                  loadingProgress: (_) => Shimmer.fromColors(
+                    baseColor: AppColors.gray,
+                    highlightColor: Colors.white60,
+                    child: const CircleAvatar(),
+                  ),
+                  loadSuccess: (state) {
+                    final user = state.appUser;
+                    return CircleAvatar(
+                      backgroundColor: AppColors.gray,
+                      backgroundImage: NetworkImage(
+                        user.photoURL,
+                      ),
+                    );
+                  },
+                  loadFailure: (_) => const CircleAvatar(
+                    backgroundColor: Colors.red,
+                    child: Text("!!"),
+                  ),
+                );
+              },
+            ),
+          )
+        ],
+      ),
     );
   }
 
