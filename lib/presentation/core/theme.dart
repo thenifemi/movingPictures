@@ -25,7 +25,7 @@ ThemeData appTheme() {
       bodyText1: base.bodyText1.copyWith(
         fontFamily: 'Roboto',
         fontWeight: FontWeight.w400,
-        fontSize: 15.0,
+        fontSize: 14.0,
         color: AppColors.white,
       ),
 

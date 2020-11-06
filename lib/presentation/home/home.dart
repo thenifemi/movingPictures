@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movingPictures/presentation/core/app_colors.dart';
 import 'package:movingPictures/presentation/core/constants/language_constants.dart';
 import 'package:movingPictures/presentation/home/movies/movies_tab_screen.dart';
 import 'package:movingPictures/presentation/home/series/series_tab_screen.dart';
@@ -22,19 +23,27 @@ class Home extends StatelessWidget {
       child: Scaffold(
         appBar: TabBar(
           controller: tabController,
+          indicatorColor: AppColors.red,
+          indicatorSize: TabBarIndicatorSize.label,
+          indicatorWeight: 3.0,
+          labelColor: appTextTheme.bodyText1.color,
+          unselectedLabelColor: AppColors.white.withOpacity(0.5),
           tabs: [
-            Text(
-              movies,
-              style: appTextTheme.bodyText1,
+            SizedBox(
+              height: 30.0,
+              width: 50.0,
+              child: Center(child: Text(movies.toUpperCase())),
             ),
-            Text(
-              series,
-              style: appTextTheme.bodyText1,
+            SizedBox(
+              height: 30.0,
+              width: 50.0,
+              child: Center(child: Text(series.toUpperCase())),
             ),
           ],
         ),
         body: TabBarView(
           controller: tabController,
+          physics: const BouncingScrollPhysics(),
           children: const [
             MoviesTabScreen(),
             SeriesTabScreen(),
