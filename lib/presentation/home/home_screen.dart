@@ -6,9 +6,9 @@ import '../../application/auth/auth_bloc.dart';
 import '../../application/auth/user_profile/user_profile_bloc.dart';
 import '../../injection.dart';
 import '../core/app_colors.dart';
+import '../main_appbar_and_navbar/main_app_bar_widget.dart';
+import '../main_appbar_and_navbar/main_bottom_navigation_bar_widget.dart';
 import '../routes/router.gr.dart';
-import 'widgets/main_app_bar_widget.dart';
-import 'widgets/main_bottom_navigation_bar_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
