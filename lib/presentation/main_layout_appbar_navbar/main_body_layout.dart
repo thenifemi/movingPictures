@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movingPictures/presentation/home/home.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../../application/auth/user_profile/user_profile_bloc.dart';
@@ -31,21 +32,10 @@ class MainBodyLayout extends StatelessWidget {
             },
           ),
         ],
-        child: Scaffold(
-          appBar: const MainAppBar(),
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'Authenticated',
-                  style: TextStyle(fontSize: 50.0, color: Colors.white),
-                ),
-                const SizedBox(height: 40.0),
-              ],
-            ),
-          ),
-          bottomNavigationBar: const MainBottomNavigationBar(),
+        child: const Scaffold(
+          appBar: MainAppBar(),
+          body: Home(),
+          bottomNavigationBar: MainBottomNavigationBar(),
         ),
       ),
     );

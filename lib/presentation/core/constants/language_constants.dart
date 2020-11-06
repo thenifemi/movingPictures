@@ -11,3 +11,7 @@ const String friends = "Friends";
 
 //* Profile Screen
 const String signedInWithGoogle = "Signed in with Google";
+
+//*Tabs
+const String movies = "Movies";
+const String series = "Series";
