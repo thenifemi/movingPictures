@@ -8,19 +8,24 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
+import '../../domain/auth/app_user.dart';
 import '../main_layout_appbar_navbar/main_body_layout.dart';
+import '../profile/profileScreen.dart';
 import '../signin/sign_in_screen.dart';
 import '../splash/splash_screen.dart';
 
 class Routes {
   static const String splashScreen = '/';
   static const String signInScreen = '/sign-in-screen';
-  static const String mainLayout = '/main-layout';
+  static const String mainBodyLayout = '/main-body-layout';
+  static const String profileScreen = '/profile-screen';
   static const all = <String>{
     splashScreen,
     signInScreen,
-    mainLayout,
+    mainBodyLayout,
+    profileScreen,
   };
 }
 
@@ -30,7 +35,8 @@ class AppRouter extends RouterBase {
   final _routes = <RouteDef>[
     RouteDef(Routes.splashScreen, page: SplashScreen),
     RouteDef(Routes.signInScreen, page: SignInScreen),
-    RouteDef(Routes.mainLayout, page: MainLayout),
+    RouteDef(Routes.mainBodyLayout, page: MainBodyLayout),
+    RouteDef(Routes.profileScreen, page: ProfileScreen),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -47,10 +53,24 @@ class AppRouter extends RouterBase {
         settings: data,
       );
     },
-    MainLayout: (data) {
+    MainBodyLayout: (data) {
       return CupertinoPageRoute<dynamic>(
-        builder: (context) => MainLayout(),
+        builder: (context) => MainBodyLayout(),
         settings: data,
+      );
+    },
+    ProfileScreen: (data) {
+      final args = data.getArgs<ProfileScreenArguments>(
+        orElse: () => ProfileScreenArguments(),
+      );
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => ProfileScreen(
+          key: args.key,
+          appTextTheme: args.appTextTheme,
+          user: args.user,
+        ),
+        settings: data,
+        fullscreenDialog: true,
       );
     },
   };
@@ -65,5 +85,28 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushSignInScreen() => push<dynamic>(Routes.signInScreen);
 
-  Future<dynamic> pushMainLayout() => push<dynamic>(Routes.mainLayout);
+  Future<dynamic> pushMainBodyLayout() => push<dynamic>(Routes.mainBodyLayout);
+
+  Future<dynamic> pushProfileScreen({
+    Key key,
+    TextTheme appTextTheme,
+    AppUser user,
+  }) =>
+      push<dynamic>(
+        Routes.profileScreen,
+        arguments: ProfileScreenArguments(
+            key: key, appTextTheme: appTextTheme, user: user),
+      );
+}
+
+/// ************************************************************************
+/// Arguments holder classes
+/// *************************************************************************
+
+/// ProfileScreen arguments holder class
+class ProfileScreenArguments {
+  final Key key;
+  final TextTheme appTextTheme;
+  final AppUser user;
+  ProfileScreenArguments({this.key, this.appTextTheme, this.user});
 }

@@ -32,7 +32,7 @@ class SignInScaffoldWidget extends StatelessWidget {
               ),
             ),
             (_) {
-              ExtendedNavigator.of(context).replace(Routes.homeScreen);
+              ExtendedNavigator.of(context).replace(Routes.mainBodyLayout);
               context
                   .bloc<AuthBloc>()
                   .add(const AuthEvent.authCheckRequested());

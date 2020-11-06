@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -6,6 +7,7 @@ import 'package:shimmer/shimmer.dart';
 import '../../application/auth/user_profile/user_profile_bloc.dart';
 import '../core/app_colors.dart';
 import '../core/constants.dart';
+import '../routes/router.gr.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MainAppBar({
@@ -43,10 +45,14 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
                 loadSuccess: (state) {
                   final user = state.appUser;
-                  return CircleAvatar(
-                    backgroundColor: AppColors.gray,
-                    backgroundImage: NetworkImage(
-                      user.photoURL,
+                  return GestureDetector(
+                    onTap: () => ExtendedNavigator.of(context)
+                        .pushProfileScreen(user: user),
+                    child: CircleAvatar(
+                      backgroundColor: AppColors.gray,
+                      backgroundImage: NetworkImage(
+                        user.photoURL,
+                      ),
                     ),
                   );
                 },
