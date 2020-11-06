@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route_annotations.dart';
-import 'package:movingPictures/presentation/home/home_screen.dart';
+import 'package:movingPictures/presentation/main_layout_appbar_navbar/main_body_layout.dart';
 import 'package:movingPictures/presentation/signin/sign_in_screen.dart';
 
 import '../splash/splash_screen.dart';
@@ -8,7 +8,7 @@ import '../splash/splash_screen.dart';
   routes: <AutoRoute>[
     CupertinoRoute(page: SplashScreen, initial: true),
     CupertinoRoute(page: SignInScreen),
-    CupertinoRoute(page: HomeScreen),
+    CupertinoRoute(page: MainLayout),
   ],
   generateNavigationHelperExtension: true,
 )
