@@ -48,10 +48,14 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                   return GestureDetector(
                     onTap: () => ExtendedNavigator.of(context)
                         .pushProfileScreen(user: user),
-                    child: CircleAvatar(
-                      backgroundColor: AppColors.gray,
-                      backgroundImage: NetworkImage(
-                        user.photoURL,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(100.0),
+                        child: Image.network(
+                          user.photoURL,
+                          fit: BoxFit.fill,
+                        ),
                       ),
                     ),
                   );
