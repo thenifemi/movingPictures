@@ -24,8 +24,8 @@ class MainBodyLayout extends StatelessWidget {
           BlocListener<AuthBloc, AuthState>(
             listener: (context, state) {
               state.maybeMap(
-                unAuthenticated: (_) =>
-                    ExtendedNavigator.of(context).replace(Routes.signInScreen),
+                unAuthenticated: (_) => ExtendedNavigator.of(context)
+                  ..pushAndRemoveUntil(Routes.signInScreen, (route) => false),
                 orElse: () {},
               );
             },
