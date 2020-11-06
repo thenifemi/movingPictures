@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../core/app_colors.dart';
-import '../core/constants.dart';
-import '../core/language_constants.dart';
+import '../core/constants/constants.dart';
+import '../core/constants/language_constants.dart';
 
 class MainBottomNavigationBar extends StatelessWidget {
   const MainBottomNavigationBar({

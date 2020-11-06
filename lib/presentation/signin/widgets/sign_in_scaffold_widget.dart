@@ -5,10 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/auth/auth_bloc.dart';
 import '../../../application/auth/sign_in/sign_in_bloc.dart';
 import '../../core/app_colors.dart';
-import '../../core/constants.dart';
-import '../../core/flushbar_method.dart';
-import '../../core/language_constants.dart';
-import '../../core/saving_in_progress_widget.dart';
+import '../../core/component_widgets/flushbar_method.dart';
+import '../../core/component_widgets/saving_in_progress_widget.dart';
+import '../../core/constants/constants.dart';
+import '../../core/constants/language_constants.dart';
 import '../../routes/router.gr.dart';
 
 class SignInScaffoldWidget extends StatelessWidget {

@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 
 import '../../domain/auth/app_user.dart';
 import '../main_layout_appbar_navbar/main_body_layout.dart';
-import '../profile/profileScreen.dart';
+import '../profile/profile_screen.dart';
 import '../signin/sign_in_screen.dart';
 import '../splash/splash_screen.dart';
 

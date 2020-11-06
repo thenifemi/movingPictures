@@ -6,7 +6,7 @@ import 'package:shimmer/shimmer.dart';
 
 import '../../application/auth/user_profile/user_profile_bloc.dart';
 import '../core/app_colors.dart';
-import '../core/constants.dart';
+import '../core/constants/constants.dart';
 import '../routes/router.gr.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
