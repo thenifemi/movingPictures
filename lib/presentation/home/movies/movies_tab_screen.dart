@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movingPictures/presentation/core/app_colors.dart';
+import 'package:movingPictures/presentation/core/constants/constants.dart';
+import 'package:movingPictures/presentation/core/constants/language_constants.dart';
+import 'package:movingPictures/presentation/home/widgets/top_10_block_widget.dart';
 
 class MoviesTabScreen extends StatelessWidget {
   const MoviesTabScreen({Key key}) : super(key: key);
@@ -73,6 +77,8 @@ class MoviesTabScreen extends StatelessWidget {
               },
             ),
           ),
+          const SizedBox(height: 20.0),
+          const TopTenBlockWidget(moviesOrSeries: movies),
           const SizedBox(height: 20.0),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.0),

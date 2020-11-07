@@ -19,3 +19,15 @@ const String searchIcon = 'assets/icons/search.svg';
 const String favoriteIcon = 'assets/icons/heart.svg';
 const String friendsIcon = 'assets/icons/friends.svg';
 const String cancelIcon = 'assets/icons/cancel.svg';
+
+//*Top ten number icons
+const String number0Icon = 'assets/icons/0.svg';
+const String number1Icon = 'assets/icons/1.svg';
+const String number2Icon = 'assets/icons/2.svg';
+const String number3Icon = 'assets/icons/3.svg';
+const String number4Icon = 'assets/icons/4.svg';
+const String number5Icon = 'assets/icons/5.svg';
+const String number6Icon = 'assets/icons/6.svg';
+const String number7Icon = 'assets/icons/7.svg';
+const String number8Icon = 'assets/icons/8.svg';
+const String number9Icon = 'assets/icons/9.svg';

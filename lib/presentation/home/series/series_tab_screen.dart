@@ -77,6 +77,35 @@ class SeriesTabScreen extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.0),
             child: Text(
+              "Top 10 series",
+              style: TextStyle(
+                color: AppColors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 20.0,
+              ),
+            ),
+          ),
+          const SizedBox(height: 10.0),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            height: MediaQuery.of(context).size.height / 2.5,
+            child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemCount: 10,
+              itemBuilder: (context, i) {
+                return Container(
+                  padding: const EdgeInsets.only(right: 10.0),
+                  width: MediaQuery.of(context).size.height / 4,
+                  child: const Placeholder(),
+                );
+              },
+            ),
+          ),
+          const SizedBox(height: 20.0),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.0),
+            child: Text(
               "Horror",
               style: TextStyle(
                 color: AppColors.white,
