@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:movingPictures/presentation/core/app_colors.dart';
-import 'package:movingPictures/presentation/core/constants/constants.dart';
+
+import '../../core/app_colors.dart';
+import '../../core/constants/constants.dart';
+import '../../core/constants/language_constants.dart';
 
 class TopTenBlockWidget extends StatelessWidget {
   final String moviesOrSeries;
@@ -18,7 +20,7 @@ class TopTenBlockWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Text(
-            "Top 10 " + moviesOrSeries,
+            "$top10 $moviesOrSeries",
             style: const TextStyle(
               color: AppColors.white,
               fontWeight: FontWeight.bold,

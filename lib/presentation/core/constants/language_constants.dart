@@ -12,6 +12,13 @@ const String friends = "Friends";
 //* Profile Screen
 const String signedInWithGoogle = "Signed in with Google";
 
-//*Tabs
+//* Tabs
 const String movies = "Movies";
 const String series = "Series";
+
+//* Blocks
+const String top10 = "Top 10";
+const String horror = "Horror";
+const String action = "Action";
+const String trendingNow = "Trending Now";
+const String comedy = "Comedy";
