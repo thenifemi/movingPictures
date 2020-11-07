@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:movingPictures/presentation/core/app_colors.dart';
-import 'package:movingPictures/presentation/core/constants/language_constants.dart';
-import 'package:movingPictures/presentation/home/widgets/top_10_block_widget.dart';
+
+import '../../core/constants/language_constants.dart';
+import '../widgets/banner_block_widget.dart';
+import '../widgets/regular_block_widget.dart';
+import '../widgets/top_10_block_widget.dart';
 
 class SeriesTabScreen extends StatelessWidget {
   const SeriesTabScreen({Key key}) : super(key: key);
@@ -12,100 +14,19 @@ class SeriesTabScreen extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height / 2,
-            child: const Placeholder(),
-          ),
-          const SizedBox(height: 20.0),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.0),
-            child: Text(
-              "Trending Now",
-              style: TextStyle(
-                color: AppColors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 20.0,
-              ),
-            ),
-          ),
-          const SizedBox(height: 10.0),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            height: MediaQuery.of(context).size.height / 6,
-            child: ListView.builder(
-              physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemCount: 10,
-              itemBuilder: (context, i) {
-                return Container(
-                  padding: const EdgeInsets.only(right: 10.0),
-                  width: MediaQuery.of(context).size.height / 8,
-                  child: const Placeholder(),
-                );
-              },
-            ),
-          ),
-          const SizedBox(height: 20.0),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.0),
-            child: Text(
-              "My Favorites",
-              style: TextStyle(
-                color: AppColors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 20.0,
-              ),
-            ),
-          ),
-          const SizedBox(height: 10.0),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            height: MediaQuery.of(context).size.height / 6,
-            child: ListView.builder(
-              physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemCount: 10,
-              itemBuilder: (context, i) {
-                return Container(
-                  padding: const EdgeInsets.only(right: 10.0),
-                  width: MediaQuery.of(context).size.height / 8,
-                  child: const Placeholder(),
-                );
-              },
-            ),
-          ),
-          const SizedBox(height: 20.0),
-          const TopTenBlockWidget(moviesOrSeries: series),
-          const SizedBox(height: 20.0),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.0),
-            child: Text(
-              "Horror",
-              style: TextStyle(
-                color: AppColors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 20.0,
-              ),
-            ),
-          ),
-          const SizedBox(height: 10.0),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            height: MediaQuery.of(context).size.height / 6,
-            child: ListView.builder(
-              physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemCount: 10,
-              itemBuilder: (context, i) {
-                return Container(
-                  padding: const EdgeInsets.only(right: 10.0),
-                  width: MediaQuery.of(context).size.height / 8,
-                  child: const Placeholder(),
-                );
-              },
-            ),
-          ),
+        children: const [
+          BannerBlockWidget(),
+          SizedBox(height: 20.0),
+          RegularBlockWidget(blockName: trendingNow),
+          SizedBox(height: 20.0),
+          RegularBlockWidget(blockName: action),
+          SizedBox(height: 20.0),
+          TopTenBlockWidget(moviesOrSeries: series),
+          SizedBox(height: 20.0),
+          RegularBlockWidget(blockName: horror),
+          SizedBox(height: 20.0),
+          RegularBlockWidget(blockName: comedy),
+          SizedBox(height: 20.0),
         ],
       ),
     );

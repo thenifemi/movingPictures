@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+
+import '../../core/constants/language_constants.dart';
 import '../widgets/banner_block_widget.dart';
 import '../widgets/regular_block_widget.dart';
-
-import '../../core/app_colors.dart';
-import '../../core/constants/language_constants.dart';
 import '../widgets/top_10_block_widget.dart';
 
 class MoviesTabScreen extends StatelessWidget {
