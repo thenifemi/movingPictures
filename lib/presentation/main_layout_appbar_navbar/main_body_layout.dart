@@ -19,7 +19,7 @@ class MainBodyLayout extends StatefulWidget {
 }
 
 class _MainBodyLayoutState extends State<MainBodyLayout> {
-  final int _currentIndex = 0;
+  int _currentIndex = 0;
 
   final _children = [
     const Home(),
@@ -27,6 +27,12 @@ class _MainBodyLayoutState extends State<MainBodyLayout> {
     Favorites(),
     Friends(),
   ];
+
+  void onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +60,7 @@ class _MainBodyLayoutState extends State<MainBodyLayout> {
           body: _children[_currentIndex],
           bottomNavigationBar: MainBottomNavigationBar(
             currentIndex: _currentIndex,
+            onTapTapped: onTabTapped,
           ),
         ),
       ),

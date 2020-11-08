@@ -7,20 +7,30 @@ import '../core/constants/language_constants.dart';
 
 class MainBottomNavigationBar extends StatefulWidget {
   final int currentIndex;
+  final Function(int) onTapTapped;
   const MainBottomNavigationBar({
     Key key,
     @required this.currentIndex,
+    @required this.onTapTapped,
   }) : super(key: key);
 
   @override
   _MainBottomNavigationBarState createState() =>
       // ignore: no_logic_in_create_state
-      _MainBottomNavigationBarState(currentIndex: currentIndex);
+      _MainBottomNavigationBarState(
+        currentIndex: currentIndex,
+        onTapTapped: onTapTapped,
+      );
 }
 
 class _MainBottomNavigationBarState extends State<MainBottomNavigationBar> {
+  final Function(int) onTapTapped;
+
   int currentIndex;
-  _MainBottomNavigationBarState({@required this.currentIndex});
+  _MainBottomNavigationBarState({
+    @required this.currentIndex,
+    @required this.onTapTapped,
+  });
 
   final List<Map<String, dynamic>> navbarItems = [
     {"icon": homeIcon, "label": home},
@@ -28,12 +38,6 @@ class _MainBottomNavigationBarState extends State<MainBottomNavigationBar> {
     {"icon": favoriteIcon, "label": favorites},
     {"icon": friendsIcon, "label": friends},
   ];
-
-  void onTabTapped(int index) {
-    setState(() {
-      currentIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +55,7 @@ class _MainBottomNavigationBarState extends State<MainBottomNavigationBar> {
       backgroundColor: AppColors.gray.withOpacity(0.3),
       type: BottomNavigationBarType.fixed,
       currentIndex: currentIndex,
-      onTap: onTabTapped,
+      onTap: onTapTapped,
       items: navbarItems.map((item) {
         final bool isSelected = navbarItems.indexOf(item) == currentIndex;
 
