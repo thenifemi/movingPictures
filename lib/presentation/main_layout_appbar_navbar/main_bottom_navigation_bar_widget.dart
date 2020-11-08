@@ -16,7 +16,7 @@ class MainBottomNavigationBar extends StatefulWidget {
 }
 
 class _MainBottomNavigationBarState extends State<MainBottomNavigationBar> {
-  final int _currentIndex = 0;
+  int _currentIndex = 0;
 
   final List<Map<String, dynamic>> navbarItems = [
     {"icon": homeIcon, "label": home},
@@ -24,6 +24,12 @@ class _MainBottomNavigationBarState extends State<MainBottomNavigationBar> {
     {"icon": favoriteIcon, "label": favorites},
     {"icon": friendsIcon, "label": friends},
   ];
+
+  void onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +46,8 @@ class _MainBottomNavigationBarState extends State<MainBottomNavigationBar> {
       ),
       backgroundColor: AppColors.gray.withOpacity(0.3),
       type: BottomNavigationBarType.fixed,
+      currentIndex: _currentIndex,
+      onTap: onTabTapped,
       items: navbarItems.map((item) {
         final bool isSelected = navbarItems.indexOf(item) == _currentIndex;
 
