@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:movingPictures/presentation/core/app_colors.dart';
-import 'package:movingPictures/presentation/core/constants/language_constants.dart';
-import 'package:movingPictures/presentation/home/movies/movies_tab_screen.dart';
-import 'package:movingPictures/presentation/home/series/series_tab_screen.dart';
+
+import '../core/app_colors.dart';
+import '../core/constants/language_constants.dart';
+import 'movies/movies_tab_screen.dart';
+import 'series/series_tab_screen.dart';
 
 class Home extends StatelessWidget {
   final TextTheme appTextTheme;
