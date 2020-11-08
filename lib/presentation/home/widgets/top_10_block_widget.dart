@@ -57,7 +57,18 @@ class TopTenBlockWidget extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.only(right: 10.0),
                     width: MediaQuery.of(context).size.height / 4,
-                    child: const Placeholder(),
+                    child: Container(
+                      padding: const EdgeInsets.only(right: 10.0),
+                      width: MediaQuery.of(context).size.height / 8,
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(5.0),
+                          ),
+                          color: AppColors.red,
+                        ),
+                      ),
+                    ),
                   ),
                   Align(
                     alignment: Alignment.bottomLeft,

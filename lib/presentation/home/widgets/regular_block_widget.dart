@@ -36,7 +36,14 @@ class RegularBlockWidget extends StatelessWidget {
               return Container(
                 padding: const EdgeInsets.only(right: 10.0),
                 width: MediaQuery.of(context).size.height / 8,
-                child: const Placeholder(),
+                child: Container(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(5.0),
+                    ),
+                    color: AppColors.red,
+                  ),
+                ),
               );
             },
           ),
