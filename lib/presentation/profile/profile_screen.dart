@@ -76,6 +76,7 @@ class ProfileScreen extends StatelessWidget {
           ),
           const Spacer(),
           Center(child: SignOutButton(appTextTheme: appTextTheme)),
+          const SizedBox(height: 20.0),
         ],
       ),
     );
