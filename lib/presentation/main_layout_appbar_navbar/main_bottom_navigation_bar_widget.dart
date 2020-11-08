@@ -5,30 +5,11 @@ import '../core/app_colors.dart';
 import '../core/constants/constants.dart';
 import '../core/constants/language_constants.dart';
 
-class MainBottomNavigationBar extends StatefulWidget {
-  final int currentIndex;
-  final Function(int) onTapTapped;
-
-  const MainBottomNavigationBar({
-    Key key,
-    @required this.currentIndex,
-    @required this.onTapTapped,
-  }) : super(key: key);
-
-  @override
-  _MainBottomNavigationBarState createState() =>
-      // ignore: no_logic_in_create_state
-      _MainBottomNavigationBarState(
-        currentIndex: currentIndex,
-        onTapTapped: onTapTapped,
-      );
-}
-
-class _MainBottomNavigationBarState extends State<MainBottomNavigationBar> {
+class MainBottomNavigationBar extends StatelessWidget {
   final Function(int) onTapTapped;
   final int currentIndex;
 
-  _MainBottomNavigationBarState({
+  MainBottomNavigationBar({
     @required this.currentIndex,
     @required this.onTapTapped,
   });
