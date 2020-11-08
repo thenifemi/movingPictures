@@ -5,47 +5,29 @@ import '../core/app_colors.dart';
 import '../core/constants/constants.dart';
 import '../core/constants/language_constants.dart';
 
-class MainBottomNavigationBar extends StatelessWidget {
+class MainBottomNavigationBar extends StatefulWidget {
   const MainBottomNavigationBar({
     Key key,
   }) : super(key: key);
 
   @override
+  _MainBottomNavigationBarState createState() =>
+      _MainBottomNavigationBarState();
+}
+
+class _MainBottomNavigationBarState extends State<MainBottomNavigationBar> {
+  final int _currentIndex = 0;
+
+  final List<Map<String, dynamic>> navbarItems = [
+    {"icon": homeIcon, "label": home},
+    {"icon": searchIcon, "label": search},
+    {"icon": favoriteIcon, "label": favorites},
+    {"icon": friendsIcon, "label": friends},
+  ];
+
+  @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      items: [
-        BottomNavigationBarItem(
-          icon: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 5.0),
-            child: SvgPicture.asset(
-              homeIcon,
-              color: AppColors.white,
-            ),
-          ),
-          label: home,
-        ),
-        BottomNavigationBarItem(
-          icon: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 5.0),
-            child: SvgPicture.asset(searchIcon),
-          ),
-          label: search,
-        ),
-        BottomNavigationBarItem(
-          icon: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 5.0),
-            child: SvgPicture.asset(favoriteIcon),
-          ),
-          label: favorites,
-        ),
-        BottomNavigationBarItem(
-          icon: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 5.0),
-            child: SvgPicture.asset(friendsIcon),
-          ),
-          label: friends,
-        ),
-      ],
       selectedLabelStyle: const TextStyle(
         color: AppColors.white,
         fontSize: 11.0,
@@ -58,6 +40,20 @@ class MainBottomNavigationBar extends StatelessWidget {
       ),
       backgroundColor: AppColors.gray.withOpacity(0.3),
       type: BottomNavigationBarType.fixed,
+      items: navbarItems.map((item) {
+        final bool isSelected = navbarItems.indexOf(item) == _currentIndex;
+
+        return BottomNavigationBarItem(
+          icon: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5.0),
+            child: SvgPicture.asset(
+              item["icon"].toString(),
+              color: isSelected ? AppColors.white : AppColors.gray,
+            ),
+          ),
+          label: item["label"].toString(),
+        );
+      }).toList(),
     );
   }
 }
