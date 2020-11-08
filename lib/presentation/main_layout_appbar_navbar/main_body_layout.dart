@@ -10,7 +10,16 @@ import '../routes/router.gr.dart';
 import 'main_app_bar_widget.dart';
 import 'main_bottom_navigation_bar_widget.dart';
 
-class MainBodyLayout extends StatelessWidget {
+class MainBodyLayout extends StatefulWidget {
+  @override
+  _MainBodyLayoutState createState() => _MainBodyLayoutState();
+}
+
+class _MainBodyLayoutState extends State<MainBodyLayout> {
+  final int _currentIndex = 0;
+
+  final _children = [];
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -32,10 +41,12 @@ class MainBodyLayout extends StatelessWidget {
             },
           ),
         ],
-        child: const Scaffold(
-          appBar: MainAppBar(),
-          body: Home(),
-          bottomNavigationBar: MainBottomNavigationBar(),
+        child: Scaffold(
+          appBar: const MainAppBar(),
+          body: const Home(),
+          bottomNavigationBar: MainBottomNavigationBar(
+            currentIndex: _currentIndex,
+          ),
         ),
       ),
     );

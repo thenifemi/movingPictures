@@ -6,17 +6,21 @@ import '../core/constants/constants.dart';
 import '../core/constants/language_constants.dart';
 
 class MainBottomNavigationBar extends StatefulWidget {
+  final int currentIndex;
   const MainBottomNavigationBar({
     Key key,
+    @required this.currentIndex,
   }) : super(key: key);
 
   @override
   _MainBottomNavigationBarState createState() =>
-      _MainBottomNavigationBarState();
+      // ignore: no_logic_in_create_state
+      _MainBottomNavigationBarState(currentIndex: currentIndex);
 }
 
 class _MainBottomNavigationBarState extends State<MainBottomNavigationBar> {
-  int _currentIndex = 0;
+  int currentIndex;
+  _MainBottomNavigationBarState({@required this.currentIndex});
 
   final List<Map<String, dynamic>> navbarItems = [
     {"icon": homeIcon, "label": home},
@@ -27,7 +31,7 @@ class _MainBottomNavigationBarState extends State<MainBottomNavigationBar> {
 
   void onTabTapped(int index) {
     setState(() {
-      _currentIndex = index;
+      currentIndex = index;
     });
   }
 
@@ -46,10 +50,10 @@ class _MainBottomNavigationBarState extends State<MainBottomNavigationBar> {
       ),
       backgroundColor: AppColors.gray.withOpacity(0.3),
       type: BottomNavigationBarType.fixed,
-      currentIndex: _currentIndex,
+      currentIndex: currentIndex,
       onTap: onTabTapped,
       items: navbarItems.map((item) {
-        final bool isSelected = navbarItems.indexOf(item) == _currentIndex;
+        final bool isSelected = navbarItems.indexOf(item) == currentIndex;
 
         return BottomNavigationBarItem(
           icon: Padding(
