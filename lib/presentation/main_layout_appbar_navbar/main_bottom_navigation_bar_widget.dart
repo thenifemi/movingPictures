@@ -8,6 +8,7 @@ import '../core/constants/language_constants.dart';
 class MainBottomNavigationBar extends StatefulWidget {
   final int currentIndex;
   final Function(int) onTapTapped;
+
   const MainBottomNavigationBar({
     Key key,
     @required this.currentIndex,
@@ -25,8 +26,8 @@ class MainBottomNavigationBar extends StatefulWidget {
 
 class _MainBottomNavigationBarState extends State<MainBottomNavigationBar> {
   final Function(int) onTapTapped;
+  final int currentIndex;
 
-  int currentIndex;
   _MainBottomNavigationBarState({
     @required this.currentIndex,
     @required this.onTapTapped,

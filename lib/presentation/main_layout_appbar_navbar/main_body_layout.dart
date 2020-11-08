@@ -1,15 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movingPictures/presentation/favorites/favorites.dart';
-import 'package:movingPictures/presentation/friends/friends.dart';
-import 'package:movingPictures/presentation/home/home.dart';
-import 'package:movingPictures/presentation/search/search.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../../application/auth/user_profile/user_profile_bloc.dart';
 import '../../injection.dart';
+import '../favorites/favorites.dart';
+import '../friends/friends.dart';
+import '../home/home.dart';
 import '../routes/router.gr.dart';
+import '../search/search.dart';
 import 'main_app_bar_widget.dart';
 import 'main_bottom_navigation_bar_widget.dart';
 
@@ -20,7 +20,6 @@ class MainBodyLayout extends StatefulWidget {
 
 class _MainBodyLayoutState extends State<MainBodyLayout> {
   int _currentIndex = 0;
-
   final _children = [
     const Home(),
     Search(),
