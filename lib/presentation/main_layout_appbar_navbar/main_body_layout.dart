@@ -1,7 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movingPictures/presentation/favorites/favorites.dart';
+import 'package:movingPictures/presentation/friends/friends.dart';
 import 'package:movingPictures/presentation/home/home.dart';
+import 'package:movingPictures/presentation/search/search.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../../application/auth/user_profile/user_profile_bloc.dart';
@@ -18,7 +21,12 @@ class MainBodyLayout extends StatefulWidget {
 class _MainBodyLayoutState extends State<MainBodyLayout> {
   final int _currentIndex = 0;
 
-  final _children = [];
+  final _children = [
+    const Home(),
+    Search(),
+    Favorites(),
+    Friends(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +51,7 @@ class _MainBodyLayoutState extends State<MainBodyLayout> {
         ],
         child: Scaffold(
           appBar: const MainAppBar(),
-          body: const Home(),
+          body: _children[_currentIndex],
           bottomNavigationBar: MainBottomNavigationBar(
             currentIndex: _currentIndex,
           ),
