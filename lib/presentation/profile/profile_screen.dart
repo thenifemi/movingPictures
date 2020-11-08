@@ -26,57 +26,87 @@ class ProfileScreen extends StatelessWidget {
       appBar: AppBar(
         leading: const CancelButton(),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ProfileInfoBlock(user: user, appTextTheme: appTextTheme),
+            const SizedBox(height: 20.0),
+            const Divider(color: AppColors.gray, height: 1.0),
+            const Spacer(),
+            Center(child: SignOutButton(appTextTheme: appTextTheme)),
+            const SizedBox(height: 20.0),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ProfileInfoBlock extends StatelessWidget {
+  const ProfileInfoBlock({
+    Key key,
+    @required this.user,
+    @required this.appTextTheme,
+  }) : super(key: key);
+
+  final AppUser user;
+  final TextTheme appTextTheme;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      child: Row(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(100.0),
-            child: Image.network(
-              user.photoURL,
-              fit: BoxFit.fill,
+          SizedBox(
+            height: 60.0,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(100.0),
+              child: Image.network(
+                user.photoURL,
+                fit: BoxFit.fill,
+              ),
             ),
           ),
-          const SizedBox(height: 10.0),
-          Text(
-            user.name,
-            style: TextStyle(
-              fontFamily: appTextTheme.headline5.fontFamily,
-              color: appTextTheme.headline5.color,
-              fontWeight: FontWeight.w700,
-              fontSize: 40.0,
-            ),
-          ),
-          Text(
-            user.email,
-            style: TextStyle(
-              fontFamily: appTextTheme.headline5.fontFamily,
-              color: appTextTheme.headline5.color,
-              fontWeight: FontWeight.w700,
-              fontSize: 20.0,
-            ),
-          ),
-          const SizedBox(height: 20.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          const SizedBox(width: 20.0),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                signedInWithGoogle,
-                style: TextStyle(
-                  fontFamily: appTextTheme.headline5.fontFamily,
-                  color: appTextTheme.headline5.color,
-                  fontSize: 16.0,
+                user.name,
+                style: appTextTheme.bodyText1,
+              ),
+              Text(
+                user.email,
+                style: appTextTheme.headline6,
+              ),
+              const SizedBox(height: 8.0),
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 5.0, vertical: 4.0),
+                decoration: BoxDecoration(
+                  color: AppColors.gray,
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      signedInWithGoogle,
+                      style: appTextTheme.subtitle2,
+                    ),
+                    const SizedBox(width: 5.0),
+                    const Icon(
+                      Icons.verified,
+                      color: Colors.green,
+                      size: 16.0,
+                    )
+                  ],
                 ),
               ),
-              const SizedBox(width: 5.0),
-              const Icon(
-                Icons.verified,
-                color: Colors.green,
-              )
             ],
-          ),
-          const Spacer(),
-          Center(child: SignOutButton(appTextTheme: appTextTheme)),
-          const SizedBox(height: 20.0),
+          )
         ],
       ),
     );
@@ -103,12 +133,7 @@ class SignOutButton extends StatelessWidget {
         color: AppColors.red,
         child: Text(
           "Sign out",
-          style: TextStyle(
-            fontFamily: appTextTheme.button.fontFamily,
-            color: appTextTheme.button.color,
-            fontWeight: appTextTheme.button.fontWeight,
-            fontSize: appTextTheme.button.fontSize,
-          ),
+          style: appTextTheme.button,
         ),
       ),
     );

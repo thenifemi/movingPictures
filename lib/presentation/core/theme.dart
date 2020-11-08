@@ -17,15 +17,15 @@ ThemeData appTheme() {
       headline6: base.headline6.copyWith(
         fontFamily: 'Roboto',
         fontWeight: FontWeight.w500,
-        fontSize: 20.0,
+        fontSize: 18.0,
         color: AppColors.white,
       ),
 
-      //*[bodyText1] is for movie info and likes. Alsp for regular app texts.
+      //*[bodyText1] is for movie info and likes. Also for regular app texts.
       bodyText1: base.bodyText1.copyWith(
         fontFamily: 'Roboto',
         fontWeight: FontWeight.w400,
-        fontSize: 14.0,
+        fontSize: 15.0,
         color: AppColors.white,
       ),
 
@@ -33,7 +33,14 @@ ThemeData appTheme() {
       subtitle1: base.subtitle1.copyWith(
         fontFamily: 'Roboto',
         fontWeight: FontWeight.w300,
-        fontSize: 14.0,
+        fontSize: 13.0,
+        color: AppColors.white,
+      ),
+      //*Bold version
+      subtitle2: base.subtitle2.copyWith(
+        fontFamily: 'Roboto',
+        fontWeight: FontWeight.w500,
+        fontSize: 13.0,
         color: AppColors.white,
       ),
 
