@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movingPictures/application/auth/auth_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../application/auth/auth_bloc.dart';
 import '../../domain/auth/app_user.dart';
 import '../core/app_colors.dart';
 import '../core/component_widgets/cancel_button_widget.dart';
