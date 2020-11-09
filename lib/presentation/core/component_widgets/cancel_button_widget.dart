@@ -6,8 +6,10 @@ import '../app_colors.dart';
 import '../constants/constants.dart';
 
 class CancelButton extends StatelessWidget {
+  final Color color;
   const CancelButton({
     Key key,
+    @required this.color,
   }) : super(key: key);
 
   @override
@@ -18,7 +20,7 @@ class CancelButton extends StatelessWidget {
         height: 28.0,
         width: 28.0,
         decoration: BoxDecoration(
-          color: AppColors.gray,
+          color: color,
           borderRadius: BorderRadius.circular(100.0),
         ),
         child: SvgPicture.asset(
@@ -26,7 +28,7 @@ class CancelButton extends StatelessWidget {
           color: AppColors.white,
         ),
       ),
-      color: AppColors.gray,
+      color: color,
     );
   }
 }

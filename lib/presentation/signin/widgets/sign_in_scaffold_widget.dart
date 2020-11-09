@@ -34,7 +34,7 @@ class SignInScaffoldWidget extends StatelessWidget {
             (_) {
               ExtendedNavigator.of(context).replace(Routes.mainBodyLayout);
               context
-                  .bloc<AuthBloc>()
+                  .watch<AuthBloc>()
                   .add(const AuthEvent.authCheckRequested());
             },
           ),
@@ -177,7 +177,7 @@ class SignInButton extends StatelessWidget {
             //Do nothing when state is submiting
           } else {
             context
-                .bloc<SignInBloc>()
+                .watch<SignInBloc>()
                 .add(const SignInEvent.signInwithGooglePressed());
           }
         },

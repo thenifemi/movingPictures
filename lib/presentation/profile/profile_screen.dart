@@ -46,8 +46,9 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
               FlatButton(
-                onPressed: () =>
-                    context.bloc<AuthBloc>().add(const AuthEvent.signedOut()),
+                onPressed: () => context
+                    .watch()<AuthBloc>()
+                    .add(const AuthEvent.signedOut()),
                 child: const Text(
                   signOut,
                   style: TextStyle(color: AppColors.red),
@@ -61,7 +62,9 @@ class ProfileScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: const CancelButton(),
+        leading: const CancelButton(
+          color: AppColors.red,
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),

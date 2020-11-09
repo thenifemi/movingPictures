@@ -16,8 +16,12 @@ class MoviesTabScreen extends StatefulWidget {
 class _MoviesTabScreenState extends State<MoviesTabScreen> {
   @override
   Widget build(BuildContext context) {
-    Future showInfoBottomSheet() => buildShowInfoModalBottomSheet(context);
+    final appTextTheme = Theme.of(context).textTheme;
 
+    Future showInfoBottomSheet() => buildShowInfoModalBottomSheet(
+          context: context,
+          appTextTheme: appTextTheme,
+        );
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Column(

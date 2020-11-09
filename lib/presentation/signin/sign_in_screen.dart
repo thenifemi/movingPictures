@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movingPictures/application/auth/user_profile/user_profile_bloc.dart';
 
 import '../../application/auth/sign_in/sign_in_bloc.dart';
 import '../../injection.dart';
