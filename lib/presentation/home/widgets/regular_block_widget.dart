@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:movingPictures/presentation/core/app_colors.dart';
+
+import '../../core/app_colors.dart';
 
 class RegularBlockWidget extends StatelessWidget {
   final String blockName;
   final Function showInfoBottomSheet;
+
   const RegularBlockWidget({
     Key key,
     @required this.blockName,

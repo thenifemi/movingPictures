@@ -7,9 +7,12 @@ import '../../core/constants/language_constants.dart';
 
 class TopTenBlockWidget extends StatelessWidget {
   final String moviesOrSeries;
+  final Function showInfoBottomSheet;
+
   const TopTenBlockWidget({
     Key key,
     @required this.moviesOrSeries,
+    @required this.showInfoBottomSheet,
   }) : super(key: key);
 
   @override
@@ -52,36 +55,39 @@ class TopTenBlockWidget extends StatelessWidget {
 
               final _number = _numberIcons[i];
 
-              return Stack(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.only(right: 10.0),
-                    width: MediaQuery.of(context).size.height / 4,
-                    child: Container(
+              return GestureDetector(
+                onTap: () => showInfoBottomSheet(),
+                child: Stack(
+                  children: [
+                    Container(
                       padding: const EdgeInsets.only(right: 10.0),
-                      width: MediaQuery.of(context).size.height / 8,
+                      width: MediaQuery.of(context).size.height / 4,
                       child: Container(
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(5.0),
+                        padding: const EdgeInsets.only(right: 10.0),
+                        width: MediaQuery.of(context).size.height / 8,
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(5.0),
+                            ),
+                            color: AppColors.red,
                           ),
-                          color: AppColors.red,
                         ),
                       ),
                     ),
-                  ),
-                  Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: SvgPicture.asset(
-                        _number.toString(),
-                        color: AppColors.white,
-                        height: 100.0,
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: SvgPicture.asset(
+                          _number.toString(),
+                          color: AppColors.white,
+                          height: 100.0,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               );
             },
           ),
