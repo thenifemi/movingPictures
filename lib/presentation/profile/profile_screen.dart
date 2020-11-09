@@ -62,9 +62,7 @@ class ProfileScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: const CancelButton(
-          color: AppColors.red,
-        ),
+        leading: const CancelButton(),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),

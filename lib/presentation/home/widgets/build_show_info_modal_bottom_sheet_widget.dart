@@ -21,10 +21,11 @@ Future buildShowInfoModalBottomSheet({
       child: Column(
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                width: MediaQuery.of(context).size.height / 8,
-                height: MediaQuery.of(context).size.height / 5.5,
+                width: MediaQuery.of(context).size.height / 9,
+                height: MediaQuery.of(context).size.height / 6.5,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(
                     Radius.circular(5.0),
@@ -33,44 +34,16 @@ Future buildShowInfoModalBottomSheet({
                 ),
               ),
               const SizedBox(width: 10.0),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Column(
-                        children: [
-                          Text(
-                            "The Queens Gambit",
-                            style: appTextTheme.headline5,
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                "2020",
-                                style: appTextTheme.subtitle1,
-                              ),
-                              const SizedBox(width: 10.0),
-                              const Icon(
-                                Icons.pages,
-                                color: AppColors.black,
-                                size: 25.0,
-                              ),
-                              const SizedBox(width: 10.0),
-                              Text(
-                                "5 Seasons",
-                                style: appTextTheme.subtitle1,
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      const CancelButton(
-                        color: AppColors.black,
-                      )
-                    ],
-                  )
-                ],
+              Expanded(
+                child: Column(
+                  children: [
+                    TitleSubtitleAndCancel(appTextTheme: appTextTheme),
+                    const SizedBox(
+                      height: 50.0,
+                      child: Placeholder(),
+                    )
+                  ],
+                ),
               ),
             ],
           )
@@ -78,4 +51,55 @@ Future buildShowInfoModalBottomSheet({
       ),
     ),
   );
+}
+
+class TitleSubtitleAndCancel extends StatelessWidget {
+  final TextTheme appTextTheme;
+  const TitleSubtitleAndCancel({
+    Key key,
+    @required this.appTextTheme,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "The Queens Gambit",
+                style: appTextTheme.headline5,
+                maxLines: 2,
+                softWrap: true,
+                overflow: TextOverflow.fade,
+              ),
+              Row(
+                children: [
+                  Text(
+                    "2020",
+                    style: appTextTheme.subtitle1,
+                  ),
+                  const SizedBox(width: 10.0),
+                  const Icon(
+                    Icons.pages,
+                    color: AppColors.black,
+                    size: 25.0,
+                  ),
+                  const SizedBox(width: 10.0),
+                  Text(
+                    "5 Seasons",
+                    style: appTextTheme.subtitle1,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        const CancelButton(),
+      ],
+    );
+  }
 }
