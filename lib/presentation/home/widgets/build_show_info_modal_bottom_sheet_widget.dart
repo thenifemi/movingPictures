@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movingPictures/presentation/core/component_widgets/half_button_widget.dart';
 
 import '../../core/app_colors.dart';
 import '../../core/component_widgets/cancel_button_widget.dart';
@@ -16,9 +17,8 @@ Future buildShowInfoModalBottomSheet({
     )),
     context: context,
     builder: (context) => Container(
-      height: MediaQuery.of(context).size.height / 3.5,
-      padding: const EdgeInsets.all(12.0),
-      color: Colors.transparent,
+      height: MediaQuery.of(context).size.height / 3.4,
+      padding: const EdgeInsets.only(top: 12.0, left: 12.0, right: 12.0),
       child: Column(
         children: [
           Row(
@@ -31,8 +31,13 @@ Future buildShowInfoModalBottomSheet({
               ),
             ],
           ),
-          const SizedBox(height: 15.0),
-          TrailerButtonBlock(appTextTheme: appTextTheme)
+          const SizedBox(height: 10.0),
+          TrailerButtonBlock(appTextTheme: appTextTheme),
+          const Divider(color: AppColors.white),
+          Expanded(
+              child: MoreInfoButton(
+            appTextTheme: appTextTheme,
+          ))
         ],
       ),
     ),
@@ -130,10 +135,11 @@ class TrailerButtonBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SizedBox(
-          height: 40.0,
-          width: MediaQuery.of(context).size.width / 2,
-          child: const Placeholder(),
+        HalfButton(
+          appTextTheme: appTextTheme,
+          name: "Watch trailer",
+          color: AppColors.white,
+          onpressed: () {},
         ),
         Expanded(
           child: Column(
@@ -168,6 +174,46 @@ class TrailerButtonBlock extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class MoreInfoButton extends StatelessWidget {
+  final TextTheme appTextTheme;
+
+  const MoreInfoButton({
+    Key key,
+    @required this.appTextTheme,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: () {},
+      child: Container(
+        padding: const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
+        width: double.infinity,
+        child: Row(
+          children: [
+            const Icon(
+              Icons.info_outline,
+              color: AppColors.white,
+              size: 25.0,
+            ),
+            const SizedBox(width: 10.0),
+            Text(
+              "More info",
+              style: appTextTheme.bodyText1,
+            ),
+            const Spacer(),
+            const Icon(
+              Icons.arrow_forward_ios,
+              color: AppColors.white,
+              size: 10.0,
+            )
+          ],
+        ),
+      ),
     );
   }
 }
