@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movingPictures/presentation/core/app_colors.dart';
-import 'package:movingPictures/presentation/core/component_widgets/cancel_button_widget.dart';
+
+import '../../core/app_colors.dart';
+import '../../core/component_widgets/cancel_button_widget.dart';
 
 Future buildShowInfoModalBottomSheet({
   BuildContext context,
@@ -23,39 +24,104 @@ Future buildShowInfoModalBottomSheet({
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                width: MediaQuery.of(context).size.height / 9,
-                height: MediaQuery.of(context).size.height / 6.5,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(5.0),
-                  ),
-                  color: AppColors.red,
-                ),
-              ),
+              const PosterBlock(),
               const SizedBox(width: 10.0),
               Expanded(
-                child: Column(
-                  children: [
-                    TitleSubtitleAndCancel(appTextTheme: appTextTheme),
-                    const SizedBox(
-                      height: 50.0,
-                      child: Placeholder(),
-                    )
-                  ],
-                ),
+                child: TitleSubtitleBodyBlock(appTextTheme: appTextTheme),
               ),
             ],
-          )
+          ),
+          const SizedBox(height: 15.0),
+          TrailerButtonBlock(appTextTheme: appTextTheme)
         ],
       ),
     ),
   );
 }
 
-class TitleSubtitleAndCancel extends StatelessWidget {
+class PosterBlock extends StatelessWidget {
+  const PosterBlock({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.height / 9,
+      height: MediaQuery.of(context).size.height / 6.5,
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(
+          Radius.circular(5.0),
+        ),
+        color: AppColors.red,
+      ),
+    );
+  }
+}
+
+class TitleSubtitleBodyBlock extends StatelessWidget {
   final TextTheme appTextTheme;
-  const TitleSubtitleAndCancel({
+  const TitleSubtitleBodyBlock({
+    Key key,
+    @required this.appTextTheme,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "The Queens Gambit",
+                    style: appTextTheme.headline5,
+                    maxLines: 2,
+                    softWrap: true,
+                    overflow: TextOverflow.fade,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        "2020",
+                        style: appTextTheme.subtitle1,
+                      ),
+                      const SizedBox(width: 10.0),
+                      const Icon(
+                        Icons.eighteen_mp,
+                        color: AppColors.black,
+                        size: 30.0,
+                      ),
+                      const SizedBox(width: 10.0),
+                      Text(
+                        "5 Seasons",
+                        style: appTextTheme.subtitle1,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const CancelButton(),
+          ],
+        ),
+        const SizedBox(height: 10.0),
+        Text(
+          "Set during the Cold War era, orphaned chess prodigy Beth Harmon struggles with addiction in a quest to become the greatest chess player in the world.",
+          style: appTextTheme.bodyText1,
+        ),
+      ],
+    );
+  }
+}
+
+class TrailerButtonBlock extends StatelessWidget {
+  final TextTheme appTextTheme;
+  const TrailerButtonBlock({
     Key key,
     @required this.appTextTheme,
   }) : super(key: key);
@@ -63,42 +129,44 @@ class TitleSubtitleAndCancel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        SizedBox(
+          height: 40.0,
+          width: MediaQuery.of(context).size.width / 2,
+          child: const Placeholder(),
+        ),
         Expanded(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "The Queens Gambit",
-                style: appTextTheme.headline5,
-                maxLines: 2,
-                softWrap: true,
-                overflow: TextOverflow.fade,
+              const Icon(
+                Icons.favorite_border,
+                color: Colors.white,
+                size: 25.0,
               ),
-              Row(
-                children: [
-                  Text(
-                    "2020",
-                    style: appTextTheme.subtitle1,
-                  ),
-                  const SizedBox(width: 10.0),
-                  const Icon(
-                    Icons.pages,
-                    color: AppColors.black,
-                    size: 25.0,
-                  ),
-                  const SizedBox(width: 10.0),
-                  Text(
-                    "5 Seasons",
-                    style: appTextTheme.subtitle1,
-                  ),
-                ],
+              const SizedBox(height: 5.0),
+              Text(
+                "Favorite",
+                style: appTextTheme.subtitle1,
               ),
             ],
           ),
         ),
-        const CancelButton(),
+        Expanded(
+          child: Column(
+            children: [
+              const Icon(
+                Icons.share,
+                color: Colors.white,
+                size: 25.0,
+              ),
+              const SizedBox(height: 5.0),
+              Text(
+                "Share",
+                style: appTextTheme.subtitle1,
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }
