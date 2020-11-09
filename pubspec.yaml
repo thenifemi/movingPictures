@@ -23,7 +23,7 @@ dependencies:
   firebase_auth: ^0.18.3
   firebase_core: ^0.5.2
   flushbar: ^1.10.4
-  flutter_bloc: ^6.0.6
+  flutter_bloc: ^6.1.0
   flutter_svg: ^0.19.1
   freezed_annotation: null
   get_it: ^5.0.1

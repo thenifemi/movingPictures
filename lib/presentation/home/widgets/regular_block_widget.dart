@@ -3,9 +3,11 @@ import 'package:movingPictures/presentation/core/app_colors.dart';
 
 class RegularBlockWidget extends StatelessWidget {
   final String blockName;
+  final Function showInfoBottomSheet;
   const RegularBlockWidget({
     Key key,
     @required this.blockName,
+    @required this.showInfoBottomSheet,
   }) : super(key: key);
 
   @override
@@ -33,15 +35,18 @@ class RegularBlockWidget extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: 10,
             itemBuilder: (context, i) {
-              return Container(
-                padding: const EdgeInsets.only(right: 10.0),
-                width: MediaQuery.of(context).size.height / 8,
+              return GestureDetector(
+                onTap: () => showInfoBottomSheet(),
                 child: Container(
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(5.0),
+                  padding: const EdgeInsets.only(right: 10.0),
+                  width: MediaQuery.of(context).size.height / 8,
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(5.0),
+                      ),
+                      color: AppColors.red,
                     ),
-                    color: AppColors.red,
                   ),
                 ),
               );
