@@ -11,6 +11,10 @@ const String friends = "Friends";
 
 //* Profile Screen
 const String signedInWithGoogle = "Signed in with Google";
+const String signOut = "Sign out";
+const String questionMark = "?";
+const String cancel = "Cancel";
+const String areYouSureYouWantToSignOut = "Are you sure you want to Sign out?";
 
 //* Tabs
 const String movies = "Movies";
