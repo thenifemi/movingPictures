@@ -31,7 +31,7 @@ class ProfileScreen extends StatelessWidget {
             backgroundColor: AppColors.gray,
             title: Text(
               "$signOut$questionMark",
-              style: appTextTheme.bodyText1,
+              style: appTextTheme.headline6,
             ),
             content: Text(
               areYouSureYouWantToSignOut,
@@ -76,7 +76,9 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(height: 20.0),
             Center(
                 child: SignOutButton(
-                    appTextTheme: appTextTheme, showDialog: _showDialog)),
+              appTextTheme: appTextTheme,
+              showDialog: _showDialog,
+            )),
             const SizedBox(height: 20.0),
           ],
         ),
