@@ -30,8 +30,8 @@ class RegularBlockWidget extends StatelessWidget {
         ),
         const SizedBox(height: 10.0),
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-          height: MediaQuery.of(context).size.height / 6,
+          margin: const EdgeInsets.symmetric(horizontal: 10.0),
+          height: MediaQuery.of(context).size.height / 5.5,
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
@@ -41,7 +41,7 @@ class RegularBlockWidget extends StatelessWidget {
                 onTap: () => showInfoBottomSheet(),
                 child: Container(
                   padding: const EdgeInsets.only(right: 10.0),
-                  width: MediaQuery.of(context).size.height / 8,
+                  width: MediaQuery.of(context).size.height / 7,
                   child: Container(
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(

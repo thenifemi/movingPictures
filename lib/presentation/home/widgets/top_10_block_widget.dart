@@ -17,6 +17,19 @@ class TopTenBlockWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List _numberIcons = [
+      number1Icon,
+      number2Icon,
+      number3Icon,
+      number4Icon,
+      number5Icon,
+      number6Icon,
+      number7Icon,
+      number8Icon,
+      number9Icon,
+      number0Icon,
+    ];
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -34,25 +47,12 @@ class TopTenBlockWidget extends StatelessWidget {
         const SizedBox(height: 10.0),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
-          height: MediaQuery.of(context).size.height / 2.5,
+          height: MediaQuery.of(context).size.height / 3,
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
             itemCount: 10,
             itemBuilder: (context, i) {
-              final List _numberIcons = [
-                number1Icon,
-                number2Icon,
-                number3Icon,
-                number4Icon,
-                number5Icon,
-                number6Icon,
-                number7Icon,
-                number8Icon,
-                number9Icon,
-                number0Icon,
-              ];
-
               final _number = _numberIcons[i];
 
               return GestureDetector(
@@ -61,17 +61,13 @@ class TopTenBlockWidget extends StatelessWidget {
                   children: [
                     Container(
                       padding: const EdgeInsets.only(right: 10.0),
-                      width: MediaQuery.of(context).size.height / 4,
+                      width: MediaQuery.of(context).size.height / 5,
                       child: Container(
-                        padding: const EdgeInsets.only(right: 10.0),
-                        width: MediaQuery.of(context).size.height / 8,
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(5.0),
-                            ),
-                            color: AppColors.red,
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(5.0),
                           ),
+                          color: AppColors.red,
                         ),
                       ),
                     ),

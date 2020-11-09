@@ -35,7 +35,10 @@ class _MoviesTabScreenState extends State<MoviesTabScreen> {
             showInfoBottomSheet: showInfoBottomSheet,
           ),
           const SizedBox(height: 20.0),
-          const TopTenBlockWidget(moviesOrSeries: movies),
+          TopTenBlockWidget(
+            moviesOrSeries: movies,
+            showInfoBottomSheet: showInfoBottomSheet,
+          ),
           const SizedBox(height: 20.0),
           RegularBlockWidget(
             blockName: horror,
