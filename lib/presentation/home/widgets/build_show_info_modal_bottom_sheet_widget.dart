@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:movingPictures/presentation/core/component_widgets/half_button_widget.dart';
-import 'package:movingPictures/presentation/core/constants/constants.dart';
-import 'package:movingPictures/presentation/core/constants/language_constants.dart';
-import 'package:movingPictures/presentation/home/widgets/small_buttons.dart';
 
 import '../../core/app_colors.dart';
 import '../../core/component_widgets/cancel_button_widget.dart';
+import '../../core/component_widgets/half_button_widget.dart';
+import '../../core/constants/constants.dart';
+import '../../core/constants/language_constants.dart';
+import 'small_buttons.dart';
 
 Future buildShowInfoModalBottomSheet({
   BuildContext context,
@@ -55,14 +55,15 @@ class PosterBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: MediaQuery.of(context).size.height / 9,
       height: MediaQuery.of(context).size.height / 6.5,
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(
-          Radius.circular(5.0),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(5.0),
+        child: Image.asset(
+          theQueensGambitPoster,
+          fit: BoxFit.cover,
         ),
-        color: AppColors.red,
       ),
     );
   }

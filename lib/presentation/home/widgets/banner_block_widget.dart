@@ -43,31 +43,62 @@ class BannerBlockWidget extends StatelessWidget {
             color: AppColors.black.withOpacity(0.3),
             child: Align(
               alignment: Alignment.bottomCenter,
-              child: SizedBox(
-                height: 50.0,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    FavoriteButtonWidget(
-                      appTextTheme: appTextTheme,
-                      onPressed: () {},
-                    ),
-                    SizedBox(
-                      height: 40.0,
-                      width: 100.0,
-                      child: HalfButton(
-                        appTextTheme: appTextTheme,
-                        name: watchTrailer,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    height: 40.0,
+                    width: MediaQuery.of(context).size.width / 1.5,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        width: 2.0,
                         color: AppColors.white,
-                        onpressed: () {},
                       ),
                     ),
-                    InfoButtonWidget(
-                      appTextTheme: appTextTheme,
-                      onPressed: () {},
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          certifiedNifemiBest,
+                          style: appTextTheme.headline5,
+                        ),
+                        const SizedBox(width: 5.0),
+                        const Icon(
+                          Icons.verified,
+                          color: AppColors.red,
+                          size: 25.0,
+                        )
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                  const SizedBox(height: 10.0),
+                  SizedBox(
+                    height: 50.0,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        FavoriteButtonWidget(
+                          appTextTheme: appTextTheme,
+                          onPressed: () {},
+                        ),
+                        SizedBox(
+                          height: 40.0,
+                          width: 100.0,
+                          child: HalfButton(
+                            appTextTheme: appTextTheme,
+                            name: watchTrailer,
+                            color: AppColors.white,
+                            onpressed: () {},
+                          ),
+                        ),
+                        InfoButtonWidget(
+                          appTextTheme: appTextTheme,
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

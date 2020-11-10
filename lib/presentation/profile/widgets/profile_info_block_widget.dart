@@ -61,7 +61,7 @@ class ProfileInfoBlock extends StatelessWidget {
                       Icons.verified,
                       color: Colors.green,
                       size: 16.0,
-                    )
+                    ),
                   ],
                 ),
               ),
