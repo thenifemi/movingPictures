@@ -8,6 +8,8 @@ const String movingPicturesLogoRed =
 const String signInScreenBackgroundImageJohnWick = 'assets/images/johnwick.png';
 const String signInScreenBackgroundImage =
     'assets/images/the_queens_gambit.png';
+const String theQueensGambitPoster =
+    'assets/images/the_queens_gambit_movie_poster.jpg';
 
 //*ICONS
 // Icons made by "https://www.flaticon.com/authors/freepik"

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:movingPictures/presentation/core/app_colors.dart';
-import 'package:movingPictures/presentation/core/component_widgets/half_button_widget.dart';
-import 'package:movingPictures/presentation/core/constants/constants.dart';
-import 'package:movingPictures/presentation/core/constants/language_constants.dart';
-import 'package:movingPictures/presentation/home/widgets/small_buttons.dart';
+
+import '../../core/app_colors.dart';
+import '../../core/component_widgets/half_button_widget.dart';
+import '../../core/constants/constants.dart';
+import '../../core/constants/language_constants.dart';
+import 'small_buttons.dart';
 
 class BannerBlockWidget extends StatelessWidget {
   const BannerBlockWidget({
@@ -33,8 +34,8 @@ class BannerBlockWidget extends StatelessWidget {
               ),
             ),
             child: Image.asset(
-              signInScreenBackgroundImage,
-              fit: BoxFit.fill,
+              theQueensGambitPoster,
+              fit: BoxFit.cover,
               width: double.infinity,
             ),
           ),
