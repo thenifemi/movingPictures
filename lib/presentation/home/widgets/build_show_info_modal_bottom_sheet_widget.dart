@@ -114,7 +114,7 @@ class TitleSubtitleBodyBlock extends StatelessWidget {
             const CancelButton(),
           ],
         ),
-        const SizedBox(height: 10.0),
+        const SizedBox(height: 5.0),
         Text(
           "Set during the Cold War era, orphaned chess prodigy Beth Harmon struggles with addiction in a quest to become the greatest chess player in the world.",
           style: appTextTheme.bodyText1,
