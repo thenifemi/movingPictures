@@ -56,7 +56,7 @@ ThemeData appTheme() {
       headline4: base.button.copyWith(
         fontFamily: 'Montez',
         fontWeight: FontWeight.w500,
-        fontSize: 20.0,
+        fontSize: 30.0,
         color: AppColors.white,
       ),
     );

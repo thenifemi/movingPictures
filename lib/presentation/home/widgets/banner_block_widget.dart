@@ -19,87 +19,109 @@ class BannerBlockWidget extends StatelessWidget {
       height: MediaQuery.of(context).size.height / 2,
       child: Stack(
         children: [
+          const BackgroundPoster(),
+          BottomItems(appTextTheme: appTextTheme),
+        ],
+      ),
+    );
+  }
+}
+
+class BackgroundPoster extends StatelessWidget {
+  const BackgroundPoster({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      foregroundDecoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            AppColors.black,
+            Colors.transparent,
+            Colors.transparent,
+            AppColors.black,
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          stops: [0, 0.2, 0.8, 1],
+        ),
+      ),
+      child: Image.asset(
+        theQueensGambitPoster,
+        fit: BoxFit.cover,
+        width: double.infinity,
+      ),
+    );
+  }
+}
+
+class BottomItems extends StatelessWidget {
+  const BottomItems({
+    Key key,
+    @required this.appTextTheme,
+  }) : super(key: key);
+
+  final TextTheme appTextTheme;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: AppColors.black.withOpacity(0.3),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
           Container(
-            foregroundDecoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  AppColors.black,
-                  Colors.transparent,
-                  Colors.transparent,
-                  AppColors.black,
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                stops: [0, 0.2, 0.8, 1],
+            height: 40.0,
+            width: MediaQuery.of(context).size.width / 1.8,
+            decoration: BoxDecoration(
+              border: Border.all(
+                width: 2.0,
+                color: AppColors.white,
               ),
             ),
-            child: Image.asset(
-              theQueensGambitPoster,
-              fit: BoxFit.cover,
-              width: double.infinity,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  nifemiRecommends,
+                  style: appTextTheme.headline4,
+                ),
+                const SizedBox(width: 5.0),
+                const Icon(
+                  Icons.verified,
+                  color: AppColors.red,
+                  size: 25.0,
+                )
+              ],
             ),
           ),
-          Container(
-            color: AppColors.black.withOpacity(0.3),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                    height: 40.0,
-                    width: MediaQuery.of(context).size.width / 1.5,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 2.0,
-                        color: AppColors.white,
-                      ),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          nifemiRecommends,
-                          style: appTextTheme.headline4,
-                        ),
-                        const SizedBox(width: 5.0),
-                        const Icon(
-                          Icons.verified,
-                          color: AppColors.red,
-                          size: 25.0,
-                        )
-                      ],
-                    ),
+          const SizedBox(height: 10.0),
+          SizedBox(
+            height: 50.0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                FavoriteButtonWidget(
+                  appTextTheme: appTextTheme,
+                  onPressed: () {},
+                ),
+                SizedBox(
+                  height: 40.0,
+                  width: 100.0,
+                  child: HalfButton(
+                    appTextTheme: appTextTheme,
+                    name: watchTrailer,
+                    color: AppColors.white,
+                    onpressed: () {},
                   ),
-                  const SizedBox(height: 10.0),
-                  SizedBox(
-                    height: 50.0,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        FavoriteButtonWidget(
-                          appTextTheme: appTextTheme,
-                          onPressed: () {},
-                        ),
-                        SizedBox(
-                          height: 40.0,
-                          width: 100.0,
-                          child: HalfButton(
-                            appTextTheme: appTextTheme,
-                            name: watchTrailer,
-                            color: AppColors.white,
-                            onpressed: () {},
-                          ),
-                        ),
-                        InfoButtonWidget(
-                          appTextTheme: appTextTheme,
-                          onPressed: () {},
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                ),
+                InfoButtonWidget(
+                  appTextTheme: appTextTheme,
+                  onPressed: () {},
+                ),
+              ],
             ),
           ),
         ],
