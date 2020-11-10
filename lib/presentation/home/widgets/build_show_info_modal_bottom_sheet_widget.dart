@@ -90,7 +90,7 @@ class TitleSubtitleBodyBlock extends StatelessWidget {
                     style: appTextTheme.headline5,
                     maxLines: 2,
                     softWrap: true,
-                    overflow: TextOverflow.fade,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   Row(
                     children: [
@@ -99,10 +99,9 @@ class TitleSubtitleBodyBlock extends StatelessWidget {
                         style: appTextTheme.subtitle1,
                       ),
                       const SizedBox(width: 10.0),
-                      const Icon(
-                        Icons.eighteen_mp,
-                        color: AppColors.black,
-                        size: 30.0,
+                      SvgPicture.asset(
+                        eighteenPlusIcon,
+                        color: AppColors.red,
                       ),
                       const SizedBox(width: 10.0),
                       Text(
