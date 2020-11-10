@@ -26,3 +26,9 @@ const String horror = "Horror";
 const String action = "Action";
 const String trendingNow = "Trending Now";
 const String comedy = "Comedy";
+
+//* Info Bottomsheet
+const String moreInfo = "More info";
+const String share = "Share";
+const String favorite = "Favorite";
+const String watchTrailer = "Watch trailer";

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movingPictures/presentation/core/component_widgets/half_button_widget.dart';
+import 'package:movingPictures/presentation/core/constants/constants.dart';
+import 'package:movingPictures/presentation/core/constants/language_constants.dart';
 
 import '../../core/app_colors.dart';
 import '../../core/component_widgets/cancel_button_widget.dart';
@@ -93,7 +96,7 @@ class TitleSubtitleBodyBlock extends StatelessWidget {
                     children: [
                       Text(
                         "2020",
-                        style: appTextTheme.subtitle1,
+                        style: appTextTheme.subtitle2,
                       ),
                       const SizedBox(width: 10.0),
                       const Icon(
@@ -137,40 +140,44 @@ class TrailerButtonBlock extends StatelessWidget {
       children: [
         HalfButton(
           appTextTheme: appTextTheme,
-          name: "Watch trailer",
+          name: watchTrailer,
           color: AppColors.white,
           onpressed: () {},
         ),
         Expanded(
-          child: Column(
-            children: [
-              const Icon(
-                Icons.favorite_border,
-                color: Colors.white,
-                size: 25.0,
-              ),
-              const SizedBox(height: 5.0),
-              Text(
-                "Favorite",
-                style: appTextTheme.subtitle1,
-              ),
-            ],
+          child: GestureDetector(
+            onTap: () {},
+            child: Column(
+              children: [
+                SvgPicture.asset(
+                  favoriteIcon,
+                  color: AppColors.white,
+                ),
+                const SizedBox(height: 5.0),
+                Text(
+                  favorite,
+                  style: appTextTheme.subtitle1,
+                ),
+              ],
+            ),
           ),
         ),
         Expanded(
-          child: Column(
-            children: [
-              const Icon(
-                Icons.share,
-                color: Colors.white,
-                size: 25.0,
-              ),
-              const SizedBox(height: 5.0),
-              Text(
-                "Share",
-                style: appTextTheme.subtitle1,
-              ),
-            ],
+          child: GestureDetector(
+            onTap: () {},
+            child: Column(
+              children: [
+                SvgPicture.asset(
+                  shareIcon,
+                  color: AppColors.white,
+                ),
+                const SizedBox(height: 5.0),
+                Text(
+                  share,
+                  style: appTextTheme.subtitle1,
+                ),
+              ],
+            ),
           ),
         ),
       ],
@@ -195,14 +202,13 @@ class MoreInfoButton extends StatelessWidget {
         width: double.infinity,
         child: Row(
           children: [
-            const Icon(
-              Icons.info_outline,
+            SvgPicture.asset(
+              infoIcon,
               color: AppColors.white,
-              size: 25.0,
             ),
             const SizedBox(width: 10.0),
             Text(
-              "More info",
+              moreInfo,
               style: appTextTheme.bodyText1,
             ),
             const Spacer(),

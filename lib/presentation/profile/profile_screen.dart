@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movingPictures/presentation/core/component_widgets/half_button_widget.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../../domain/auth/app_user.dart';
 import '../core/app_colors.dart';
 import '../core/component_widgets/cancel_button_widget.dart';
+import '../core/component_widgets/half_button_widget.dart';
 import '../core/constants/language_constants.dart';
 import 'widgets/profile_info_block_widget.dart';
-import 'widgets/sign_out_button_widget.dart';
 
 class ProfileScreen extends StatelessWidget {
   final TextTheme appTextTheme;

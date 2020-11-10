@@ -60,6 +60,9 @@ flutter:
     - assets/logos/
     - assets/images/
     - assets/icons/
+    - assets/icons/regularIcons/
+    - assets/icons/numberIcons/
+    - assets/icons/ageRestrictionIcons/
 
   fonts:
     - family: Montserrat
