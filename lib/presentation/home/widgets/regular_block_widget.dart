@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movingPictures/presentation/core/constants/constants.dart';
 
 import '../../core/app_colors.dart';
 
@@ -42,12 +43,11 @@ class RegularBlockWidget extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.only(right: 10.0),
                   width: MediaQuery.of(context).size.height / 7,
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(5.0),
-                      ),
-                      color: AppColors.red,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(5.0),
+                    child: Image.asset(
+                      theQueensGambitPoster,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),

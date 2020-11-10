@@ -62,12 +62,10 @@ class TopTenBlockWidget extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.only(right: 10.0),
                       width: MediaQuery.of(context).size.height / 5,
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(5.0),
-                          ),
-                          color: AppColors.red,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(5.0),
+                        child: Image.asset(
+                          theQueensGambitPoster,
                         ),
                       ),
                     ),
