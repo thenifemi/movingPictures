@@ -8,7 +8,7 @@ ThemeData appTheme() {
       //*[headline5] is for all kinds of headings EXCEPT Movie Title.
       headline5: base.headline5.copyWith(
         fontFamily: 'Roboto',
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w700,
         fontSize: 22.0,
         color: AppColors.white,
       ),
@@ -33,8 +33,8 @@ ThemeData appTheme() {
       subtitle1: base.subtitle1.copyWith(
         fontFamily: 'Roboto',
         fontWeight: FontWeight.w300,
-        fontSize: 13.0,
-        color: AppColors.white,
+        fontSize: 12.5,
+        color: AppColors.white.withOpacity(0.5),
       ),
       //*Bold version
       subtitle2: base.subtitle2.copyWith(

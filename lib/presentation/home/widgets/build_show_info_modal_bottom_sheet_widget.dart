@@ -96,7 +96,7 @@ class TitleSubtitleBodyBlock extends StatelessWidget {
                     children: [
                       Text(
                         "2020",
-                        style: appTextTheme.subtitle2,
+                        style: appTextTheme.subtitle1,
                       ),
                       const SizedBox(width: 10.0),
                       const Icon(
