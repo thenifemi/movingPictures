@@ -121,6 +121,8 @@ class TitleSubtitleBodyBlock extends StatelessWidget {
         Text(
           "Set during the Cold War era, orphaned chess prodigy Beth Harmon struggles with addiction in a quest to become the greatest chess player in the world.",
           style: appTextTheme.bodyText1,
+          maxLines: 4,
+          overflow: TextOverflow.ellipsis,
         ),
       ],
     );
