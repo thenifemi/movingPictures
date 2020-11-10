@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movingPictures/presentation/core/component_widgets/half_button_widget.dart';
 import 'package:movingPictures/presentation/core/constants/constants.dart';
 import 'package:movingPictures/presentation/core/constants/language_constants.dart';
+import 'package:movingPictures/presentation/home/widgets/small_buttons.dart';
 
 import '../../core/app_colors.dart';
 import '../../core/component_widgets/cancel_button_widget.dart';
@@ -146,39 +147,15 @@ class TrailerButtonBlock extends StatelessWidget {
           onpressed: () {},
         ),
         Expanded(
-          child: GestureDetector(
-            onTap: () {},
-            child: Column(
-              children: [
-                SvgPicture.asset(
-                  favoriteIcon,
-                  color: AppColors.white,
-                ),
-                const SizedBox(height: 5.0),
-                Text(
-                  favorite,
-                  style: appTextTheme.subtitle1,
-                ),
-              ],
-            ),
+          child: FavoriteButtonWidget(
+            appTextTheme: appTextTheme,
+            onPressed: () {},
           ),
         ),
         Expanded(
-          child: GestureDetector(
-            onTap: () {},
-            child: Column(
-              children: [
-                SvgPicture.asset(
-                  shareIcon,
-                  color: AppColors.white,
-                ),
-                const SizedBox(height: 5.0),
-                Text(
-                  share,
-                  style: appTextTheme.subtitle1,
-                ),
-              ],
-            ),
+          child: ShareButtonWidget(
+            appTextTheme: appTextTheme,
+            onPressed: () {},
           ),
         ),
       ],

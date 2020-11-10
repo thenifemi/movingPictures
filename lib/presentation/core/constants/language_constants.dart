@@ -29,6 +29,7 @@ const String comedy = "Comedy";
 
 //* Info Bottomsheet
 const String moreInfo = "More info";
+const String info = "Info";
 const String share = "Share";
 const String favorite = "Favorite";
 const String watchTrailer = "Watch trailer";
