@@ -65,11 +65,9 @@ flutter:
     - assets/icons/ageRestrictionIcons/
 
   fonts:
-    - family: Montserrat
+    - family: Montez
       fonts:
-        - asset: fonts/Montserrat/Montserrat-Light.ttf
-        - asset: fonts/Montserrat/Montserrat-Regular.ttf
-        - asset: fonts/Montserrat/Montserrat-Medium.ttf
+        - asset: fonts/Montez/Montez-Regular.ttf
           weight: 500
     - family: Roboto
       fonts:

@@ -26,7 +26,7 @@ const String horror = "Horror";
 const String action = "Action";
 const String trendingNow = "Trending Now";
 const String comedy = "Comedy";
-const String certifiedNifemiBest = "CERTIFIED NIFEMI BEST";
+const String nifemiRecommends = "Nifemi Recommends";
 
 //* Info Bottomsheet
 const String moreInfo = "More info";

@@ -59,8 +59,8 @@ class BannerBlockWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          certifiedNifemiBest,
-                          style: appTextTheme.headline5,
+                          nifemiRecommends,
+                          style: appTextTheme.headline4,
                         ),
                         const SizedBox(width: 5.0),
                         const Icon(

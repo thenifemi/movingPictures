@@ -51,6 +51,14 @@ ThemeData appTheme() {
         fontSize: 16.0,
         color: AppColors.white,
       ),
+
+      //*[Headline4] For "Nifemi Recommends" texts.
+      headline4: base.button.copyWith(
+        fontFamily: 'Montez',
+        fontWeight: FontWeight.w500,
+        fontSize: 20.0,
+        color: AppColors.white,
+      ),
     );
   }
 
