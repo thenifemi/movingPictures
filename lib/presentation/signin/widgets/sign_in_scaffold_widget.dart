@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movingPictures/presentation/core/app_widget.dart';
+import 'package:movingPictures/presentation/core/component_widgets/half_button_widget.dart';
 
 import '../../../application/auth/auth_bloc.dart';
 import '../../../application/auth/sign_in/sign_in_bloc.dart';
@@ -34,7 +36,7 @@ class SignInScaffoldWidget extends StatelessWidget {
             (_) {
               ExtendedNavigator.of(context).replace(Routes.mainBodyLayout);
               context
-                  .watch<AuthBloc>()
+                  .read<AuthBloc>()
                   .add(const AuthEvent.authCheckRequested());
             },
           ),
@@ -122,9 +124,20 @@ class DarkOverlayWidget extends StatelessWidget {
               // textAlign: TextAlign.end,
             ),
             const SizedBox(height: 20.0),
-            SignInButton(
-              appTextTheme: appTextTheme,
+            HalfButton(
               state: state,
+              appTextTheme: appTextTheme,
+              name: signInButton,
+              color: AppColors.red,
+              onpressed: () {
+                if (state.isSubmitting) {
+                  //Do nothing when state is submiting
+                } else {
+                  context
+                      .read<SignInBloc>()
+                      .add(const SignInEvent.signInwithGooglePressed());
+                }
+              },
             ),
           ],
         ),
@@ -151,67 +164,6 @@ class TopRedBar extends StatelessWidget {
           height: 150.0,
         ),
       ],
-    );
-  }
-}
-
-class SignInButton extends StatelessWidget {
-  final SignInState state;
-
-  const SignInButton({
-    Key key,
-    @required this.appTextTheme,
-    @required this.state,
-  }) : super(key: key);
-
-  final TextTheme appTextTheme;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width / 2,
-      child: RaisedButton(
-        padding: const EdgeInsets.all(8.0),
-        onPressed: () {
-          if (state.isSubmitting) {
-            //Do nothing when state is submiting
-          } else {
-            context
-                .watch<SignInBloc>()
-                .add(const SignInEvent.signInwithGooglePressed());
-          }
-        },
-        color: AppColors.red,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5.0),
-                color: AppColors.white,
-              ),
-              padding: const EdgeInsets.all(3.0),
-              child: Image.asset(
-                googleIcon,
-                width: 20.0,
-                height: 20.0,
-              ),
-            ),
-            const SizedBox(
-              width: 10.0,
-            ),
-            Text(
-              singInButton,
-              style: TextStyle(
-                fontFamily: appTextTheme.button.fontFamily,
-                color: appTextTheme.button.color,
-                fontWeight: appTextTheme.button.fontWeight,
-                fontSize: appTextTheme.button.fontSize,
-              ),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

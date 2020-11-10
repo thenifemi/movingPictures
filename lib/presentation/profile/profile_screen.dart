@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movingPictures/presentation/core/component_widgets/half_button_widget.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../../domain/auth/app_user.dart';
@@ -46,9 +47,8 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
               FlatButton(
-                onPressed: () => context
-                    .watch()<AuthBloc>()
-                    .add(const AuthEvent.signedOut()),
+                onPressed: () =>
+                    context.read<AuthBloc>().add(const AuthEvent.signedOut()),
                 child: const Text(
                   signOut,
                   style: TextStyle(color: AppColors.red),
@@ -76,10 +76,13 @@ class ProfileScreen extends StatelessWidget {
             const Divider(color: AppColors.gray, height: 1.0),
             const SizedBox(height: 20.0),
             Center(
-                child: SignOutButton(
-              appTextTheme: appTextTheme,
-              showDialog: _showDialog,
-            )),
+              child: HalfButton(
+                appTextTheme: appTextTheme,
+                name: signOut,
+                color: AppColors.red,
+                onpressed: _showDialog,
+              ),
+            ),
             const SizedBox(height: 20.0),
           ],
         ),
