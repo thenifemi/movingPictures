@@ -6,6 +6,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movingPictures/presentation/core/app_colors.dart';
 import 'package:movingPictures/presentation/core/component_widgets/primary_button_widget.dart';
 import 'package:movingPictures/presentation/core/constants/language_constants.dart';
+import 'package:movingPictures/presentation/home/widgets/small_buttons.dart';
+import 'package:movingPictures/presentation/movie_or_series_info/widgets/cast_list.dart';
 
 import '../../core/constants/constants.dart';
 import 'genres_list.dart';
@@ -26,7 +28,7 @@ class InformationItemsWidget extends StatelessWidget {
         icon: const Icon(Icons.arrow_back_ios),
         onPressed: () => ExtendedNavigator.of(context).pop(),
       ),
-      expandedHeight: MediaQuery.of(context).size.height / 1.8,
+      expandedHeight: MediaQuery.of(context).size.height / 1.5,
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(
         centerTitle: true,
@@ -39,8 +41,11 @@ class InformationItemsWidget extends StatelessWidget {
           ),
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 30.0, sigmaY: 30.0),
-            child: Items(
-              appTextTheme: appTextTheme,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Items(
+                appTextTheme: appTextTheme,
+              ),
             ),
           ),
         ),
@@ -76,7 +81,7 @@ class Items extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 30.0),
+          const SizedBox(height: 20.0),
 
           //* [SubData] Rating, year, age restriction, length and ...
           SubData(appTextTheme: appTextTheme),
@@ -87,31 +92,59 @@ class Items extends StatelessWidget {
           const SizedBox(height: 10.0),
 
           //* Buttons
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: Column(
-              children: [
-                PrimaryButton(
-                  appTextTheme: appTextTheme,
-                  icon: SvgPicture.asset(
-                    playIcon,
-                    color: AppColors.black,
-                  ),
-                  name: watchTrailer,
-                  color: AppColors.white,
-                  onpressed: () {},
-                  isFullButton: true,
+          Column(
+            children: [
+              PrimaryButton(
+                appTextTheme: appTextTheme,
+                icon: SvgPicture.asset(
+                  playIcon,
+                  color: AppColors.black,
+                  height: 20.0,
                 ),
-                PrimaryButton(
-                  appTextTheme: appTextTheme,
-                  name: visitHome,
-                  color: AppColors.white.withOpacity(0.2),
-                  onpressed: () {},
-                  isFullButton: true,
-                ),
-              ],
-            ),
-          )
+                name: watchTrailer,
+                color: AppColors.white,
+                onpressed: () {},
+                isFullButton: true,
+              ),
+              PrimaryButton(
+                appTextTheme: appTextTheme,
+                name: visitHome,
+                color: AppColors.white.withOpacity(0.2),
+                onpressed: () {},
+                isFullButton: true,
+              ),
+            ],
+          ),
+          const SizedBox(height: 10.0),
+
+          //* Movie/Series description
+          Text(
+            "Set during the Cold War era, orphaned chess prodigy Beth Harmon struggles with addiction in a quest to become the greatest chess player in the world.",
+            style: appTextTheme.bodyText1,
+            maxLines: 4,
+            overflow: TextOverflow.ellipsis,
+          ),
+          const SizedBox(height: 10.0),
+
+          //* Cast
+          CastList(),
+          const Spacer(),
+
+          // * Favorite and share button
+          Row(
+            children: [
+              FavoriteButtonWidget(
+                appTextTheme: appTextTheme,
+                onPressed: () {},
+              ),
+              const SizedBox(width: 50.0),
+              ShareButtonWidget(
+                appTextTheme: appTextTheme,
+                onPressed: () {},
+              ),
+            ],
+          ),
+          const SizedBox(height: 30.0),
         ],
       ),
     );

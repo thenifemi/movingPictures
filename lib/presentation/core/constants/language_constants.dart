@@ -34,4 +34,6 @@ const String info = "Info";
 const String share = "Share";
 const String favorite = "Favorite";
 const String watchTrailer = "Watch trailer";
-const String visitHome = "Vist home page";
+const String visitHome = "Visit home page";
+const String staring = "Staring";
+const String more = "more";
