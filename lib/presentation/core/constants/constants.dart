@@ -24,6 +24,7 @@ const String friendsIcon = 'assets/icons/regularIcons/friends.svg';
 const String cancelIcon = 'assets/icons/regularIcons/cancel.svg';
 const String shareIcon = 'assets/icons/regularIcons/share.svg';
 const String infoIcon = 'assets/icons/regularIcons/info.svg';
+const String shieldIcon = 'assets/icons/regularIcons/shield.svg';
 
 //*Top ten number icons
 const String number0Icon = 'assets/icons/numberIcons/0.svg';

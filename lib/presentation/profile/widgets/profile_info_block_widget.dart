@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:movingPictures/presentation/core/constants/constants.dart';
 
 import '../../../domain/auth/app_user.dart';
 import '../../core/app_colors.dart';
@@ -56,11 +58,12 @@ class ProfileInfoBlock extends StatelessWidget {
                       signedInWithGoogle,
                       style: appTextTheme.subtitle2,
                     ),
-                    const SizedBox(width: 5.0),
-                    const Icon(
-                      Icons.verified,
-                      color: Colors.green,
-                      size: 16.0,
+                    SizedBox(
+                      height: 18.0,
+                      child: SvgPicture.asset(
+                        shieldIcon,
+                        color: Colors.green,
+                      ),
                     ),
                   ],
                 ),
