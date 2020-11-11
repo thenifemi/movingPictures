@@ -23,8 +23,8 @@ Future buildShowInfoModalBottomSheet({
     )),
     context: context,
     builder: (context) => Container(
-      height: MediaQuery.of(context).size.height / 3.4,
-      padding: const EdgeInsets.only(top: 12.0, left: 12.0, right: 12.0),
+      height: MediaQuery.of(context).size.height / 3,
+      padding: const EdgeInsets.fromLTRB(12.0, 12.0, 12.0, 0.0),
       child: Column(
         children: [
           Row(
@@ -40,10 +40,11 @@ Future buildShowInfoModalBottomSheet({
           const SizedBox(height: 10.0),
           TrailerButtonBlock(appTextTheme: appTextTheme),
           const Divider(color: AppColors.white),
-          Expanded(
+          SizedBox(
+              height: 40.0,
               child: MoreInfoButton(
-            appTextTheme: appTextTheme,
-          ))
+                appTextTheme: appTextTheme,
+              ))
         ],
       ),
     ),

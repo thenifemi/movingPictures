@@ -14,9 +14,6 @@ class GenresList extends StatelessWidget {
     "Drama",
     "Action",
     "Sci-Fi",
-    "Sci-Fi",
-    "Sci-Fi",
-    "Sci-Fi",
   ];
 
   @override
@@ -25,33 +22,29 @@ class GenresList extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 40.0),
-      child: SizedBox(
-        height: 22.0,
-        child: ListView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          scrollDirection: Axis.horizontal,
-          itemCount: testGenres.length,
-          itemBuilder: (context, i) {
-            final genre = testGenres[i];
-            return Container(
-              padding: const EdgeInsets.symmetric(horizontal: 5.0),
-              margin: const EdgeInsets.symmetric(horizontal: 2.5),
-              decoration: BoxDecoration(
-                border: Border.all(color: AppColors.white),
-                borderRadius: BorderRadius.circular(3.0),
-              ),
-              child: Center(
-                child: Text(genre,
-                    style: TextStyle(
-                      fontFamily: appTextTheme.subtitle1.fontFamily,
-                      fontWeight: FontWeight.w600,
-                      color: appTextTheme.subtitle1.color,
-                    )),
-              ),
-            );
-          },
-        ),
+      child: Wrap(
+        alignment: WrapAlignment.center,
+        runSpacing: 8.0,
+        spacing: 0.8,
+        children: testGenres
+            .map((e) => Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 5.0,
+                    vertical: 2.0,
+                  ),
+                  margin: const EdgeInsets.symmetric(horizontal: 2.5),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: AppColors.white),
+                    borderRadius: BorderRadius.circular(3.0),
+                  ),
+                  child: Text(e,
+                      style: TextStyle(
+                        fontFamily: appTextTheme.subtitle1.fontFamily,
+                        fontWeight: FontWeight.w600,
+                        color: appTextTheme.subtitle1.color,
+                      )),
+                ))
+            .toList(),
       ),
     );
   }

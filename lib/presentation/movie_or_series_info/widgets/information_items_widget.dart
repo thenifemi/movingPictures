@@ -118,32 +118,32 @@ class Items extends StatelessWidget {
           const SizedBox(height: 10.0),
 
           //* Movie/Series description
-          Text(
-            "Set during the Cold War era, orphaned chess prodigy Beth Harmon struggles with addiction in a quest to become the greatest chess player in the world.",
-            style: appTextTheme.bodyText1,
-            maxLines: 4,
-            overflow: TextOverflow.ellipsis,
-          ),
-          const SizedBox(height: 10.0),
+          // Text(
+          //   "Set during the Cold War era, orphaned chess prodigy Beth Harmon struggles with addiction in a quest to become the greatest chess player in the world.",
+          //   style: appTextTheme.bodyText1,
+          //   maxLines: 4,
+          //   overflow: TextOverflow.ellipsis,
+          // ),
+          // const SizedBox(height: 10.0),
 
-          //* Cast
-          CastList(),
-          const Spacer(),
+          // //* Cast
+          // CastList(),
+          // const Spacer(),
 
           // * Favorite and share button
-          Row(
-            children: [
-              FavoriteButtonWidget(
-                appTextTheme: appTextTheme,
-                onPressed: () {},
-              ),
-              const SizedBox(width: 50.0),
-              ShareButtonWidget(
-                appTextTheme: appTextTheme,
-                onPressed: () {},
-              ),
-            ],
-          ),
+          // Row(
+          //   children: [
+          //     FavoriteButtonWidget(
+          //       appTextTheme: appTextTheme,
+          //       onPressed: () {},
+          //     ),
+          //     const SizedBox(width: 50.0),
+          //     ShareButtonWidget(
+          //       appTextTheme: appTextTheme,
+          //       onPressed: () {},
+          //     ),
+          //   ],
+          // ),
           const SizedBox(height: 30.0),
         ],
       ),

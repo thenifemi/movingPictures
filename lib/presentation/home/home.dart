@@ -31,13 +31,11 @@ class Home extends StatelessWidget {
           unselectedLabelColor: AppColors.white.withOpacity(0.5),
           tabs: [
             SizedBox(
-              height: 30.0,
-              width: 50.0,
+              width: 60.0,
               child: Center(child: Text(movies.toUpperCase())),
             ),
             SizedBox(
-              height: 30.0,
-              width: 50.0,
+              width: 60.0,
               child: Center(child: Text(series.toUpperCase())),
             ),
           ],

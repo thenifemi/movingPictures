@@ -72,7 +72,7 @@ class BottomItems extends StatelessWidget {
       children: [
         Container(
           height: 40.0,
-          width: MediaQuery.of(context).size.width / 1.8,
+          width: MediaQuery.of(context).size.width / 1.6,
           decoration: BoxDecoration(
             border: Border.all(
               width: 2.0,
@@ -107,7 +107,7 @@ class BottomItems extends StatelessWidget {
               ),
               SizedBox(
                 height: 40.0,
-                width: 100.0,
+                width: 120.0,
                 child: PrimaryButton(
                   appTextTheme: appTextTheme,
                   name: watchTrailer,
