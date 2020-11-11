@@ -3,13 +3,13 @@ import 'dart:ui';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:movingPictures/presentation/core/app_colors.dart';
-import 'package:movingPictures/presentation/core/component_widgets/primary_button_widget.dart';
-import 'package:movingPictures/presentation/core/constants/language_constants.dart';
-import 'package:movingPictures/presentation/home/widgets/small_buttons.dart';
-import 'package:movingPictures/presentation/movie_or_series_info/widgets/cast_list.dart';
 
+import '../../core/app_colors.dart';
+import '../../core/component_widgets/primary_button_widget.dart';
 import '../../core/constants/constants.dart';
+import '../../core/constants/language_constants.dart';
+import '../../home/widgets/small_buttons.dart';
+import 'cast_list.dart';
 import 'genres_list.dart';
 import 'sub_data.dart';
 
@@ -28,7 +28,7 @@ class InformationItemsWidget extends StatelessWidget {
         icon: const Icon(Icons.arrow_back_ios),
         onPressed: () => ExtendedNavigator.of(context).pop(),
       ),
-      expandedHeight: MediaQuery.of(context).size.height / 1.5,
+      expandedHeight: MediaQuery.of(context).size.height / 1.3,
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(
         centerTitle: true,
@@ -118,33 +118,32 @@ class Items extends StatelessWidget {
           const SizedBox(height: 10.0),
 
           //* Movie/Series description
-          // Text(
-          //   "Set during the Cold War era, orphaned chess prodigy Beth Harmon struggles with addiction in a quest to become the greatest chess player in the world.",
-          //   style: appTextTheme.bodyText1,
-          //   maxLines: 4,
-          //   overflow: TextOverflow.ellipsis,
-          // ),
-          // const SizedBox(height: 10.0),
+          Text(
+            "Set during the Cold War era, orphaned chess prodigy Beth Harmon struggles with addiction in a quest to become the greatest chess player in the world.",
+            style: appTextTheme.bodyText1,
+            maxLines: 3,
+            overflow: TextOverflow.ellipsis,
+          ),
+          const SizedBox(height: 10.0),
 
           // //* Cast
-          // CastList(),
-          // const Spacer(),
+          CastList(),
+          const SizedBox(height: 20.0),
 
           // * Favorite and share button
-          // Row(
-          //   children: [
-          //     FavoriteButtonWidget(
-          //       appTextTheme: appTextTheme,
-          //       onPressed: () {},
-          //     ),
-          //     const SizedBox(width: 50.0),
-          //     ShareButtonWidget(
-          //       appTextTheme: appTextTheme,
-          //       onPressed: () {},
-          //     ),
-          //   ],
-          // ),
-          const SizedBox(height: 30.0),
+          Row(
+            children: [
+              FavoriteButtonWidget(
+                appTextTheme: appTextTheme,
+                onPressed: () {},
+              ),
+              const SizedBox(width: 50.0),
+              ShareButtonWidget(
+                appTextTheme: appTextTheme,
+                onPressed: () {},
+              ),
+            ],
+          ),
         ],
       ),
     );

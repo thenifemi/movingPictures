@@ -23,7 +23,7 @@ class MoreLikeThisTab extends StatelessWidget {
                 children: [
                   Container(
                     color: AppColors.red,
-                    width: 107.0,
+                    width: MediaQuery.of(context).size.width,
                     height: 5.0,
                   ),
                   const SizedBox(height: 10.0),
