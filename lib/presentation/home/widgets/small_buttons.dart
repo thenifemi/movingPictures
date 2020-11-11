@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:movingPictures/presentation/routes/router.gr.dart';
 
 import '../../core/app_colors.dart';
 import '../../core/constants/constants.dart';
@@ -68,17 +70,15 @@ class FavoriteButtonWidget extends StatelessWidget {
 
 class InfoButtonWidget extends StatelessWidget {
   final TextTheme appTextTheme;
-  final Function onPressed;
   const InfoButtonWidget({
     Key key,
     @required this.appTextTheme,
-    @required this.onPressed,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () => ExtendedNavigator.of(context).push(Routes.movieOrSeriesInfo),
       child: Column(
         children: [
           SvgPicture.asset(

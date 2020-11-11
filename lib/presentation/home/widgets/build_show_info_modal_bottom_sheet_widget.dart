@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -6,6 +7,7 @@ import '../../core/component_widgets/cancel_button_widget.dart';
 import '../../core/component_widgets/half_button_widget.dart';
 import '../../core/constants/constants.dart';
 import '../../core/constants/language_constants.dart';
+import '../../routes/router.gr.dart';
 import 'small_buttons.dart';
 
 Future buildShowInfoModalBottomSheet({
@@ -175,7 +177,8 @@ class MoreInfoButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
-      onPressed: () {},
+      onPressed: () =>
+          ExtendedNavigator.of(context).push(Routes.movieOrSeriesInfo),
       child: Container(
         padding: const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
         width: double.infinity,

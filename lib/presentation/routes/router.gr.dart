@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 
 import '../../domain/auth/app_user.dart';
 import '../main_layout_appbar_navbar/main_body_layout.dart';
+import '../movie_or_series_info/movie_or_series_info.dart';
 import '../profile/profile_screen.dart';
 import '../signin/sign_in_screen.dart';
 import '../splash/splash_screen.dart';
@@ -21,11 +22,13 @@ class Routes {
   static const String signInScreen = '/sign-in-screen';
   static const String mainBodyLayout = '/main-body-layout';
   static const String profileScreen = '/profile-screen';
+  static const String movieOrSeriesInfo = '/movie-or-series-info';
   static const all = <String>{
     splashScreen,
     signInScreen,
     mainBodyLayout,
     profileScreen,
+    movieOrSeriesInfo,
   };
 }
 
@@ -37,6 +40,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.signInScreen, page: SignInScreen),
     RouteDef(Routes.mainBodyLayout, page: MainBodyLayout),
     RouteDef(Routes.profileScreen, page: ProfileScreen),
+    RouteDef(Routes.movieOrSeriesInfo, page: MovieOrSeriesInfo),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -73,6 +77,12 @@ class AppRouter extends RouterBase {
         fullscreenDialog: true,
       );
     },
+    MovieOrSeriesInfo: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => MovieOrSeriesInfo(),
+        settings: data,
+      );
+    },
   };
 }
 
@@ -97,6 +107,9 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
         arguments: ProfileScreenArguments(
             key: key, appTextTheme: appTextTheme, user: user),
       );
+
+  Future<dynamic> pushMovieOrSeriesInfo() =>
+      push<dynamic>(Routes.movieOrSeriesInfo);
 }
 
 /// ************************************************************************

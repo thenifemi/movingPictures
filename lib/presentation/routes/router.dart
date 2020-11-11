@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route_annotations.dart';
+import 'package:movingPictures/presentation/movie_or_series_info/movie_or_series_info.dart';
 import 'package:movingPictures/presentation/profile/profile_screen.dart';
 
 import '../main_layout_appbar_navbar/main_body_layout.dart';
@@ -11,6 +12,7 @@ import '../splash/splash_screen.dart';
     CupertinoRoute(page: SignInScreen),
     CupertinoRoute(page: MainBodyLayout),
     CupertinoRoute(page: ProfileScreen, fullscreenDialog: true),
+    CupertinoRoute(page: MovieOrSeriesInfo),
   ],
   generateNavigationHelperExtension: true,
 )

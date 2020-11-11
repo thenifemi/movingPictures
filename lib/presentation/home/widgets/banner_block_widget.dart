@@ -67,65 +67,59 @@ class BottomItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: AppColors.black.withOpacity(0.3),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Container(
-            height: 40.0,
-            width: MediaQuery.of(context).size.width / 1.8,
-            decoration: BoxDecoration(
-              border: Border.all(
-                width: 2.0,
-                color: AppColors.white,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Container(
+          height: 40.0,
+          width: MediaQuery.of(context).size.width / 1.8,
+          decoration: BoxDecoration(
+            border: Border.all(
+              width: 2.0,
+              color: AppColors.white,
+            ),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                nifemiRecommends,
+                style: appTextTheme.headline4,
               ),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  nifemiRecommends,
-                  style: appTextTheme.headline4,
-                ),
-                const SizedBox(width: 5.0),
-                const Icon(
-                  Icons.verified,
-                  color: AppColors.red,
-                  size: 25.0,
-                )
-              ],
-            ),
+              const SizedBox(width: 5.0),
+              const Icon(
+                Icons.verified,
+                color: AppColors.red,
+                size: 25.0,
+              )
+            ],
           ),
-          const SizedBox(height: 10.0),
-          SizedBox(
-            height: 50.0,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                FavoriteButtonWidget(
+        ),
+        const SizedBox(height: 10.0),
+        SizedBox(
+          height: 50.0,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              FavoriteButtonWidget(
+                appTextTheme: appTextTheme,
+                onPressed: () {},
+              ),
+              SizedBox(
+                height: 40.0,
+                width: 100.0,
+                child: HalfButton(
                   appTextTheme: appTextTheme,
-                  onPressed: () {},
+                  name: watchTrailer,
+                  color: AppColors.white,
+                  onpressed: () {},
                 ),
-                SizedBox(
-                  height: 40.0,
-                  width: 100.0,
-                  child: HalfButton(
-                    appTextTheme: appTextTheme,
-                    name: watchTrailer,
-                    color: AppColors.white,
-                    onpressed: () {},
-                  ),
-                ),
-                InfoButtonWidget(
-                  appTextTheme: appTextTheme,
-                  onPressed: () {},
-                ),
-              ],
-            ),
+              ),
+              InfoButtonWidget(appTextTheme: appTextTheme),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
