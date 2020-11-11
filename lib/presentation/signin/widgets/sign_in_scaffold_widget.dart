@@ -123,7 +123,7 @@ class DarkOverlayWidget extends StatelessWidget {
               // textAlign: TextAlign.end,
             ),
             const SizedBox(height: 20.0),
-            HalfButton(
+            PrimaryButton(
               state: state,
               appTextTheme: appTextTheme,
               name: signInButton,

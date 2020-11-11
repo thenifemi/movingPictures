@@ -4,26 +4,30 @@ import '../../core/app_colors.dart';
 import '../constants/constants.dart';
 import '../constants/language_constants.dart';
 
-class HalfButton extends StatelessWidget {
+class PrimaryButton extends StatelessWidget {
   final state;
   final TextTheme appTextTheme;
   final String name;
   final Color color;
   final Function onpressed;
+  final bool isFullButton;
 
-  const HalfButton({
+  const PrimaryButton({
     Key key,
     @required this.appTextTheme,
     @required this.name,
     @required this.color,
     @required this.onpressed,
     this.state,
+    this.isFullButton,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width / 2,
+      width: isFullButton
+          ? MediaQuery.of(context).size.width
+          : MediaQuery.of(context).size.width / 2,
       child: RaisedButton(
         padding: const EdgeInsets.all(8.0),
         onPressed: () => onpressed(),

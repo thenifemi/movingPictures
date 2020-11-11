@@ -75,7 +75,7 @@ class ProfileScreen extends StatelessWidget {
             const Divider(color: AppColors.gray, height: 1.0),
             const SizedBox(height: 20.0),
             Center(
-              child: HalfButton(
+              child: PrimaryButton(
                 appTextTheme: appTextTheme,
                 name: signOut,
                 color: AppColors.red,

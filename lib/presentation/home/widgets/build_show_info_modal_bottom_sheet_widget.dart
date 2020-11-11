@@ -143,7 +143,7 @@ class TrailerButtonBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        HalfButton(
+        PrimaryButton(
           appTextTheme: appTextTheme,
           name: watchTrailer,
           color: AppColors.white,

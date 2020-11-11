@@ -108,7 +108,7 @@ class BottomItems extends StatelessWidget {
               SizedBox(
                 height: 40.0,
                 width: 100.0,
-                child: HalfButton(
+                child: PrimaryButton(
                   appTextTheme: appTextTheme,
                   name: watchTrailer,
                   color: AppColors.white,

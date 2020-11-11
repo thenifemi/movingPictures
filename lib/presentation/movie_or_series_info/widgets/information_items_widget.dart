@@ -4,6 +4,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/constants/constants.dart';
+import 'genres_list.dart';
+import 'sub_data.dart';
 
 class InformationItemsWidget extends StatelessWidget {
   const InformationItemsWidget({
@@ -32,27 +34,62 @@ class InformationItemsWidget extends StatelessWidget {
             ),
           ),
           child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-            child: Container(
-              decoration: BoxDecoration(color: Colors.white.withOpacity(0.0)),
-              child: Column(
-                children: [
-                  const SizedBox(height: 40.0),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height / 4,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(5.0),
-                      child: Image.asset(
-                        theQueensGambitPoster,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+            filter: ImageFilter.blur(sigmaX: 30.0, sigmaY: 30.0),
+            child: Items(
+              appTextTheme: appTextTheme,
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class Items extends StatelessWidget {
+  final TextTheme appTextTheme;
+  const Items({
+    Key key,
+    @required this.appTextTheme,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    //! This is about pretty nested! Bear with me!
+    return Container(
+      decoration: BoxDecoration(color: Colors.white.withOpacity(0.0)),
+      child: Column(
+        children: [
+          const SizedBox(height: 40.0),
+
+          //* Movie/Series Poster
+          SizedBox(
+            height: MediaQuery.of(context).size.height / 4,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(5.0),
+              child: Image.asset(
+                theQueensGambitPoster,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          const SizedBox(height: 30.0),
+
+          //* [SubData] Rating, year, age restriction, length and ...
+          SubData(appTextTheme: appTextTheme),
+          const SizedBox(height: 10.0),
+
+          //*[GenresList] List of the movie/series genres
+          GenresList(),
+          const SizedBox(height: 10.0),
+
+          //* Buttons
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: Column(
+              children: [],
+            ),
+          )
+        ],
       ),
     );
   }
