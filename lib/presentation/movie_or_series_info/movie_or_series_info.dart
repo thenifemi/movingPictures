@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../core/app_colors.dart';
 import 'widgets/information_items_widget.dart';
+import 'widgets/more_like_this_tab_widget.dart';
 
 class MovieOrSeriesInfo extends StatelessWidget {
   @override
@@ -13,10 +13,11 @@ class MovieOrSeriesInfo extends StatelessWidget {
           headerSliverBuilder: (context, innerBoxIsScrolled) {
             return [
               InformationItemsWidget(appTextTheme: appTextTheme),
+              const MoreLikeThisTab(),
             ];
           },
-          body: Container(
-            color: AppColors.black,
+          body: const Padding(
+            padding: EdgeInsets.all(10.0),
           )),
     );
   }

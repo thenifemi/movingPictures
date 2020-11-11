@@ -37,3 +37,4 @@ const String watchTrailer = "Watch trailer";
 const String visitHome = "Visit home page";
 const String staring = "Staring";
 const String more = "more";
+const String morelikethis = "MORE LIKE THIS";
