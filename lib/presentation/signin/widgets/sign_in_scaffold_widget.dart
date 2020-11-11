@@ -126,6 +126,18 @@ class DarkOverlayWidget extends StatelessWidget {
             PrimaryButton(
               state: state,
               appTextTheme: appTextTheme,
+              icon: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5.0),
+                  color: AppColors.white,
+                ),
+                padding: const EdgeInsets.all(3.0),
+                child: Image.asset(
+                  googleIcon,
+                  width: 20.0,
+                  height: 20.0,
+                ),
+              ),
               name: signInButton,
               color: AppColors.red,
               isFullButton: false,

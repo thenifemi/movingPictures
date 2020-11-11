@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../app_colors.dart';
-import '../constants/constants.dart';
-import '../constants/language_constants.dart';
 
 class PrimaryButton extends StatelessWidget {
   final state;
@@ -11,7 +10,7 @@ class PrimaryButton extends StatelessWidget {
   final Color color;
   final Function onpressed;
   final bool isFullButton;
-
+  final Widget icon;
   const PrimaryButton({
     Key key,
     this.state,
@@ -20,6 +19,7 @@ class PrimaryButton extends StatelessWidget {
     @required this.color,
     @required this.onpressed,
     @required this.isFullButton,
+    this.icon,
   }) : super(key: key);
 
   @override
@@ -35,24 +35,8 @@ class PrimaryButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if (name == signInButton)
-              Row(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5.0),
-                      color: AppColors.white,
-                    ),
-                    padding: const EdgeInsets.all(3.0),
-                    child: Image.asset(
-                      googleIcon,
-                      width: 20.0,
-                      height: 20.0,
-                    ),
-                  ),
-                  const SizedBox(width: 10.0),
-                ],
-              )
+            if (icon != null)
+              Row(children: [icon, const SizedBox(width: 5.0)])
             else
               Container(),
             Text(
@@ -60,8 +44,9 @@ class PrimaryButton extends StatelessWidget {
               style: TextStyle(
                 fontSize: appTextTheme.button.fontSize,
                 fontWeight: appTextTheme.button.fontWeight,
-                color:
-                    color == AppColors.red ? AppColors.white : AppColors.black,
+                color: color != AppColors.white
+                    ? AppColors.white
+                    : AppColors.black,
               ),
             ),
           ],

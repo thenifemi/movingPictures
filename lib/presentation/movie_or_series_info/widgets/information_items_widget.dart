@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movingPictures/presentation/core/app_colors.dart';
 import 'package:movingPictures/presentation/core/component_widgets/primary_button_widget.dart';
 import 'package:movingPictures/presentation/core/constants/language_constants.dart';
@@ -92,8 +93,19 @@ class Items extends StatelessWidget {
               children: [
                 PrimaryButton(
                   appTextTheme: appTextTheme,
+                  icon: SvgPicture.asset(
+                    playIcon,
+                    color: AppColors.black,
+                  ),
                   name: watchTrailer,
                   color: AppColors.white,
+                  onpressed: () {},
+                  isFullButton: true,
+                ),
+                PrimaryButton(
+                  appTextTheme: appTextTheme,
+                  name: visitHome,
+                  color: AppColors.white.withOpacity(0.2),
                   onpressed: () {},
                   isFullButton: true,
                 ),
