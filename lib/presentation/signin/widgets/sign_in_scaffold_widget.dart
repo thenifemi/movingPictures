@@ -6,7 +6,7 @@ import '../../../application/auth/auth_bloc.dart';
 import '../../../application/auth/sign_in/sign_in_bloc.dart';
 import '../../core/app_colors.dart';
 import '../../core/component_widgets/flushbar_method.dart';
-import '../../core/component_widgets/half_button_widget.dart';
+import '../../core/component_widgets/primary_button_widget.dart';
 import '../../core/component_widgets/saving_in_progress_widget.dart';
 import '../../core/constants/constants.dart';
 import '../../core/constants/language_constants.dart';
@@ -128,6 +128,7 @@ class DarkOverlayWidget extends StatelessWidget {
               appTextTheme: appTextTheme,
               name: signInButton,
               color: AppColors.red,
+              isFullButton: false,
               onpressed: () {
                 if (state.isSubmitting) {
                   //Do nothing when state is submiting

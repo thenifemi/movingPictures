@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/app_colors.dart';
-import '../../core/component_widgets/half_button_widget.dart';
+import '../../core/component_widgets/primary_button_widget.dart';
 import '../../core/constants/constants.dart';
 import '../../core/constants/language_constants.dart';
 import 'small_buttons.dart';
@@ -113,6 +113,7 @@ class BottomItems extends StatelessWidget {
                   name: watchTrailer,
                   color: AppColors.white,
                   onpressed: () {},
+                  isFullButton: false,
                 ),
               ),
               InfoButtonWidget(appTextTheme: appTextTheme),

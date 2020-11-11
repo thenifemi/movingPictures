@@ -5,7 +5,7 @@ import '../../application/auth/auth_bloc.dart';
 import '../../domain/auth/app_user.dart';
 import '../core/app_colors.dart';
 import '../core/component_widgets/cancel_button_widget.dart';
-import '../core/component_widgets/half_button_widget.dart';
+import '../core/component_widgets/primary_button_widget.dart';
 import '../core/constants/language_constants.dart';
 import 'widgets/profile_info_block_widget.dart';
 
@@ -80,6 +80,7 @@ class ProfileScreen extends StatelessWidget {
                 name: signOut,
                 color: AppColors.red,
                 onpressed: _showDialog,
+                isFullButton: false,
               ),
             ),
             const SizedBox(height: 20.0),

@@ -2,6 +2,9 @@ import 'dart:ui';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:movingPictures/presentation/core/app_colors.dart';
+import 'package:movingPictures/presentation/core/component_widgets/primary_button_widget.dart';
+import 'package:movingPictures/presentation/core/constants/language_constants.dart';
 
 import '../../core/constants/constants.dart';
 import 'genres_list.dart';
@@ -86,7 +89,15 @@ class Items extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Column(
-              children: [],
+              children: [
+                PrimaryButton(
+                  appTextTheme: appTextTheme,
+                  name: watchTrailer,
+                  color: AppColors.white,
+                  onpressed: () {},
+                  isFullButton: true,
+                ),
+              ],
             ),
           )
         ],

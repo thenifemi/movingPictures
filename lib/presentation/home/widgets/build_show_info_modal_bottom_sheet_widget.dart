@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../core/app_colors.dart';
 import '../../core/component_widgets/cancel_button_widget.dart';
-import '../../core/component_widgets/half_button_widget.dart';
+import '../../core/component_widgets/primary_button_widget.dart';
 import '../../core/constants/constants.dart';
 import '../../core/constants/language_constants.dart';
 import '../../routes/router.gr.dart';
@@ -148,6 +148,7 @@ class TrailerButtonBlock extends StatelessWidget {
           name: watchTrailer,
           color: AppColors.white,
           onpressed: () {},
+          isFullButton: false,
         ),
         Expanded(
           child: FavoriteButtonWidget(
