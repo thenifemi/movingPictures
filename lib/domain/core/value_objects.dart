@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:uuid/uuid.dart';
 
@@ -23,7 +22,6 @@ abstract class ValueObject<T> {
 
   bool isvalid() => value.isRight();
 
-  @override
   List<Object> get props => [value];
 }
 

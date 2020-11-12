@@ -12,7 +12,7 @@ import '../splash/splash_screen.dart';
     CupertinoRoute(page: SignInScreen),
     CupertinoRoute(page: MainBodyLayout),
     CupertinoRoute(page: ProfileScreen, fullscreenDialog: true),
-    CupertinoRoute(page: MovieOrSeriesInfo),
+    CupertinoRoute(page: MovieOrSeriesInfo, fullscreenDialog: true),
   ],
   generateNavigationHelperExtension: true,
 )

@@ -81,6 +81,7 @@ class AppRouter extends RouterBase {
       return CupertinoPageRoute<dynamic>(
         builder: (context) => MovieOrSeriesInfo(),
         settings: data,
+        fullscreenDialog: true,
       );
     },
   };
