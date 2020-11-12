@@ -12,9 +12,16 @@ class MoreLikeThisBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
+    /*24 is for notification bar on Android*/
+    final double itemHeight = (size.height - kToolbarHeight - 24) / 2.5;
+    final double itemWidth = size.width / 2;
+
     final appTextTheme = Theme.of(context).textTheme;
+
     return Container(
-      height: MediaQuery.of(context).size.height / 1.2,
+      height: MediaQuery.of(context).size.height / 1.1,
       decoration: const BoxDecoration(
         color: AppColors.black,
       ),
@@ -40,12 +47,13 @@ class MoreLikeThisBlock extends StatelessWidget {
           ),
           Expanded(
             child: GridView.count(
+              childAspectRatio: itemWidth / itemHeight,
               crossAxisSpacing: 10.0,
               mainAxisSpacing: 10.0,
               physics: const NeverScrollableScrollPhysics(),
               crossAxisCount: 3,
               children: List.generate(
-                12,
+                9,
                 (i) => GestureDetector(
                   onTap: () => buildShowInfoModalBottomSheet(
                     appTextTheme: appTextTheme,

@@ -37,7 +37,7 @@ class MovieOrSeriesInfo extends StatelessWidget {
                         gradient: LinearGradient(
                           colors: [
                             Colors.transparent,
-                            AppColors.black.withOpacity(0.8)
+                            AppColors.black.withOpacity(0.9)
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
