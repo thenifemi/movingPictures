@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:movingPictures/presentation/movie_or_series_info/widgets/more_like_this_tab_widget.dart';
 
 import '../../core/app_colors.dart';
 import '../../core/component_widgets/primary_button_widget.dart';
@@ -107,8 +106,6 @@ class Items extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 20.0),
-
-          //* More like this tab
         ],
       ),
     );
