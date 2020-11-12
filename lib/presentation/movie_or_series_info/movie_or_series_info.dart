@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:movingPictures/presentation/core/app_colors.dart';
 
 import '../core/component_widgets/cancel_button_widget.dart';
 import '../core/constants/constants.dart';
@@ -23,18 +24,22 @@ class MovieOrSeriesInfo extends StatelessWidget {
               children: [
                 Container(
                   decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: ExactAssetImage(theQueensGambitPoster),
-                        fit: BoxFit.cover,
-                      ),
-                      gradient: LinearGradient(
-                          colors: [Colors.transparent, Colors.black],
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter)),
+                    image: DecorationImage(
+                      image: ExactAssetImage(theQueensGambitPoster),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                   child: BackdropFilter(
                     filter: ImageFilter.blur(sigmaX: 30.0, sigmaY: 30.0),
-                    child: Padding(
+                    child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Colors.transparent, AppColors.black],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                        ),
+                      ),
                       child: Items(
                         appTextTheme: appTextTheme,
                       ),

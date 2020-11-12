@@ -26,7 +26,9 @@ class Items extends StatelessWidget {
 
     //! This is about pretty nested! Bear with me!
     return Container(
-      decoration: BoxDecoration(color: Colors.white.withOpacity(0.0)),
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.0),
+      ),
       child: Column(
         children: [
           SizedBox(height: heightSize * 0.03),
