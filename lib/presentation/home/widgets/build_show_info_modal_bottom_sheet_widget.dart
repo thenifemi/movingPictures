@@ -15,6 +15,7 @@ Future buildShowInfoModalBottomSheet({
   @required TextTheme appTextTheme,
 }) {
   return showModalBottomSheet(
+    isScrollControlled: true,
     backgroundColor: AppColors.gray,
     shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
@@ -23,9 +24,8 @@ Future buildShowInfoModalBottomSheet({
     )),
     context: context,
     builder: (context) => Container(
-      height: MediaQuery.of(context).size.height / 3,
       padding: const EdgeInsets.fromLTRB(12.0, 12.0, 12.0, 0.0),
-      child: Column(
+      child: Wrap(
         children: [
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
