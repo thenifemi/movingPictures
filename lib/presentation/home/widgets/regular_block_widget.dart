@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movingPictures/presentation/core/constants/constants.dart';
 
 import '../../core/app_colors.dart';
+import '../../core/constants/constants.dart';
 
 class RegularBlockWidget extends StatelessWidget {
   final String blockName;
