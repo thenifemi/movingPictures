@@ -6,6 +6,7 @@ const String movingPicturesLogoRed =
 
 //*IMAGES
 const String signInScreenBackgroundImageJohnWick = 'assets/images/johnwick.png';
+const String tempo = 'assets/images/tempo.jpg';
 const String signInScreenBackgroundImage =
     'assets/images/the_queens_gambit.png';
 const String theQueensGambitPoster =

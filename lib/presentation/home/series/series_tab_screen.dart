@@ -36,7 +36,7 @@ class SeriesTabScreen extends StatelessWidget {
           ),
           const SizedBox(height: 20.0),
           TopTenBlockWidget(
-            moviesOrSeries: movies,
+            moviesOrSeries: series,
             showInfoBottomSheet: showInfoBottomSheet,
           ),
           const SizedBox(height: 20.0),

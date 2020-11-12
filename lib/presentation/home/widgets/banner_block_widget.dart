@@ -19,39 +19,8 @@ class BannerBlockWidget extends StatelessWidget {
       height: MediaQuery.of(context).size.height / 2,
       child: Stack(
         children: [
-          const BackgroundPoster(),
           BottomItems(appTextTheme: appTextTheme),
         ],
-      ),
-    );
-  }
-}
-
-class BackgroundPoster extends StatelessWidget {
-  const BackgroundPoster({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      foregroundDecoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            AppColors.black,
-            Colors.transparent,
-            Colors.transparent,
-            AppColors.black,
-          ],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          stops: [0, 0.2, 0.8, 1],
-        ),
-      ),
-      child: Image.asset(
-        theQueensGambitPoster,
-        fit: BoxFit.cover,
-        width: double.infinity,
       ),
     );
   }

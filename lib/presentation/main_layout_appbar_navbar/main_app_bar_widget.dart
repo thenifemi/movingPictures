@@ -7,16 +7,23 @@ import 'package:shimmer/shimmer.dart';
 import '../../application/auth/user_profile/user_profile_bloc.dart';
 import '../core/app_colors.dart';
 import '../core/constants/constants.dart';
+import '../core/constants/language_constants.dart';
 import '../routes/router.gr.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final TabController tabController;
+
   const MainAppBar({
     Key key,
+    @required this.tabController,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final appTextTheme = Theme.of(context).textTheme;
+
     return AppBar(
+      backgroundColor: Colors.transparent,
       title: Image.asset(
         movingPicturesLogoRed,
         width: 100.0,
@@ -69,9 +76,27 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
         )
       ],
+      bottom: TabBar(
+        controller: tabController,
+        indicatorColor: AppColors.red,
+        indicatorSize: TabBarIndicatorSize.label,
+        indicatorWeight: 3.0,
+        labelColor: appTextTheme.bodyText1.color,
+        unselectedLabelColor: AppColors.white.withOpacity(0.5),
+        tabs: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10.0),
+            child: Text(movies.toUpperCase()),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10.0),
+            child: Text(series.toUpperCase()),
+          ),
+        ],
+      ),
     );
   }
 
   @override
-  Size get preferredSize => const Size(double.infinity, 60);
+  Size get preferredSize => const Size(double.infinity, 90);
 }

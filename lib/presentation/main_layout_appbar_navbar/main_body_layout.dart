@@ -10,7 +10,6 @@ import '../friends/friends.dart';
 import '../home/home.dart';
 import '../routes/router.gr.dart';
 import '../search/search.dart';
-import 'main_app_bar_widget.dart';
 import 'main_bottom_navigation_bar_widget.dart';
 
 class MainBodyLayout extends StatefulWidget {
@@ -55,7 +54,6 @@ class _MainBodyLayoutState extends State<MainBodyLayout> {
           ),
         ],
         child: Scaffold(
-          appBar: const MainAppBar(),
           body: _children[_currentIndex],
           bottomNavigationBar: MainBottomNavigationBar(
             currentIndex: _currentIndex,
