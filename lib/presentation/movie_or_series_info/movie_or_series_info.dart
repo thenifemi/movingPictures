@@ -1,8 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:movingPictures/presentation/core/app_colors.dart';
 
+import '../core/app_colors.dart';
 import '../core/component_widgets/cancel_button_widget.dart';
 import '../core/constants/constants.dart';
 import 'widgets/items_widget.dart';
@@ -33,9 +33,12 @@ class MovieOrSeriesInfo extends StatelessWidget {
                     filter: ImageFilter.blur(sigmaX: 30.0, sigmaY: 30.0),
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         gradient: LinearGradient(
-                          colors: [Colors.transparent, AppColors.black],
+                          colors: [
+                            Colors.transparent,
+                            AppColors.black.withOpacity(0.8)
+                          ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                         ),
@@ -52,6 +55,7 @@ class MovieOrSeriesInfo extends StatelessWidget {
                 ),
               ],
             ),
+
             //* Bottom Container: Holds [MORE LIKE THIS]
             const MoreLikeThisBlock(),
           ],

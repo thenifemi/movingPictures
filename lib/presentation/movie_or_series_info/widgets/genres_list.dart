@@ -14,6 +14,7 @@ class GenresList extends StatelessWidget {
     "Drama",
     "Action",
     "Sci-Fi",
+    "Suspense",
   ];
 
   @override
