@@ -33,10 +33,6 @@ class ProfileScreen extends StatelessWidget {
               "$signOut$questionMark",
               style: appTextTheme.headline6,
             ),
-            content: Text(
-              areYouSureYouWantToSignOut,
-              style: appTextTheme.bodyText1,
-            ),
             actions: <Widget>[
               FlatButton(
                 onPressed: () => Navigator.of(context).pop(),

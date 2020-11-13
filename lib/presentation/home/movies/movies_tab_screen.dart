@@ -22,6 +22,7 @@ class _MoviesTabScreenState extends State<MoviesTabScreen> {
           context: context,
           appTextTheme: appTextTheme,
         );
+
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Column(
