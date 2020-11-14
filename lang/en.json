@@ -1,0 +1,36 @@
+{
+
+  "signInWelcomeMessage": "All of the worlds movies and series in one place.",
+  "signInButton": "Sign in with Google",
+
+  "home": "Home",
+  "search": "Search",
+  "favorites": "Favorites",
+  "people": "People",
+
+  "signedInWithGoogle": "Signed in with Google",
+  "signOut": "Sign out",
+  "questionMark": "?",
+  "cancel": "Cancel",
+
+  "movies": "Movies",
+  "series": "Series",
+
+  "top10": "Top 10",
+  "horror": "Horror",
+  "action": "Action",
+  "trendingNow": "Trending Now",
+  "comedy": "Comedy",
+  "nifemiRecommends": "Nifemi Recommends",
+
+  "moreInfo": "More info",
+  "info": "Info",
+  "share": "Share",
+  "favorite": "Favorite",
+  "watchTrailer": "Watch trailer",
+  "visitHome": "Visit home page",
+  "starring": "Starring",
+  "more": "more",
+  "morelikethis": "MORE LIKE THIS"
+
+}
