@@ -18,7 +18,7 @@ class MainBottomNavigationBar extends StatelessWidget {
     {"icon": homeIcon, "label": home},
     {"icon": searchIcon, "label": search},
     {"icon": favoriteIcon, "label": favorites},
-    {"icon": friendsIcon, "label": friends},
+    {"icon": friendsIcon, "label": people},
   ];
 
   @override

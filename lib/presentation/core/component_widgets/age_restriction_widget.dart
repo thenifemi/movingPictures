@@ -17,8 +17,8 @@ class AgeRestrictionWidget extends StatelessWidget {
       width: 24.0,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(3.0),
-        border: Border.all(color: AppColors.red.withOpacity(0.5)),
-        color: AppColors.red.withOpacity(0.7),
+        border: Border.all(color: AppColors.red.withOpacity(0.9)),
+        color: AppColors.red.withOpacity(0.9),
       ),
       child: Center(
         child: Text(

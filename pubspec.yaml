@@ -14,6 +14,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  flutter_localization:
+    sdk: flutter
+
   auto_route: ^0.6.9
   bloc: ^6.1.0
   cloud_firestore: ^0.14.3
@@ -23,7 +27,7 @@ dependencies:
   firebase_auth: ^0.18.3
   firebase_core: ^0.5.2
   flushbar: ^1.10.4
-  flutter_bloc: ^6.1.0
+  flutter_bloc: ^6.1.1
   flutter_svg: ^0.19.1
   freezed_annotation: null
   get_it: ^5.0.1
@@ -63,6 +67,7 @@ flutter:
     - assets/icons/regularIcons/
     - assets/icons/numberIcons/
     - assets/icons/ageRestrictionIcons/
+    - lang/
 
   fonts:
     - family: Montez

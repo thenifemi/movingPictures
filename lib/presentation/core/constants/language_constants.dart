@@ -7,14 +7,13 @@ const String signInButton = "Sign in with Google";
 const String home = "Home";
 const String search = "Search";
 const String favorites = "Favorites";
-const String friends = "Friends";
+const String people = "People";
 
 //* Profile Screen
 const String signedInWithGoogle = "Signed in with Google";
 const String signOut = "Sign out";
 const String questionMark = "?";
 const String cancel = "Cancel";
-const String areYouSureYouWantToSignOut = "Are you sure you want to Sign out?";
 
 //* Tabs
 const String movies = "Movies";

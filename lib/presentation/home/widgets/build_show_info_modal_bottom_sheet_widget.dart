@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../core/app_colors.dart';
+import '../../core/component_widgets/age_restriction_widget.dart';
 import '../../core/component_widgets/cancel_button_widget.dart';
 import '../../core/component_widgets/primary_button_widget.dart';
 import '../../core/constants/constants.dart';
@@ -104,10 +105,7 @@ class TitleSubtitleBodyBlock extends StatelessWidget {
                         style: appTextTheme.subtitle1,
                       ),
                       const SizedBox(width: 10.0),
-                      SvgPicture.asset(
-                        eighteenPlusIcon,
-                        color: AppColors.red,
-                      ),
+                      const AgeRestrictionWidget(age: "18"),
                       const SizedBox(width: 10.0),
                       Text(
                         "5 Seasons",
