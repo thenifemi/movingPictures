@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:movingPictures/presentation/core/app_localizations.dart';
 
 import '../core/app_colors.dart';
 import '../core/constants/constants.dart';
@@ -9,20 +10,22 @@ class MainBottomNavigationBar extends StatelessWidget {
   final Function(int) onTapTapped;
   final int currentIndex;
 
-  MainBottomNavigationBar({
+  const MainBottomNavigationBar({
     @required this.currentIndex,
     @required this.onTapTapped,
   });
 
-  final List<Map<String, dynamic>> navbarItems = [
-    {"icon": homeIcon, "label": home},
-    {"icon": searchIcon, "label": search},
-    {"icon": favoriteIcon, "label": favorites},
-    {"icon": friendsIcon, "label": people},
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final lang = AppLocalizations.of(context);
+
+    final List<Map<String, dynamic>> navbarItems = [
+      {"icon": homeIcon, "label": lang.translate(home)},
+      {"icon": searchIcon, "label": lang.translate(search)},
+      {"icon": favoriteIcon, "label": lang.translate(favorites)},
+      {"icon": friendsIcon, "label": lang.translate(people)},
+    ];
+
     return BottomNavigationBar(
       selectedLabelStyle: const TextStyle(
         color: AppColors.white,
