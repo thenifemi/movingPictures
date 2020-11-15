@@ -1,11 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:movingPictures/presentation/routes/router.gr.dart';
 
 import '../../core/app_colors.dart';
+import '../../core/app_localizations.dart';
 import '../../core/constants/constants.dart';
 import '../../core/constants/language_constants.dart';
+import '../../routes/router.gr.dart';
 
 class ShareButtonWidget extends StatelessWidget {
   final TextTheme appTextTheme;
@@ -19,6 +20,8 @@ class ShareButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final lang = AppLocalizations.of(context);
+
     return SizedBox(
       height: 50.0,
       width: 50.0,
@@ -32,7 +35,7 @@ class ShareButtonWidget extends StatelessWidget {
             ),
             const SizedBox(height: 5.0),
             Text(
-              share,
+              lang.translate(share),
               style: appTextTheme.subtitle1,
             ),
           ],
@@ -53,6 +56,8 @@ class FavoriteButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final lang = AppLocalizations.of(context);
+
     return SizedBox(
       height: 50.0,
       width: 50.0,
@@ -66,7 +71,7 @@ class FavoriteButtonWidget extends StatelessWidget {
             ),
             const SizedBox(height: 5.0),
             Text(
-              favorite,
+              lang.translate(favorite),
               style: appTextTheme.subtitle1,
             ),
           ],
@@ -85,6 +90,8 @@ class InfoButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final lang = AppLocalizations.of(context);
+
     return SizedBox(
       height: 50.0,
       width: 50.0,
@@ -99,7 +106,7 @@ class InfoButtonWidget extends StatelessWidget {
             ),
             const SizedBox(height: 5.0),
             Text(
-              info,
+              lang.translate(info),
               style: appTextTheme.subtitle1,
             ),
           ],

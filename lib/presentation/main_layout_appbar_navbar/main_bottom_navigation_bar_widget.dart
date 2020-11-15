@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:movingPictures/presentation/core/app_localizations.dart';
 
 import '../core/app_colors.dart';
+import '../core/app_localizations.dart';
 import '../core/constants/constants.dart';
 import '../core/constants/language_constants.dart';
 

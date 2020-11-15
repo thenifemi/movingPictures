@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../core/app_colors.dart';
+import '../../core/app_localizations.dart';
 import '../../core/component_widgets/primary_button_widget.dart';
 import '../../core/constants/constants.dart';
 import '../../core/constants/language_constants.dart';
@@ -23,6 +24,7 @@ class Items extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final heightSize = MediaQuery.of(context).size.height;
+    final lang = AppLocalizations.of(context);
 
     //! This is about pretty nested! Bear with me!
     return Container(
@@ -64,14 +66,14 @@ class Items extends StatelessWidget {
                   color: AppColors.black,
                   height: 20.0,
                 ),
-                name: watchTrailer,
+                name: lang.translate(watchTrailer),
                 color: AppColors.white,
                 onpressed: () {},
                 isFullButton: true,
               ),
               PrimaryButton(
                 appTextTheme: appTextTheme,
-                name: visitHome,
+                name: lang.translate(visitHome),
                 color: AppColors.white.withOpacity(0.2),
                 onpressed: () {},
                 isFullButton: true,

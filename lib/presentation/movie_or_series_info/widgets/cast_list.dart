@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/app_localizations.dart';
 import '../../core/constants/language_constants.dart';
 
 class CastList extends StatelessWidget {
@@ -22,11 +23,12 @@ class CastList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appTextTheme = Theme.of(context).textTheme;
+    final lang = AppLocalizations.of(context);
 
     return Row(
       children: [
         Text(
-          "$starring: ",
+          "${lang.translate(starring)}: ",
           style: appTextTheme.subtitle2,
         ),
         SizedBox(
@@ -46,7 +48,7 @@ class CastList extends StatelessWidget {
           ),
         ),
         Text(
-          "..$more",
+          "..${lang.translate(more)}",
           style: appTextTheme.subtitle1,
         ),
       ],

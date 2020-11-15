@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/app_colors.dart';
+import '../../core/app_localizations.dart';
 import '../../core/component_widgets/primary_button_widget.dart';
 import '../../core/constants/constants.dart';
 import '../../core/constants/language_constants.dart';
@@ -54,6 +55,8 @@ class BottomItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final lang = AppLocalizations.of(context);
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
@@ -70,7 +73,7 @@ class BottomItems extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                nifemiRecommends,
+                lang.translate(nifemiRecommends),
                 style: appTextTheme.headline4,
               ),
               const SizedBox(width: 5.0),
@@ -97,7 +100,7 @@ class BottomItems extends StatelessWidget {
                 width: 120.0,
                 child: PrimaryButton(
                   appTextTheme: appTextTheme,
-                  name: watchTrailer,
+                  name: lang.translate(watchTrailer),
                   color: AppColors.white,
                   onpressed: () {},
                   isFullButton: false,

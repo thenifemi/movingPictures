@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:movingPictures/presentation/core/constants/constants.dart';
-import 'package:movingPictures/presentation/home/widgets/build_show_info_modal_bottom_sheet_widget.dart';
 
 import '../../core/app_colors.dart';
+import '../../core/app_localizations.dart';
+import '../../core/constants/constants.dart';
 import '../../core/constants/language_constants.dart';
+import '../../home/widgets/build_show_info_modal_bottom_sheet_widget.dart';
 
 class MoreLikeThisBlock extends StatelessWidget {
   const MoreLikeThisBlock({
@@ -19,6 +20,7 @@ class MoreLikeThisBlock extends StatelessWidget {
     final double itemWidth = size.width / 2;
 
     final appTextTheme = Theme.of(context).textTheme;
+    final lang = AppLocalizations.of(context);
 
     return Container(
       height: MediaQuery.of(context).size.height / 1.1,
@@ -36,7 +38,7 @@ class MoreLikeThisBlock extends StatelessWidget {
                 top: BorderSide(width: 5.0, color: AppColors.red),
               )),
               child: Text(
-                morelikethis,
+                lang.translate(morelikethis),
                 style: TextStyle(
                     fontFamily: appTextTheme.headline5.fontFamily,
                     fontSize: 14.0,
