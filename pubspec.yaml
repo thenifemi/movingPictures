@@ -66,9 +66,8 @@ flutter:
     - assets/icons/
     - assets/icons/regularIcons/
     - assets/icons/numberIcons/
-    - assets/icons/ageRestrictionIcons/
-    - lang/en.json
-    - lang/pt.json
+    - lang
+    
 
   fonts:
     - family: Montez

@@ -39,15 +39,3 @@ const String number6Icon = 'assets/icons/numberIcons/6.svg';
 const String number7Icon = 'assets/icons/numberIcons/7.svg';
 const String number8Icon = 'assets/icons/numberIcons/8.svg';
 const String number9Icon = 'assets/icons/numberIcons/9.svg';
-
-//* Age restriction icons
-const String zeroPlusIcon = 'assets/icons/ageRestrictionIcons/0-plus.svg';
-const String threePlusIcon = 'assets/icons/ageRestrictionIcons/3-plus.svg';
-const String sixPlusIcon = 'assets/icons/ageRestrictionIcons/6-plus.svg';
-const String tenPlusIcon = 'assets/icons/ageRestrictionIcons/10-plus.svg';
-const String twelvePlusIcon = 'assets/icons/ageRestrictionIcons/12-plus.svg';
-const String thirteenPlusIcon = 'assets/icons/ageRestrictionIcons/13-plus.svg';
-const String sixteenPlusIcon = 'assets/icons/ageRestrictionIcons/16-plus.svg';
-const String seventeenPlusIcon = 'assets/icons/ageRestrictionIcons/17-plus.svg';
-const String eighteenPlusIcon = 'assets/icons/ageRestrictionIcons/18-plus.svg';
-const String twentyOnePlusIcon = 'assets/icons/ageRestrictionIcons/21-plus.svg';

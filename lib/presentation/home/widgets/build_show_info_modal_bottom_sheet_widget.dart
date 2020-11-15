@@ -28,6 +28,7 @@ Future buildShowInfoModalBottomSheet({
     builder: (context) => Container(
       padding: const EdgeInsets.fromLTRB(12.0, 12.0, 12.0, 0.0),
       child: Wrap(
+        runSpacing: 5.0,
         children: [
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
