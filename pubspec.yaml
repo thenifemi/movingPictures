@@ -15,7 +15,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  flutter_localization:
+  flutter_localizations:
     sdk: flutter
 
   auto_route: ^0.6.9
@@ -67,7 +67,8 @@ flutter:
     - assets/icons/regularIcons/
     - assets/icons/numberIcons/
     - assets/icons/ageRestrictionIcons/
-    - lang/
+    - lang/en.json
+    - lang/pt.json
 
   fonts:
     - family: Montez
