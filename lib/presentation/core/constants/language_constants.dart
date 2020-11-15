@@ -5,8 +5,8 @@ const String signInButton = "signInButton";
 //* Bottom Navigation Bar
 const String home = "home";
 const String search = "search";
-const String favorites = "savorites";
-const String people = "seople";
+const String favorites = "favorites";
+const String people = "people";
 
 //* Profile Screen
 const String signedInWithGoogle = "signedInWithGoogle";

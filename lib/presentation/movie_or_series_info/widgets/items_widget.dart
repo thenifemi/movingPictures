@@ -102,7 +102,7 @@ class Items extends StatelessWidget {
                 appTextTheme: appTextTheme,
                 onPressed: () {},
               ),
-              const SizedBox(width: 50.0),
+              const SizedBox(width: 20.0),
               ShareButtonWidget(
                 appTextTheme: appTextTheme,
                 onPressed: () {},

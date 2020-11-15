@@ -39,7 +39,6 @@ Future buildShowInfoModalBottomSheet({
               ),
             ],
           ),
-          const SizedBox(height: 10.0),
           TrailerButtonBlock(appTextTheme: appTextTheme),
           const Divider(color: AppColors.white),
           SizedBox(

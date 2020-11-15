@@ -23,8 +23,6 @@ class ShareButtonWidget extends StatelessWidget {
     final lang = AppLocalizations.of(context);
 
     return SizedBox(
-      height: 50.0,
-      width: 50.0,
       child: RawMaterialButton(
         onPressed: () {},
         child: Column(
@@ -59,8 +57,6 @@ class FavoriteButtonWidget extends StatelessWidget {
     final lang = AppLocalizations.of(context);
 
     return SizedBox(
-      height: 50.0,
-      width: 50.0,
       child: RawMaterialButton(
         onPressed: () {},
         child: Column(
@@ -93,8 +89,6 @@ class InfoButtonWidget extends StatelessWidget {
     final lang = AppLocalizations.of(context);
 
     return SizedBox(
-      height: 50.0,
-      width: 50.0,
       child: RawMaterialButton(
         onPressed: () =>
             ExtendedNavigator.of(context).push(Routes.movieOrSeriesInfo),
