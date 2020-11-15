@@ -27,7 +27,7 @@ class PrimaryButton extends StatelessWidget {
     return SizedBox(
       width: isFullButton
           ? MediaQuery.of(context).size.width
-          : MediaQuery.of(context).size.width / 2,
+          : MediaQuery.of(context).size.width / 1.9,
       child: RaisedButton(
         padding: const EdgeInsets.all(8.0),
         onPressed: () => onpressed(),

@@ -97,7 +97,7 @@ class BottomItems extends StatelessWidget {
               ),
               SizedBox(
                 height: 40.0,
-                width: 120.0,
+                width: 150.0,
                 child: PrimaryButton(
                   appTextTheme: appTextTheme,
                   name: lang.translate(watchTrailer),
