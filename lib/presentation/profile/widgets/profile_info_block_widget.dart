@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:movingPictures/presentation/core/constants/constants.dart';
 
 import '../../../domain/auth/app_user.dart';
 import '../../core/app_colors.dart';
+import '../../core/app_localizations.dart';
+import '../../core/constants/constants.dart';
 import '../../core/constants/language_constants.dart';
 
 class ProfileInfoBlock extends StatelessWidget {
@@ -18,6 +19,8 @@ class ProfileInfoBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final lang = AppLocalizations.of(context);
+
     return SizedBox(
       child: Row(
         children: [
@@ -55,7 +58,7 @@ class ProfileInfoBlock extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      signedInWithGoogle,
+                      lang.translate(signedInWithGoogle),
                       style: appTextTheme.subtitle2,
                     ),
                     SizedBox(

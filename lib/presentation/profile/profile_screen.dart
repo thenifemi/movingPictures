@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../application/auth/auth_bloc.dart';
 import '../../domain/auth/app_user.dart';
 import '../core/app_colors.dart';
+import '../core/app_localizations.dart';
 import '../core/component_widgets/cancel_button_widget.dart';
 import '../core/component_widgets/primary_button_widget.dart';
 import '../core/constants/language_constants.dart';
@@ -22,6 +23,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appTextTheme = Theme.of(context).textTheme;
+    final lang = AppLocalizations.of(context);
 
     void _showDialog() {
       showDialog(
@@ -30,7 +32,7 @@ class ProfileScreen extends StatelessWidget {
           return AlertDialog(
             backgroundColor: AppColors.gray,
             title: Text(
-              "$signOut$questionMark",
+              lang.translate("$signOut$questionMark"),
               style: appTextTheme.headline6,
             ),
             actions: <Widget>[
@@ -73,7 +75,7 @@ class ProfileScreen extends StatelessWidget {
             Center(
               child: PrimaryButton(
                 appTextTheme: appTextTheme,
-                name: signOut,
+                name: lang.translate(signOut),
                 color: AppColors.red,
                 onpressed: _showDialog,
                 isFullButton: false,

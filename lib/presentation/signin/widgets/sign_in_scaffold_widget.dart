@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movingPictures/presentation/core/app_localizations.dart';
 
 import '../../../application/auth/auth_bloc.dart';
 import '../../../application/auth/sign_in/sign_in_bloc.dart';
 import '../../core/app_colors.dart';
+import '../../core/app_localizations.dart';
 import '../../core/component_widgets/flushbar_method.dart';
 import '../../core/component_widgets/primary_button_widget.dart';
 import '../../core/component_widgets/saving_in_progress_widget.dart';
@@ -115,7 +115,7 @@ class DarkOverlayWidget extends StatelessWidget {
             ),
             const SizedBox(height: 30.0),
             Text(
-              lang.translate('signInWelcomeMessage'),
+              lang.translate(signInWelcomeMessage),
               style: TextStyle(
                 fontFamily: appTextTheme.headline5.fontFamily,
                 color: appTextTheme.headline5.color,
@@ -140,7 +140,7 @@ class DarkOverlayWidget extends StatelessWidget {
                   height: 20.0,
                 ),
               ),
-              name: signInButton,
+              name: lang.translate(signInButton),
               color: AppColors.red,
               isFullButton: false,
               onpressed: () {
