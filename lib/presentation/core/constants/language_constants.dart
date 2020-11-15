@@ -1,39 +1,38 @@
 //* SignIn Screen
-const String signInWelcomeMessage =
-    'All of the worlds movies and TV shows in one place.';
-const String signInButton = "Sign in with Google";
+const String signInWelcomeMessage = 'signInWelcomeMessage';
+const String signInButton = "signInButton";
 
 //* Bottom Navigation Bar
-const String home = "Home";
-const String search = "Search";
-const String favorites = "Favorites";
-const String people = "People";
+const String home = "home";
+const String search = "search";
+const String favorites = "savorites";
+const String people = "seople";
 
 //* Profile Screen
-const String signedInWithGoogle = "Signed in with Google";
-const String signOut = "Sign out";
+const String signedInWithGoogle = "signedInWithGoogle";
+const String signOut = "signOut";
 const String questionMark = "?";
-const String cancel = "Cancel";
+const String cancel = "cancel";
 
 //* Tabs
-const String movies = "Movies";
-const String series = "Series";
+const String movies = "movies";
+const String series = "series";
 
 //* Blocks
-const String top10 = "Top 10";
-const String horror = "Horror";
-const String action = "Action";
-const String trendingNow = "Trending Now";
-const String comedy = "Comedy";
-const String nifemiRecommends = "Nifemi Recommends";
+const String top10 = "top10";
+const String horror = "horror";
+const String action = "action";
+const String trendingNow = "trendingNow";
+const String comedy = "comedy";
+const String nifemiRecommends = "nifemiRecommends";
 
 //* Info Bottomsheet
-const String moreInfo = "More info";
-const String info = "Info";
-const String share = "Share";
-const String favorite = "Favorite";
-const String watchTrailer = "Watch trailer";
-const String visitHome = "Visit home page";
-const String staring = "Staring";
+const String moreInfo = "moreInfo";
+const String info = "info";
+const String share = "share";
+const String favorite = "favorite";
+const String watchTrailer = "watchTrailer";
+const String visitHome = "visitHome";
+const String starring = "starring";
 const String more = "more";
-const String morelikethis = "MORE LIKE THIS";
+const String morelikethis = "morelikethis";

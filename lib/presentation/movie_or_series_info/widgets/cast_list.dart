@@ -26,7 +26,7 @@ class CastList extends StatelessWidget {
     return Row(
       children: [
         Text(
-          "$staring: ",
+          "$starring: ",
           style: appTextTheme.subtitle2,
         ),
         SizedBox(

@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movingPictures/presentation/core/app_localizations.dart';
 
 import '../../../application/auth/auth_bloc.dart';
 import '../../../application/auth/sign_in/sign_in_bloc.dart';
@@ -93,6 +94,7 @@ class DarkOverlayWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appTextTheme = Theme.of(context).textTheme;
+    final lang = AppLocalizations.of(context);
 
     return Container(
       decoration: BoxDecoration(
@@ -113,7 +115,7 @@ class DarkOverlayWidget extends StatelessWidget {
             ),
             const SizedBox(height: 30.0),
             Text(
-              signInWelcomeMessage,
+              lang.translate('signInWelcomeMessage'),
               style: TextStyle(
                 fontFamily: appTextTheme.headline5.fontFamily,
                 color: appTextTheme.headline5.color,
