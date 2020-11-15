@@ -32,23 +32,23 @@ class ProfileScreen extends StatelessWidget {
           return AlertDialog(
             backgroundColor: AppColors.gray,
             title: Text(
-              lang.translate("$signOut$questionMark"),
+              "${lang.translate(signOut)} ${lang.translate(questionMark)}",
               style: appTextTheme.headline6,
             ),
             actions: <Widget>[
               FlatButton(
                 onPressed: () => Navigator.of(context).pop(),
                 child: Text(
-                  cancel,
+                  lang.translate(cancel),
                   style: TextStyle(color: AppColors.white.withOpacity(0.5)),
                 ),
               ),
               FlatButton(
                 onPressed: () =>
                     context.read<AuthBloc>().add(const AuthEvent.signedOut()),
-                child: const Text(
-                  signOut,
-                  style: TextStyle(color: AppColors.red),
+                child: Text(
+                  lang.translate(signOut),
+                  style: const TextStyle(color: AppColors.red),
                 ),
               ),
             ],

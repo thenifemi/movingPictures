@@ -39,7 +39,7 @@ class TopTenBlockWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Text(
-            lang.translate("$top10 $moviesOrSeries"),
+            "${lang.translate(top10)} ${lang.translate(moviesOrSeries)}",
             style: const TextStyle(
               color: AppColors.white,
               fontWeight: FontWeight.bold,

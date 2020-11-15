@@ -88,11 +88,11 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
         tabs: [
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0),
-            child: Text(lang.translate(movies.toUpperCase())),
+            child: Text(lang.translate(movies).toUpperCase()),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0),
-            child: Text(lang.translate(series.toUpperCase())),
+            child: Text(lang.translate(series).toUpperCase()),
           ),
         ],
       ),

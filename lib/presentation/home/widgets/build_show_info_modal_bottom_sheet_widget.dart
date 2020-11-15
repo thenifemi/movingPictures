@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../core/app_colors.dart';
+import '../../core/app_localizations.dart';
 import '../../core/component_widgets/age_restriction_widget.dart';
 import '../../core/component_widgets/cancel_button_widget.dart';
 import '../../core/component_widgets/primary_button_widget.dart';
@@ -140,11 +141,13 @@ class TrailerButtonBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final lang = AppLocalizations.of(context);
+
     return Row(
       children: [
         PrimaryButton(
           appTextTheme: appTextTheme,
-          name: watchTrailer,
+          name: lang.translate(watchTrailer),
           color: AppColors.white,
           onpressed: () {},
           isFullButton: false,
@@ -176,6 +179,8 @@ class MoreInfoButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final lang = AppLocalizations.of(context);
+
     return RawMaterialButton(
       onPressed: () =>
           ExtendedNavigator.of(context).push(Routes.movieOrSeriesInfo),
@@ -190,7 +195,7 @@ class MoreInfoButton extends StatelessWidget {
             ),
             const SizedBox(width: 10.0),
             Text(
-              moreInfo,
+              lang.translate(moreInfo),
               style: appTextTheme.bodyText1,
             ),
             const Spacer(),

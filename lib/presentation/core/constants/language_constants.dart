@@ -11,7 +11,7 @@ const String people = "seople";
 //* Profile Screen
 const String signedInWithGoogle = "signedInWithGoogle";
 const String signOut = "signOut";
-const String questionMark = "?";
+const String questionMark = "questionMark";
 const String cancel = "cancel";
 
 //* Tabs
