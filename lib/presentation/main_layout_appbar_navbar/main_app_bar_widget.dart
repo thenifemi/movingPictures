@@ -6,6 +6,7 @@ import 'package:shimmer/shimmer.dart';
 
 import '../../application/auth/user_profile/user_profile_bloc.dart';
 import '../core/app_colors.dart';
+import '../core/app_localizations.dart';
 import '../core/constants/constants.dart';
 import '../core/constants/language_constants.dart';
 import '../routes/router.gr.dart';
@@ -21,6 +22,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final appTextTheme = Theme.of(context).textTheme;
+    final lang = AppLocalizations.of(context);
 
     return AppBar(
       backgroundColor: Colors.transparent,
@@ -86,11 +88,11 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
         tabs: [
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0),
-            child: Text(movies.toUpperCase()),
+            child: Text(lang.translate(movies.toUpperCase())),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0),
-            child: Text(series.toUpperCase()),
+            child: Text(lang.translate(series.toUpperCase())),
           ),
         ],
       ),

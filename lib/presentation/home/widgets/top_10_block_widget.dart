@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:movingPictures/presentation/core/app_localizations.dart';
 
 import '../../core/app_colors.dart';
 import '../../core/constants/constants.dart';
@@ -17,6 +18,8 @@ class TopTenBlockWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final lang = AppLocalizations.of(context);
+
     final List _numberIcons = [
       number1Icon,
       number2Icon,
@@ -36,7 +39,7 @@ class TopTenBlockWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Text(
-            "$top10 $moviesOrSeries",
+            lang.translate("$top10 $moviesOrSeries"),
             style: const TextStyle(
               color: AppColors.white,
               fontWeight: FontWeight.bold,

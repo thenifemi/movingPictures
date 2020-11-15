@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/app_colors.dart';
+import '../../core/app_localizations.dart';
 import '../../core/constants/constants.dart';
 
 class RegularBlockWidget extends StatelessWidget {
@@ -15,13 +16,15 @@ class RegularBlockWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final lang = AppLocalizations.of(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Text(
-            blockName,
+            lang.translate(blockName),
             style: const TextStyle(
               color: AppColors.white,
               fontWeight: FontWeight.bold,
