@@ -31,6 +31,10 @@
   "visitHome": "Visit home page",
   "starring": "Starring",
   "more": "more",
-  "morelikethis": "MORE LIKE THIS"
+  "morelikethis": "MORE LIKE THIS",
+
+  "cancelled":"Cancelled",
+  "oopsServerError":"Oops! Something went wrong",
+  "unexpectedError":"Unexpected Error"
 
 }
