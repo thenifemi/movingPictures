@@ -28,9 +28,9 @@ class SignInScaffoldWidget extends StatelessWidget {
             (failure) => showFlushbar(
               context: context,
               message: failure.map(
-                cancelledByUser: (_) => 'Cancelled',
-                serverError: (_) => 'Oops! A server error occured.',
-                unexpected: (_) => 'Unexpected Error!',
+                cancelledByUser: (_) => cancelled,
+                serverError: (_) => oopsServerError,
+                unexpected: (_) => unexpectedError,
               ),
             ),
             (_) {

@@ -36,3 +36,8 @@ const String visitHome = "visitHome";
 const String starring = "starring";
 const String more = "more";
 const String morelikethis = "morelikethis";
+
+//* Errors
+const cancelled = "cancelled";
+const oopsServerError = "oopsServerError";
+const unexpectedError = "unexpectedError";
