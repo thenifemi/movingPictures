@@ -20,6 +20,7 @@ class SignInScaffoldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final lang = AppLocalizations.of(context);
     return BlocConsumer<SignInBloc, SignInState>(
       listener: (context, state) {
         state.authFailureOrSuccessOption.fold(
@@ -28,9 +29,9 @@ class SignInScaffoldWidget extends StatelessWidget {
             (failure) => showFlushbar(
               context: context,
               message: failure.map(
-                cancelledByUser: (_) => cancelled,
-                serverError: (_) => oopsServerError,
-                unexpected: (_) => unexpectedError,
+                cancelledByUser: (_) => lang.translate(cancelled),
+                serverError: (_) => lang.translate(oopsServerError),
+                unexpected: (_) => lang.translate(unexpectedError),
               ),
             ),
             (_) {
