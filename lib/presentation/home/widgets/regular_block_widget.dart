@@ -5,6 +5,7 @@ import '../../core/app_localizations.dart';
 import '../../core/constants/constants.dart';
 
 class RegularBlockWidget extends StatelessWidget {
+  final dynamic state;
   final String blockName;
   final Function showInfoBottomSheet;
 
@@ -12,6 +13,7 @@ class RegularBlockWidget extends StatelessWidget {
     Key key,
     @required this.blockName,
     @required this.showInfoBottomSheet,
+    this.state,
   }) : super(key: key);
 
   @override
