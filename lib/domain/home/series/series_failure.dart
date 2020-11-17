@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'serie_failure.freezed.dart';
+part 'series_failure.freezed.dart';
 
 @freezed
 abstract class SerieFailure with _$SerieFailure {

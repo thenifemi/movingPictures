@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'movie_failure.freezed.dart';
+part 'movies_failure.freezed.dart';
 
 @freezed
 abstract class MovieFailure with _$MovieFailure {

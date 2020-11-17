@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'serie.dart';
 import 'series_failure.dart';
 
-abstract class SerieInterface {
+abstract class SeriesInterface {
   Stream<Either<SerieFailure, List<Serie>>> watchSerieType(
       String serieListType);
   Stream<Either<SerieFailure, List<Serie>>> watchSerieGenre(
