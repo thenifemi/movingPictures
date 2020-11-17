@@ -41,4 +41,5 @@ app.*.symbols
 app.*.map.json
 
 google-services.json
+credentials.dart
 

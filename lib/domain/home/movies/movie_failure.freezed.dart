@@ -19,8 +19,13 @@ class _$MovieFailureTearOff {
   }
 
 // ignore: unused_element
-  _UnableToUpdate unableToUpdate() {
-    return const _UnableToUpdate();
+  _NoInternetConnection noInternetConnection() {
+    return const _NoInternetConnection();
+  }
+
+// ignore: unused_element
+  _UnableToAdd unableToAdd() {
+    return const _UnableToAdd();
   }
 
 // ignore: unused_element
@@ -38,26 +43,30 @@ mixin _$MovieFailure {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result unexpected(),
-    @required Result unableToUpdate(),
+    @required Result noInternetConnection(),
+    @required Result unableToAdd(),
     @required Result insufficientPermissions(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result unexpected(),
-    Result unableToUpdate(),
+    Result noInternetConnection(),
+    Result unableToAdd(),
     Result insufficientPermissions(),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result unexpected(_Unexpected value),
-    @required Result unableToUpdate(_UnableToUpdate value),
+    @required Result noInternetConnection(_NoInternetConnection value),
+    @required Result unableToAdd(_UnableToAdd value),
     @required Result insufficientPermissions(_InsufficientPermissions value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result unexpected(_Unexpected value),
-    Result unableToUpdate(_UnableToUpdate value),
+    Result noInternetConnection(_NoInternetConnection value),
+    Result unableToAdd(_UnableToAdd value),
     Result insufficientPermissions(_InsufficientPermissions value),
     @required Result orElse(),
   });
@@ -118,11 +127,13 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result unexpected(),
-    @required Result unableToUpdate(),
+    @required Result noInternetConnection(),
+    @required Result unableToAdd(),
     @required Result insufficientPermissions(),
   }) {
     assert(unexpected != null);
-    assert(unableToUpdate != null);
+    assert(noInternetConnection != null);
+    assert(unableToAdd != null);
     assert(insufficientPermissions != null);
     return unexpected();
   }
@@ -131,7 +142,8 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result unexpected(),
-    Result unableToUpdate(),
+    Result noInternetConnection(),
+    Result unableToAdd(),
     Result insufficientPermissions(),
     @required Result orElse(),
   }) {
@@ -146,11 +158,13 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result unexpected(_Unexpected value),
-    @required Result unableToUpdate(_UnableToUpdate value),
+    @required Result noInternetConnection(_NoInternetConnection value),
+    @required Result unableToAdd(_UnableToAdd value),
     @required Result insufficientPermissions(_InsufficientPermissions value),
   }) {
     assert(unexpected != null);
-    assert(unableToUpdate != null);
+    assert(noInternetConnection != null);
+    assert(unableToAdd != null);
     assert(insufficientPermissions != null);
     return unexpected(this);
   }
@@ -159,7 +173,8 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result unexpected(_Unexpected value),
-    Result unableToUpdate(_UnableToUpdate value),
+    Result noInternetConnection(_NoInternetConnection value),
+    Result unableToAdd(_UnableToAdd value),
     Result insufficientPermissions(_InsufficientPermissions value),
     @required Result orElse(),
   }) {
@@ -176,36 +191,36 @@ abstract class _Unexpected implements MovieFailure {
 }
 
 /// @nodoc
-abstract class _$UnableToUpdateCopyWith<$Res> {
-  factory _$UnableToUpdateCopyWith(
-          _UnableToUpdate value, $Res Function(_UnableToUpdate) then) =
-      __$UnableToUpdateCopyWithImpl<$Res>;
+abstract class _$NoInternetConnectionCopyWith<$Res> {
+  factory _$NoInternetConnectionCopyWith(_NoInternetConnection value,
+          $Res Function(_NoInternetConnection) then) =
+      __$NoInternetConnectionCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$UnableToUpdateCopyWithImpl<$Res>
+class __$NoInternetConnectionCopyWithImpl<$Res>
     extends _$MovieFailureCopyWithImpl<$Res>
-    implements _$UnableToUpdateCopyWith<$Res> {
-  __$UnableToUpdateCopyWithImpl(
-      _UnableToUpdate _value, $Res Function(_UnableToUpdate) _then)
-      : super(_value, (v) => _then(v as _UnableToUpdate));
+    implements _$NoInternetConnectionCopyWith<$Res> {
+  __$NoInternetConnectionCopyWithImpl(
+      _NoInternetConnection _value, $Res Function(_NoInternetConnection) _then)
+      : super(_value, (v) => _then(v as _NoInternetConnection));
 
   @override
-  _UnableToUpdate get _value => super._value as _UnableToUpdate;
+  _NoInternetConnection get _value => super._value as _NoInternetConnection;
 }
 
 /// @nodoc
-class _$_UnableToUpdate implements _UnableToUpdate {
-  const _$_UnableToUpdate();
+class _$_NoInternetConnection implements _NoInternetConnection {
+  const _$_NoInternetConnection();
 
   @override
   String toString() {
-    return 'MovieFailure.unableToUpdate()';
+    return 'MovieFailure.noInternetConnection()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _UnableToUpdate);
+    return identical(this, other) || (other is _NoInternetConnection);
   }
 
   @override
@@ -215,26 +230,29 @@ class _$_UnableToUpdate implements _UnableToUpdate {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result unexpected(),
-    @required Result unableToUpdate(),
+    @required Result noInternetConnection(),
+    @required Result unableToAdd(),
     @required Result insufficientPermissions(),
   }) {
     assert(unexpected != null);
-    assert(unableToUpdate != null);
+    assert(noInternetConnection != null);
+    assert(unableToAdd != null);
     assert(insufficientPermissions != null);
-    return unableToUpdate();
+    return noInternetConnection();
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result unexpected(),
-    Result unableToUpdate(),
+    Result noInternetConnection(),
+    Result unableToAdd(),
     Result insufficientPermissions(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (unableToUpdate != null) {
-      return unableToUpdate();
+    if (noInternetConnection != null) {
+      return noInternetConnection();
     }
     return orElse();
   }
@@ -243,33 +261,138 @@ class _$_UnableToUpdate implements _UnableToUpdate {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result unexpected(_Unexpected value),
-    @required Result unableToUpdate(_UnableToUpdate value),
+    @required Result noInternetConnection(_NoInternetConnection value),
+    @required Result unableToAdd(_UnableToAdd value),
     @required Result insufficientPermissions(_InsufficientPermissions value),
   }) {
     assert(unexpected != null);
-    assert(unableToUpdate != null);
+    assert(noInternetConnection != null);
+    assert(unableToAdd != null);
     assert(insufficientPermissions != null);
-    return unableToUpdate(this);
+    return noInternetConnection(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result unexpected(_Unexpected value),
-    Result unableToUpdate(_UnableToUpdate value),
+    Result noInternetConnection(_NoInternetConnection value),
+    Result unableToAdd(_UnableToAdd value),
     Result insufficientPermissions(_InsufficientPermissions value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (unableToUpdate != null) {
-      return unableToUpdate(this);
+    if (noInternetConnection != null) {
+      return noInternetConnection(this);
     }
     return orElse();
   }
 }
 
-abstract class _UnableToUpdate implements MovieFailure {
-  const factory _UnableToUpdate() = _$_UnableToUpdate;
+abstract class _NoInternetConnection implements MovieFailure {
+  const factory _NoInternetConnection() = _$_NoInternetConnection;
+}
+
+/// @nodoc
+abstract class _$UnableToAddCopyWith<$Res> {
+  factory _$UnableToAddCopyWith(
+          _UnableToAdd value, $Res Function(_UnableToAdd) then) =
+      __$UnableToAddCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$UnableToAddCopyWithImpl<$Res> extends _$MovieFailureCopyWithImpl<$Res>
+    implements _$UnableToAddCopyWith<$Res> {
+  __$UnableToAddCopyWithImpl(
+      _UnableToAdd _value, $Res Function(_UnableToAdd) _then)
+      : super(_value, (v) => _then(v as _UnableToAdd));
+
+  @override
+  _UnableToAdd get _value => super._value as _UnableToAdd;
+}
+
+/// @nodoc
+class _$_UnableToAdd implements _UnableToAdd {
+  const _$_UnableToAdd();
+
+  @override
+  String toString() {
+    return 'MovieFailure.unableToAdd()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _UnableToAdd);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result unexpected(),
+    @required Result noInternetConnection(),
+    @required Result unableToAdd(),
+    @required Result insufficientPermissions(),
+  }) {
+    assert(unexpected != null);
+    assert(noInternetConnection != null);
+    assert(unableToAdd != null);
+    assert(insufficientPermissions != null);
+    return unableToAdd();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result unexpected(),
+    Result noInternetConnection(),
+    Result unableToAdd(),
+    Result insufficientPermissions(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (unableToAdd != null) {
+      return unableToAdd();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result unexpected(_Unexpected value),
+    @required Result noInternetConnection(_NoInternetConnection value),
+    @required Result unableToAdd(_UnableToAdd value),
+    @required Result insufficientPermissions(_InsufficientPermissions value),
+  }) {
+    assert(unexpected != null);
+    assert(noInternetConnection != null);
+    assert(unableToAdd != null);
+    assert(insufficientPermissions != null);
+    return unableToAdd(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result unexpected(_Unexpected value),
+    Result noInternetConnection(_NoInternetConnection value),
+    Result unableToAdd(_UnableToAdd value),
+    Result insufficientPermissions(_InsufficientPermissions value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (unableToAdd != null) {
+      return unableToAdd(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UnableToAdd implements MovieFailure {
+  const factory _UnableToAdd() = _$_UnableToAdd;
 }
 
 /// @nodoc
@@ -313,11 +436,13 @@ class _$_InsufficientPermissions implements _InsufficientPermissions {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result unexpected(),
-    @required Result unableToUpdate(),
+    @required Result noInternetConnection(),
+    @required Result unableToAdd(),
     @required Result insufficientPermissions(),
   }) {
     assert(unexpected != null);
-    assert(unableToUpdate != null);
+    assert(noInternetConnection != null);
+    assert(unableToAdd != null);
     assert(insufficientPermissions != null);
     return insufficientPermissions();
   }
@@ -326,7 +451,8 @@ class _$_InsufficientPermissions implements _InsufficientPermissions {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result unexpected(),
-    Result unableToUpdate(),
+    Result noInternetConnection(),
+    Result unableToAdd(),
     Result insufficientPermissions(),
     @required Result orElse(),
   }) {
@@ -341,11 +467,13 @@ class _$_InsufficientPermissions implements _InsufficientPermissions {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result unexpected(_Unexpected value),
-    @required Result unableToUpdate(_UnableToUpdate value),
+    @required Result noInternetConnection(_NoInternetConnection value),
+    @required Result unableToAdd(_UnableToAdd value),
     @required Result insufficientPermissions(_InsufficientPermissions value),
   }) {
     assert(unexpected != null);
-    assert(unableToUpdate != null);
+    assert(noInternetConnection != null);
+    assert(unableToAdd != null);
     assert(insufficientPermissions != null);
     return insufficientPermissions(this);
   }
@@ -354,7 +482,8 @@ class _$_InsufficientPermissions implements _InsufficientPermissions {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result unexpected(_Unexpected value),
-    Result unableToUpdate(_UnableToUpdate value),
+    Result noInternetConnection(_NoInternetConnection value),
+    Result unableToAdd(_UnableToAdd value),
     Result insufficientPermissions(_InsufficientPermissions value),
     @required Result orElse(),
   }) {
