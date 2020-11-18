@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:movingPictures/domain/home/movies/movie.dart';
 
 import '../../core/app_colors.dart';
 import '../../core/app_localizations.dart';
 import '../../core/constants/constants.dart';
 
 class RegularBlockWidget extends StatelessWidget {
-  final dynamic state;
+  final List<Movie> movies;
   final String blockName;
   final Function showInfoBottomSheet;
 
@@ -13,7 +14,7 @@ class RegularBlockWidget extends StatelessWidget {
     Key key,
     @required this.blockName,
     @required this.showInfoBottomSheet,
-    this.state,
+    this.movies,
   }) : super(key: key);
 
   @override
@@ -43,6 +44,9 @@ class RegularBlockWidget extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: 10,
             itemBuilder: (context, i) {
+              final movie = movies[i];
+              // ignore: avoid_print
+              print(movie);
               return GestureDetector(
                 onTap: () => showInfoBottomSheet(),
                 child: Container(

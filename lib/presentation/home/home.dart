@@ -22,7 +22,9 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => getIt<MoviesBloc>()),
+        BlocProvider(
+            create: (context) => getIt<MoviesBloc>()
+              ..add(const MoviesEvent.movieTypeCalled("popular"))),
       ],
       child: DefaultTabController(
         length: 2,

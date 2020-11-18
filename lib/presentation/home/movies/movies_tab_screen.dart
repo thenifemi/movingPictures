@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:movingPictures/injection.dart';
-import '../../../application/home/movies/movies_bloc.dart';
 
+import '../../../application/home/movies/movies_bloc.dart';
+import '../../../domain/home/movies/movie.dart';
+import '../../core/app_colors.dart';
 import '../../core/constants/language_constants.dart';
 import '../widgets/banner_block_widget.dart';
 import '../widgets/build_show_info_modal_bottom_sheet_widget.dart';
@@ -36,10 +37,24 @@ class MoviesTabScreen extends HookWidget {
               const SizedBox(height: 20.0),
               BlocBuilder<MoviesBloc, MoviesState>(
                 builder: (context, state) {
-                  return RegularBlockWidget(
-                    state: state,
-                    blockName: trendingNow,
-                    showInfoBottomSheet: showInfoBottomSheet,
+                  return state.map(
+                    initial: (_) => Container(
+                      height: 100.0,
+                      color: AppColors.white,
+                    ),
+                    loading: (_) => Container(
+                      height: 100.0,
+                      color: AppColors.gray,
+                    ),
+                    loadSuccess: (movies) => RegularBlockWidget(
+                      movies: movies as List<Movie>,
+                      blockName: trendingNow,
+                      showInfoBottomSheet: showInfoBottomSheet,
+                    ),
+                    loadFailure: (_) => Container(
+                      height: 100.0,
+                      color: AppColors.red,
+                    ),
                   );
                 },
               ),
