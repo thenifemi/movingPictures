@@ -26,14 +26,6 @@ class _$MoviesEventTearOff {
       movieGenreId,
     );
   }
-
-// ignore: unused_element
-  _MoviesRecieved moviesRecieved(
-      Either<MovieFailure, List<Movie>> failureOrMovies) {
-    return _MoviesRecieved(
-      failureOrMovies,
-    );
-  }
 }
 
 /// @nodoc
@@ -46,28 +38,22 @@ mixin _$MoviesEvent {
   Result when<Result extends Object>({
     @required Result movieTypeCalled(String movieListType),
     @required Result movieByGenreCalled(int movieGenreId),
-    @required
-        Result moviesRecieved(
-            Either<MovieFailure, List<Movie>> failureOrMovies),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result movieTypeCalled(String movieListType),
     Result movieByGenreCalled(int movieGenreId),
-    Result moviesRecieved(Either<MovieFailure, List<Movie>> failureOrMovies),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result movieTypeCalled(_MovieTypeCalled value),
     @required Result movieByGenreCalled(_MovieByGenreCalled value),
-    @required Result moviesRecieved(_MoviesRecieved value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result movieTypeCalled(_MovieTypeCalled value),
     Result movieByGenreCalled(_MovieByGenreCalled value),
-    Result moviesRecieved(_MoviesRecieved value),
     @required Result orElse(),
   });
 }
@@ -151,13 +137,9 @@ class _$_MovieTypeCalled implements _MovieTypeCalled {
   Result when<Result extends Object>({
     @required Result movieTypeCalled(String movieListType),
     @required Result movieByGenreCalled(int movieGenreId),
-    @required
-        Result moviesRecieved(
-            Either<MovieFailure, List<Movie>> failureOrMovies),
   }) {
     assert(movieTypeCalled != null);
     assert(movieByGenreCalled != null);
-    assert(moviesRecieved != null);
     return movieTypeCalled(movieListType);
   }
 
@@ -166,7 +148,6 @@ class _$_MovieTypeCalled implements _MovieTypeCalled {
   Result maybeWhen<Result extends Object>({
     Result movieTypeCalled(String movieListType),
     Result movieByGenreCalled(int movieGenreId),
-    Result moviesRecieved(Either<MovieFailure, List<Movie>> failureOrMovies),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -181,11 +162,9 @@ class _$_MovieTypeCalled implements _MovieTypeCalled {
   Result map<Result extends Object>({
     @required Result movieTypeCalled(_MovieTypeCalled value),
     @required Result movieByGenreCalled(_MovieByGenreCalled value),
-    @required Result moviesRecieved(_MoviesRecieved value),
   }) {
     assert(movieTypeCalled != null);
     assert(movieByGenreCalled != null);
-    assert(moviesRecieved != null);
     return movieTypeCalled(this);
   }
 
@@ -194,7 +173,6 @@ class _$_MovieTypeCalled implements _MovieTypeCalled {
   Result maybeMap<Result extends Object>({
     Result movieTypeCalled(_MovieTypeCalled value),
     Result movieByGenreCalled(_MovieByGenreCalled value),
-    Result moviesRecieved(_MoviesRecieved value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -275,13 +253,9 @@ class _$_MovieByGenreCalled implements _MovieByGenreCalled {
   Result when<Result extends Object>({
     @required Result movieTypeCalled(String movieListType),
     @required Result movieByGenreCalled(int movieGenreId),
-    @required
-        Result moviesRecieved(
-            Either<MovieFailure, List<Movie>> failureOrMovies),
   }) {
     assert(movieTypeCalled != null);
     assert(movieByGenreCalled != null);
-    assert(moviesRecieved != null);
     return movieByGenreCalled(movieGenreId);
   }
 
@@ -290,7 +264,6 @@ class _$_MovieByGenreCalled implements _MovieByGenreCalled {
   Result maybeWhen<Result extends Object>({
     Result movieTypeCalled(String movieListType),
     Result movieByGenreCalled(int movieGenreId),
-    Result moviesRecieved(Either<MovieFailure, List<Movie>> failureOrMovies),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -305,11 +278,9 @@ class _$_MovieByGenreCalled implements _MovieByGenreCalled {
   Result map<Result extends Object>({
     @required Result movieTypeCalled(_MovieTypeCalled value),
     @required Result movieByGenreCalled(_MovieByGenreCalled value),
-    @required Result moviesRecieved(_MoviesRecieved value),
   }) {
     assert(movieTypeCalled != null);
     assert(movieByGenreCalled != null);
-    assert(moviesRecieved != null);
     return movieByGenreCalled(this);
   }
 
@@ -318,7 +289,6 @@ class _$_MovieByGenreCalled implements _MovieByGenreCalled {
   Result maybeMap<Result extends Object>({
     Result movieTypeCalled(_MovieTypeCalled value),
     Result movieByGenreCalled(_MovieByGenreCalled value),
-    Result moviesRecieved(_MoviesRecieved value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -334,135 +304,6 @@ abstract class _MovieByGenreCalled implements MoviesEvent {
 
   int get movieGenreId;
   _$MovieByGenreCalledCopyWith<_MovieByGenreCalled> get copyWith;
-}
-
-/// @nodoc
-abstract class _$MoviesRecievedCopyWith<$Res> {
-  factory _$MoviesRecievedCopyWith(
-          _MoviesRecieved value, $Res Function(_MoviesRecieved) then) =
-      __$MoviesRecievedCopyWithImpl<$Res>;
-  $Res call({Either<MovieFailure, List<Movie>> failureOrMovies});
-}
-
-/// @nodoc
-class __$MoviesRecievedCopyWithImpl<$Res>
-    extends _$MoviesEventCopyWithImpl<$Res>
-    implements _$MoviesRecievedCopyWith<$Res> {
-  __$MoviesRecievedCopyWithImpl(
-      _MoviesRecieved _value, $Res Function(_MoviesRecieved) _then)
-      : super(_value, (v) => _then(v as _MoviesRecieved));
-
-  @override
-  _MoviesRecieved get _value => super._value as _MoviesRecieved;
-
-  @override
-  $Res call({
-    Object failureOrMovies = freezed,
-  }) {
-    return _then(_MoviesRecieved(
-      failureOrMovies == freezed
-          ? _value.failureOrMovies
-          : failureOrMovies as Either<MovieFailure, List<Movie>>,
-    ));
-  }
-}
-
-/// @nodoc
-class _$_MoviesRecieved implements _MoviesRecieved {
-  const _$_MoviesRecieved(this.failureOrMovies)
-      : assert(failureOrMovies != null);
-
-  @override
-  final Either<MovieFailure, List<Movie>> failureOrMovies;
-
-  @override
-  String toString() {
-    return 'MoviesEvent.moviesRecieved(failureOrMovies: $failureOrMovies)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _MoviesRecieved &&
-            (identical(other.failureOrMovies, failureOrMovies) ||
-                const DeepCollectionEquality()
-                    .equals(other.failureOrMovies, failureOrMovies)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(failureOrMovies);
-
-  @override
-  _$MoviesRecievedCopyWith<_MoviesRecieved> get copyWith =>
-      __$MoviesRecievedCopyWithImpl<_MoviesRecieved>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result movieTypeCalled(String movieListType),
-    @required Result movieByGenreCalled(int movieGenreId),
-    @required
-        Result moviesRecieved(
-            Either<MovieFailure, List<Movie>> failureOrMovies),
-  }) {
-    assert(movieTypeCalled != null);
-    assert(movieByGenreCalled != null);
-    assert(moviesRecieved != null);
-    return moviesRecieved(failureOrMovies);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result movieTypeCalled(String movieListType),
-    Result movieByGenreCalled(int movieGenreId),
-    Result moviesRecieved(Either<MovieFailure, List<Movie>> failureOrMovies),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (moviesRecieved != null) {
-      return moviesRecieved(failureOrMovies);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result movieTypeCalled(_MovieTypeCalled value),
-    @required Result movieByGenreCalled(_MovieByGenreCalled value),
-    @required Result moviesRecieved(_MoviesRecieved value),
-  }) {
-    assert(movieTypeCalled != null);
-    assert(movieByGenreCalled != null);
-    assert(moviesRecieved != null);
-    return moviesRecieved(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result movieTypeCalled(_MovieTypeCalled value),
-    Result movieByGenreCalled(_MovieByGenreCalled value),
-    Result moviesRecieved(_MoviesRecieved value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (moviesRecieved != null) {
-      return moviesRecieved(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _MoviesRecieved implements MoviesEvent {
-  const factory _MoviesRecieved(
-      Either<MovieFailure, List<Movie>> failureOrMovies) = _$_MoviesRecieved;
-
-  Either<MovieFailure, List<Movie>> get failureOrMovies;
-  _$MoviesRecievedCopyWith<_MoviesRecieved> get copyWith;
 }
 
 /// @nodoc

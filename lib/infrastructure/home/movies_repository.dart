@@ -22,10 +22,11 @@ class MoviesRepository extends MoviesInterface {
   Future<Either<MovieFailure, List<Movie>>> getMovieListType(
     String movieListType,
   ) async {
-    final getMovieTypeUrl = "$tmdbUrl/movie/$movieListType";
+    // final getMovieTypeUrl = "$tmdbUrl/movie/$movieListType";
+    final getMovieTypeUrl = "$tmdbUrl/movie/popular";
     final params = {
       "api_key": apiKey,
-      "language": deviceLocal,
+      "language": "en-US",
       "page": 1,
     };
 
@@ -39,7 +40,9 @@ class MoviesRepository extends MoviesInterface {
           .toList();
 
       return right(movies);
-    } catch (e) {
+    } catch (e, stacktrace) {
+      print("Exception occured: $e stacktrace: $stacktrace");
+
       return left(const MovieFailure.unexpected());
     }
   }

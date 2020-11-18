@@ -6,8 +6,4 @@ abstract class MoviesEvent with _$MoviesEvent {
       _MovieTypeCalled;
   const factory MoviesEvent.movieByGenreCalled(int movieGenreId) =
       _MovieByGenreCalled;
-
-  const factory MoviesEvent.moviesRecieved(
-    Either<MovieFailure, List<Movie>> failureOrMovies,
-  ) = _MoviesRecieved;
 }

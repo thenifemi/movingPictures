@@ -46,8 +46,8 @@ class MoviesTabScreen extends HookWidget {
                       height: 100.0,
                       color: AppColors.gray,
                     ),
-                    loadSuccess: (movies) => RegularBlockWidget(
-                      movies: movies as List<Movie>,
+                    loadSuccess: (state) => RegularBlockWidget(
+                      movies: state.movies,
                       blockName: trendingNow,
                       showInfoBottomSheet: showInfoBottomSheet,
                     ),
@@ -59,25 +59,25 @@ class MoviesTabScreen extends HookWidget {
                 },
               ),
               const SizedBox(height: 20.0),
-              RegularBlockWidget(
-                blockName: action,
-                showInfoBottomSheet: showInfoBottomSheet,
-              ),
-              const SizedBox(height: 20.0),
-              TopTenBlockWidget(
-                moviesOrSeries: movies,
-                showInfoBottomSheet: showInfoBottomSheet,
-              ),
-              const SizedBox(height: 20.0),
-              RegularBlockWidget(
-                blockName: horror,
-                showInfoBottomSheet: showInfoBottomSheet,
-              ),
-              const SizedBox(height: 20.0),
-              RegularBlockWidget(
-                blockName: comedy,
-                showInfoBottomSheet: showInfoBottomSheet,
-              ),
+              // RegularBlockWidget(
+              //   blockName: action,
+              //   showInfoBottomSheet: showInfoBottomSheet,
+              // ),
+              // const SizedBox(height: 20.0),
+              // TopTenBlockWidget(
+              //   moviesOrSeries: movies,
+              //   showInfoBottomSheet: showInfoBottomSheet,
+              // ),
+              // const SizedBox(height: 20.0),
+              // RegularBlockWidget(
+              //   blockName: horror,
+              //   showInfoBottomSheet: showInfoBottomSheet,
+              // ),
+              // const SizedBox(height: 20.0),
+              // RegularBlockWidget(
+              //   blockName: comedy,
+              //   showInfoBottomSheet: showInfoBottomSheet,
+              // ),
               const SizedBox(height: 20.0),
             ],
           ),
