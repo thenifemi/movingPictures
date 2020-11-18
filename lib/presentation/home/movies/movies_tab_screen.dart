@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:movingPictures/injection.dart';
 
 import '../../../application/home/movies/movies_bloc.dart';
 import '../../../domain/home/movies/movie.dart';
@@ -23,66 +24,40 @@ class MoviesTabScreen extends HookWidget {
           appTextTheme: appTextTheme,
         );
 
-    return BlocConsumer<MoviesBloc, MoviesState>(
-      listener: (context, state) {
-        //* implement listener
-      },
-      builder: (context, state) {
-        return SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const BannerBlockWidget(),
-              const SizedBox(height: 20.0),
-              BlocBuilder<MoviesBloc, MoviesState>(
-                builder: (context, state) {
-                  return state.map(
-                    initial: (_) => Container(
-                      height: 100.0,
-                      color: AppColors.white,
-                    ),
-                    loading: (_) => Container(
-                      height: 100.0,
-                      color: AppColors.gray,
-                    ),
-                    loadSuccess: (state) => RegularBlockWidget(
-                      movies: state.movies,
-                      blockName: trendingNow,
-                      showInfoBottomSheet: showInfoBottomSheet,
-                    ),
-                    loadFailure: (_) => Container(
-                      height: 100.0,
-                      color: AppColors.red,
-                    ),
-                  );
-                },
-              ),
-              const SizedBox(height: 20.0),
-              // RegularBlockWidget(
-              //   blockName: action,
-              //   showInfoBottomSheet: showInfoBottomSheet,
-              // ),
-              // const SizedBox(height: 20.0),
-              // TopTenBlockWidget(
-              //   moviesOrSeries: movies,
-              //   showInfoBottomSheet: showInfoBottomSheet,
-              // ),
-              // const SizedBox(height: 20.0),
-              // RegularBlockWidget(
-              //   blockName: horror,
-              //   showInfoBottomSheet: showInfoBottomSheet,
-              // ),
-              // const SizedBox(height: 20.0),
-              // RegularBlockWidget(
-              //   blockName: comedy,
-              //   showInfoBottomSheet: showInfoBottomSheet,
-              // ),
-              const SizedBox(height: 20.0),
-            ],
+    return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const BannerBlockWidget(),
+          const SizedBox(height: 20.0),
+          RegularBlockWidget(
+            blockName: trendingNow,
+            showInfoBottomSheet: showInfoBottomSheet,
           ),
-        );
-      },
+          const SizedBox(height: 20.0),
+          // RegularBlockWidget(
+          //   blockName: action,
+          //   showInfoBottomSheet: showInfoBottomSheet,
+          // ),
+          // const SizedBox(height: 20.0),
+          // TopTenBlockWidget(
+          //   moviesOrSeries: movies,
+          //   showInfoBottomSheet: showInfoBottomSheet,
+          // ),
+          // const SizedBox(height: 20.0),
+          // RegularBlockWidget(
+          //   blockName: horror,
+          //   showInfoBottomSheet: showInfoBottomSheet,
+          // ),
+          // const SizedBox(height: 20.0),
+          // RegularBlockWidget(
+          //   blockName: comedy,
+          //   showInfoBottomSheet: showInfoBottomSheet,
+          // ),
+          const SizedBox(height: 20.0),
+        ],
+      ),
     );
   }
 }
