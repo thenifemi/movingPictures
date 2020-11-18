@@ -27,8 +27,7 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
         yield const MoviesState.loading();
 
         final failureOrMovies =
-            await moviesInterface.getMovieListType("popular");
-        print(failureOrMovies);
+            await moviesInterface.getMovieListType(e.movieListType);
 
         yield failureOrMovies.fold(
           (f) => MoviesState.loadFailure(f),
@@ -38,12 +37,8 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
       movieByGenreCalled: (e) async* {
         yield const MoviesState.loading();
 
-        final movieGenreId = event.maybeMap(
-          orElse: null,
-          movieByGenreCalled: (type) => type.movieGenreId,
-        );
         final failureOrMovies =
-            await moviesInterface.getMovieByGenre(movieGenreId);
+            await moviesInterface.getMovieByGenre(e.movieGenreId);
 
         yield failureOrMovies.fold(
           (f) => MoviesState.loadFailure(f),

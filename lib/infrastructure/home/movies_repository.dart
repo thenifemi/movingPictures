@@ -22,8 +22,7 @@ class MoviesRepository extends MoviesInterface {
   Future<Either<MovieFailure, List<Movie>>> getMovieListType(
     String movieListType,
   ) async {
-    // final getMovieTypeUrl = "$tmdbUrl/movie/$movieListType";
-    final getMovieTypeUrl = "$tmdbUrl/movie/popular";
+    final getMovieTypeUrl = "$tmdbUrl/movie/$movieListType";
     final params = {
       "api_key": apiKey,
       "language": "en-US",
