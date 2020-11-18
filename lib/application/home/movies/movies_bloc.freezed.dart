@@ -26,6 +26,14 @@ class _$MoviesEventTearOff {
       movieGenreId,
     );
   }
+
+// ignore: unused_element
+  _MoviesRecieved moviesRecieved(
+      Either<MovieFailure, List<Movie>> failureOrMovies) {
+    return _MoviesRecieved(
+      failureOrMovies,
+    );
+  }
 }
 
 /// @nodoc
@@ -38,22 +46,28 @@ mixin _$MoviesEvent {
   Result when<Result extends Object>({
     @required Result movieTypeCalled(String movieListType),
     @required Result movieByGenreCalled(int movieGenreId),
+    @required
+        Result moviesRecieved(
+            Either<MovieFailure, List<Movie>> failureOrMovies),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result movieTypeCalled(String movieListType),
     Result movieByGenreCalled(int movieGenreId),
+    Result moviesRecieved(Either<MovieFailure, List<Movie>> failureOrMovies),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result movieTypeCalled(_MovieTypeCalled value),
     @required Result movieByGenreCalled(_MovieByGenreCalled value),
+    @required Result moviesRecieved(_MoviesRecieved value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result movieTypeCalled(_MovieTypeCalled value),
     Result movieByGenreCalled(_MovieByGenreCalled value),
+    Result moviesRecieved(_MoviesRecieved value),
     @required Result orElse(),
   });
 }
@@ -137,9 +151,13 @@ class _$_MovieTypeCalled implements _MovieTypeCalled {
   Result when<Result extends Object>({
     @required Result movieTypeCalled(String movieListType),
     @required Result movieByGenreCalled(int movieGenreId),
+    @required
+        Result moviesRecieved(
+            Either<MovieFailure, List<Movie>> failureOrMovies),
   }) {
     assert(movieTypeCalled != null);
     assert(movieByGenreCalled != null);
+    assert(moviesRecieved != null);
     return movieTypeCalled(movieListType);
   }
 
@@ -148,6 +166,7 @@ class _$_MovieTypeCalled implements _MovieTypeCalled {
   Result maybeWhen<Result extends Object>({
     Result movieTypeCalled(String movieListType),
     Result movieByGenreCalled(int movieGenreId),
+    Result moviesRecieved(Either<MovieFailure, List<Movie>> failureOrMovies),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -162,9 +181,11 @@ class _$_MovieTypeCalled implements _MovieTypeCalled {
   Result map<Result extends Object>({
     @required Result movieTypeCalled(_MovieTypeCalled value),
     @required Result movieByGenreCalled(_MovieByGenreCalled value),
+    @required Result moviesRecieved(_MoviesRecieved value),
   }) {
     assert(movieTypeCalled != null);
     assert(movieByGenreCalled != null);
+    assert(moviesRecieved != null);
     return movieTypeCalled(this);
   }
 
@@ -173,6 +194,7 @@ class _$_MovieTypeCalled implements _MovieTypeCalled {
   Result maybeMap<Result extends Object>({
     Result movieTypeCalled(_MovieTypeCalled value),
     Result movieByGenreCalled(_MovieByGenreCalled value),
+    Result moviesRecieved(_MoviesRecieved value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -253,9 +275,13 @@ class _$_MovieByGenreCalled implements _MovieByGenreCalled {
   Result when<Result extends Object>({
     @required Result movieTypeCalled(String movieListType),
     @required Result movieByGenreCalled(int movieGenreId),
+    @required
+        Result moviesRecieved(
+            Either<MovieFailure, List<Movie>> failureOrMovies),
   }) {
     assert(movieTypeCalled != null);
     assert(movieByGenreCalled != null);
+    assert(moviesRecieved != null);
     return movieByGenreCalled(movieGenreId);
   }
 
@@ -264,6 +290,7 @@ class _$_MovieByGenreCalled implements _MovieByGenreCalled {
   Result maybeWhen<Result extends Object>({
     Result movieTypeCalled(String movieListType),
     Result movieByGenreCalled(int movieGenreId),
+    Result moviesRecieved(Either<MovieFailure, List<Movie>> failureOrMovies),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -278,9 +305,11 @@ class _$_MovieByGenreCalled implements _MovieByGenreCalled {
   Result map<Result extends Object>({
     @required Result movieTypeCalled(_MovieTypeCalled value),
     @required Result movieByGenreCalled(_MovieByGenreCalled value),
+    @required Result moviesRecieved(_MoviesRecieved value),
   }) {
     assert(movieTypeCalled != null);
     assert(movieByGenreCalled != null);
+    assert(moviesRecieved != null);
     return movieByGenreCalled(this);
   }
 
@@ -289,6 +318,7 @@ class _$_MovieByGenreCalled implements _MovieByGenreCalled {
   Result maybeMap<Result extends Object>({
     Result movieTypeCalled(_MovieTypeCalled value),
     Result movieByGenreCalled(_MovieByGenreCalled value),
+    Result moviesRecieved(_MoviesRecieved value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -307,24 +337,159 @@ abstract class _MovieByGenreCalled implements MoviesEvent {
 }
 
 /// @nodoc
+abstract class _$MoviesRecievedCopyWith<$Res> {
+  factory _$MoviesRecievedCopyWith(
+          _MoviesRecieved value, $Res Function(_MoviesRecieved) then) =
+      __$MoviesRecievedCopyWithImpl<$Res>;
+  $Res call({Either<MovieFailure, List<Movie>> failureOrMovies});
+}
+
+/// @nodoc
+class __$MoviesRecievedCopyWithImpl<$Res>
+    extends _$MoviesEventCopyWithImpl<$Res>
+    implements _$MoviesRecievedCopyWith<$Res> {
+  __$MoviesRecievedCopyWithImpl(
+      _MoviesRecieved _value, $Res Function(_MoviesRecieved) _then)
+      : super(_value, (v) => _then(v as _MoviesRecieved));
+
+  @override
+  _MoviesRecieved get _value => super._value as _MoviesRecieved;
+
+  @override
+  $Res call({
+    Object failureOrMovies = freezed,
+  }) {
+    return _then(_MoviesRecieved(
+      failureOrMovies == freezed
+          ? _value.failureOrMovies
+          : failureOrMovies as Either<MovieFailure, List<Movie>>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_MoviesRecieved implements _MoviesRecieved {
+  const _$_MoviesRecieved(this.failureOrMovies)
+      : assert(failureOrMovies != null);
+
+  @override
+  final Either<MovieFailure, List<Movie>> failureOrMovies;
+
+  @override
+  String toString() {
+    return 'MoviesEvent.moviesRecieved(failureOrMovies: $failureOrMovies)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _MoviesRecieved &&
+            (identical(other.failureOrMovies, failureOrMovies) ||
+                const DeepCollectionEquality()
+                    .equals(other.failureOrMovies, failureOrMovies)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failureOrMovies);
+
+  @override
+  _$MoviesRecievedCopyWith<_MoviesRecieved> get copyWith =>
+      __$MoviesRecievedCopyWithImpl<_MoviesRecieved>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result movieTypeCalled(String movieListType),
+    @required Result movieByGenreCalled(int movieGenreId),
+    @required
+        Result moviesRecieved(
+            Either<MovieFailure, List<Movie>> failureOrMovies),
+  }) {
+    assert(movieTypeCalled != null);
+    assert(movieByGenreCalled != null);
+    assert(moviesRecieved != null);
+    return moviesRecieved(failureOrMovies);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result movieTypeCalled(String movieListType),
+    Result movieByGenreCalled(int movieGenreId),
+    Result moviesRecieved(Either<MovieFailure, List<Movie>> failureOrMovies),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (moviesRecieved != null) {
+      return moviesRecieved(failureOrMovies);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result movieTypeCalled(_MovieTypeCalled value),
+    @required Result movieByGenreCalled(_MovieByGenreCalled value),
+    @required Result moviesRecieved(_MoviesRecieved value),
+  }) {
+    assert(movieTypeCalled != null);
+    assert(movieByGenreCalled != null);
+    assert(moviesRecieved != null);
+    return moviesRecieved(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result movieTypeCalled(_MovieTypeCalled value),
+    Result movieByGenreCalled(_MovieByGenreCalled value),
+    Result moviesRecieved(_MoviesRecieved value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (moviesRecieved != null) {
+      return moviesRecieved(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _MoviesRecieved implements MoviesEvent {
+  const factory _MoviesRecieved(
+      Either<MovieFailure, List<Movie>> failureOrMovies) = _$_MoviesRecieved;
+
+  Either<MovieFailure, List<Movie>> get failureOrMovies;
+  _$MoviesRecievedCopyWith<_MoviesRecieved> get copyWith;
+}
+
+/// @nodoc
 class _$MoviesStateTearOff {
   const _$MoviesStateTearOff();
 
 // ignore: unused_element
-  _MovieState call(
-      {@required
-          List<Movie> movies,
-      @required
-          bool isLoading,
-      @required
-          bool showErrorMessages,
-      @required
-          Option<Either<MovieFailure, List<Movie>>> failureOrSuccessOption}) {
-    return _MovieState(
-      movies: movies,
-      isLoading: isLoading,
-      showErrorMessages: showErrorMessages,
-      failureOrSuccessOption: failureOrSuccessOption,
+  _Initial initial() {
+    return const _Initial();
+  }
+
+// ignore: unused_element
+  _Loading loading() {
+    return const _Loading();
+  }
+
+// ignore: unused_element
+  _LoadSuccess loadSuccess(List<Movie> movies) {
+    return _LoadSuccess(
+      movies,
+    );
+  }
+
+// ignore: unused_element
+  _LoadFailure loadFailure(MovieFailure movieFailure) {
+    return _LoadFailure(
+      movieFailure,
     );
   }
 }
@@ -335,12 +500,36 @@ const $MoviesState = _$MoviesStateTearOff();
 
 /// @nodoc
 mixin _$MoviesState {
-  List<Movie> get movies;
-  bool get isLoading;
-  bool get showErrorMessages;
-  Option<Either<MovieFailure, List<Movie>>> get failureOrSuccessOption;
-
-  $MoviesStateCopyWith<MoviesState> get copyWith;
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result initial(),
+    @required Result loading(),
+    @required Result loadSuccess(List<Movie> movies),
+    @required Result loadFailure(MovieFailure movieFailure),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result initial(),
+    Result loading(),
+    Result loadSuccess(List<Movie> movies),
+    Result loadFailure(MovieFailure movieFailure),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result initial(_Initial value),
+    @required Result loading(_Loading value),
+    @required Result loadSuccess(_LoadSuccess value),
+    @required Result loadFailure(_LoadFailure value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result initial(_Initial value),
+    Result loading(_Loading value),
+    Result loadSuccess(_LoadSuccess value),
+    Result loadFailure(_LoadFailure value),
+    @required Result orElse(),
+  });
 }
 
 /// @nodoc
@@ -348,11 +537,6 @@ abstract class $MoviesStateCopyWith<$Res> {
   factory $MoviesStateCopyWith(
           MoviesState value, $Res Function(MoviesState) then) =
       _$MoviesStateCopyWithImpl<$Res>;
-  $Res call(
-      {List<Movie> movies,
-      bool isLoading,
-      bool showErrorMessages,
-      Option<Either<MovieFailure, List<Movie>>> failureOrSuccessOption});
 }
 
 /// @nodoc
@@ -362,147 +546,471 @@ class _$MoviesStateCopyWithImpl<$Res> implements $MoviesStateCopyWith<$Res> {
   final MoviesState _value;
   // ignore: unused_field
   final $Res Function(MoviesState) _then;
-
-  @override
-  $Res call({
-    Object movies = freezed,
-    Object isLoading = freezed,
-    Object showErrorMessages = freezed,
-    Object failureOrSuccessOption = freezed,
-  }) {
-    return _then(_value.copyWith(
-      movies: movies == freezed ? _value.movies : movies as List<Movie>,
-      isLoading: isLoading == freezed ? _value.isLoading : isLoading as bool,
-      showErrorMessages: showErrorMessages == freezed
-          ? _value.showErrorMessages
-          : showErrorMessages as bool,
-      failureOrSuccessOption: failureOrSuccessOption == freezed
-          ? _value.failureOrSuccessOption
-          : failureOrSuccessOption as Option<Either<MovieFailure, List<Movie>>>,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class _$MovieStateCopyWith<$Res>
-    implements $MoviesStateCopyWith<$Res> {
-  factory _$MovieStateCopyWith(
-          _MovieState value, $Res Function(_MovieState) then) =
-      __$MovieStateCopyWithImpl<$Res>;
-  @override
-  $Res call(
-      {List<Movie> movies,
-      bool isLoading,
-      bool showErrorMessages,
-      Option<Either<MovieFailure, List<Movie>>> failureOrSuccessOption});
+abstract class _$InitialCopyWith<$Res> {
+  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
+      __$InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$MovieStateCopyWithImpl<$Res> extends _$MoviesStateCopyWithImpl<$Res>
-    implements _$MovieStateCopyWith<$Res> {
-  __$MovieStateCopyWithImpl(
-      _MovieState _value, $Res Function(_MovieState) _then)
-      : super(_value, (v) => _then(v as _MovieState));
+class __$InitialCopyWithImpl<$Res> extends _$MoviesStateCopyWithImpl<$Res>
+    implements _$InitialCopyWith<$Res> {
+  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
+      : super(_value, (v) => _then(v as _Initial));
 
   @override
-  _MovieState get _value => super._value as _MovieState;
-
-  @override
-  $Res call({
-    Object movies = freezed,
-    Object isLoading = freezed,
-    Object showErrorMessages = freezed,
-    Object failureOrSuccessOption = freezed,
-  }) {
-    return _then(_MovieState(
-      movies: movies == freezed ? _value.movies : movies as List<Movie>,
-      isLoading: isLoading == freezed ? _value.isLoading : isLoading as bool,
-      showErrorMessages: showErrorMessages == freezed
-          ? _value.showErrorMessages
-          : showErrorMessages as bool,
-      failureOrSuccessOption: failureOrSuccessOption == freezed
-          ? _value.failureOrSuccessOption
-          : failureOrSuccessOption as Option<Either<MovieFailure, List<Movie>>>,
-    ));
-  }
+  _Initial get _value => super._value as _Initial;
 }
 
 /// @nodoc
-class _$_MovieState implements _MovieState {
-  const _$_MovieState(
-      {@required this.movies,
-      @required this.isLoading,
-      @required this.showErrorMessages,
-      @required this.failureOrSuccessOption})
-      : assert(movies != null),
-        assert(isLoading != null),
-        assert(showErrorMessages != null),
-        assert(failureOrSuccessOption != null);
-
-  @override
-  final List<Movie> movies;
-  @override
-  final bool isLoading;
-  @override
-  final bool showErrorMessages;
-  @override
-  final Option<Either<MovieFailure, List<Movie>>> failureOrSuccessOption;
+class _$_Initial implements _Initial {
+  const _$_Initial();
 
   @override
   String toString() {
-    return 'MoviesState(movies: $movies, isLoading: $isLoading, showErrorMessages: $showErrorMessages, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'MoviesState.initial()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _Initial);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result initial(),
+    @required Result loading(),
+    @required Result loadSuccess(List<Movie> movies),
+    @required Result loadFailure(MovieFailure movieFailure),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loadSuccess != null);
+    assert(loadFailure != null);
+    return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result initial(),
+    Result loading(),
+    Result loadSuccess(List<Movie> movies),
+    Result loadFailure(MovieFailure movieFailure),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (initial != null) {
+      return initial();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result initial(_Initial value),
+    @required Result loading(_Loading value),
+    @required Result loadSuccess(_LoadSuccess value),
+    @required Result loadFailure(_LoadFailure value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loadSuccess != null);
+    assert(loadFailure != null);
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result initial(_Initial value),
+    Result loading(_Loading value),
+    Result loadSuccess(_LoadSuccess value),
+    Result loadFailure(_LoadFailure value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initial implements MoviesState {
+  const factory _Initial() = _$_Initial;
+}
+
+/// @nodoc
+abstract class _$LoadingCopyWith<$Res> {
+  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
+      __$LoadingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$LoadingCopyWithImpl<$Res> extends _$MoviesStateCopyWithImpl<$Res>
+    implements _$LoadingCopyWith<$Res> {
+  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
+      : super(_value, (v) => _then(v as _Loading));
+
+  @override
+  _Loading get _value => super._value as _Loading;
+}
+
+/// @nodoc
+class _$_Loading implements _Loading {
+  const _$_Loading();
+
+  @override
+  String toString() {
+    return 'MoviesState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _Loading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result initial(),
+    @required Result loading(),
+    @required Result loadSuccess(List<Movie> movies),
+    @required Result loadFailure(MovieFailure movieFailure),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loadSuccess != null);
+    assert(loadFailure != null);
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result initial(),
+    Result loading(),
+    Result loadSuccess(List<Movie> movies),
+    Result loadFailure(MovieFailure movieFailure),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result initial(_Initial value),
+    @required Result loading(_Loading value),
+    @required Result loadSuccess(_LoadSuccess value),
+    @required Result loadFailure(_LoadFailure value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loadSuccess != null);
+    assert(loadFailure != null);
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result initial(_Initial value),
+    Result loading(_Loading value),
+    Result loadSuccess(_LoadSuccess value),
+    Result loadFailure(_LoadFailure value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Loading implements MoviesState {
+  const factory _Loading() = _$_Loading;
+}
+
+/// @nodoc
+abstract class _$LoadSuccessCopyWith<$Res> {
+  factory _$LoadSuccessCopyWith(
+          _LoadSuccess value, $Res Function(_LoadSuccess) then) =
+      __$LoadSuccessCopyWithImpl<$Res>;
+  $Res call({List<Movie> movies});
+}
+
+/// @nodoc
+class __$LoadSuccessCopyWithImpl<$Res> extends _$MoviesStateCopyWithImpl<$Res>
+    implements _$LoadSuccessCopyWith<$Res> {
+  __$LoadSuccessCopyWithImpl(
+      _LoadSuccess _value, $Res Function(_LoadSuccess) _then)
+      : super(_value, (v) => _then(v as _LoadSuccess));
+
+  @override
+  _LoadSuccess get _value => super._value as _LoadSuccess;
+
+  @override
+  $Res call({
+    Object movies = freezed,
+  }) {
+    return _then(_LoadSuccess(
+      movies == freezed ? _value.movies : movies as List<Movie>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_LoadSuccess implements _LoadSuccess {
+  const _$_LoadSuccess(this.movies) : assert(movies != null);
+
+  @override
+  final List<Movie> movies;
+
+  @override
+  String toString() {
+    return 'MoviesState.loadSuccess(movies: $movies)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _MovieState &&
+        (other is _LoadSuccess &&
             (identical(other.movies, movies) ||
-                const DeepCollectionEquality().equals(other.movies, movies)) &&
-            (identical(other.isLoading, isLoading) ||
-                const DeepCollectionEquality()
-                    .equals(other.isLoading, isLoading)) &&
-            (identical(other.showErrorMessages, showErrorMessages) ||
-                const DeepCollectionEquality()
-                    .equals(other.showErrorMessages, showErrorMessages)) &&
-            (identical(other.failureOrSuccessOption, failureOrSuccessOption) ||
-                const DeepCollectionEquality().equals(
-                    other.failureOrSuccessOption, failureOrSuccessOption)));
+                const DeepCollectionEquality().equals(other.movies, movies)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(movies) ^
-      const DeepCollectionEquality().hash(isLoading) ^
-      const DeepCollectionEquality().hash(showErrorMessages) ^
-      const DeepCollectionEquality().hash(failureOrSuccessOption);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(movies);
 
   @override
-  _$MovieStateCopyWith<_MovieState> get copyWith =>
-      __$MovieStateCopyWithImpl<_MovieState>(this, _$identity);
+  _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
+      __$LoadSuccessCopyWithImpl<_LoadSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result initial(),
+    @required Result loading(),
+    @required Result loadSuccess(List<Movie> movies),
+    @required Result loadFailure(MovieFailure movieFailure),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loadSuccess != null);
+    assert(loadFailure != null);
+    return loadSuccess(movies);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result initial(),
+    Result loading(),
+    Result loadSuccess(List<Movie> movies),
+    Result loadFailure(MovieFailure movieFailure),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (loadSuccess != null) {
+      return loadSuccess(movies);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result initial(_Initial value),
+    @required Result loading(_Loading value),
+    @required Result loadSuccess(_LoadSuccess value),
+    @required Result loadFailure(_LoadFailure value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loadSuccess != null);
+    assert(loadFailure != null);
+    return loadSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result initial(_Initial value),
+    Result loading(_Loading value),
+    Result loadSuccess(_LoadSuccess value),
+    Result loadFailure(_LoadFailure value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (loadSuccess != null) {
+      return loadSuccess(this);
+    }
+    return orElse();
+  }
 }
 
-abstract class _MovieState implements MoviesState {
-  const factory _MovieState(
-      {@required
-          List<Movie> movies,
-      @required
-          bool isLoading,
-      @required
-          bool showErrorMessages,
-      @required
-          Option<Either<MovieFailure, List<Movie>>>
-              failureOrSuccessOption}) = _$_MovieState;
+abstract class _LoadSuccess implements MoviesState {
+  const factory _LoadSuccess(List<Movie> movies) = _$_LoadSuccess;
+
+  List<Movie> get movies;
+  _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
+}
+
+/// @nodoc
+abstract class _$LoadFailureCopyWith<$Res> {
+  factory _$LoadFailureCopyWith(
+          _LoadFailure value, $Res Function(_LoadFailure) then) =
+      __$LoadFailureCopyWithImpl<$Res>;
+  $Res call({MovieFailure movieFailure});
+
+  $MovieFailureCopyWith<$Res> get movieFailure;
+}
+
+/// @nodoc
+class __$LoadFailureCopyWithImpl<$Res> extends _$MoviesStateCopyWithImpl<$Res>
+    implements _$LoadFailureCopyWith<$Res> {
+  __$LoadFailureCopyWithImpl(
+      _LoadFailure _value, $Res Function(_LoadFailure) _then)
+      : super(_value, (v) => _then(v as _LoadFailure));
 
   @override
-  List<Movie> get movies;
+  _LoadFailure get _value => super._value as _LoadFailure;
+
   @override
-  bool get isLoading;
+  $Res call({
+    Object movieFailure = freezed,
+  }) {
+    return _then(_LoadFailure(
+      movieFailure == freezed
+          ? _value.movieFailure
+          : movieFailure as MovieFailure,
+    ));
+  }
+
   @override
-  bool get showErrorMessages;
+  $MovieFailureCopyWith<$Res> get movieFailure {
+    if (_value.movieFailure == null) {
+      return null;
+    }
+    return $MovieFailureCopyWith<$Res>(_value.movieFailure, (value) {
+      return _then(_value.copyWith(movieFailure: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$_LoadFailure implements _LoadFailure {
+  const _$_LoadFailure(this.movieFailure) : assert(movieFailure != null);
+
   @override
-  Option<Either<MovieFailure, List<Movie>>> get failureOrSuccessOption;
+  final MovieFailure movieFailure;
+
   @override
-  _$MovieStateCopyWith<_MovieState> get copyWith;
+  String toString() {
+    return 'MoviesState.loadFailure(movieFailure: $movieFailure)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _LoadFailure &&
+            (identical(other.movieFailure, movieFailure) ||
+                const DeepCollectionEquality()
+                    .equals(other.movieFailure, movieFailure)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(movieFailure);
+
+  @override
+  _$LoadFailureCopyWith<_LoadFailure> get copyWith =>
+      __$LoadFailureCopyWithImpl<_LoadFailure>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result initial(),
+    @required Result loading(),
+    @required Result loadSuccess(List<Movie> movies),
+    @required Result loadFailure(MovieFailure movieFailure),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loadSuccess != null);
+    assert(loadFailure != null);
+    return loadFailure(movieFailure);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result initial(),
+    Result loading(),
+    Result loadSuccess(List<Movie> movies),
+    Result loadFailure(MovieFailure movieFailure),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (loadFailure != null) {
+      return loadFailure(movieFailure);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result initial(_Initial value),
+    @required Result loading(_Loading value),
+    @required Result loadSuccess(_LoadSuccess value),
+    @required Result loadFailure(_LoadFailure value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loadSuccess != null);
+    assert(loadFailure != null);
+    return loadFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result initial(_Initial value),
+    Result loading(_Loading value),
+    Result loadSuccess(_LoadSuccess value),
+    Result loadFailure(_LoadFailure value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (loadFailure != null) {
+      return loadFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadFailure implements MoviesState {
+  const factory _LoadFailure(MovieFailure movieFailure) = _$_LoadFailure;
+
+  MovieFailure get movieFailure;
+  _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }

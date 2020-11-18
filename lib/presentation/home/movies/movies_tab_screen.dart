@@ -34,18 +34,14 @@ class MoviesTabScreen extends HookWidget {
             children: [
               const BannerBlockWidget(),
               const SizedBox(height: 20.0),
-              BlocProvider(
-                create: (context) => getIt<MoviesBloc>()
-                  ..add(const MoviesEvent.movieTypeCalled("popular")),
-                child: BlocBuilder<MoviesBloc, MoviesState>(
-                  builder: (context, state) {
-                    return RegularBlockWidget(
-                      state: state,
-                      blockName: trendingNow,
-                      showInfoBottomSheet: showInfoBottomSheet,
-                    );
-                  },
-                ),
+              BlocBuilder<MoviesBloc, MoviesState>(
+                builder: (context, state) {
+                  return RegularBlockWidget(
+                    state: state,
+                    blockName: trendingNow,
+                    showInfoBottomSheet: showInfoBottomSheet,
+                  );
+                },
               ),
               const SizedBox(height: 20.0),
               RegularBlockWidget(

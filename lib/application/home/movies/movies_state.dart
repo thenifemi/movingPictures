@@ -2,16 +2,9 @@ part of 'movies_bloc.dart';
 
 @freezed
 abstract class MoviesState with _$MoviesState {
-  const factory MoviesState({
-    @required List<Movie> movies,
-    @required bool isLoading,
-    @required bool showErrorMessages,
-    @required Option<Either<MovieFailure, List<Movie>>> failureOrSuccessOption,
-  }) = _MovieState;
-  factory MoviesState.initial() => MoviesState(
-        movies: null,
-        isLoading: false,
-        showErrorMessages: false,
-        failureOrSuccessOption: none(),
-      );
+  const factory MoviesState.initial() = _Initial;
+  const factory MoviesState.loading() = _Loading;
+  const factory MoviesState.loadSuccess(List<Movie> movies) = _LoadSuccess;
+  const factory MoviesState.loadFailure(MovieFailure movieFailure) =
+      _LoadFailure;
 }

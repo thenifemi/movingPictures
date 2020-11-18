@@ -4,10 +4,10 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:movingPictures/domain/home/movies/movies_interface.dart';
 
 import '../../../domain/home/movies/movie.dart';
 import '../../../domain/home/movies/movies_failure.dart';
-import '../../../domain/home/movies/movies_interface.dart';
 
 part 'movies_bloc.freezed.dart';
 part 'movies_event.dart';
@@ -16,7 +16,7 @@ part 'movies_state.dart';
 @injectable
 class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   final MoviesInterface moviesInterface;
-  MoviesBloc(this.moviesInterface) : super(MoviesState.initial());
+  MoviesBloc(this.moviesInterface) : super(const _Initial());
 
   @override
   Stream<MoviesState> mapEventToState(
@@ -24,45 +24,33 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   ) async* {
     yield* event.map(
       movieTypeCalled: (e) async* {
-        Either<MovieFailure, List<Movie>> failureOrSuccess;
-
-        yield state.copyWith(
-          isLoading: true,
-          failureOrSuccessOption: none(),
-        );
+        yield const MoviesState.loading();
 
         final movieListType = event.maybeMap(
           orElse: null,
-          movieTypeCalled: (movie) => movie.movieListType,
+          movieTypeCalled: (type) => type.movieListType,
         );
-
-        failureOrSuccess =
+        final failureOrMovies =
             await moviesInterface.getMovieListType(movieListType);
-        yield state.copyWith(
-          isLoading: false,
-          showErrorMessages: true,
-          failureOrSuccessOption: optionOf(failureOrSuccess),
-        );
+
+        yield MoviesEvent.moviesRecieved(failureOrMovies);
       },
       movieByGenreCalled: (e) async* {
-        Either<MovieFailure, List<Movie>> failureOrSuccess;
-
-        yield state.copyWith(
-          isLoading: true,
-          failureOrSuccessOption: none(),
-        );
+        yield const MoviesState.loading();
 
         final movieGenreId = event.maybeMap(
           orElse: null,
-          movieByGenreCalled: (movie) => movie.movieGenreId,
+          movieByGenreCalled: (type) => type.movieGenreId,
         );
+        final failureOrMovies =
+            await moviesInterface.getMovieByGenre(movieGenreId);
 
-        failureOrSuccess = await moviesInterface.getMovieByGenre(movieGenreId);
-
-        yield state.copyWith(
-          isLoading: false,
-          showErrorMessages: true,
-          failureOrSuccessOption: optionOf(failureOrSuccess),
+        yield MoviesEvent.moviesRecieved(failureOrMovies);
+      },
+      moviesRecieved: (_MoviesRecieved e) async* {
+        yield e.failureOrMovies.fold(
+          (f) => MoviesState.loadFailure(f),
+          (movies) => MoviesState.loadSuccess(movies),
         );
       },
     );
