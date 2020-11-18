@@ -17,10 +17,14 @@ class _$MovieTearOff {
   const _$MovieTearOff();
 
 // ignore: unused_element
-  _Movie call({@required int id, @required String title}) {
+  _Movie call(
+      {@required int id,
+      @required String title,
+      @required String poster_path}) {
     return _Movie(
       id: id,
       title: title,
+      poster_path: poster_path,
     );
   }
 
@@ -38,6 +42,7 @@ const $Movie = _$MovieTearOff();
 mixin _$Movie {
   int get id;
   String get title;
+  String get poster_path;
 
   Map<String, dynamic> toJson();
   $MovieCopyWith<Movie> get copyWith;
@@ -47,7 +52,7 @@ mixin _$Movie {
 abstract class $MovieCopyWith<$Res> {
   factory $MovieCopyWith(Movie value, $Res Function(Movie) then) =
       _$MovieCopyWithImpl<$Res>;
-  $Res call({int id, String title});
+  $Res call({int id, String title, String poster_path});
 }
 
 /// @nodoc
@@ -62,10 +67,13 @@ class _$MovieCopyWithImpl<$Res> implements $MovieCopyWith<$Res> {
   $Res call({
     Object id = freezed,
     Object title = freezed,
+    Object poster_path = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as int,
       title: title == freezed ? _value.title : title as String,
+      poster_path:
+          poster_path == freezed ? _value.poster_path : poster_path as String,
     ));
   }
 }
@@ -75,7 +83,7 @@ abstract class _$MovieCopyWith<$Res> implements $MovieCopyWith<$Res> {
   factory _$MovieCopyWith(_Movie value, $Res Function(_Movie) then) =
       __$MovieCopyWithImpl<$Res>;
   @override
-  $Res call({int id, String title});
+  $Res call({int id, String title, String poster_path});
 }
 
 /// @nodoc
@@ -91,10 +99,13 @@ class __$MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object title = freezed,
+    Object poster_path = freezed,
   }) {
     return _then(_Movie(
       id: id == freezed ? _value.id : id as int,
       title: title == freezed ? _value.title : title as String,
+      poster_path:
+          poster_path == freezed ? _value.poster_path : poster_path as String,
     ));
   }
 }
@@ -103,9 +114,11 @@ class __$MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_Movie extends _Movie {
-  const _$_Movie({@required this.id, @required this.title})
+  const _$_Movie(
+      {@required this.id, @required this.title, @required this.poster_path})
       : assert(id != null),
         assert(title != null),
+        assert(poster_path != null),
         super._();
 
   factory _$_Movie.fromJson(Map<String, dynamic> json) =>
@@ -115,10 +128,12 @@ class _$_Movie extends _Movie {
   final int id;
   @override
   final String title;
+  @override
+  final String poster_path;
 
   @override
   String toString() {
-    return 'Movie(id: $id, title: $title)';
+    return 'Movie(id: $id, title: $title, poster_path: $poster_path)';
   }
 
   @override
@@ -128,14 +143,18 @@ class _$_Movie extends _Movie {
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.title, title) ||
-                const DeepCollectionEquality().equals(other.title, title)));
+                const DeepCollectionEquality().equals(other.title, title)) &&
+            (identical(other.poster_path, poster_path) ||
+                const DeepCollectionEquality()
+                    .equals(other.poster_path, poster_path)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(title);
+      const DeepCollectionEquality().hash(title) ^
+      const DeepCollectionEquality().hash(poster_path);
 
   @override
   _$MovieCopyWith<_Movie> get copyWith =>
@@ -149,7 +168,10 @@ class _$_Movie extends _Movie {
 
 abstract class _Movie extends Movie {
   const _Movie._() : super._();
-  const factory _Movie({@required int id, @required String title}) = _$_Movie;
+  const factory _Movie(
+      {@required int id,
+      @required String title,
+      @required String poster_path}) = _$_Movie;
 
   factory _Movie.fromJson(Map<String, dynamic> json) = _$_Movie.fromJson;
 
@@ -157,6 +179,8 @@ abstract class _Movie extends Movie {
   int get id;
   @override
   String get title;
+  @override
+  String get poster_path;
   @override
   _$MovieCopyWith<_Movie> get copyWith;
 }

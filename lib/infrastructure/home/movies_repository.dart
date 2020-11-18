@@ -25,7 +25,7 @@ class MoviesRepository extends MoviesInterface {
     final getMovieTypeUrl = "$tmdbUrl/movie/$movieListType";
     final params = {
       "api_key": apiKey,
-      "language": "en-US",
+      "language": deviceLocal,
       "page": 1,
     };
 
@@ -39,11 +39,14 @@ class MoviesRepository extends MoviesInterface {
           .toList();
 
       return right(movies);
-    } catch (e, stacktrace) {
-      print("Exception occured: $e stacktrace: $stacktrace");
-
+    } catch (e) {
       return left(const MovieFailure.unexpected());
     }
+  }
+
+  @override
+  Future<Either<MovieFailure, List<Movie>>> getGenre() {
+    throw UnimplementedError();
   }
 
   @override
@@ -63,12 +66,14 @@ class MoviesRepository extends MoviesInterface {
         getMovieTypeUrl,
         queryParameters: params,
       );
-      final List<Movie> movies = (response.data["results"] as List)
+      final List<Movie> movies = (response.data["genres"] as List)
           .map((i) => Movie.fromJson(i as Map<String, dynamic>))
           .toList();
 
       return right(movies);
-    } catch (e) {
+    } catch (e, stacktrace) {
+      print("Exception occured: $e stacktrace: $stacktrace");
+
       return left(const MovieFailure.unexpected());
     }
   }

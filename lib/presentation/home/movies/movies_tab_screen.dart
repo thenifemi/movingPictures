@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:movingPictures/injection.dart';
+import 'package:movingPictures/application/home/movies/movies_bloc.dart';
 
-import '../../../application/home/movies/movies_bloc.dart';
-import '../../../domain/home/movies/movie.dart';
-import '../../core/app_colors.dart';
 import '../../core/constants/language_constants.dart';
 import '../widgets/banner_block_widget.dart';
 import '../widgets/build_show_info_modal_bottom_sheet_widget.dart';
 import '../widgets/regular_block_widget.dart';
-import '../widgets/top_10_block_widget.dart';
 
 class MoviesTabScreen extends HookWidget {
   const MoviesTabScreen({Key key}) : super(key: key);
@@ -34,11 +29,13 @@ class MoviesTabScreen extends HookWidget {
           RegularBlockWidget(
             blockName: trendingNow,
             showInfoBottomSheet: showInfoBottomSheet,
+            moviesEvent: const MoviesEvent.movieTypeCalled("popular"),
           ),
           const SizedBox(height: 20.0),
           // RegularBlockWidget(
           //   blockName: action,
           //   showInfoBottomSheet: showInfoBottomSheet,
+          //   moviesEvent: const MoviesEvent.movieByGenreCalled(16),
           // ),
           // const SizedBox(height: 20.0),
           // TopTenBlockWidget(

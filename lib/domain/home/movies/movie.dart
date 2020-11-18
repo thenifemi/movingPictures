@@ -8,7 +8,7 @@ abstract class Movie implements _$Movie {
   const factory Movie({
     @required int id,
     @required String title,
-    // @required String poster,
+    @required String poster_path,
     // @required String year,
     // @required String duration,
     // @required String ageRestriction,
@@ -26,7 +26,7 @@ abstract class Movie implements _$Movie {
     return Movie(
       id: id,
       title: title,
-      // poster: poster,
+      poster_path: poster_path,
       // year: year,
       // duration: duration,
       // ageRestriction: ageRestriction,
