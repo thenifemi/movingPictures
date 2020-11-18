@@ -4,6 +4,8 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../domain/home/movies/genres/genre.dart';
+import '../../domain/home/movies/genres/genre_failure.dart';
 import '../../domain/home/movies/movie.dart';
 import '../../domain/home/movies/movies_failure.dart';
 import '../../domain/home/movies/movies_interface.dart';
@@ -12,10 +14,8 @@ import '../core/credentials.dart';
 @LazySingleton(as: MoviesInterface)
 class MoviesRepository extends MoviesInterface {
   final Dio _dio = Dio();
-
   final String apiKey = TMDB_API_KEY;
   final String tmdbUrl = TMDB_URL;
-
   final String deviceLocal = Platform.localeName;
 
   @override
@@ -45,15 +45,34 @@ class MoviesRepository extends MoviesInterface {
   }
 
   @override
-  Future<Either<MovieFailure, List<Movie>>> getGenre() {
-    throw UnimplementedError();
+  Future<Either<GenreFailure, List<Genre>>> getGenre() async {
+    final getGenreUrl = "$tmdbUrl/genre/movie/list";
+    final params = {
+      "api_key": apiKey,
+      "language": deviceLocal,
+      "page": 1,
+    };
+
+    try {
+      final Response<Map<String, dynamic>> response = await _dio.get(
+        getGenreUrl,
+        queryParameters: params,
+      );
+      final List<Genre> genres = (response.data["genres"] as List)
+          .map((i) => Genre.fromJson(i as Map<String, dynamic>))
+          .toList();
+
+      return right(genres);
+    } catch (e) {
+      return left(const GenreFailure.unexpected());
+    }
   }
 
   @override
   Future<Either<MovieFailure, List<Movie>>> getMovieByGenre(
     int movieGenreId,
   ) async {
-    final getMovieTypeUrl = "$tmdbUrl/genre/movie/list";
+    final getMovieGenreUrl = "$tmdbUrl/discover/movie";
     final params = {
       "api_key": apiKey,
       "language": deviceLocal,
@@ -63,17 +82,15 @@ class MoviesRepository extends MoviesInterface {
 
     try {
       final Response<Map<String, dynamic>> response = await _dio.get(
-        getMovieTypeUrl,
+        getMovieGenreUrl,
         queryParameters: params,
       );
-      final List<Movie> movies = (response.data["genres"] as List)
+      final List<Movie> movies = (response.data["results"] as List)
           .map((i) => Movie.fromJson(i as Map<String, dynamic>))
           .toList();
 
       return right(movies);
-    } catch (e, stacktrace) {
-      print("Exception occured: $e stacktrace: $stacktrace");
-
+    } catch (e) {
       return left(const MovieFailure.unexpected());
     }
   }
