@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:movingPictures/application/home/movies/genres/genres_bloc.dart';
-import 'package:movingPictures/injection.dart';
 
 import '../../../application/home/movies/movies_bloc.dart';
 import '../../core/constants/language_constants.dart';
@@ -23,60 +20,45 @@ class MoviesTabScreen extends HookWidget {
           appTextTheme: appTextTheme,
         );
 
-    return BlocProvider(
-        create: (context) =>
-            getIt<GenresBloc>()..add(const GenresEvent.getGenresCalled()),
-        child: BlocBuilder<GenresBloc, GenresState>(
-          builder: (context, state) {
-            final genres = state.map(
-                initial: (_) => null,
-                loading: (_) => null,
-                loadSuccess: (state) {
-                  return state.genres;
-                },
-                loadFailure: (f) => f.genreFailure);
-
-            return SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const BannerBlockWidget(),
-                  const SizedBox(height: 20.0),
-                  RegularBlockWidget(
-                    blockName: trendingNow,
-                    showInfoBottomSheet: showInfoBottomSheet,
-                    moviesEvent: const MoviesEvent.movieTypeCalled("upcoming"),
-                  ),
-                  const SizedBox(height: 20.0),
-                  RegularBlockWidget(
-                    blockName: action,
-                    showInfoBottomSheet: showInfoBottomSheet,
-                    moviesEvent: const MoviesEvent.movieByGenreCalled(28),
-                  ),
-                  const SizedBox(height: 20.0),
-                  TopTenBlockWidget(
-                    moviesOrSeries: movies,
-                    showInfoBottomSheet: showInfoBottomSheet,
-                    moviesEvent: const MoviesEvent.movieTypeCalled("popular"),
-                  ),
-                  const SizedBox(height: 20.0),
-                  RegularBlockWidget(
-                    blockName: horror,
-                    showInfoBottomSheet: showInfoBottomSheet,
-                    moviesEvent: const MoviesEvent.movieByGenreCalled(27),
-                  ),
-                  const SizedBox(height: 20.0),
-                  RegularBlockWidget(
-                    blockName: comedy,
-                    showInfoBottomSheet: showInfoBottomSheet,
-                    moviesEvent: const MoviesEvent.movieByGenreCalled(35),
-                  ),
-                  const SizedBox(height: 20.0),
-                ],
-              ),
-            );
-          },
-        ));
+    return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const BannerBlockWidget(),
+          const SizedBox(height: 20.0),
+          RegularBlockWidget(
+            blockName: trendingNow,
+            showInfoBottomSheet: showInfoBottomSheet,
+            moviesEvent: const MoviesEvent.movieTypeCalled("upcoming"),
+          ),
+          const SizedBox(height: 20.0),
+          RegularBlockWidget(
+            blockName: action,
+            showInfoBottomSheet: showInfoBottomSheet,
+            moviesEvent: const MoviesEvent.movieByGenreCalled(28),
+          ),
+          const SizedBox(height: 20.0),
+          TopTenBlockWidget(
+            moviesOrSeries: movies,
+            showInfoBottomSheet: showInfoBottomSheet,
+            moviesEvent: const MoviesEvent.movieTypeCalled("top_rated"),
+          ),
+          const SizedBox(height: 20.0),
+          RegularBlockWidget(
+            blockName: horror,
+            showInfoBottomSheet: showInfoBottomSheet,
+            moviesEvent: const MoviesEvent.movieByGenreCalled(27),
+          ),
+          const SizedBox(height: 20.0),
+          RegularBlockWidget(
+            blockName: comedy,
+            showInfoBottomSheet: showInfoBottomSheet,
+            moviesEvent: const MoviesEvent.movieByGenreCalled(35),
+          ),
+          const SizedBox(height: 20.0),
+        ],
+      ),
+    );
   }
 }
