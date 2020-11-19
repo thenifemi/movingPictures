@@ -14,6 +14,7 @@ import 'application/auth/auth_bloc.dart';
 import 'domain/auth/auth_repository_interface.dart';
 import 'infrastructure/auth/firebase_auth_repository.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
+import 'application/home/movies/genres/genres_bloc.dart';
 import 'application/home/movies/movies_bloc.dart';
 import 'domain/home/movies/movies_interface.dart';
 import 'infrastructure/home/movies_repository.dart';
@@ -39,6 +40,7 @@ GetIt $initGetIt(
         get<GoogleSignIn>(),
         get<FirebaseFirestore>(),
       ));
+  gh.factory<GenresBloc>(() => GenresBloc(get<MoviesInterface>()));
   gh.factory<MoviesBloc>(() => MoviesBloc(get<MoviesInterface>()));
   gh.factory<SignInBloc>(() => SignInBloc(get<AuthInterface>()));
   gh.factory<UserProfileBloc>(() => UserProfileBloc(get<AuthInterface>()));

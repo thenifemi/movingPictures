@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:movingPictures/application/home/movies/movies_bloc.dart';
 
+import '../../../application/home/movies/movies_bloc.dart';
 import '../../core/constants/language_constants.dart';
 import '../widgets/banner_block_widget.dart';
 import '../widgets/build_show_info_modal_bottom_sheet_widget.dart';
