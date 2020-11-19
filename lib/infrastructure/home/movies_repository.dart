@@ -40,6 +40,7 @@ class MoviesRepository extends MoviesInterface {
 
       return right(movies);
     } catch (e) {
+      print(e);
       return left(const MovieFailure.unexpected());
     }
   }

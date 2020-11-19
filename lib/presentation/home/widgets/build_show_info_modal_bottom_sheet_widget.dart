@@ -2,6 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'package:movingPictures/domain/home/movies/movie.dart';
+import 'package:movingPictures/infrastructure/core/credentials.dart';
+
 import '../../core/app_colors.dart';
 import '../../core/app_localizations.dart';
 import '../../core/component_widgets/age_restriction_widget.dart';
@@ -15,6 +18,7 @@ import 'small_buttons.dart';
 Future buildShowInfoModalBottomSheet({
   BuildContext context,
   @required TextTheme appTextTheme,
+  @required Movie movie,
 }) {
   return showModalBottomSheet(
     isScrollControlled: true,
@@ -33,10 +37,15 @@ Future buildShowInfoModalBottomSheet({
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const PosterBlock(),
+              PosterBlock(
+                movie: movie,
+              ),
               const SizedBox(width: 10.0),
               Expanded(
-                child: TitleSubtitleBodyBlock(appTextTheme: appTextTheme),
+                child: TitleSubtitleBodyBlock(
+                  appTextTheme: appTextTheme,
+                  movie: movie,
+                ),
               ),
             ],
           ),
@@ -54,8 +63,10 @@ Future buildShowInfoModalBottomSheet({
 }
 
 class PosterBlock extends StatelessWidget {
+  final Movie movie;
   const PosterBlock({
     Key key,
+    @required this.movie,
   }) : super(key: key);
 
   @override
@@ -65,8 +76,8 @@ class PosterBlock extends StatelessWidget {
       height: MediaQuery.of(context).size.height / 6.5,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(5.0),
-        child: Image.asset(
-          theQueensGambitPoster,
+        child: Image.network(
+          "$MOVIE_POSTER_PATH${movie.poster_path}",
           fit: BoxFit.cover,
         ),
       ),
@@ -76,9 +87,12 @@ class PosterBlock extends StatelessWidget {
 
 class TitleSubtitleBodyBlock extends StatelessWidget {
   final TextTheme appTextTheme;
+  final Movie movie;
+
   const TitleSubtitleBodyBlock({
     Key key,
     @required this.appTextTheme,
+    @required this.movie,
   }) : super(key: key);
 
   @override
@@ -93,7 +107,7 @@ class TitleSubtitleBodyBlock extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "The Queens Gambit",
+                    movie.title,
                     style: appTextTheme.headline5,
                     maxLines: 2,
                     softWrap: true,
@@ -102,14 +116,14 @@ class TitleSubtitleBodyBlock extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        "2020",
+                        movie.release_date,
                         style: appTextTheme.subtitle1,
                       ),
                       const SizedBox(width: 10.0),
                       const AgeRestrictionWidget(age: "18"),
                       const SizedBox(width: 10.0),
                       Text(
-                        "5 Seasons",
+                        movie.vote_average.toString(),
                         style: appTextTheme.subtitle1,
                       ),
                     ],
@@ -122,7 +136,7 @@ class TitleSubtitleBodyBlock extends StatelessWidget {
         ),
         const SizedBox(height: 5.0),
         Text(
-          "Set during the Cold War era, orphaned chess prodigy Beth Harmon struggles with addiction in a quest to become the greatest chess player in the world.",
+          movie.overview,
           style: appTextTheme.bodyText1,
           maxLines: 4,
           overflow: TextOverflow.ellipsis,

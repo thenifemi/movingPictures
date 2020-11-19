@@ -7,6 +7,7 @@ import '../../../infrastructure/core/credentials.dart';
 import '../../../injection.dart';
 import '../../core/app_colors.dart';
 import '../../core/app_localizations.dart';
+import 'build_show_info_modal_bottom_sheet_widget.dart';
 
 class RegularBlockWidget extends StatelessWidget {
   final String blockName;
@@ -74,6 +75,8 @@ class MovieData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appTextTheme = Theme.of(context).textTheme;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -99,7 +102,11 @@ class MovieData extends StatelessWidget {
             itemBuilder: (context, i) {
               final movie = movies[i];
               return GestureDetector(
-                onTap: () => showInfoBottomSheet(),
+                onTap: () => buildShowInfoModalBottomSheet(
+                  context: context,
+                  appTextTheme: appTextTheme,
+                  movie: movie,
+                ),
                 child: Container(
                   padding: const EdgeInsets.only(right: 10.0),
                   width: MediaQuery.of(context).size.height / 7,

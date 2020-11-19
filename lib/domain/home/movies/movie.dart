@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:movingPictures/domain/home/movies/genres/genre.dart';
 part 'movie.freezed.dart';
 part 'movie.g.dart';
 
@@ -8,16 +9,17 @@ abstract class Movie implements _$Movie {
   const factory Movie({
     @required int id,
     @required String title,
+    // ignore: non_constant_identifier_names
     @required String poster_path,
-    // @required String year,
-    // @required String duration,
+    @required String overview,
+    @required String release_date,
+    // @required int runtime,
     // @required String ageRestriction,
-    // @required String description,
-    // @required String rating,
-    // @required List<String> genres,
+    @required double vote_average,
+    // @required List<Genre> genres,
     // @required List<String> cast,
-    // @required String trailerLink,
-    // @required String homepageLink,
+    // @required String video,
+    // @required String homepage,
   }) = _Movie;
 
   const Movie._();
@@ -27,15 +29,13 @@ abstract class Movie implements _$Movie {
       id: id,
       title: title,
       poster_path: poster_path,
-      // year: year,
-      // duration: duration,
-      // ageRestriction: ageRestriction,
-      // description: description,
-      // rating: rating,
+      overview: overview,
+      release_date: release_date,
+      // runtime: runtime,
+      vote_average: vote_average,
       // genres: genres,
-      // cast: cast,
-      // trailerLink: trailerLink,
-      // homepageLink: homepageLink,
+      // video: video,
+      // homepage: homepage,
     );
   }
 
