@@ -4,7 +4,6 @@ import '../../core/app_colors.dart';
 import '../../core/app_localizations.dart';
 import '../../core/constants/constants.dart';
 import '../../core/constants/language_constants.dart';
-import '../../home/widgets/build_show_info_modal_bottom_sheet_widget.dart';
 
 class MoreLikeThisBlock extends StatelessWidget {
   const MoreLikeThisBlock({

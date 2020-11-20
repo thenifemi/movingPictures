@@ -11,7 +11,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/auth/app_user.dart';
+import '../../domain/home/movies/genres/genre.dart';
 import '../../domain/home/movies/movie.dart';
+import '../home/movies/genre_movies_screen.dart';
 import '../main_layout_appbar_navbar/main_body_layout.dart';
 import '../movie_or_series_info/movie_or_series_info.dart';
 import '../profile/profile_screen.dart';
@@ -24,12 +26,14 @@ class Routes {
   static const String mainBodyLayout = '/main-body-layout';
   static const String profileScreen = '/profile-screen';
   static const String movieOrSeriesInfo = '/movie-or-series-info';
+  static const String genreMoviesScreen = '/genre-movies-screen';
   static const all = <String>{
     splashScreen,
     signInScreen,
     mainBodyLayout,
     profileScreen,
     movieOrSeriesInfo,
+    genreMoviesScreen,
   };
 }
 
@@ -42,6 +46,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.mainBodyLayout, page: MainBodyLayout),
     RouteDef(Routes.profileScreen, page: ProfileScreen),
     RouteDef(Routes.movieOrSeriesInfo, page: MovieOrSeriesInfo),
+    RouteDef(Routes.genreMoviesScreen, page: GenreMoviesScreen),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -89,6 +94,17 @@ class AppRouter extends RouterBase {
         fullscreenDialog: true,
       );
     },
+    GenreMoviesScreen: (data) {
+      final args = data.getArgs<GenreMoviesScreenArguments>(nullOk: false);
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => GenreMoviesScreen(
+          key: args.key,
+          genre: args.genre,
+        ),
+        settings: data,
+        fullscreenDialog: true,
+      );
+    },
   };
 }
 
@@ -122,6 +138,15 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
         Routes.movieOrSeriesInfo,
         arguments: MovieOrSeriesInfoArguments(key: key, movie: movie),
       );
+
+  Future<dynamic> pushGenreMoviesScreen({
+    Key key,
+    @required Genre genre,
+  }) =>
+      push<dynamic>(
+        Routes.genreMoviesScreen,
+        arguments: GenreMoviesScreenArguments(key: key, genre: genre),
+      );
 }
 
 /// ************************************************************************
@@ -141,4 +166,11 @@ class MovieOrSeriesInfoArguments {
   final Key key;
   final Movie movie;
   MovieOrSeriesInfoArguments({this.key, @required this.movie});
+}
+
+/// GenreMoviesScreen arguments holder class
+class GenreMoviesScreenArguments {
+  final Key key;
+  final Genre genre;
+  GenreMoviesScreenArguments({this.key, @required this.genre});
 }
