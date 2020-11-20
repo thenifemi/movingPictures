@@ -22,7 +22,7 @@ class GenresBloc extends Bloc<GenresEvent, GenresState> {
   Stream<GenresState> mapEventToState(
     GenresEvent event,
   ) async* {
-    event.map(
+    yield* event.map(
       getGenresCalled: (_) async* {
         yield const GenresState.loading();
         final failureOrGenres = await moviesInterface.getGenre();

@@ -5,7 +5,7 @@ import '../../core/app_localizations.dart';
 import '../../core/component_widgets/primary_button_widget.dart';
 import '../../core/constants/constants.dart';
 import '../../core/constants/language_constants.dart';
-import 'small_buttons.dart';
+import '../../core/component_widgets/small_buttons.dart';
 
 class BannerBlockWidget extends StatelessWidget {
   const BannerBlockWidget({

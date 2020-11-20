@@ -21,8 +21,6 @@ class RegularBlockWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final lang = AppLocalizations.of(context);
-
     return BlocProvider(
       create: (context) => getIt<MoviesBloc>()..add(moviesEvent),
       child: BlocBuilder<MoviesBloc, MoviesState>(
@@ -39,7 +37,6 @@ class RegularBlockWidget extends StatelessWidget {
                   color: AppColors.gray,
                 ),
                 loadSuccess: (state) => MovieData(
-                  lang: lang,
                   blockName: blockName,
                   movies: state.movies,
                 ),
@@ -60,17 +57,16 @@ class MovieData extends StatelessWidget {
   const MovieData({
     Key key,
     @required this.movies,
-    @required this.lang,
     @required this.blockName,
   }) : super(key: key);
 
   final List<Movie> movies;
-  final AppLocalizations lang;
   final String blockName;
 
   @override
   Widget build(BuildContext context) {
     final appTextTheme = Theme.of(context).textTheme;
+    final lang = AppLocalizations.of(context);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,14 +98,17 @@ class MovieData extends StatelessWidget {
                   appTextTheme: appTextTheme,
                   movie: movie,
                 ),
-                child: Container(
-                  padding: const EdgeInsets.only(right: 10.0),
-                  width: MediaQuery.of(context).size.height / 7,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(5.0),
-                    child: Image.network(
-                      "$MOVIE_POSTER_PATH${movie.poster_path}",
-                      fit: BoxFit.fill,
+                child: Tooltip(
+                  message: movie.title,
+                  child: Container(
+                    padding: const EdgeInsets.only(right: 10.0),
+                    width: MediaQuery.of(context).size.height / 7,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(5.0),
+                      child: Image.network(
+                        "$MOVIE_POSTER_PATH${movie.poster_path}",
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ),
                 ),

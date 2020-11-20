@@ -60,6 +60,7 @@ class MoreLikeThisBlock extends StatelessWidget {
                   onTap: () => buildShowInfoModalBottomSheet(
                     appTextTheme: appTextTheme,
                     context: context,
+                    movie: null,
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(5.0),

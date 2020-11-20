@@ -9,7 +9,7 @@ import '../../core/app_localizations.dart';
 import '../../core/component_widgets/primary_button_widget.dart';
 import '../../core/constants/constants.dart';
 import '../../core/constants/language_constants.dart';
-import '../../home/widgets/small_buttons.dart';
+import '../../core/component_widgets/small_buttons.dart';
 import 'cast_list.dart';
 import 'genres_list.dart';
 import 'sub_data.dart';
