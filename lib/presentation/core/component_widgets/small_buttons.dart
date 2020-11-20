@@ -94,8 +94,9 @@ class InfoButtonWidget extends StatelessWidget {
 
     return SizedBox(
       child: RawMaterialButton(
-        onPressed: () =>
-            ExtendedNavigator.of(context).pushMovieOrSeriesInfo(movie: movie),
+        onPressed: () {},
+        // onPressed: () =>
+        //     ExtendedNavigator.of(context).pushMovieOrSeriesInfo(movie: movie),
         child: Column(
           children: [
             SvgPicture.asset(

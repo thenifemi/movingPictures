@@ -106,7 +106,10 @@ class BottomItems extends StatelessWidget {
                   isFullButton: false,
                 ),
               ),
-              InfoButtonWidget(appTextTheme: appTextTheme),
+              InfoButtonWidget(
+                appTextTheme: appTextTheme,
+                movie: null,
+              ),
             ],
           ),
         ),

@@ -26,6 +26,13 @@ class _$MoviesEventTearOff {
       movieGenreId,
     );
   }
+
+// ignore: unused_element
+  _SimilarMoviesCalled similarMoviesCalled(int movieId) {
+    return _SimilarMoviesCalled(
+      movieId,
+    );
+  }
 }
 
 /// @nodoc
@@ -38,22 +45,26 @@ mixin _$MoviesEvent {
   Result when<Result extends Object>({
     @required Result movieTypeCalled(String movieListType),
     @required Result movieByGenreCalled(int movieGenreId),
+    @required Result similarMoviesCalled(int movieId),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result movieTypeCalled(String movieListType),
     Result movieByGenreCalled(int movieGenreId),
+    Result similarMoviesCalled(int movieId),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result movieTypeCalled(_MovieTypeCalled value),
     @required Result movieByGenreCalled(_MovieByGenreCalled value),
+    @required Result similarMoviesCalled(_SimilarMoviesCalled value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result movieTypeCalled(_MovieTypeCalled value),
     Result movieByGenreCalled(_MovieByGenreCalled value),
+    Result similarMoviesCalled(_SimilarMoviesCalled value),
     @required Result orElse(),
   });
 }
@@ -137,9 +148,11 @@ class _$_MovieTypeCalled implements _MovieTypeCalled {
   Result when<Result extends Object>({
     @required Result movieTypeCalled(String movieListType),
     @required Result movieByGenreCalled(int movieGenreId),
+    @required Result similarMoviesCalled(int movieId),
   }) {
     assert(movieTypeCalled != null);
     assert(movieByGenreCalled != null);
+    assert(similarMoviesCalled != null);
     return movieTypeCalled(movieListType);
   }
 
@@ -148,6 +161,7 @@ class _$_MovieTypeCalled implements _MovieTypeCalled {
   Result maybeWhen<Result extends Object>({
     Result movieTypeCalled(String movieListType),
     Result movieByGenreCalled(int movieGenreId),
+    Result similarMoviesCalled(int movieId),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -162,9 +176,11 @@ class _$_MovieTypeCalled implements _MovieTypeCalled {
   Result map<Result extends Object>({
     @required Result movieTypeCalled(_MovieTypeCalled value),
     @required Result movieByGenreCalled(_MovieByGenreCalled value),
+    @required Result similarMoviesCalled(_SimilarMoviesCalled value),
   }) {
     assert(movieTypeCalled != null);
     assert(movieByGenreCalled != null);
+    assert(similarMoviesCalled != null);
     return movieTypeCalled(this);
   }
 
@@ -173,6 +189,7 @@ class _$_MovieTypeCalled implements _MovieTypeCalled {
   Result maybeMap<Result extends Object>({
     Result movieTypeCalled(_MovieTypeCalled value),
     Result movieByGenreCalled(_MovieByGenreCalled value),
+    Result similarMoviesCalled(_SimilarMoviesCalled value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -253,9 +270,11 @@ class _$_MovieByGenreCalled implements _MovieByGenreCalled {
   Result when<Result extends Object>({
     @required Result movieTypeCalled(String movieListType),
     @required Result movieByGenreCalled(int movieGenreId),
+    @required Result similarMoviesCalled(int movieId),
   }) {
     assert(movieTypeCalled != null);
     assert(movieByGenreCalled != null);
+    assert(similarMoviesCalled != null);
     return movieByGenreCalled(movieGenreId);
   }
 
@@ -264,6 +283,7 @@ class _$_MovieByGenreCalled implements _MovieByGenreCalled {
   Result maybeWhen<Result extends Object>({
     Result movieTypeCalled(String movieListType),
     Result movieByGenreCalled(int movieGenreId),
+    Result similarMoviesCalled(int movieId),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -278,9 +298,11 @@ class _$_MovieByGenreCalled implements _MovieByGenreCalled {
   Result map<Result extends Object>({
     @required Result movieTypeCalled(_MovieTypeCalled value),
     @required Result movieByGenreCalled(_MovieByGenreCalled value),
+    @required Result similarMoviesCalled(_SimilarMoviesCalled value),
   }) {
     assert(movieTypeCalled != null);
     assert(movieByGenreCalled != null);
+    assert(similarMoviesCalled != null);
     return movieByGenreCalled(this);
   }
 
@@ -289,6 +311,7 @@ class _$_MovieByGenreCalled implements _MovieByGenreCalled {
   Result maybeMap<Result extends Object>({
     Result movieTypeCalled(_MovieTypeCalled value),
     Result movieByGenreCalled(_MovieByGenreCalled value),
+    Result similarMoviesCalled(_SimilarMoviesCalled value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -304,6 +327,128 @@ abstract class _MovieByGenreCalled implements MoviesEvent {
 
   int get movieGenreId;
   _$MovieByGenreCalledCopyWith<_MovieByGenreCalled> get copyWith;
+}
+
+/// @nodoc
+abstract class _$SimilarMoviesCalledCopyWith<$Res> {
+  factory _$SimilarMoviesCalledCopyWith(_SimilarMoviesCalled value,
+          $Res Function(_SimilarMoviesCalled) then) =
+      __$SimilarMoviesCalledCopyWithImpl<$Res>;
+  $Res call({int movieId});
+}
+
+/// @nodoc
+class __$SimilarMoviesCalledCopyWithImpl<$Res>
+    extends _$MoviesEventCopyWithImpl<$Res>
+    implements _$SimilarMoviesCalledCopyWith<$Res> {
+  __$SimilarMoviesCalledCopyWithImpl(
+      _SimilarMoviesCalled _value, $Res Function(_SimilarMoviesCalled) _then)
+      : super(_value, (v) => _then(v as _SimilarMoviesCalled));
+
+  @override
+  _SimilarMoviesCalled get _value => super._value as _SimilarMoviesCalled;
+
+  @override
+  $Res call({
+    Object movieId = freezed,
+  }) {
+    return _then(_SimilarMoviesCalled(
+      movieId == freezed ? _value.movieId : movieId as int,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_SimilarMoviesCalled implements _SimilarMoviesCalled {
+  const _$_SimilarMoviesCalled(this.movieId) : assert(movieId != null);
+
+  @override
+  final int movieId;
+
+  @override
+  String toString() {
+    return 'MoviesEvent.similarMoviesCalled(movieId: $movieId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SimilarMoviesCalled &&
+            (identical(other.movieId, movieId) ||
+                const DeepCollectionEquality().equals(other.movieId, movieId)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(movieId);
+
+  @override
+  _$SimilarMoviesCalledCopyWith<_SimilarMoviesCalled> get copyWith =>
+      __$SimilarMoviesCalledCopyWithImpl<_SimilarMoviesCalled>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result movieTypeCalled(String movieListType),
+    @required Result movieByGenreCalled(int movieGenreId),
+    @required Result similarMoviesCalled(int movieId),
+  }) {
+    assert(movieTypeCalled != null);
+    assert(movieByGenreCalled != null);
+    assert(similarMoviesCalled != null);
+    return similarMoviesCalled(movieId);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result movieTypeCalled(String movieListType),
+    Result movieByGenreCalled(int movieGenreId),
+    Result similarMoviesCalled(int movieId),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (similarMoviesCalled != null) {
+      return similarMoviesCalled(movieId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result movieTypeCalled(_MovieTypeCalled value),
+    @required Result movieByGenreCalled(_MovieByGenreCalled value),
+    @required Result similarMoviesCalled(_SimilarMoviesCalled value),
+  }) {
+    assert(movieTypeCalled != null);
+    assert(movieByGenreCalled != null);
+    assert(similarMoviesCalled != null);
+    return similarMoviesCalled(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result movieTypeCalled(_MovieTypeCalled value),
+    Result movieByGenreCalled(_MovieByGenreCalled value),
+    Result similarMoviesCalled(_SimilarMoviesCalled value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (similarMoviesCalled != null) {
+      return similarMoviesCalled(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SimilarMoviesCalled implements MoviesEvent {
+  const factory _SimilarMoviesCalled(int movieId) = _$_SimilarMoviesCalled;
+
+  int get movieId;
+  _$SimilarMoviesCalledCopyWith<_SimilarMoviesCalled> get copyWith;
 }
 
 /// @nodoc

@@ -6,4 +6,6 @@ abstract class MoviesEvent with _$MoviesEvent {
       _MovieTypeCalled;
   const factory MoviesEvent.movieByGenreCalled(int movieGenreId) =
       _MovieByGenreCalled;
+  const factory MoviesEvent.similarMoviesCalled(int movieId) =
+      _SimilarMoviesCalled;
 }

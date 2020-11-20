@@ -40,7 +40,30 @@ class MoviesRepository extends MoviesInterface {
 
       return right(movies);
     } catch (e) {
-      print(e);
+      return left(const MovieFailure.unexpected());
+    }
+  }
+
+  @override
+  Future<Either<MovieFailure, List<Movie>>> getSimilarMovies(
+      int movieId) async {
+    final getSimilarMoviesUrl = "$tmdbUrl/movie/$movieId/similar";
+    final params = {
+      "api_key": apiKey,
+      "language": deviceLocal,
+      "page": 1,
+    };
+    try {
+      final Response<Map<String, dynamic>> response = await _dio.get(
+        getSimilarMoviesUrl,
+        queryParameters: params,
+      );
+      final List<Movie> movies = (response.data["results"] as List)
+          .map((i) => Movie.fromJson(i as Map<String, dynamic>))
+          .toList();
+
+      return right(movies);
+    } catch (e) {
       return left(const MovieFailure.unexpected());
     }
   }

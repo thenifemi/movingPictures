@@ -67,7 +67,9 @@ class MovieOrSeriesInfo extends StatelessWidget {
             ),
 
             //* Bottom Container: Holds [MORE LIKE THIS]
-            const MoreLikeThisBlock(),
+            MoreLikeThisBlock(
+              movie: movie,
+            ),
           ],
         ),
       ),
