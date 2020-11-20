@@ -2,13 +2,21 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+import '../../domain/home/movies/movie.dart';
+import '../../infrastructure/core/credentials.dart';
 import '../core/app_colors.dart';
 import '../core/component_widgets/cancel_button_widget.dart';
-import '../core/constants/constants.dart';
 import 'widgets/items_widget.dart';
 import 'widgets/more_like_this_block_widget.dart';
 
 class MovieOrSeriesInfo extends StatelessWidget {
+  final Movie movie;
+
+  const MovieOrSeriesInfo({
+    Key key,
+    @required this.movie,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final appTextTheme = Theme.of(context).textTheme;
@@ -23,9 +31,10 @@ class MovieOrSeriesInfo extends StatelessWidget {
             Stack(
               children: [
                 Container(
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: ExactAssetImage(theQueensGambitPoster),
+                      image: NetworkImage(
+                          "$MOVIE_POSTER_PATH${movie.poster_path}"),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -45,6 +54,7 @@ class MovieOrSeriesInfo extends StatelessWidget {
                       ),
                       child: Items(
                         appTextTheme: appTextTheme,
+                        movie: movie,
                       ),
                     ),
                   ),

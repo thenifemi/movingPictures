@@ -2,11 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import 'package:movingPictures/domain/home/movies/movie.dart';
+
+import '../../routes/router.gr.dart';
 import '../app_colors.dart';
 import '../app_localizations.dart';
 import '../constants/constants.dart';
 import '../constants/language_constants.dart';
-import '../../routes/router.gr.dart';
 
 class ShareButtonWidget extends StatelessWidget {
   final TextTheme appTextTheme;
@@ -78,10 +80,12 @@ class FavoriteButtonWidget extends StatelessWidget {
 }
 
 class InfoButtonWidget extends StatelessWidget {
+  final Movie movie;
   final TextTheme appTextTheme;
   const InfoButtonWidget({
     Key key,
     @required this.appTextTheme,
+    @required this.movie,
   }) : super(key: key);
 
   @override
@@ -91,7 +95,7 @@ class InfoButtonWidget extends StatelessWidget {
     return SizedBox(
       child: RawMaterialButton(
         onPressed: () =>
-            ExtendedNavigator.of(context).push(Routes.movieOrSeriesInfo),
+            ExtendedNavigator.of(context).pushMovieOrSeriesInfo(movie: movie),
         child: Column(
           children: [
             SvgPicture.asset(

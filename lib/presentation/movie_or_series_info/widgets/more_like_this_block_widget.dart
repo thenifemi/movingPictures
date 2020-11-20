@@ -57,11 +57,11 @@ class MoreLikeThisBlock extends StatelessWidget {
               children: List.generate(
                 9,
                 (i) => GestureDetector(
-                  onTap: () => buildShowInfoModalBottomSheet(
-                    appTextTheme: appTextTheme,
-                    context: context,
-                    movie: null,
-                  ),
+                  // onTap: () => buildShowInfoModalBottomSheet(
+                  //   appTextTheme: appTextTheme,
+                  //   context: context,
+                  //   movie: null,
+                  // ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(5.0),
                     child: Image.asset(

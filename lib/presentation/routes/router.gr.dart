@@ -11,6 +11,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/auth/app_user.dart';
+import '../../domain/home/movies/movie.dart';
 import '../main_layout_appbar_navbar/main_body_layout.dart';
 import '../movie_or_series_info/movie_or_series_info.dart';
 import '../profile/profile_screen.dart';
@@ -78,8 +79,12 @@ class AppRouter extends RouterBase {
       );
     },
     MovieOrSeriesInfo: (data) {
+      final args = data.getArgs<MovieOrSeriesInfoArguments>(nullOk: false);
       return CupertinoPageRoute<dynamic>(
-        builder: (context) => MovieOrSeriesInfo(),
+        builder: (context) => MovieOrSeriesInfo(
+          key: args.key,
+          movie: args.movie,
+        ),
         settings: data,
         fullscreenDialog: true,
       );
@@ -109,8 +114,14 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
             key: key, appTextTheme: appTextTheme, user: user),
       );
 
-  Future<dynamic> pushMovieOrSeriesInfo() =>
-      push<dynamic>(Routes.movieOrSeriesInfo);
+  Future<dynamic> pushMovieOrSeriesInfo({
+    Key key,
+    @required Movie movie,
+  }) =>
+      push<dynamic>(
+        Routes.movieOrSeriesInfo,
+        arguments: MovieOrSeriesInfoArguments(key: key, movie: movie),
+      );
 }
 
 /// ************************************************************************
@@ -123,4 +134,11 @@ class ProfileScreenArguments {
   final TextTheme appTextTheme;
   final AppUser user;
   ProfileScreenArguments({this.key, this.appTextTheme, this.user});
+}
+
+/// MovieOrSeriesInfo arguments holder class
+class MovieOrSeriesInfoArguments {
+  final Key key;
+  final Movie movie;
+  MovieOrSeriesInfoArguments({this.key, @required this.movie});
 }

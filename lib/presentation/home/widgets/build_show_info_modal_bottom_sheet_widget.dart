@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:movingPictures/presentation/movie_or_series_info/movie_or_series_info.dart';
 
 import '../../../domain/home/movies/movie.dart';
 import '../../../infrastructure/core/credentials.dart';
@@ -54,6 +55,7 @@ Future buildShowInfoModalBottomSheet({
               height: 40.0,
               child: MoreInfoButton(
                 appTextTheme: appTextTheme,
+                movie: movie,
               ))
         ],
       ),
@@ -183,11 +185,13 @@ class TrailerButtonBlock extends StatelessWidget {
 }
 
 class MoreInfoButton extends StatelessWidget {
+  final Movie movie;
   final TextTheme appTextTheme;
 
   const MoreInfoButton({
     Key key,
     @required this.appTextTheme,
+    @required this.movie,
   }) : super(key: key);
 
   @override
@@ -196,7 +200,7 @@ class MoreInfoButton extends StatelessWidget {
 
     return RawMaterialButton(
       onPressed: () =>
-          ExtendedNavigator.of(context).push(Routes.movieOrSeriesInfo),
+          ExtendedNavigator.of(context).pushMovieOrSeriesInfo(movie: movie),
       child: Container(
         padding: const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
         width: double.infinity,

@@ -4,21 +4,25 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../domain/home/movies/movie.dart';
+import '../../../infrastructure/core/credentials.dart';
 import '../../core/app_colors.dart';
 import '../../core/app_localizations.dart';
 import '../../core/component_widgets/primary_button_widget.dart';
+import '../../core/component_widgets/small_buttons.dart';
 import '../../core/constants/constants.dart';
 import '../../core/constants/language_constants.dart';
-import '../../core/component_widgets/small_buttons.dart';
 import 'cast_list.dart';
 import 'genres_list.dart';
 import 'sub_data.dart';
 
 class Items extends StatelessWidget {
+  final Movie movie;
   final TextTheme appTextTheme;
   const Items({
     Key key,
     @required this.appTextTheme,
+    @required this.movie,
   }) : super(key: key);
 
   @override
@@ -40,8 +44,8 @@ class Items extends StatelessWidget {
             height: MediaQuery.of(context).size.height / 4,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(5.0),
-              child: Image.asset(
-                theQueensGambitPoster,
+              child: Image.network(
+                "$MOVIE_POSTER_PATH${movie.poster_path}",
                 fit: BoxFit.cover,
               ),
             ),
@@ -49,7 +53,10 @@ class Items extends StatelessWidget {
           const SizedBox(height: 20.0),
 
           //* [SubData] Rating, year, age restriction, length and ...
-          SubData(appTextTheme: appTextTheme),
+          SubData(
+            appTextTheme: appTextTheme,
+            movie: movie,
+          ),
           const SizedBox(height: 10.0),
 
           //*[GenresList] List of the movie/series genres
@@ -84,10 +91,8 @@ class Items extends StatelessWidget {
 
           //* Movie/Series description
           Text(
-            "Set during the Cold War era, orphaned chess prodigy Beth Harmon struggles with addiction in a quest to become the greatest chess player in the world.",
+            movie.overview,
             style: appTextTheme.bodyText1,
-            maxLines: 3,
-            overflow: TextOverflow.ellipsis,
           ),
           const SizedBox(height: 10.0),
 
