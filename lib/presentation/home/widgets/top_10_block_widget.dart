@@ -4,42 +4,24 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../application/home/movies/movies_bloc.dart';
 import '../../../domain/home/movies/movie.dart';
+import '../../../infrastructure/core/credentials.dart';
 import '../../../injection.dart';
 import '../../core/app_colors.dart';
 import '../../core/app_localizations.dart';
 import '../../core/constants/constants.dart';
 import '../../core/constants/language_constants.dart';
-import '../../../infrastructure/core/credentials.dart';
+import 'build_show_info_modal_bottom_sheet_widget.dart';
 
 class TopTenBlockWidget extends StatelessWidget {
-  final String moviesOrSeries;
   final MoviesEvent moviesEvent;
-  final Function showInfoBottomSheet;
 
   const TopTenBlockWidget({
     Key key,
-    @required this.moviesOrSeries,
     @required this.moviesEvent,
-    @required this.showInfoBottomSheet,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final lang = AppLocalizations.of(context);
-
-    final List _numberIcons = [
-      number1Icon,
-      number2Icon,
-      number3Icon,
-      number4Icon,
-      number5Icon,
-      number6Icon,
-      number7Icon,
-      number8Icon,
-      number9Icon,
-      number0Icon,
-    ];
-
     return BlocProvider(
       create: (context) => getIt<MoviesBloc>()..add(moviesEvent),
       child: BlocBuilder<MoviesBloc, MoviesState>(
@@ -56,10 +38,6 @@ class TopTenBlockWidget extends StatelessWidget {
                   color: AppColors.gray,
                 ),
                 loadSuccess: (state) => MovieData(
-                  lang: lang,
-                  moviesOrSeries: moviesOrSeries,
-                  numberIcons: _numberIcons,
-                  showInfoBottomSheet: showInfoBottomSheet,
                   movies: state.movies,
                 ),
                 loadFailure: (_) => Container(
@@ -79,28 +57,34 @@ class MovieData extends StatelessWidget {
   const MovieData({
     Key key,
     @required this.movies,
-    @required this.lang,
-    @required this.moviesOrSeries,
-    @required List numberIcons,
-    @required this.showInfoBottomSheet,
-  })  : _numberIcons = numberIcons,
-        super(key: key);
+  }) : super(key: key);
 
   final List<Movie> movies;
-  final AppLocalizations lang;
-  final String moviesOrSeries;
-  final List _numberIcons;
-  final Function showInfoBottomSheet;
 
   @override
   Widget build(BuildContext context) {
+    final appTextTheme = Theme.of(context).textTheme;
+    final lang = AppLocalizations.of(context);
+    final List _numberIcons = [
+      number1Icon,
+      number2Icon,
+      number3Icon,
+      number4Icon,
+      number5Icon,
+      number6Icon,
+      number7Icon,
+      number8Icon,
+      number9Icon,
+      number0Icon,
+    ];
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Text(
-            "${lang.translate(top10)} ${lang.translate(moviesOrSeries)}",
+            "${lang.translate(top10)} Rated",
             style: const TextStyle(
               color: AppColors.white,
               fontWeight: FontWeight.bold,
@@ -121,7 +105,11 @@ class MovieData extends StatelessWidget {
               final _number = _numberIcons[i];
 
               return GestureDetector(
-                onTap: () => showInfoBottomSheet(),
+                onTap: () => buildShowInfoModalBottomSheet(
+                  context: context,
+                  appTextTheme: appTextTheme,
+                  movie: movie,
+                ),
                 child: Stack(
                   children: [
                     Container(

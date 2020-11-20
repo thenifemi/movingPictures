@@ -37,7 +37,6 @@ class MoviesTabScreen extends HookWidget {
           ),
           const SizedBox(height: 20.0),
           const TopTenBlockWidget(
-            moviesOrSeries: movies,
             moviesEvent: MoviesEvent.movieTypeCalled("top_rated"),
           ),
           const SizedBox(height: 20.0),
