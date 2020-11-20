@@ -15,11 +15,6 @@ class MoviesTabScreen extends HookWidget {
   Widget build(BuildContext context) {
     final appTextTheme = Theme.of(context).textTheme;
 
-    Future showInfoBottomSheet() => buildShowInfoModalBottomSheet(
-          context: context,
-          appTextTheme: appTextTheme,
-        );
-
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Column(
@@ -27,34 +22,29 @@ class MoviesTabScreen extends HookWidget {
         children: [
           const BannerBlockWidget(),
           const SizedBox(height: 20.0),
-          RegularBlockWidget(
+          const RegularBlockWidget(
             blockName: trendingNow,
-            showInfoBottomSheet: showInfoBottomSheet,
-            moviesEvent: const MoviesEvent.movieTypeCalled("upcoming"),
+            moviesEvent: MoviesEvent.movieTypeCalled("upcoming"),
           ),
           const SizedBox(height: 20.0),
-          RegularBlockWidget(
+          const RegularBlockWidget(
             blockName: action,
-            showInfoBottomSheet: showInfoBottomSheet,
-            moviesEvent: const MoviesEvent.movieByGenreCalled(28),
+            moviesEvent: MoviesEvent.movieByGenreCalled(28),
           ),
           const SizedBox(height: 20.0),
-          TopTenBlockWidget(
+          const TopTenBlockWidget(
             moviesOrSeries: movies,
-            showInfoBottomSheet: showInfoBottomSheet,
-            moviesEvent: const MoviesEvent.movieTypeCalled("top_rated"),
+            moviesEvent: MoviesEvent.movieTypeCalled("top_rated"),
           ),
           const SizedBox(height: 20.0),
-          RegularBlockWidget(
+          const RegularBlockWidget(
             blockName: horror,
-            showInfoBottomSheet: showInfoBottomSheet,
-            moviesEvent: const MoviesEvent.movieByGenreCalled(27),
+            moviesEvent: MoviesEvent.movieByGenreCalled(27),
           ),
           const SizedBox(height: 20.0),
-          RegularBlockWidget(
+          const RegularBlockWidget(
             blockName: comedy,
-            showInfoBottomSheet: showInfoBottomSheet,
-            moviesEvent: const MoviesEvent.movieByGenreCalled(35),
+            moviesEvent: MoviesEvent.movieByGenreCalled(35),
           ),
           const SizedBox(height: 20.0),
         ],

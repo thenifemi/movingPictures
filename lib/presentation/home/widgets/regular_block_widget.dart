@@ -12,12 +12,10 @@ import 'build_show_info_modal_bottom_sheet_widget.dart';
 class RegularBlockWidget extends StatelessWidget {
   final String blockName;
   final MoviesEvent moviesEvent;
-  final Function showInfoBottomSheet;
 
   const RegularBlockWidget({
     Key key,
     @required this.blockName,
-    @required this.showInfoBottomSheet,
     @required this.moviesEvent,
   }) : super(key: key);
 
@@ -43,7 +41,6 @@ class RegularBlockWidget extends StatelessWidget {
                 loadSuccess: (state) => MovieData(
                   lang: lang,
                   blockName: blockName,
-                  showInfoBottomSheet: showInfoBottomSheet,
                   movies: state.movies,
                 ),
                 loadFailure: (_) => Container(
@@ -65,13 +62,11 @@ class MovieData extends StatelessWidget {
     @required this.movies,
     @required this.lang,
     @required this.blockName,
-    @required this.showInfoBottomSheet,
   }) : super(key: key);
 
   final List<Movie> movies;
   final AppLocalizations lang;
   final String blockName;
-  final Function showInfoBottomSheet;
 
   @override
   Widget build(BuildContext context) {
