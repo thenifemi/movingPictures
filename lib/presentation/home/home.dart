@@ -23,7 +23,7 @@ class Home extends StatelessWidget {
         appBar: MainAppBar(tabController: tabController),
         body: TabBarView(
           controller: tabController,
-          physics: const BouncingScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           children: const [
             MoviesTabScreen(),
             SeriesTabScreen(),

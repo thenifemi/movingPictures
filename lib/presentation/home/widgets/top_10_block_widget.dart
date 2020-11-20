@@ -110,30 +110,33 @@ class MovieData extends StatelessWidget {
                   appTextTheme: appTextTheme,
                   movie: movie,
                 ),
-                child: Stack(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.only(right: 10.0),
-                      width: MediaQuery.of(context).size.height / 5,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(5.0),
-                        child: Image.network(
-                          "$MOVIE_POSTER_PATH${movie.poster_path}",
+                child: Tooltip(
+                  message: movie.title,
+                  child: Stack(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.only(right: 10.0),
+                        width: MediaQuery.of(context).size.height / 5,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(5.0),
+                          child: Image.network(
+                            "$MOVIE_POSTER_PATH${movie.poster_path}",
+                          ),
                         ),
                       ),
-                    ),
-                    Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: SvgPicture.asset(
-                          _number.toString(),
-                          color: AppColors.red,
-                          height: 100.0,
+                      Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: SvgPicture.asset(
+                            _number.toString(),
+                            color: AppColors.red,
+                            height: 100.0,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               );
             },
