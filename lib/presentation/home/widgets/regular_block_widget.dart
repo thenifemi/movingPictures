@@ -100,10 +100,20 @@ class MovieData extends StatelessWidget {
                     width: MediaQuery.of(context).size.height / 7,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(5.0),
-                      child: FadeInImage.assetNetwork(
-                        image: "$MOVIE_POSTER_PATH${movie.poster_path}",
+                      child: Image.network(
+                        "$MOVIE_POSTER_PATH${movie.poster_path}",
                         fit: BoxFit.fill,
-                        placeholder: null,
+                        loadingBuilder: (context, child, loadingProgress) {
+                          if (loadingProgress == null) return child;
+                          return Center(
+                            child: CircularProgressIndicator(
+                              value: loadingProgress.expectedTotalBytes != null
+                                  ? loadingProgress.cumulativeBytesLoaded /
+                                      loadingProgress.expectedTotalBytes
+                                  : null,
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ),

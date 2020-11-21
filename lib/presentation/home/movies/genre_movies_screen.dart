@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movingPictures/domain/home/movies/movie.dart';
+import 'package:movingPictures/presentation/core/component_widgets/movie_loading_wigdet.dart';
 
 import '../../../application/home/movies/movies_bloc.dart';
 import '../../../domain/home/movies/genres/genre.dart';
@@ -44,53 +46,83 @@ class GenreMoviesScreen extends StatelessWidget {
         child: BlocBuilder<MoviesBloc, MoviesState>(
           builder: (context, state) {
             return state.map(
-              initial: (_) => Container(
-                height: 100.0,
-                color: AppColors.white,
-              ),
-              loading: (_) => Container(
-                height: 100.0,
-                color: AppColors.gray,
-              ),
+              initial: (_) => const MovieLoadingWidget(),
+              loading: (_) => const MovieLoadingWidget(),
               loadSuccess: (state) {
-                return Container(
-                  height: size.height,
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  child: GridView.count(
-                    childAspectRatio: itemWidth / itemHeight,
-                    crossAxisSpacing: 10.0,
-                    mainAxisSpacing: 10.0,
-                    physics: const BouncingScrollPhysics(),
-                    crossAxisCount: 3,
-                    children: List.generate(
-                      state.movies.length,
-                      (i) {
-                        final movie = state.movies[i];
-                        return GestureDetector(
-                          onTap: () => buildShowInfoModalBottomSheet(
-                            appTextTheme: appTextTheme,
-                            context: context,
-                            movie: movie,
-                          ),
-                          child: Tooltip(
-                            message: movie.title,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(5.0),
-                              child: Image.network(
-                                "$MOVIE_POSTER_PATH${movie.poster_path}",
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
+                final movies = state.movies;
+                return Movies(
+                  itemWidth: itemWidth,
+                  itemHeight: itemHeight,
+                  movies: movies,
+                  appTextTheme: appTextTheme,
                 );
               },
               loadFailure: (_) => Container(
                 height: 100.0,
                 color: AppColors.red,
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class Movies extends StatelessWidget {
+  const Movies({
+    Key key,
+    @required this.itemWidth,
+    @required this.itemHeight,
+    @required this.movies,
+    @required this.appTextTheme,
+  }) : super(key: key);
+
+  final double itemWidth;
+  final double itemHeight;
+  final List<Movie> movies;
+  final TextTheme appTextTheme;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      child: GridView.count(
+        childAspectRatio: itemWidth / itemHeight,
+        crossAxisSpacing: 10.0,
+        mainAxisSpacing: 10.0,
+        physics: const BouncingScrollPhysics(),
+        crossAxisCount: 3,
+        children: List.generate(
+          movies.length,
+          (i) {
+            final movie = movies[i];
+            return GestureDetector(
+              onTap: () => buildShowInfoModalBottomSheet(
+                appTextTheme: appTextTheme,
+                context: context,
+                movie: movie,
+              ),
+              child: Tooltip(
+                message: movie.title,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(5.0),
+                  child: Image.network(
+                    "$MOVIE_POSTER_PATH${movie.poster_path}",
+                    fit: BoxFit.fill,
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) return child;
+                      return Center(
+                        child: CircularProgressIndicator(
+                          value: loadingProgress.expectedTotalBytes != null
+                              ? loadingProgress.cumulativeBytesLoaded /
+                                  loadingProgress.expectedTotalBytes
+                              : null,
+                        ),
+                      );
+                    },
+                  ),
+                ),
               ),
             );
           },
