@@ -7,6 +7,7 @@ import '../../../infrastructure/core/credentials.dart';
 import '../../../injection.dart';
 import '../../core/app_colors.dart';
 import '../../core/app_localizations.dart';
+import '../../core/component_widgets/movie_loading_wigdet.dart';
 import '../../core/constants/language_constants.dart';
 import '../../home/widgets/build_show_info_modal_bottom_sheet_widget.dart';
 
@@ -56,14 +57,8 @@ class MoreLikeThisBlock extends StatelessWidget {
               child: BlocBuilder<MoviesBloc, MoviesState>(
                 builder: (context, state) {
                   return state.map(
-                    initial: (_) => Container(
-                      height: 100.0,
-                      color: AppColors.white,
-                    ),
-                    loading: (_) => Container(
-                      height: 100.0,
-                      color: AppColors.gray,
-                    ),
+                    initial: (_) => const MovieLoadingWidget(),
+                    loading: (_) => const MovieLoadingWidget(),
                     loadSuccess: (state) {
                       final movies = state.movies;
                       return Movies(

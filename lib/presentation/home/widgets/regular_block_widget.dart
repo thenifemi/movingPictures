@@ -7,6 +7,7 @@ import '../../../infrastructure/core/credentials.dart';
 import '../../../injection.dart';
 import '../../core/app_colors.dart';
 import '../../core/app_localizations.dart';
+import '../../core/component_widgets/movie_loading_wigdet.dart';
 import 'build_show_info_modal_bottom_sheet_widget.dart';
 
 class RegularBlockWidget extends StatelessWidget {
@@ -28,14 +29,8 @@ class RegularBlockWidget extends StatelessWidget {
           return BlocBuilder<MoviesBloc, MoviesState>(
             builder: (context, state) {
               return state.map(
-                initial: (_) => Container(
-                  height: 100.0,
-                  color: AppColors.white,
-                ),
-                loading: (_) => Container(
-                  height: 100.0,
-                  color: AppColors.gray,
-                ),
+                initial: (_) => const MovieLoadingWidget(),
+                loading: (_) => const MovieLoadingWidget(),
                 loadSuccess: (state) => MovieData(
                   blockName: blockName,
                   movies: state.movies,
@@ -105,9 +100,10 @@ class MovieData extends StatelessWidget {
                     width: MediaQuery.of(context).size.height / 7,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(5.0),
-                      child: Image.network(
-                        "$MOVIE_POSTER_PATH${movie.poster_path}",
+                      child: FadeInImage.assetNetwork(
+                        image: "$MOVIE_POSTER_PATH${movie.poster_path}",
                         fit: BoxFit.fill,
+                        placeholder: null,
                       ),
                     ),
                   ),
