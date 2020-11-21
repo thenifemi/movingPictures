@@ -22,8 +22,10 @@ const String series = "series";
 const String top10 = "top10";
 const String horror = "horror";
 const String action = "action";
-const String trendingNow = "trendingNow";
 const String comedy = "comedy";
+const String trendingNow = "trendingNow";
+const String upcoming = "upcoming";
+const String latest = "latest";
 const String nifemiRecommends = "nifemiRecommends";
 
 //* Info Bottomsheet

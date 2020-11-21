@@ -8,15 +8,12 @@ import '../../../injection.dart';
 import '../../core/app_colors.dart';
 
 class AllGenresBlock extends StatelessWidget {
-  const AllGenresBlock({
-    Key key,
-    @required this.appTextTheme,
-  }) : super(key: key);
-
-  final TextTheme appTextTheme;
+  const AllGenresBlock({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final appTextTheme = Theme.of(context).textTheme;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       child: Column(

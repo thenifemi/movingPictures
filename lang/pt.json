@@ -17,9 +17,11 @@
 
   "top10": "10 Principais",
   "horror": "Horror",
+  "comedy": "Comédia",
   "action": "Açao",
   "trendingNow": " Tendências Agora",
-  "comedy": "Comédia",
+  "upcoming": "Próximos",
+  "latest": "Mais recentes",
   "nifemiRecommends": " Nifemi Recomenda",
 
   "moreInfo": "Mais informações",

@@ -13,41 +13,44 @@ class MoviesTabScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appTextTheme = Theme.of(context).textTheme;
-
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const BannerBlockWidget(),
-          const SizedBox(height: 20.0),
-          const RegularBlockWidget(
-            blockName: trendingNow,
+        children: const [
+          BannerBlockWidget(),
+          SizedBox(height: 20.0),
+          RegularBlockWidget(
+            blockName: upcoming,
             moviesEvent: MoviesEvent.movieTypeCalled("upcoming"),
           ),
-          const SizedBox(height: 20.0),
-          const RegularBlockWidget(
-            blockName: action,
-            moviesEvent: MoviesEvent.movieByGenreCalled(28),
+          SizedBox(height: 20.0),
+          RegularBlockWidget(
+            blockName: trendingNow,
+            moviesEvent: MoviesEvent.movieTypeCalled("popular"),
           ),
-          const SizedBox(height: 20.0),
-          const TopTenBlockWidget(
+          SizedBox(height: 20.0),
+          TopTenBlockWidget(
             moviesEvent: MoviesEvent.movieTypeCalled("top_rated"),
           ),
-          const SizedBox(height: 20.0),
-          const RegularBlockWidget(
+          SizedBox(height: 20.0),
+          RegularBlockWidget(
             blockName: horror,
             moviesEvent: MoviesEvent.movieByGenreCalled(27),
           ),
-          const SizedBox(height: 20.0),
-          const RegularBlockWidget(
+          SizedBox(height: 20.0),
+          RegularBlockWidget(
             blockName: comedy,
             moviesEvent: MoviesEvent.movieByGenreCalled(35),
           ),
-          const SizedBox(height: 20.0),
-          AllGenresBlock(appTextTheme: appTextTheme),
-          const SizedBox(height: 20.0),
+          SizedBox(height: 20.0),
+          RegularBlockWidget(
+            blockName: action,
+            moviesEvent: MoviesEvent.movieByGenreCalled(28),
+          ),
+          SizedBox(height: 20.0),
+          AllGenresBlock(),
+          SizedBox(height: 20.0),
         ],
       ),
     );
