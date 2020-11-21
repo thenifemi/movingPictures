@@ -65,36 +65,12 @@ class MoreLikeThisBlock extends StatelessWidget {
                       color: AppColors.gray,
                     ),
                     loadSuccess: (state) {
-                      return GridView.count(
-                        shrinkWrap: true,
-                        childAspectRatio: itemWidth / itemHeight,
-                        crossAxisSpacing: 10.0,
-                        mainAxisSpacing: 10.0,
-                        physics: const NeverScrollableScrollPhysics(),
-                        crossAxisCount: 3,
-                        children: List.generate(
-                          state.movies.length < 12 ? state.movies.length : 12,
-                          (i) {
-                            final movie = state.movies[i];
-                            return GestureDetector(
-                              onTap: () => buildShowInfoModalBottomSheet(
-                                appTextTheme: appTextTheme,
-                                context: context,
-                                movie: movie,
-                              ),
-                              child: Tooltip(
-                                message: movie.title,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(5.0),
-                                  child: Image.network(
-                                    "$MOVIE_POSTER_PATH${movie.poster_path}",
-                                    fit: BoxFit.fill,
-                                  ),
-                                ),
-                              ),
-                            );
-                          },
-                        ),
+                      final movies = state.movies;
+                      return Movies(
+                        itemWidth: itemWidth,
+                        itemHeight: itemHeight,
+                        appTextTheme: appTextTheme,
+                        movies: movies,
                       );
                     },
                     loadFailure: (_) => Container(
@@ -107,6 +83,56 @@ class MoreLikeThisBlock extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class Movies extends StatelessWidget {
+  const Movies({
+    Key key,
+    @required this.itemWidth,
+    @required this.itemHeight,
+    @required this.appTextTheme,
+    @required this.movies,
+  }) : super(key: key);
+
+  final double itemWidth;
+  final double itemHeight;
+  final TextTheme appTextTheme;
+  final List<Movie> movies;
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.count(
+      shrinkWrap: true,
+      childAspectRatio: itemWidth / itemHeight,
+      crossAxisSpacing: 10.0,
+      mainAxisSpacing: 10.0,
+      physics: const NeverScrollableScrollPhysics(),
+      crossAxisCount: 3,
+      children: List.generate(
+        movies.length < 12 ? movies.length : 12,
+        (i) {
+          final movie = movies[i];
+          return GestureDetector(
+            onTap: () => buildShowInfoModalBottomSheet(
+              appTextTheme: appTextTheme,
+              context: context,
+              movie: movie,
+            ),
+            child: Tooltip(
+              message: movie.title,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(5.0),
+                child: Image.network(
+                  "$MOVIE_POSTER_PATH${movie.poster_path}",
+                  fit: BoxFit.fill,
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
