@@ -1,11 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movingPictures/presentation/routes/router.gr.dart';
 
 import '../../../application/home/movies/genres/genres_bloc.dart';
+import '../../../domain/home/movies/genres/genre.dart';
 import '../../../injection.dart';
 import '../../core/app_colors.dart';
+import '../../core/component_widgets/movie_loading_wigdet.dart';
+import '../../routes/router.gr.dart';
 
 class AllGenresBlock extends StatelessWidget {
   const AllGenresBlock({Key key}) : super(key: key);
@@ -34,46 +36,13 @@ class AllGenresBlock extends StatelessWidget {
             child: BlocBuilder<GenresBloc, GenresState>(
               builder: (context, state) {
                 return state.map(
-                  initial: (_) => Container(
-                    height: 100.0,
-                    color: AppColors.white,
-                  ),
-                  loading: (_) => Container(
-                    height: 100.0,
-                    color: AppColors.gray,
-                  ),
+                  initial: (_) => const MovieLoadingWidget(),
+                  loading: (_) => const MovieLoadingWidget(),
                   loadSuccess: (state) {
-                    return Wrap(
-                      alignment: WrapAlignment.center,
-                      runSpacing: 8.0,
-                      spacing: 10,
-                      children: state.genres
-                          .map(
-                            (genre) => GestureDetector(
-                              onTap: () => ExtendedNavigator.of(context)
-                                  .pushGenreMoviesScreen(genre: genre),
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 5.0,
-                                  vertical: 2.0,
-                                ),
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: AppColors.white),
-                                  borderRadius: BorderRadius.circular(3.0),
-                                ),
-                                child: Text(
-                                  genre.name,
-                                  style: TextStyle(
-                                      fontFamily:
-                                          appTextTheme.subtitle1.fontFamily,
-                                      fontWeight: FontWeight.w600,
-                                      color: appTextTheme.subtitle1.color,
-                                      fontSize: 20.0),
-                                ),
-                              ),
-                            ),
-                          )
-                          .toList(),
+                    final genres = state.genres;
+                    return Genres(
+                      genres: genres,
+                      appTextTheme: appTextTheme,
                     );
                   },
                   loadFailure: (_) => Container(
@@ -86,6 +55,52 @@ class AllGenresBlock extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class Genres extends StatelessWidget {
+  const Genres({
+    Key key,
+    @required this.genres,
+    @required this.appTextTheme,
+  }) : super(key: key);
+
+  final List<Genre> genres;
+  final TextTheme appTextTheme;
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      alignment: WrapAlignment.center,
+      runSpacing: 8.0,
+      spacing: 10,
+      children: genres
+          .map(
+            (genre) => GestureDetector(
+              onTap: () => ExtendedNavigator.of(context)
+                  .pushGenreMoviesScreen(genre: genre),
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 5.0,
+                  vertical: 2.0,
+                ),
+                decoration: BoxDecoration(
+                  border: Border.all(color: AppColors.white),
+                  borderRadius: BorderRadius.circular(3.0),
+                ),
+                child: Text(
+                  genre.name,
+                  style: TextStyle(
+                      fontFamily: appTextTheme.subtitle1.fontFamily,
+                      fontWeight: FontWeight.w600,
+                      color: appTextTheme.subtitle1.color,
+                      fontSize: 20.0),
+                ),
+              ),
+            ),
+          )
+          .toList(),
     );
   }
 }

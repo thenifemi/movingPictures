@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movingPictures/domain/home/movies/movie.dart';
-import 'package:movingPictures/presentation/core/component_widgets/movie_loading_wigdet.dart';
 
 import '../../../application/home/movies/movies_bloc.dart';
 import '../../../domain/home/movies/genres/genre.dart';
+import '../../../domain/home/movies/movie.dart';
 import '../../../infrastructure/core/credentials.dart';
 import '../../../injection.dart';
 import '../../core/app_colors.dart';
 import '../../core/component_widgets/cancel_button_widget.dart';
+import '../../core/component_widgets/movie_loading_wigdet.dart';
 import '../widgets/build_show_info_modal_bottom_sheet_widget.dart';
 
 class GenreMoviesScreen extends StatelessWidget {

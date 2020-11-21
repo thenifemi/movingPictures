@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../../application/home/movies/movies_bloc.dart';
 import '../../core/constants/language_constants.dart';
@@ -8,7 +7,7 @@ import '../widgets/banner_block_widget.dart';
 import '../widgets/regular_block_widget.dart';
 import '../widgets/top_10_block_widget.dart';
 
-class MoviesTabScreen extends HookWidget {
+class MoviesTabScreen extends StatelessWidget {
   const MoviesTabScreen({Key key}) : super(key: key);
 
   @override
