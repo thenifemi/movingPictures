@@ -16,12 +16,15 @@ class MoviesRepository extends MoviesInterface {
   final Dio _dio = Dio();
   final String apiKey = TMDB_API_KEY;
   final String tmdbUrl = TMDB_URL;
-  final String deviceLocal = Platform.localeName;
+  String deviceLocal = Platform.localeName;
 
   @override
   Future<Either<MovieFailure, List<Movie>>> getMovieListType(
     String movieListType,
   ) async {
+    if (deviceLocal == "pt_BR") deviceLocal = "pt-BR";
+    if (deviceLocal == "en_US") deviceLocal = "en-US";
+
     final getMovieTypeUrl = "$tmdbUrl/movie/$movieListType";
     final params = {
       "api_key": apiKey,
@@ -47,6 +50,9 @@ class MoviesRepository extends MoviesInterface {
   @override
   Future<Either<MovieFailure, List<Movie>>> getSimilarMovies(
       int movieId) async {
+    if (deviceLocal == "pt_BR") deviceLocal = "pt-BR";
+    if (deviceLocal == "en_US") deviceLocal = "en-US";
+
     final getSimilarMoviesUrl = "$tmdbUrl/movie/$movieId/similar";
     final params = {
       "api_key": apiKey,
@@ -70,6 +76,9 @@ class MoviesRepository extends MoviesInterface {
 
   @override
   Future<Either<GenreFailure, List<Genre>>> getGenre() async {
+    if (deviceLocal == "pt_BR") deviceLocal = "pt-BR";
+    if (deviceLocal == "en_US") deviceLocal = "en-US";
+
     final getGenreUrl = "$tmdbUrl/genre/movie/list";
     final params = {
       "api_key": apiKey,
@@ -96,6 +105,9 @@ class MoviesRepository extends MoviesInterface {
   Future<Either<MovieFailure, List<Movie>>> getMovieByGenre(
     int movieGenreId,
   ) async {
+    if (deviceLocal == "pt_BR") deviceLocal = "pt-BR";
+    if (deviceLocal == "en_US") deviceLocal = "en-US";
+
     final getMovieGenreUrl = "$tmdbUrl/discover/movie";
     final params = {
       "api_key": apiKey,
