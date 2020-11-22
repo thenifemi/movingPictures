@@ -75,6 +75,27 @@ class MoviesRepository extends MoviesInterface {
   }
 
   @override
+  Future<Either<MovieFailure, Movie>> getBannerMovie(int movieId) async {
+    final getBannerMovieUrl = "$tmdbUrl/movie/$movieId";
+    final params = {
+      "api_key": apiKey,
+      "language": deviceLocal,
+    };
+
+    try {
+      final Response<Map<String, dynamic>> response = await _dio.get(
+        getBannerMovieUrl,
+        queryParameters: params,
+      );
+      final Movie movie = Movie.fromJson(response.data);
+
+      return right(movie);
+    } catch (e) {
+      return left(const MovieFailure.unexpected());
+    }
+  }
+
+  @override
   Future<Either<GenreFailure, List<Genre>>> getGenre() async {
     if (deviceLocal == "pt_BR") deviceLocal = "pt-BR";
     if (deviceLocal == "en_US") deviceLocal = "en-US";
