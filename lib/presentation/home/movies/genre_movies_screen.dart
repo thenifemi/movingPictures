@@ -48,6 +48,7 @@ class GenreMoviesScreen extends StatelessWidget {
                 height: 100.0,
                 color: AppColors.red,
               ),
+              loadSuccessforBannerMovie: (_) => null,
             );
           },
         ),

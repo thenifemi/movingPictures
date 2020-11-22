@@ -76,6 +76,9 @@ class MoviesRepository extends MoviesInterface {
 
   @override
   Future<Either<MovieFailure, Movie>> getBannerMovie(int movieId) async {
+    if (deviceLocal == "pt_BR") deviceLocal = "pt-BR";
+    if (deviceLocal == "en_US") deviceLocal = "en-US";
+
     final getBannerMovieUrl = "$tmdbUrl/movie/$movieId";
     final params = {
       "api_key": apiKey,
