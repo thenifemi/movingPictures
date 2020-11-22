@@ -15,7 +15,6 @@ class MoviesTabScreen extends StatelessWidget {
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: const [
           BannerBlockWidget(),
           SizedBox(height: 20.0),

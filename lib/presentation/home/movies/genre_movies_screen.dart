@@ -21,24 +21,12 @@ class GenreMoviesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    /*24 is for notification bar on Android*/
-    final double itemHeight = (size.height - kToolbarHeight - 24) / 2.5;
-    final double itemWidth = size.width / 2;
     final appTextTheme = Theme.of(context).textTheme;
-    // final lang = AppLocalizations.of(context);
 
     return Scaffold(
       appBar: AppBar(
         leading: const CancelButton(),
-        title: Text(
-          genre.name,
-          style: TextStyle(
-              fontFamily: appTextTheme.headline5.fontFamily,
-              fontSize: 16.0,
-              fontWeight: appTextTheme.headline5.fontWeight,
-              color: appTextTheme.headline5.color),
-        ),
+        title: Text(genre.name, style: appTextTheme.headline5),
       ),
       body: BlocProvider(
         create: (context) =>
@@ -50,9 +38,8 @@ class GenreMoviesScreen extends StatelessWidget {
               loading: (_) => const MovieLoadingWidget(),
               loadSuccess: (state) {
                 final movies = state.movies;
+
                 return Movies(
-                  itemWidth: itemWidth,
-                  itemHeight: itemHeight,
                   movies: movies,
                   appTextTheme: appTextTheme,
                 );
@@ -72,19 +59,20 @@ class GenreMoviesScreen extends StatelessWidget {
 class Movies extends StatelessWidget {
   const Movies({
     Key key,
-    @required this.itemWidth,
-    @required this.itemHeight,
     @required this.movies,
     @required this.appTextTheme,
   }) : super(key: key);
 
-  final double itemWidth;
-  final double itemHeight;
   final List<Movie> movies;
   final TextTheme appTextTheme;
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    /*24 is for notification bar on Android*/
+    final double itemHeight = (size.height - kToolbarHeight - 24) / 2.5;
+    final double itemWidth = size.width / 2;
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       child: GridView.count(
