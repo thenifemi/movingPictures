@@ -2,9 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'package:movingPictures/domain/home/movies/movie.dart';
-
-import '../../routes/router.gr.dart';
+import '../../../domain/home/movies/movie.dart';
+import '../../home/widgets/build_show_info_modal_bottom_sheet_widget.dart';
 import '../app_colors.dart';
 import '../app_localizations.dart';
 import '../constants/constants.dart';
@@ -94,9 +93,11 @@ class InfoButtonWidget extends StatelessWidget {
 
     return SizedBox(
       child: RawMaterialButton(
-        onPressed: () {},
-        // onPressed: () =>
-        //     ExtendedNavigator.of(context).pushMovieOrSeriesInfo(movie: movie),
+        onPressed: () => buildShowInfoModalBottomSheet(
+          appTextTheme: appTextTheme,
+          context: context,
+          movie: movie,
+        ),
         child: Column(
           children: [
             SvgPicture.asset(
