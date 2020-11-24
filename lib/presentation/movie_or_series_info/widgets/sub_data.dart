@@ -45,7 +45,7 @@ class SubData extends StatelessWidget {
         const SizedBox(width: 20.0),
         const AgeRestrictionWidget(age: "18"),
         const SizedBox(width: 20.0),
-        Text("128 mins",
+        Text("${movie.runtime} mins",
             style: TextStyle(
               fontFamily: appTextTheme.subtitle1.fontFamily,
               fontWeight: FontWeight.w600,
