@@ -128,7 +128,7 @@ class BottomItems extends StatelessWidget {
               ),
               Container(
                 height: 40.0,
-                width: MediaQuery.of(context).size.width / 2,
+                padding: const EdgeInsets.symmetric(horizontal: 3.0),
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: AppColors.white,
@@ -143,7 +143,7 @@ class BottomItems extends StatelessWidget {
                     ),
                     const SizedBox(width: 5.0),
                     const Icon(
-                      Icons.verified,
+                      Icons.verified_outlined,
                       color: AppColors.red,
                       size: 22.0,
                     )
