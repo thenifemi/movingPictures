@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movingPictures/application/home/movies/movies_bloc.dart';
 import 'package:movingPictures/injection.dart';
+import 'package:movingPictures/presentation/core/component_widgets/movie_loading_wigdet.dart';
 
 import '../../../domain/home/movies/movie.dart';
 import '../../../infrastructure/core/credentials.dart';
@@ -34,7 +35,20 @@ Future buildShowInfoModalBottomSheet({
     builder: (context) => BlocProvider(
         create: (context) =>
             getIt<MoviesBloc>()..add(MoviesEvent.movieCalled(movieId)),
-        child: const MovieData(movie: null)),
+        child: BlocBuilder<MoviesBloc, MoviesState>(
+          builder: (context, state) {
+            return state.map(
+              initial: (_) => const MovieLoadingWidget(),
+              loading: (_) => const MovieLoadingWidget(),
+              loadSuccess: (_) => null,
+              loadSuccessforMovie: (state) => MovieData(movie: state.movie),
+              loadFailure: (_) => Container(
+                height: 100.0,
+                color: AppColors.red,
+              ),
+            );
+          },
+        )),
   );
 }
 
