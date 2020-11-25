@@ -35,8 +35,8 @@ class _$MoviesEventTearOff {
   }
 
 // ignore: unused_element
-  _BannerMovieCalled bannerMovieCalled(int movieId) {
-    return _BannerMovieCalled(
+  _MovieCalled movieCalled(int movieId) {
+    return _MovieCalled(
       movieId,
     );
   }
@@ -53,14 +53,14 @@ mixin _$MoviesEvent {
     @required Result movieTypeCalled(String movieListType),
     @required Result movieByGenreCalled(int movieGenreId),
     @required Result similarMoviesCalled(int movieId),
-    @required Result bannerMovieCalled(int movieId),
+    @required Result movieCalled(int movieId),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result movieTypeCalled(String movieListType),
     Result movieByGenreCalled(int movieGenreId),
     Result similarMoviesCalled(int movieId),
-    Result bannerMovieCalled(int movieId),
+    Result movieCalled(int movieId),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -68,14 +68,14 @@ mixin _$MoviesEvent {
     @required Result movieTypeCalled(_MovieTypeCalled value),
     @required Result movieByGenreCalled(_MovieByGenreCalled value),
     @required Result similarMoviesCalled(_SimilarMoviesCalled value),
-    @required Result bannerMovieCalled(_BannerMovieCalled value),
+    @required Result movieCalled(_MovieCalled value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result movieTypeCalled(_MovieTypeCalled value),
     Result movieByGenreCalled(_MovieByGenreCalled value),
     Result similarMoviesCalled(_SimilarMoviesCalled value),
-    Result bannerMovieCalled(_BannerMovieCalled value),
+    Result movieCalled(_MovieCalled value),
     @required Result orElse(),
   });
 }
@@ -160,12 +160,12 @@ class _$_MovieTypeCalled implements _MovieTypeCalled {
     @required Result movieTypeCalled(String movieListType),
     @required Result movieByGenreCalled(int movieGenreId),
     @required Result similarMoviesCalled(int movieId),
-    @required Result bannerMovieCalled(int movieId),
+    @required Result movieCalled(int movieId),
   }) {
     assert(movieTypeCalled != null);
     assert(movieByGenreCalled != null);
     assert(similarMoviesCalled != null);
-    assert(bannerMovieCalled != null);
+    assert(movieCalled != null);
     return movieTypeCalled(movieListType);
   }
 
@@ -175,7 +175,7 @@ class _$_MovieTypeCalled implements _MovieTypeCalled {
     Result movieTypeCalled(String movieListType),
     Result movieByGenreCalled(int movieGenreId),
     Result similarMoviesCalled(int movieId),
-    Result bannerMovieCalled(int movieId),
+    Result movieCalled(int movieId),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -191,12 +191,12 @@ class _$_MovieTypeCalled implements _MovieTypeCalled {
     @required Result movieTypeCalled(_MovieTypeCalled value),
     @required Result movieByGenreCalled(_MovieByGenreCalled value),
     @required Result similarMoviesCalled(_SimilarMoviesCalled value),
-    @required Result bannerMovieCalled(_BannerMovieCalled value),
+    @required Result movieCalled(_MovieCalled value),
   }) {
     assert(movieTypeCalled != null);
     assert(movieByGenreCalled != null);
     assert(similarMoviesCalled != null);
-    assert(bannerMovieCalled != null);
+    assert(movieCalled != null);
     return movieTypeCalled(this);
   }
 
@@ -206,7 +206,7 @@ class _$_MovieTypeCalled implements _MovieTypeCalled {
     Result movieTypeCalled(_MovieTypeCalled value),
     Result movieByGenreCalled(_MovieByGenreCalled value),
     Result similarMoviesCalled(_SimilarMoviesCalled value),
-    Result bannerMovieCalled(_BannerMovieCalled value),
+    Result movieCalled(_MovieCalled value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -288,12 +288,12 @@ class _$_MovieByGenreCalled implements _MovieByGenreCalled {
     @required Result movieTypeCalled(String movieListType),
     @required Result movieByGenreCalled(int movieGenreId),
     @required Result similarMoviesCalled(int movieId),
-    @required Result bannerMovieCalled(int movieId),
+    @required Result movieCalled(int movieId),
   }) {
     assert(movieTypeCalled != null);
     assert(movieByGenreCalled != null);
     assert(similarMoviesCalled != null);
-    assert(bannerMovieCalled != null);
+    assert(movieCalled != null);
     return movieByGenreCalled(movieGenreId);
   }
 
@@ -303,7 +303,7 @@ class _$_MovieByGenreCalled implements _MovieByGenreCalled {
     Result movieTypeCalled(String movieListType),
     Result movieByGenreCalled(int movieGenreId),
     Result similarMoviesCalled(int movieId),
-    Result bannerMovieCalled(int movieId),
+    Result movieCalled(int movieId),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -319,12 +319,12 @@ class _$_MovieByGenreCalled implements _MovieByGenreCalled {
     @required Result movieTypeCalled(_MovieTypeCalled value),
     @required Result movieByGenreCalled(_MovieByGenreCalled value),
     @required Result similarMoviesCalled(_SimilarMoviesCalled value),
-    @required Result bannerMovieCalled(_BannerMovieCalled value),
+    @required Result movieCalled(_MovieCalled value),
   }) {
     assert(movieTypeCalled != null);
     assert(movieByGenreCalled != null);
     assert(similarMoviesCalled != null);
-    assert(bannerMovieCalled != null);
+    assert(movieCalled != null);
     return movieByGenreCalled(this);
   }
 
@@ -334,7 +334,7 @@ class _$_MovieByGenreCalled implements _MovieByGenreCalled {
     Result movieTypeCalled(_MovieTypeCalled value),
     Result movieByGenreCalled(_MovieByGenreCalled value),
     Result similarMoviesCalled(_SimilarMoviesCalled value),
-    Result bannerMovieCalled(_BannerMovieCalled value),
+    Result movieCalled(_MovieCalled value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -416,12 +416,12 @@ class _$_SimilarMoviesCalled implements _SimilarMoviesCalled {
     @required Result movieTypeCalled(String movieListType),
     @required Result movieByGenreCalled(int movieGenreId),
     @required Result similarMoviesCalled(int movieId),
-    @required Result bannerMovieCalled(int movieId),
+    @required Result movieCalled(int movieId),
   }) {
     assert(movieTypeCalled != null);
     assert(movieByGenreCalled != null);
     assert(similarMoviesCalled != null);
-    assert(bannerMovieCalled != null);
+    assert(movieCalled != null);
     return similarMoviesCalled(movieId);
   }
 
@@ -431,7 +431,7 @@ class _$_SimilarMoviesCalled implements _SimilarMoviesCalled {
     Result movieTypeCalled(String movieListType),
     Result movieByGenreCalled(int movieGenreId),
     Result similarMoviesCalled(int movieId),
-    Result bannerMovieCalled(int movieId),
+    Result movieCalled(int movieId),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -447,12 +447,12 @@ class _$_SimilarMoviesCalled implements _SimilarMoviesCalled {
     @required Result movieTypeCalled(_MovieTypeCalled value),
     @required Result movieByGenreCalled(_MovieByGenreCalled value),
     @required Result similarMoviesCalled(_SimilarMoviesCalled value),
-    @required Result bannerMovieCalled(_BannerMovieCalled value),
+    @required Result movieCalled(_MovieCalled value),
   }) {
     assert(movieTypeCalled != null);
     assert(movieByGenreCalled != null);
     assert(similarMoviesCalled != null);
-    assert(bannerMovieCalled != null);
+    assert(movieCalled != null);
     return similarMoviesCalled(this);
   }
 
@@ -462,7 +462,7 @@ class _$_SimilarMoviesCalled implements _SimilarMoviesCalled {
     Result movieTypeCalled(_MovieTypeCalled value),
     Result movieByGenreCalled(_MovieByGenreCalled value),
     Result similarMoviesCalled(_SimilarMoviesCalled value),
-    Result bannerMovieCalled(_BannerMovieCalled value),
+    Result movieCalled(_MovieCalled value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -481,50 +481,49 @@ abstract class _SimilarMoviesCalled implements MoviesEvent {
 }
 
 /// @nodoc
-abstract class _$BannerMovieCalledCopyWith<$Res> {
-  factory _$BannerMovieCalledCopyWith(
-          _BannerMovieCalled value, $Res Function(_BannerMovieCalled) then) =
-      __$BannerMovieCalledCopyWithImpl<$Res>;
+abstract class _$MovieCalledCopyWith<$Res> {
+  factory _$MovieCalledCopyWith(
+          _MovieCalled value, $Res Function(_MovieCalled) then) =
+      __$MovieCalledCopyWithImpl<$Res>;
   $Res call({int movieId});
 }
 
 /// @nodoc
-class __$BannerMovieCalledCopyWithImpl<$Res>
-    extends _$MoviesEventCopyWithImpl<$Res>
-    implements _$BannerMovieCalledCopyWith<$Res> {
-  __$BannerMovieCalledCopyWithImpl(
-      _BannerMovieCalled _value, $Res Function(_BannerMovieCalled) _then)
-      : super(_value, (v) => _then(v as _BannerMovieCalled));
+class __$MovieCalledCopyWithImpl<$Res> extends _$MoviesEventCopyWithImpl<$Res>
+    implements _$MovieCalledCopyWith<$Res> {
+  __$MovieCalledCopyWithImpl(
+      _MovieCalled _value, $Res Function(_MovieCalled) _then)
+      : super(_value, (v) => _then(v as _MovieCalled));
 
   @override
-  _BannerMovieCalled get _value => super._value as _BannerMovieCalled;
+  _MovieCalled get _value => super._value as _MovieCalled;
 
   @override
   $Res call({
     Object movieId = freezed,
   }) {
-    return _then(_BannerMovieCalled(
+    return _then(_MovieCalled(
       movieId == freezed ? _value.movieId : movieId as int,
     ));
   }
 }
 
 /// @nodoc
-class _$_BannerMovieCalled implements _BannerMovieCalled {
-  const _$_BannerMovieCalled(this.movieId) : assert(movieId != null);
+class _$_MovieCalled implements _MovieCalled {
+  const _$_MovieCalled(this.movieId) : assert(movieId != null);
 
   @override
   final int movieId;
 
   @override
   String toString() {
-    return 'MoviesEvent.bannerMovieCalled(movieId: $movieId)';
+    return 'MoviesEvent.movieCalled(movieId: $movieId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _BannerMovieCalled &&
+        (other is _MovieCalled &&
             (identical(other.movieId, movieId) ||
                 const DeepCollectionEquality().equals(other.movieId, movieId)));
   }
@@ -534,8 +533,8 @@ class _$_BannerMovieCalled implements _BannerMovieCalled {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(movieId);
 
   @override
-  _$BannerMovieCalledCopyWith<_BannerMovieCalled> get copyWith =>
-      __$BannerMovieCalledCopyWithImpl<_BannerMovieCalled>(this, _$identity);
+  _$MovieCalledCopyWith<_MovieCalled> get copyWith =>
+      __$MovieCalledCopyWithImpl<_MovieCalled>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -543,13 +542,13 @@ class _$_BannerMovieCalled implements _BannerMovieCalled {
     @required Result movieTypeCalled(String movieListType),
     @required Result movieByGenreCalled(int movieGenreId),
     @required Result similarMoviesCalled(int movieId),
-    @required Result bannerMovieCalled(int movieId),
+    @required Result movieCalled(int movieId),
   }) {
     assert(movieTypeCalled != null);
     assert(movieByGenreCalled != null);
     assert(similarMoviesCalled != null);
-    assert(bannerMovieCalled != null);
-    return bannerMovieCalled(movieId);
+    assert(movieCalled != null);
+    return movieCalled(movieId);
   }
 
   @override
@@ -558,12 +557,12 @@ class _$_BannerMovieCalled implements _BannerMovieCalled {
     Result movieTypeCalled(String movieListType),
     Result movieByGenreCalled(int movieGenreId),
     Result similarMoviesCalled(int movieId),
-    Result bannerMovieCalled(int movieId),
+    Result movieCalled(int movieId),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (bannerMovieCalled != null) {
-      return bannerMovieCalled(movieId);
+    if (movieCalled != null) {
+      return movieCalled(movieId);
     }
     return orElse();
   }
@@ -574,13 +573,13 @@ class _$_BannerMovieCalled implements _BannerMovieCalled {
     @required Result movieTypeCalled(_MovieTypeCalled value),
     @required Result movieByGenreCalled(_MovieByGenreCalled value),
     @required Result similarMoviesCalled(_SimilarMoviesCalled value),
-    @required Result bannerMovieCalled(_BannerMovieCalled value),
+    @required Result movieCalled(_MovieCalled value),
   }) {
     assert(movieTypeCalled != null);
     assert(movieByGenreCalled != null);
     assert(similarMoviesCalled != null);
-    assert(bannerMovieCalled != null);
-    return bannerMovieCalled(this);
+    assert(movieCalled != null);
+    return movieCalled(this);
   }
 
   @override
@@ -589,22 +588,22 @@ class _$_BannerMovieCalled implements _BannerMovieCalled {
     Result movieTypeCalled(_MovieTypeCalled value),
     Result movieByGenreCalled(_MovieByGenreCalled value),
     Result similarMoviesCalled(_SimilarMoviesCalled value),
-    Result bannerMovieCalled(_BannerMovieCalled value),
+    Result movieCalled(_MovieCalled value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (bannerMovieCalled != null) {
-      return bannerMovieCalled(this);
+    if (movieCalled != null) {
+      return movieCalled(this);
     }
     return orElse();
   }
 }
 
-abstract class _BannerMovieCalled implements MoviesEvent {
-  const factory _BannerMovieCalled(int movieId) = _$_BannerMovieCalled;
+abstract class _MovieCalled implements MoviesEvent {
+  const factory _MovieCalled(int movieId) = _$_MovieCalled;
 
   int get movieId;
-  _$BannerMovieCalledCopyWith<_BannerMovieCalled> get copyWith;
+  _$MovieCalledCopyWith<_MovieCalled> get copyWith;
 }
 
 /// @nodoc
@@ -629,7 +628,7 @@ class _$MoviesStateTearOff {
   }
 
 // ignore: unused_element
-  _LoadSuccessforBannerMovie loadSuccessforBannerMovie(Movie movie) {
+  _LoadSuccessforBannerMovie loadSuccessforMovie(Movie movie) {
     return _LoadSuccessforBannerMovie(
       movie,
     );
@@ -654,7 +653,7 @@ mixin _$MoviesState {
     @required Result initial(),
     @required Result loading(),
     @required Result loadSuccess(List<Movie> movies),
-    @required Result loadSuccessforBannerMovie(Movie movie),
+    @required Result loadSuccessforMovie(Movie movie),
     @required Result loadFailure(MovieFailure movieFailure),
   });
   @optionalTypeArgs
@@ -662,7 +661,7 @@ mixin _$MoviesState {
     Result initial(),
     Result loading(),
     Result loadSuccess(List<Movie> movies),
-    Result loadSuccessforBannerMovie(Movie movie),
+    Result loadSuccessforMovie(Movie movie),
     Result loadFailure(MovieFailure movieFailure),
     @required Result orElse(),
   });
@@ -671,8 +670,7 @@ mixin _$MoviesState {
     @required Result initial(_Initial value),
     @required Result loading(_Loading value),
     @required Result loadSuccess(_LoadSuccess value),
-    @required
-        Result loadSuccessforBannerMovie(_LoadSuccessforBannerMovie value),
+    @required Result loadSuccessforMovie(_LoadSuccessforBannerMovie value),
     @required Result loadFailure(_LoadFailure value),
   });
   @optionalTypeArgs
@@ -680,7 +678,7 @@ mixin _$MoviesState {
     Result initial(_Initial value),
     Result loading(_Loading value),
     Result loadSuccess(_LoadSuccess value),
-    Result loadSuccessforBannerMovie(_LoadSuccessforBannerMovie value),
+    Result loadSuccessforMovie(_LoadSuccessforBannerMovie value),
     Result loadFailure(_LoadFailure value),
     @required Result orElse(),
   });
@@ -741,13 +739,13 @@ class _$_Initial implements _Initial {
     @required Result initial(),
     @required Result loading(),
     @required Result loadSuccess(List<Movie> movies),
-    @required Result loadSuccessforBannerMovie(Movie movie),
+    @required Result loadSuccessforMovie(Movie movie),
     @required Result loadFailure(MovieFailure movieFailure),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
-    assert(loadSuccessforBannerMovie != null);
+    assert(loadSuccessforMovie != null);
     assert(loadFailure != null);
     return initial();
   }
@@ -758,7 +756,7 @@ class _$_Initial implements _Initial {
     Result initial(),
     Result loading(),
     Result loadSuccess(List<Movie> movies),
-    Result loadSuccessforBannerMovie(Movie movie),
+    Result loadSuccessforMovie(Movie movie),
     Result loadFailure(MovieFailure movieFailure),
     @required Result orElse(),
   }) {
@@ -775,14 +773,13 @@ class _$_Initial implements _Initial {
     @required Result initial(_Initial value),
     @required Result loading(_Loading value),
     @required Result loadSuccess(_LoadSuccess value),
-    @required
-        Result loadSuccessforBannerMovie(_LoadSuccessforBannerMovie value),
+    @required Result loadSuccessforMovie(_LoadSuccessforBannerMovie value),
     @required Result loadFailure(_LoadFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
-    assert(loadSuccessforBannerMovie != null);
+    assert(loadSuccessforMovie != null);
     assert(loadFailure != null);
     return initial(this);
   }
@@ -793,7 +790,7 @@ class _$_Initial implements _Initial {
     Result initial(_Initial value),
     Result loading(_Loading value),
     Result loadSuccess(_LoadSuccess value),
-    Result loadSuccessforBannerMovie(_LoadSuccessforBannerMovie value),
+    Result loadSuccessforMovie(_LoadSuccessforBannerMovie value),
     Result loadFailure(_LoadFailure value),
     @required Result orElse(),
   }) {
@@ -848,13 +845,13 @@ class _$_Loading implements _Loading {
     @required Result initial(),
     @required Result loading(),
     @required Result loadSuccess(List<Movie> movies),
-    @required Result loadSuccessforBannerMovie(Movie movie),
+    @required Result loadSuccessforMovie(Movie movie),
     @required Result loadFailure(MovieFailure movieFailure),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
-    assert(loadSuccessforBannerMovie != null);
+    assert(loadSuccessforMovie != null);
     assert(loadFailure != null);
     return loading();
   }
@@ -865,7 +862,7 @@ class _$_Loading implements _Loading {
     Result initial(),
     Result loading(),
     Result loadSuccess(List<Movie> movies),
-    Result loadSuccessforBannerMovie(Movie movie),
+    Result loadSuccessforMovie(Movie movie),
     Result loadFailure(MovieFailure movieFailure),
     @required Result orElse(),
   }) {
@@ -882,14 +879,13 @@ class _$_Loading implements _Loading {
     @required Result initial(_Initial value),
     @required Result loading(_Loading value),
     @required Result loadSuccess(_LoadSuccess value),
-    @required
-        Result loadSuccessforBannerMovie(_LoadSuccessforBannerMovie value),
+    @required Result loadSuccessforMovie(_LoadSuccessforBannerMovie value),
     @required Result loadFailure(_LoadFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
-    assert(loadSuccessforBannerMovie != null);
+    assert(loadSuccessforMovie != null);
     assert(loadFailure != null);
     return loading(this);
   }
@@ -900,7 +896,7 @@ class _$_Loading implements _Loading {
     Result initial(_Initial value),
     Result loading(_Loading value),
     Result loadSuccess(_LoadSuccess value),
-    Result loadSuccessforBannerMovie(_LoadSuccessforBannerMovie value),
+    Result loadSuccessforMovie(_LoadSuccessforBannerMovie value),
     Result loadFailure(_LoadFailure value),
     @required Result orElse(),
   }) {
@@ -978,13 +974,13 @@ class _$_LoadSuccess implements _LoadSuccess {
     @required Result initial(),
     @required Result loading(),
     @required Result loadSuccess(List<Movie> movies),
-    @required Result loadSuccessforBannerMovie(Movie movie),
+    @required Result loadSuccessforMovie(Movie movie),
     @required Result loadFailure(MovieFailure movieFailure),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
-    assert(loadSuccessforBannerMovie != null);
+    assert(loadSuccessforMovie != null);
     assert(loadFailure != null);
     return loadSuccess(movies);
   }
@@ -995,7 +991,7 @@ class _$_LoadSuccess implements _LoadSuccess {
     Result initial(),
     Result loading(),
     Result loadSuccess(List<Movie> movies),
-    Result loadSuccessforBannerMovie(Movie movie),
+    Result loadSuccessforMovie(Movie movie),
     Result loadFailure(MovieFailure movieFailure),
     @required Result orElse(),
   }) {
@@ -1012,14 +1008,13 @@ class _$_LoadSuccess implements _LoadSuccess {
     @required Result initial(_Initial value),
     @required Result loading(_Loading value),
     @required Result loadSuccess(_LoadSuccess value),
-    @required
-        Result loadSuccessforBannerMovie(_LoadSuccessforBannerMovie value),
+    @required Result loadSuccessforMovie(_LoadSuccessforBannerMovie value),
     @required Result loadFailure(_LoadFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
-    assert(loadSuccessforBannerMovie != null);
+    assert(loadSuccessforMovie != null);
     assert(loadFailure != null);
     return loadSuccess(this);
   }
@@ -1030,7 +1025,7 @@ class _$_LoadSuccess implements _LoadSuccess {
     Result initial(_Initial value),
     Result loading(_Loading value),
     Result loadSuccess(_LoadSuccess value),
-    Result loadSuccessforBannerMovie(_LoadSuccessforBannerMovie value),
+    Result loadSuccessforMovie(_LoadSuccessforBannerMovie value),
     Result loadFailure(_LoadFailure value),
     @required Result orElse(),
   }) {
@@ -1100,7 +1095,7 @@ class _$_LoadSuccessforBannerMovie implements _LoadSuccessforBannerMovie {
 
   @override
   String toString() {
-    return 'MoviesState.loadSuccessforBannerMovie(movie: $movie)';
+    return 'MoviesState.loadSuccessforMovie(movie: $movie)';
   }
 
   @override
@@ -1127,15 +1122,15 @@ class _$_LoadSuccessforBannerMovie implements _LoadSuccessforBannerMovie {
     @required Result initial(),
     @required Result loading(),
     @required Result loadSuccess(List<Movie> movies),
-    @required Result loadSuccessforBannerMovie(Movie movie),
+    @required Result loadSuccessforMovie(Movie movie),
     @required Result loadFailure(MovieFailure movieFailure),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
-    assert(loadSuccessforBannerMovie != null);
+    assert(loadSuccessforMovie != null);
     assert(loadFailure != null);
-    return loadSuccessforBannerMovie(movie);
+    return loadSuccessforMovie(movie);
   }
 
   @override
@@ -1144,13 +1139,13 @@ class _$_LoadSuccessforBannerMovie implements _LoadSuccessforBannerMovie {
     Result initial(),
     Result loading(),
     Result loadSuccess(List<Movie> movies),
-    Result loadSuccessforBannerMovie(Movie movie),
+    Result loadSuccessforMovie(Movie movie),
     Result loadFailure(MovieFailure movieFailure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (loadSuccessforBannerMovie != null) {
-      return loadSuccessforBannerMovie(movie);
+    if (loadSuccessforMovie != null) {
+      return loadSuccessforMovie(movie);
     }
     return orElse();
   }
@@ -1161,16 +1156,15 @@ class _$_LoadSuccessforBannerMovie implements _LoadSuccessforBannerMovie {
     @required Result initial(_Initial value),
     @required Result loading(_Loading value),
     @required Result loadSuccess(_LoadSuccess value),
-    @required
-        Result loadSuccessforBannerMovie(_LoadSuccessforBannerMovie value),
+    @required Result loadSuccessforMovie(_LoadSuccessforBannerMovie value),
     @required Result loadFailure(_LoadFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
-    assert(loadSuccessforBannerMovie != null);
+    assert(loadSuccessforMovie != null);
     assert(loadFailure != null);
-    return loadSuccessforBannerMovie(this);
+    return loadSuccessforMovie(this);
   }
 
   @override
@@ -1179,13 +1173,13 @@ class _$_LoadSuccessforBannerMovie implements _LoadSuccessforBannerMovie {
     Result initial(_Initial value),
     Result loading(_Loading value),
     Result loadSuccess(_LoadSuccess value),
-    Result loadSuccessforBannerMovie(_LoadSuccessforBannerMovie value),
+    Result loadSuccessforMovie(_LoadSuccessforBannerMovie value),
     Result loadFailure(_LoadFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (loadSuccessforBannerMovie != null) {
-      return loadSuccessforBannerMovie(this);
+    if (loadSuccessforMovie != null) {
+      return loadSuccessforMovie(this);
     }
     return orElse();
   }
@@ -1276,13 +1270,13 @@ class _$_LoadFailure implements _LoadFailure {
     @required Result initial(),
     @required Result loading(),
     @required Result loadSuccess(List<Movie> movies),
-    @required Result loadSuccessforBannerMovie(Movie movie),
+    @required Result loadSuccessforMovie(Movie movie),
     @required Result loadFailure(MovieFailure movieFailure),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
-    assert(loadSuccessforBannerMovie != null);
+    assert(loadSuccessforMovie != null);
     assert(loadFailure != null);
     return loadFailure(movieFailure);
   }
@@ -1293,7 +1287,7 @@ class _$_LoadFailure implements _LoadFailure {
     Result initial(),
     Result loading(),
     Result loadSuccess(List<Movie> movies),
-    Result loadSuccessforBannerMovie(Movie movie),
+    Result loadSuccessforMovie(Movie movie),
     Result loadFailure(MovieFailure movieFailure),
     @required Result orElse(),
   }) {
@@ -1310,14 +1304,13 @@ class _$_LoadFailure implements _LoadFailure {
     @required Result initial(_Initial value),
     @required Result loading(_Loading value),
     @required Result loadSuccess(_LoadSuccess value),
-    @required
-        Result loadSuccessforBannerMovie(_LoadSuccessforBannerMovie value),
+    @required Result loadSuccessforMovie(_LoadSuccessforBannerMovie value),
     @required Result loadFailure(_LoadFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
-    assert(loadSuccessforBannerMovie != null);
+    assert(loadSuccessforMovie != null);
     assert(loadFailure != null);
     return loadFailure(this);
   }
@@ -1328,7 +1321,7 @@ class _$_LoadFailure implements _LoadFailure {
     Result initial(_Initial value),
     Result loading(_Loading value),
     Result loadSuccess(_LoadSuccess value),
-    Result loadSuccessforBannerMovie(_LoadSuccessforBannerMovie value),
+    Result loadSuccessforMovie(_LoadSuccessforBannerMovie value),
     Result loadFailure(_LoadFailure value),
     @required Result orElse(),
   }) {

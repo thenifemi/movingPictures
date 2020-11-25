@@ -52,13 +52,13 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
           (movies) => MoviesState.loadSuccess(movies),
         );
       },
-      bannerMovieCalled: (e) async* {
+      movieCalled: (e) async* {
         yield const MoviesState.loading();
         final failureOrMovies = await moviesInterface.getMovie(e.movieId);
 
         yield failureOrMovies.fold(
           (f) => MoviesState.loadFailure(f),
-          (movie) => MoviesState.loadSuccessforBannerMovie(movie),
+          (movie) => MoviesState.loadSuccessforMovie(movie),
         );
       },
     );

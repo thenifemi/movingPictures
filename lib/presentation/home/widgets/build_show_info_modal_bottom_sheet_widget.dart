@@ -1,6 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:movingPictures/application/home/movies/movies_bloc.dart';
+import 'package:movingPictures/injection.dart';
 
 import '../../../domain/home/movies/movie.dart';
 import '../../../infrastructure/core/credentials.dart';
@@ -17,7 +20,7 @@ import '../../routes/router.gr.dart';
 Future buildShowInfoModalBottomSheet({
   BuildContext context,
   @required TextTheme appTextTheme,
-  @required Movie movie,
+  @required int movieId,
 }) {
   return showModalBottomSheet(
     isScrollControlled: true,
@@ -28,7 +31,25 @@ Future buildShowInfoModalBottomSheet({
       topRight: Radius.circular(10.0),
     )),
     context: context,
-    builder: (context) => Container(
+    builder: (context) => BlocProvider(
+        create: (context) =>
+            getIt<MoviesBloc>()..add(MoviesEvent.movieCalled(movieId)),
+        child: const MovieData(movie: null)),
+  );
+}
+
+class MovieData extends StatelessWidget {
+  final Movie movie;
+  const MovieData({
+    Key key,
+    @required this.movie,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final appTextTheme = Theme.of(context).textTheme;
+
+    return Container(
       padding: const EdgeInsets.fromLTRB(12.0, 12.0, 12.0, 0.0),
       child: Wrap(
         runSpacing: 5.0,
@@ -58,8 +79,8 @@ Future buildShowInfoModalBottomSheet({
               ))
         ],
       ),
-    ),
-  );
+    );
+  }
 }
 
 class PosterBlock extends StatelessWidget {

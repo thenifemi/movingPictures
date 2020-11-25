@@ -72,7 +72,7 @@ class MoreLikeThisBlock extends StatelessWidget {
                       height: 100.0,
                       color: AppColors.red,
                     ),
-                    loadSuccessforBannerMovie: (_) => null,
+                    loadSuccessforMovie: (_) => null,
                   );
                 },
               ),
@@ -115,7 +115,7 @@ class Movies extends StatelessWidget {
             onTap: () => buildShowInfoModalBottomSheet(
               appTextTheme: appTextTheme,
               context: context,
-              movie: movie,
+              movieId: movie.id,
             ),
             child: Tooltip(
               message: movie.title,

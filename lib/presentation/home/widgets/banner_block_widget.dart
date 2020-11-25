@@ -21,14 +21,14 @@ class BannerBlockWidget extends StatelessWidget {
     final appTextTheme = Theme.of(context).textTheme;
 
     return BlocProvider(
-        create: (context) => getIt<MoviesBloc>()
-          ..add(const MoviesEvent.bannerMovieCalled(152601)),
+        create: (context) =>
+            getIt<MoviesBloc>()..add(const MoviesEvent.movieCalled(152601)),
         child: BlocBuilder<MoviesBloc, MoviesState>(
           builder: (context, state) {
             return state.map(
               initial: (_) => const MovieLoadingWidget(),
               loading: (_) => const MovieLoadingWidget(),
-              loadSuccessforBannerMovie: (state) {
+              loadSuccessforMovie: (state) {
                 final movie = state.movie;
 
                 return BannerMovie(

@@ -39,7 +39,7 @@ class RegularBlockWidget extends StatelessWidget {
                   height: 100.0,
                   color: AppColors.red,
                 ),
-                loadSuccessforBannerMovie: (_) => null,
+                loadSuccessforMovie: (_) => null,
               );
             },
           );
@@ -92,7 +92,7 @@ class MovieData extends StatelessWidget {
                 onTap: () => buildShowInfoModalBottomSheet(
                   context: context,
                   appTextTheme: appTextTheme,
-                  movie: movie,
+                  movieId: movie.id,
                 ),
                 child: Tooltip(
                   message: movie.title,

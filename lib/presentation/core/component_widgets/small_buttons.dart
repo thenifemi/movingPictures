@@ -96,7 +96,7 @@ class InfoButtonWidget extends StatelessWidget {
         onPressed: () => buildShowInfoModalBottomSheet(
           appTextTheme: appTextTheme,
           context: context,
-          movie: movie,
+          movieId: movie.id,
         ),
         child: Column(
           children: [
