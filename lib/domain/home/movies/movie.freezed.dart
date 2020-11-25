@@ -25,6 +25,7 @@ class _$MovieTearOff {
       @required String release_date,
       @required int runtime,
       @required double vote_average,
+      @required List<Genre> genres,
       @required String homepage}) {
     return _Movie(
       id: id,
@@ -34,6 +35,7 @@ class _$MovieTearOff {
       release_date: release_date,
       runtime: runtime,
       vote_average: vote_average,
+      genres: genres,
       homepage: homepage,
     );
   }
@@ -51,14 +53,13 @@ const $Movie = _$MovieTearOff();
 /// @nodoc
 mixin _$Movie {
   int get id;
-  String get title; // ignore: non_constant_identifier_names
+  String get title;
   String get poster_path;
   String get overview;
   String get release_date;
-  int get runtime; // @required String ageRestriction,
-  double get vote_average; // @required List<Genre> genres,
-// @required List<String> cast,
-// @required String video,
+  int get runtime; // @required Map<String, dynamic> release_dates, //* This is age restriction.
+  double get vote_average;
+  List<Genre> get genres; // @required List<String> cast,
   String get homepage;
 
   Map<String, dynamic> toJson();
@@ -77,6 +78,7 @@ abstract class $MovieCopyWith<$Res> {
       String release_date,
       int runtime,
       double vote_average,
+      List<Genre> genres,
       String homepage});
 }
 
@@ -97,6 +99,7 @@ class _$MovieCopyWithImpl<$Res> implements $MovieCopyWith<$Res> {
     Object release_date = freezed,
     Object runtime = freezed,
     Object vote_average = freezed,
+    Object genres = freezed,
     Object homepage = freezed,
   }) {
     return _then(_value.copyWith(
@@ -112,6 +115,7 @@ class _$MovieCopyWithImpl<$Res> implements $MovieCopyWith<$Res> {
       vote_average: vote_average == freezed
           ? _value.vote_average
           : vote_average as double,
+      genres: genres == freezed ? _value.genres : genres as List<Genre>,
       homepage: homepage == freezed ? _value.homepage : homepage as String,
     ));
   }
@@ -130,6 +134,7 @@ abstract class _$MovieCopyWith<$Res> implements $MovieCopyWith<$Res> {
       String release_date,
       int runtime,
       double vote_average,
+      List<Genre> genres,
       String homepage});
 }
 
@@ -151,6 +156,7 @@ class __$MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res>
     Object release_date = freezed,
     Object runtime = freezed,
     Object vote_average = freezed,
+    Object genres = freezed,
     Object homepage = freezed,
   }) {
     return _then(_Movie(
@@ -166,6 +172,7 @@ class __$MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res>
       vote_average: vote_average == freezed
           ? _value.vote_average
           : vote_average as double,
+      genres: genres == freezed ? _value.genres : genres as List<Genre>,
       homepage: homepage == freezed ? _value.homepage : homepage as String,
     ));
   }
@@ -183,6 +190,7 @@ class _$_Movie extends _Movie {
       @required this.release_date,
       @required this.runtime,
       @required this.vote_average,
+      @required this.genres,
       @required this.homepage})
       : assert(id != null),
         assert(title != null),
@@ -191,6 +199,7 @@ class _$_Movie extends _Movie {
         assert(release_date != null),
         assert(runtime != null),
         assert(vote_average != null),
+        assert(genres != null),
         assert(homepage != null),
         super._();
 
@@ -201,7 +210,7 @@ class _$_Movie extends _Movie {
   final int id;
   @override
   final String title;
-  @override // ignore: non_constant_identifier_names
+  @override
   final String poster_path;
   @override
   final String overview;
@@ -209,16 +218,16 @@ class _$_Movie extends _Movie {
   final String release_date;
   @override
   final int runtime;
-  @override // @required String ageRestriction,
+  @override // @required Map<String, dynamic> release_dates, //* This is age restriction.
   final double vote_average;
-  @override // @required List<Genre> genres,
-// @required List<String> cast,
-// @required String video,
+  @override
+  final List<Genre> genres;
+  @override // @required List<String> cast,
   final String homepage;
 
   @override
   String toString() {
-    return 'Movie(id: $id, title: $title, poster_path: $poster_path, overview: $overview, release_date: $release_date, runtime: $runtime, vote_average: $vote_average, homepage: $homepage)';
+    return 'Movie(id: $id, title: $title, poster_path: $poster_path, overview: $overview, release_date: $release_date, runtime: $runtime, vote_average: $vote_average, genres: $genres, homepage: $homepage)';
   }
 
   @override
@@ -244,6 +253,8 @@ class _$_Movie extends _Movie {
             (identical(other.vote_average, vote_average) ||
                 const DeepCollectionEquality()
                     .equals(other.vote_average, vote_average)) &&
+            (identical(other.genres, genres) ||
+                const DeepCollectionEquality().equals(other.genres, genres)) &&
             (identical(other.homepage, homepage) ||
                 const DeepCollectionEquality()
                     .equals(other.homepage, homepage)));
@@ -259,6 +270,7 @@ class _$_Movie extends _Movie {
       const DeepCollectionEquality().hash(release_date) ^
       const DeepCollectionEquality().hash(runtime) ^
       const DeepCollectionEquality().hash(vote_average) ^
+      const DeepCollectionEquality().hash(genres) ^
       const DeepCollectionEquality().hash(homepage);
 
   @override
@@ -281,6 +293,7 @@ abstract class _Movie extends Movie {
       @required String release_date,
       @required int runtime,
       @required double vote_average,
+      @required List<Genre> genres,
       @required String homepage}) = _$_Movie;
 
   factory _Movie.fromJson(Map<String, dynamic> json) = _$_Movie.fromJson;
@@ -289,7 +302,7 @@ abstract class _Movie extends Movie {
   int get id;
   @override
   String get title;
-  @override // ignore: non_constant_identifier_names
+  @override
   String get poster_path;
   @override
   String get overview;
@@ -297,11 +310,11 @@ abstract class _Movie extends Movie {
   String get release_date;
   @override
   int get runtime;
-  @override // @required String ageRestriction,
+  @override // @required Map<String, dynamic> release_dates, //* This is age restriction.
   double get vote_average;
-  @override // @required List<Genre> genres,
-// @required List<String> cast,
-// @required String video,
+  @override
+  List<Genre> get genres;
+  @override // @required List<String> cast,
   String get homepage;
   @override
   _$MovieCopyWith<_Movie> get copyWith;

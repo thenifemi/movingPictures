@@ -42,10 +42,7 @@ class MoviesRepository extends MoviesInterface {
           .toList();
 
       return right(movies);
-    } catch (e, s) {
-      print("EEEEEEEEEEEEEEEEEEEE");
-      print(e);
-      print(s);
+    } catch (e) {
       return left(const MovieFailure.unexpected());
     }
   }
@@ -119,7 +116,7 @@ class MoviesRepository extends MoviesInterface {
         queryParameters: params,
       );
       final List<Genre> genres = (response.data["genres"] as List)
-          .map((i) => Genre.fromJson(i as Map<String, dynamic>))
+          .map((genre) => Genre.fromJson(genre as Map<String, dynamic>))
           .toList();
 
       return right(genres);
