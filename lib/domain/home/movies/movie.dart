@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:movingPictures/domain/home/movies/genres/genre.dart';
+
+import 'genres/genre.dart';
+
 part 'movie.freezed.dart';
 part 'movie.g.dart';
 
@@ -36,6 +38,13 @@ abstract class Movie implements _$Movie {
       // release_dates: release_dates,
     );
   }
+
+  // ignore: missing_required_param
+  factory Movie.forMovieType(Map<String, dynamic> json) => Movie(
+        id: json['id'] as int,
+        title: json['title'] as String,
+        poster_path: json['poster_path'] as String,
+      );
 
   factory Movie.fromJson(Map<String, dynamic> json) => Movie(
         id: json['id'] as int,

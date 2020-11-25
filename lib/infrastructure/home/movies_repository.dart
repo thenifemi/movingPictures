@@ -19,6 +19,31 @@ class MoviesRepository extends MoviesInterface {
   String deviceLocal = Platform.localeName;
 
   @override
+  Future<Either<MovieFailure, Movie>> getMovie(int movieId) async {
+    if (deviceLocal == "pt_BR") deviceLocal = "pt-BR";
+    if (deviceLocal == "en_US") deviceLocal = "en-US";
+
+    final getMovieUrl = "$tmdbUrl/movie/$movieId";
+    final params = {
+      "api_key": apiKey,
+      "language": deviceLocal,
+      "append_to_response": "release_dates"
+    };
+
+    try {
+      final Response<Map<String, dynamic>> response = await _dio.get(
+        getMovieUrl,
+        queryParameters: params,
+      );
+      final Movie movie = Movie.fromJson(response.data);
+
+      return right(movie);
+    } catch (e) {
+      return left(const MovieFailure.unexpected());
+    }
+  }
+
+  @override
   Future<Either<MovieFailure, List<Movie>>> getMovieListType(
     String movieListType,
   ) async {
@@ -38,7 +63,7 @@ class MoviesRepository extends MoviesInterface {
         queryParameters: params,
       );
       final List<Movie> movies = (response.data["results"] as List)
-          .map((i) => Movie.fromJson(i as Map<String, dynamic>).toDomain())
+          .map((i) => Movie.fromJson(i as Map<String, dynamic>))
           .toList();
 
       return right(movies);

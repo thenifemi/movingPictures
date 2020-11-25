@@ -6,6 +6,7 @@ import 'movie.dart';
 import 'movies_failure.dart';
 
 abstract class MoviesInterface {
+  Future<Either<MovieFailure, Movie>> getMovie(int movieId);
   Future<Either<MovieFailure, List<Movie>>> getMovieListType(
       String movieListType);
   Future<Either<GenreFailure, List<Genre>>> getGenre();
