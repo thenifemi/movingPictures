@@ -9,10 +9,9 @@ abstract class MoviesInterface {
   Future<Either<MovieFailure, Movie>> getMovie(int movieId);
   Future<Either<MovieFailure, List<Movie>>> getMovieListType(
       String movieListType);
-  Future<Either<GenreFailure, List<Genre>>> getGenre();
+  Future<Either<GenreFailure, List<Genre>>> getGenres();
   Future<Either<MovieFailure, List<Movie>>> getMovieByGenre(int movieGenreId);
   Future<Either<MovieFailure, List<Movie>>> getSimilarMovies(int movieId);
-  Future<Either<MovieFailure, Movie>> getBannerMovie(int movieId);
   Stream<Either<MovieFailure, List<Movie>>> watchMovieFavorites();
   Future<Either<MovieFailure, Unit>> createFavoriteMovie();
   Future<Either<MovieFailure, Unit>> deleteFavoriteMovie();

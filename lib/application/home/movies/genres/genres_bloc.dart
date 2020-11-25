@@ -25,7 +25,7 @@ class GenresBloc extends Bloc<GenresEvent, GenresState> {
     yield* event.map(
       getGenresCalled: (_) async* {
         yield const GenresState.loading();
-        final failureOrGenres = await moviesInterface.getGenre();
+        final failureOrGenres = await moviesInterface.getGenres();
 
         yield failureOrGenres.fold(
           (f) => GenresState.loadFailure(f),

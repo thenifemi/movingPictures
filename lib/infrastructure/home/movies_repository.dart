@@ -18,6 +18,8 @@ class MoviesRepository extends MoviesInterface {
   final String tmdbUrl = TMDB_URL;
   String deviceLocal = Platform.localeName;
 
+  //* Gets all movie information for a specific movie
+  //* when the movieId is passed from getMovieType or getMovieByGenre
   @override
   Future<Either<MovieFailure, Movie>> getMovie(int movieId) async {
     if (deviceLocal == "pt_BR") deviceLocal = "pt-BR";
@@ -43,6 +45,8 @@ class MoviesRepository extends MoviesInterface {
     }
   }
 
+  //* Gets only the movie ID, Title and Poster path for a specific movie list
+  //* like Popular, Now_playing and Upcoming
   @override
   Future<Either<MovieFailure, List<Movie>>> getMovieListType(
     String movieListType,
@@ -63,7 +67,7 @@ class MoviesRepository extends MoviesInterface {
         queryParameters: params,
       );
       final List<Movie> movies = (response.data["results"] as List)
-          .map((i) => Movie.fromJson(i as Map<String, dynamic>))
+          .map((i) => Movie.forMovieType(i as Map<String, dynamic>))
           .toList();
 
       return right(movies);
@@ -72,6 +76,7 @@ class MoviesRepository extends MoviesInterface {
     }
   }
 
+  //* Gets only the movie ID, Title and Poster path for a similar movies list
   @override
   Future<Either<MovieFailure, List<Movie>>> getSimilarMovies(
       int movieId) async {
@@ -90,7 +95,7 @@ class MoviesRepository extends MoviesInterface {
         queryParameters: params,
       );
       final List<Movie> movies = (response.data["results"] as List)
-          .map((i) => Movie.fromJson(i as Map<String, dynamic>))
+          .map((i) => Movie.forMovieType(i as Map<String, dynamic>))
           .toList();
 
       return right(movies);
@@ -99,32 +104,9 @@ class MoviesRepository extends MoviesInterface {
     }
   }
 
+  //* Gets only the genre ID and Name for list of genres
   @override
-  Future<Either<MovieFailure, Movie>> getBannerMovie(int movieId) async {
-    if (deviceLocal == "pt_BR") deviceLocal = "pt-BR";
-    if (deviceLocal == "en_US") deviceLocal = "en-US";
-
-    final getBannerMovieUrl = "$tmdbUrl/movie/$movieId";
-    final params = {
-      "api_key": apiKey,
-      "language": deviceLocal,
-    };
-
-    try {
-      final Response<Map<String, dynamic>> response = await _dio.get(
-        getBannerMovieUrl,
-        queryParameters: params,
-      );
-      final Movie movie = Movie.fromJson(response.data);
-
-      return right(movie);
-    } catch (e) {
-      return left(const MovieFailure.unexpected());
-    }
-  }
-
-  @override
-  Future<Either<GenreFailure, List<Genre>>> getGenre() async {
+  Future<Either<GenreFailure, List<Genre>>> getGenres() async {
     if (deviceLocal == "pt_BR") deviceLocal = "pt-BR";
     if (deviceLocal == "en_US") deviceLocal = "en-US";
 
@@ -150,6 +132,7 @@ class MoviesRepository extends MoviesInterface {
     }
   }
 
+  //* Gets only the movie ID, Title and Poster path for a specific genre
   @override
   Future<Either<MovieFailure, List<Movie>>> getMovieByGenre(
     int movieGenreId,
@@ -171,7 +154,7 @@ class MoviesRepository extends MoviesInterface {
         queryParameters: params,
       );
       final List<Movie> movies = (response.data["results"] as List)
-          .map((i) => Movie.fromJson(i as Map<String, dynamic>))
+          .map((i) => Movie.forMovieType(i as Map<String, dynamic>))
           .toList();
 
       return right(movies);
