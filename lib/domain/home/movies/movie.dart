@@ -31,7 +31,7 @@ abstract class Movie implements _$Movie {
       poster_path: poster_path,
       overview: overview,
       release_date: release_date,
-      runtime: runtime ?? 0,
+      runtime: runtime,
       vote_average: vote_average,
       // genres: genres,
       // video: video,
