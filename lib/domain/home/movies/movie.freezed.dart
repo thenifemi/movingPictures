@@ -23,14 +23,18 @@ class _$MovieTearOff {
       @required String poster_path,
       @required String overview,
       @required String release_date,
-      @required double vote_average}) {
+      @required int runtime,
+      @required double vote_average,
+      @required String homepage}) {
     return _Movie(
       id: id,
       title: title,
       poster_path: poster_path,
       overview: overview,
       release_date: release_date,
+      runtime: runtime,
       vote_average: vote_average,
+      homepage: homepage,
     );
   }
 
@@ -50,9 +54,12 @@ mixin _$Movie {
   String get title; // ignore: non_constant_identifier_names
   String get poster_path;
   String get overview;
-  String get release_date; // @required double runtime,
-// @required String ageRestriction,
-  double get vote_average;
+  String get release_date;
+  int get runtime; // @required String ageRestriction,
+  double get vote_average; // @required List<Genre> genres,
+// @required List<String> cast,
+// @required String video,
+  String get homepage;
 
   Map<String, dynamic> toJson();
   $MovieCopyWith<Movie> get copyWith;
@@ -68,7 +75,9 @@ abstract class $MovieCopyWith<$Res> {
       String poster_path,
       String overview,
       String release_date,
-      double vote_average});
+      int runtime,
+      double vote_average,
+      String homepage});
 }
 
 /// @nodoc
@@ -86,7 +95,9 @@ class _$MovieCopyWithImpl<$Res> implements $MovieCopyWith<$Res> {
     Object poster_path = freezed,
     Object overview = freezed,
     Object release_date = freezed,
+    Object runtime = freezed,
     Object vote_average = freezed,
+    Object homepage = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as int,
@@ -97,9 +108,11 @@ class _$MovieCopyWithImpl<$Res> implements $MovieCopyWith<$Res> {
       release_date: release_date == freezed
           ? _value.release_date
           : release_date as String,
+      runtime: runtime == freezed ? _value.runtime : runtime as int,
       vote_average: vote_average == freezed
           ? _value.vote_average
           : vote_average as double,
+      homepage: homepage == freezed ? _value.homepage : homepage as String,
     ));
   }
 }
@@ -115,7 +128,9 @@ abstract class _$MovieCopyWith<$Res> implements $MovieCopyWith<$Res> {
       String poster_path,
       String overview,
       String release_date,
-      double vote_average});
+      int runtime,
+      double vote_average,
+      String homepage});
 }
 
 /// @nodoc
@@ -134,7 +149,9 @@ class __$MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res>
     Object poster_path = freezed,
     Object overview = freezed,
     Object release_date = freezed,
+    Object runtime = freezed,
     Object vote_average = freezed,
+    Object homepage = freezed,
   }) {
     return _then(_Movie(
       id: id == freezed ? _value.id : id as int,
@@ -145,9 +162,11 @@ class __$MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res>
       release_date: release_date == freezed
           ? _value.release_date
           : release_date as String,
+      runtime: runtime == freezed ? _value.runtime : runtime as int,
       vote_average: vote_average == freezed
           ? _value.vote_average
           : vote_average as double,
+      homepage: homepage == freezed ? _value.homepage : homepage as String,
     ));
   }
 }
@@ -162,13 +181,17 @@ class _$_Movie extends _Movie {
       @required this.poster_path,
       @required this.overview,
       @required this.release_date,
-      @required this.vote_average})
+      @required this.runtime,
+      @required this.vote_average,
+      @required this.homepage})
       : assert(id != null),
         assert(title != null),
         assert(poster_path != null),
         assert(overview != null),
         assert(release_date != null),
+        assert(runtime != null),
         assert(vote_average != null),
+        assert(homepage != null),
         super._();
 
   factory _$_Movie.fromJson(Map<String, dynamic> json) =>
@@ -184,13 +207,18 @@ class _$_Movie extends _Movie {
   final String overview;
   @override
   final String release_date;
-  @override // @required double runtime,
-// @required String ageRestriction,
+  @override
+  final int runtime;
+  @override // @required String ageRestriction,
   final double vote_average;
+  @override // @required List<Genre> genres,
+// @required List<String> cast,
+// @required String video,
+  final String homepage;
 
   @override
   String toString() {
-    return 'Movie(id: $id, title: $title, poster_path: $poster_path, overview: $overview, release_date: $release_date, vote_average: $vote_average)';
+    return 'Movie(id: $id, title: $title, poster_path: $poster_path, overview: $overview, release_date: $release_date, runtime: $runtime, vote_average: $vote_average, homepage: $homepage)';
   }
 
   @override
@@ -210,9 +238,15 @@ class _$_Movie extends _Movie {
             (identical(other.release_date, release_date) ||
                 const DeepCollectionEquality()
                     .equals(other.release_date, release_date)) &&
+            (identical(other.runtime, runtime) ||
+                const DeepCollectionEquality()
+                    .equals(other.runtime, runtime)) &&
             (identical(other.vote_average, vote_average) ||
                 const DeepCollectionEquality()
-                    .equals(other.vote_average, vote_average)));
+                    .equals(other.vote_average, vote_average)) &&
+            (identical(other.homepage, homepage) ||
+                const DeepCollectionEquality()
+                    .equals(other.homepage, homepage)));
   }
 
   @override
@@ -223,7 +257,9 @@ class _$_Movie extends _Movie {
       const DeepCollectionEquality().hash(poster_path) ^
       const DeepCollectionEquality().hash(overview) ^
       const DeepCollectionEquality().hash(release_date) ^
-      const DeepCollectionEquality().hash(vote_average);
+      const DeepCollectionEquality().hash(runtime) ^
+      const DeepCollectionEquality().hash(vote_average) ^
+      const DeepCollectionEquality().hash(homepage);
 
   @override
   _$MovieCopyWith<_Movie> get copyWith =>
@@ -243,7 +279,9 @@ abstract class _Movie extends Movie {
       @required String poster_path,
       @required String overview,
       @required String release_date,
-      @required double vote_average}) = _$_Movie;
+      @required int runtime,
+      @required double vote_average,
+      @required String homepage}) = _$_Movie;
 
   factory _Movie.fromJson(Map<String, dynamic> json) = _$_Movie.fromJson;
 
@@ -257,9 +295,14 @@ abstract class _Movie extends Movie {
   String get overview;
   @override
   String get release_date;
-  @override // @required double runtime,
-// @required String ageRestriction,
+  @override
+  int get runtime;
+  @override // @required String ageRestriction,
   double get vote_average;
+  @override // @required List<Genre> genres,
+// @required List<String> cast,
+// @required String video,
+  String get homepage;
   @override
   _$MovieCopyWith<_Movie> get copyWith;
 }

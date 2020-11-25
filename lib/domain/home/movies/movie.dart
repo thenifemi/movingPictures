@@ -13,13 +13,13 @@ abstract class Movie implements _$Movie {
     @required String poster_path,
     @required String overview,
     @required String release_date,
-    // @required double runtime,
+    @required int runtime,
     // @required String ageRestriction,
     @required double vote_average,
     // @required List<Genre> genres,
     // @required List<String> cast,
     // @required String video,
-    // @required String homepage,
+    @required String homepage,
   }) = _Movie;
 
   const Movie._();
@@ -31,11 +31,11 @@ abstract class Movie implements _$Movie {
       poster_path: poster_path,
       overview: overview,
       release_date: release_date,
-      // runtime: runtime,
+      runtime: runtime ?? 0,
       vote_average: vote_average,
       // genres: genres,
       // video: video,
-      // homepage: homepage,
+      homepage: homepage,
     );
   }
 

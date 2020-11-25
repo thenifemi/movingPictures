@@ -1055,6 +1055,8 @@ abstract class _$LoadSuccessforBannerMovieCopyWith<$Res> {
           $Res Function(_LoadSuccessforBannerMovie) then) =
       __$LoadSuccessforBannerMovieCopyWithImpl<$Res>;
   $Res call({Movie movie});
+
+  $MovieCopyWith<$Res> get movie;
 }
 
 /// @nodoc
@@ -1076,6 +1078,16 @@ class __$LoadSuccessforBannerMovieCopyWithImpl<$Res>
     return _then(_LoadSuccessforBannerMovie(
       movie == freezed ? _value.movie : movie as Movie,
     ));
+  }
+
+  @override
+  $MovieCopyWith<$Res> get movie {
+    if (_value.movie == null) {
+      return null;
+    }
+    return $MovieCopyWith<$Res>(_value.movie, (value) {
+      return _then(_value.copyWith(movie: value));
+    });
   }
 }
 

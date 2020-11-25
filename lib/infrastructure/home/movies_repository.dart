@@ -38,11 +38,14 @@ class MoviesRepository extends MoviesInterface {
         queryParameters: params,
       );
       final List<Movie> movies = (response.data["results"] as List)
-          .map((i) => Movie.fromJson(i as Map<String, dynamic>))
+          .map((i) => Movie.fromJson(i as Map<String, dynamic>).toDomain())
           .toList();
 
       return right(movies);
-    } catch (e) {
+    } catch (e, s) {
+      print("EEEEEEEEEEEEEEEEEEEE");
+      print(e);
+      print(s);
       return left(const MovieFailure.unexpected());
     }
   }
