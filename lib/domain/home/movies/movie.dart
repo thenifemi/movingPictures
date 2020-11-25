@@ -44,16 +44,17 @@ abstract class Movie implements _$Movie {
         id: json['id'] as int,
         title: json['title'] as String,
         poster_path: json['poster_path'] as String,
+        overview: json['overview'] as String ?? "",
       );
 
   factory Movie.fromJson(Map<String, dynamic> json) => Movie(
         id: json['id'] as int,
         title: json['title'] as String,
         poster_path: json['poster_path'] as String,
-        overview: json['overview'] as String,
-        release_date: json['release_date'] as String,
+        overview: json['overview'] as String ?? "",
+        release_date: json['release_date'] as String ?? "",
         runtime: json['runtime'] as int ?? 0,
-        vote_average: (json['vote_average'] as num)?.toDouble(),
+        vote_average: (json['vote_average'] as num)?.toDouble() ?? 0.0,
         homepage: json['homepage'] as String ?? "n/a",
         genres: (json['genres'] as List ??
                 [

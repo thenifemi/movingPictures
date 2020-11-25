@@ -71,7 +71,9 @@ class MoviesRepository extends MoviesInterface {
           .toList();
 
       return right(movies);
-    } catch (e) {
+    } catch (e, s) {
+      print(e);
+      print(s);
       return left(const MovieFailure.unexpected());
     }
   }
