@@ -5,6 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/home/movies/movie.dart';
+import '../../../domain/home/movies/movie_sub/movie_sub.dart';
 import '../../../domain/home/movies/movies_failure.dart';
 import '../../../domain/home/movies/movies_interface.dart';
 

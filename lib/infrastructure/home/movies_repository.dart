@@ -7,6 +7,7 @@ import 'package:injectable/injectable.dart';
 import '../../domain/home/movies/genres/genre.dart';
 import '../../domain/home/movies/genres/genre_failure.dart';
 import '../../domain/home/movies/movie.dart';
+import '../../domain/home/movies/movie_sub/movie_sub.dart';
 import '../../domain/home/movies/movies_failure.dart';
 import '../../domain/home/movies/movies_interface.dart';
 import '../core/credentials.dart';
@@ -48,7 +49,7 @@ class MoviesRepository extends MoviesInterface {
   //* Gets only the movie ID, Title and Poster path for a specific movie list
   //* like Popular, Now_playing and Upcoming
   @override
-  Future<Either<MovieFailure, List<Movie>>> getMovieListType(
+  Future<Either<MovieFailure, List<MovieSub>>> getMovieListType(
     String movieListType,
   ) async {
     if (deviceLocal == "pt_BR") deviceLocal = "pt-BR";
@@ -66,8 +67,8 @@ class MoviesRepository extends MoviesInterface {
         getMovieTypeUrl,
         queryParameters: params,
       );
-      final List<Movie> movies = (response.data["results"] as List)
-          .map((i) => Movie.forMovieType(i as Map<String, dynamic>))
+      final List<MovieSub> movies = (response.data["results"] as List)
+          .map((i) => MovieSub.fromJsonData(i as Map<String, dynamic>))
           .toList();
 
       return right(movies);
@@ -80,7 +81,7 @@ class MoviesRepository extends MoviesInterface {
 
   //* Gets only the movie ID, Title and Poster path for a similar movies list
   @override
-  Future<Either<MovieFailure, List<Movie>>> getSimilarMovies(
+  Future<Either<MovieFailure, List<MovieSub>>> getSimilarMovies(
       int movieId) async {
     if (deviceLocal == "pt_BR") deviceLocal = "pt-BR";
     if (deviceLocal == "en_US") deviceLocal = "en-US";
@@ -96,8 +97,8 @@ class MoviesRepository extends MoviesInterface {
         getSimilarMoviesUrl,
         queryParameters: params,
       );
-      final List<Movie> movies = (response.data["results"] as List)
-          .map((i) => Movie.forMovieType(i as Map<String, dynamic>))
+      final List<MovieSub> movies = (response.data["results"] as List)
+          .map((i) => MovieSub.fromJsonData(i as Map<String, dynamic>))
           .toList();
 
       return right(movies);
@@ -136,7 +137,7 @@ class MoviesRepository extends MoviesInterface {
 
   //* Gets only the movie ID, Title and Poster path for a specific genre
   @override
-  Future<Either<MovieFailure, List<Movie>>> getMovieByGenre(
+  Future<Either<MovieFailure, List<MovieSub>>> getMovieByGenre(
     int movieGenreId,
   ) async {
     if (deviceLocal == "pt_BR") deviceLocal = "pt-BR";
@@ -155,8 +156,8 @@ class MoviesRepository extends MoviesInterface {
         getMovieGenreUrl,
         queryParameters: params,
       );
-      final List<Movie> movies = (response.data["results"] as List)
-          .map((i) => Movie.forMovieType(i as Map<String, dynamic>))
+      final List<MovieSub> movies = (response.data["results"] as List)
+          .map((i) => MovieSub.fromJsonData(i as Map<String, dynamic>))
           .toList();
 
       return right(movies);

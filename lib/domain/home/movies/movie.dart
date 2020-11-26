@@ -39,14 +39,6 @@ abstract class Movie implements _$Movie {
     );
   }
 
-  // ignore: missing_required_param
-  factory Movie.forMovieType(Map<String, dynamic> json) => Movie(
-        id: json['id'] as int,
-        title: json['title'] as String,
-        poster_path: json['poster_path'] as String,
-        overview: json['overview'] as String ?? "",
-      );
-
   factory Movie.fromJson(Map<String, dynamic> json) => Movie(
         id: json['id'] as int,
         title: json['title'] as String,
