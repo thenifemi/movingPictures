@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/home/movies/movies_bloc.dart';
-import '../../../domain/home/movies/movie.dart';
+import '../../../domain/home/movies/movie_sub/movie_sub.dart';
 import '../../../infrastructure/core/credentials.dart';
 import '../../../injection.dart';
 import '../../core/app_colors.dart';
@@ -56,7 +56,7 @@ class MovieData extends StatelessWidget {
     @required this.blockName,
   }) : super(key: key);
 
-  final List<Movie> movies;
+  final List<MovieSub> movies;
   final String blockName;
 
   @override

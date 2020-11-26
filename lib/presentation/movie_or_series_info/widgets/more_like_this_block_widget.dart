@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/home/movies/movies_bloc.dart';
 import '../../../domain/home/movies/movie.dart';
+import '../../../domain/home/movies/movie_sub/movie_sub.dart';
 import '../../../infrastructure/core/credentials.dart';
 import '../../../injection.dart';
 import '../../core/app_colors.dart';
@@ -96,7 +97,7 @@ class Movies extends StatelessWidget {
   final double itemWidth;
   final double itemHeight;
   final TextTheme appTextTheme;
-  final List<Movie> movies;
+  final List<MovieSub> movies;
 
   @override
   Widget build(BuildContext context) {
