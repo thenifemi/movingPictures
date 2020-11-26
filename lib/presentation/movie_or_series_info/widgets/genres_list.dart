@@ -1,21 +1,14 @@
 import 'package:flutter/material.dart';
+import '../../../domain/home/movies/movie.dart';
 
 import '../../core/app_colors.dart';
 
 class GenresList extends StatelessWidget {
-  GenresList({
-    Key key,
+  final Movie movie;
+  const GenresList({
+    @required Key key,
+    this.movie,
   }) : super(key: key);
-
-  final testGenres = [
-    "Drama",
-    "Suspense",
-    "Thriller",
-    "Drama",
-    "Action",
-    "Sci-Fi",
-    "Suspense",
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +20,8 @@ class GenresList extends StatelessWidget {
         alignment: WrapAlignment.center,
         runSpacing: 8.0,
         spacing: 0.8,
-        children: testGenres
-            .map((e) => Container(
+        children: movie.genres
+            .map((genre) => Container(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 5.0,
                     vertical: 2.0,
@@ -38,7 +31,7 @@ class GenresList extends StatelessWidget {
                     border: Border.all(color: AppColors.white),
                     borderRadius: BorderRadius.circular(3.0),
                   ),
-                  child: Text(e,
+                  child: Text(genre.name,
                       style: TextStyle(
                         fontFamily: appTextTheme.subtitle1.fontFamily,
                         fontWeight: FontWeight.w600,

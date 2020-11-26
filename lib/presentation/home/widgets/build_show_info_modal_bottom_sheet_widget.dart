@@ -157,8 +157,15 @@ class TitleSubtitleBodyBlock extends StatelessWidget {
                       const SizedBox(width: 10.0),
                       const AgeRestrictionWidget(age: "18"),
                       const SizedBox(width: 10.0),
+                      Text(movie.vote_average.toString(),
+                          style: TextStyle(
+                            fontFamily: appTextTheme.subtitle2.fontFamily,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.green,
+                          )),
+                      const SizedBox(width: 10.0),
                       Text(
-                        movie.vote_average.toString(),
+                        "${movie.runtime.toString()} mins",
                         style: appTextTheme.subtitle1,
                       ),
                     ],

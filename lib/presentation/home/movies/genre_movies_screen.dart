@@ -3,9 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/home/movies/movies_bloc.dart';
 import '../../../domain/home/movies/genres/genre.dart';
-import '../../../domain/home/movies/movie.dart';
 import '../../../domain/home/movies/movie_sub/movie_sub.dart';
-
 import '../../../infrastructure/core/credentials.dart';
 import '../../../injection.dart';
 import '../../core/app_colors.dart';

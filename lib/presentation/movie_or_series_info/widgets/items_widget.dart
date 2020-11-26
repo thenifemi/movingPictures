@@ -60,7 +60,7 @@ class Items extends StatelessWidget {
           const SizedBox(height: 10.0),
 
           //*[GenresList] List of the movie/series genres
-          GenresList(),
+          GenresList(movie: movie),
           const SizedBox(height: 10.0),
 
           //* Buttons

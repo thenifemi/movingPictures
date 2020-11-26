@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../application/home/movies/movies_bloc.dart';
+import '../../../domain/home/movies/movie_sub/movie_sub.dart';
+
 import '../../../domain/home/movies/movie.dart';
 import '../../../infrastructure/core/credentials.dart';
 import '../../../injection.dart';
@@ -55,7 +57,7 @@ class MovieData extends StatelessWidget {
     @required this.movies,
   }) : super(key: key);
 
-  final List<Movie> movies;
+  final List<MovieSub> movies;
 
   @override
   Widget build(BuildContext context) {
