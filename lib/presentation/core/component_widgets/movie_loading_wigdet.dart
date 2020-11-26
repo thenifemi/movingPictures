@@ -12,11 +12,15 @@ class MovieLoadingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
       baseColor: AppColors.gray.withOpacity(0.2),
-      highlightColor: AppColors.gray.withOpacity(0.5),
-      period: const Duration(seconds: 3),
+      highlightColor: AppColors.white.withOpacity(0.5),
+      period: const Duration(seconds: 1),
       child: Container(
-        height: MediaQuery.of(context).size.height / 5.5,
-        color: AppColors.gray,
+        margin: const EdgeInsets.all(20.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.0),
+          color: AppColors.gray,
+        ),
+        height: MediaQuery.of(context).size.height / 5,
       ),
     );
   }
