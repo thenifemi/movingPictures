@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:movingPictures/domain/home/movies/cast/cast_failure.dart';
+import 'package:movingPictures/domain/home/movies/cast/cast.dart';
 
 import '../../domain/home/movies/genres/genre.dart';
 import '../../domain/home/movies/genres/genre_failure.dart';
@@ -163,6 +165,31 @@ class MoviesRepository extends MoviesInterface {
       return right(movies);
     } catch (e) {
       return left(const MovieFailure.unexpected());
+    }
+  }
+
+  @override
+  Future<Either<CastFailure, List<Cast>>> getCast(int movieId) async {
+    if (deviceLocal == "pt_BR") deviceLocal = "pt-BR";
+    if (deviceLocal == "en_US") deviceLocal = "en-US";
+
+    final getCastUrl = "$tmdbUrl/movie/$movieId/credits";
+    final params = {
+      "api_key": apiKey,
+      "language": deviceLocal,
+    };
+    try {
+      final Response<Map<String, dynamic>> response = await _dio.get(
+        getCastUrl,
+        queryParameters: params,
+      );
+      final List<Cast> cast = (response.data["cast"] as List)
+          .map((i) => Cast.fromJson(i as Map<String, dynamic>))
+          .toList();
+
+      return right(cast);
+    } catch (e) {
+      return left(const CastFailure.unexpected());
     }
   }
 

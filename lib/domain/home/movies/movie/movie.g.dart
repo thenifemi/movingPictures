@@ -15,7 +15,10 @@ _$_Movie _$_$_MovieFromJson(Map<String, dynamic> json) {
     releaseDate: json['releaseDate'] as String,
     runtime: json['runtime'] as int,
     voteAverage: (json['voteAverage'] as num)?.toDouble(),
-    genres: json['genres'] as List,
+    genres: (json['genres'] as List)
+        ?.map(
+            (e) => e == null ? null : Genre.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
     homepage: json['homepage'] as String,
   );
 }
@@ -28,6 +31,6 @@ Map<String, dynamic> _$_$_MovieToJson(_$_Movie instance) => <String, dynamic>{
       'releaseDate': instance.releaseDate,
       'runtime': instance.runtime,
       'voteAverage': instance.voteAverage,
-      'genres': instance.genres,
+      'genres': instance.genres?.map((e) => e?.toJson())?.toList(),
       'homepage': instance.homepage,
     };
