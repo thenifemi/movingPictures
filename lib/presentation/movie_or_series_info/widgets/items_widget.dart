@@ -96,11 +96,11 @@ class Items extends StatelessWidget {
           ),
           const SizedBox(height: 10.0),
 
-          // //* Cast
-          CastList(),
+          //* Cast
+          CastList(movieId: movie.id),
           const SizedBox(height: 20.0),
 
-          // * Favorite and share button
+          //* Favorite and share button
           Row(
             children: [
               FavoriteButtonWidget(

@@ -8,8 +8,8 @@ import '../../routes/router.gr.dart';
 class GenresList extends StatelessWidget {
   final Movie movie;
   const GenresList({
-    @required Key key,
-    this.movie,
+    Key key,
+    @required this.movie,
   }) : super(key: key);
 
   @override
