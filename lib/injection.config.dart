@@ -15,7 +15,7 @@ import 'domain/auth/auth_repository_interface.dart';
 import 'infrastructure/auth/firebase_auth_repository.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
 import 'application/home/movies/genres/genres_bloc.dart';
-import 'application/home/movies/movies_bloc.dart';
+import 'application/home/movies/movies/movies_bloc.dart';
 import 'domain/home/movies/movies_interface.dart';
 import 'infrastructure/home/movies_repository.dart';
 import 'application/auth/sign_in/sign_in_bloc.dart';
