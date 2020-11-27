@@ -5,7 +5,6 @@ import 'package:flutter_svg/svg.dart';
 import '../../../application/home/movies/movies_bloc.dart';
 import '../../../domain/home/movies/movie_sub/movie_sub.dart';
 
-import '../../../domain/home/movies/movie.dart';
 import '../../../infrastructure/core/credentials.dart';
 import '../../../injection.dart';
 import '../../core/app_colors.dart';

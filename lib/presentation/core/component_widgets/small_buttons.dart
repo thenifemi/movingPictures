@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:movingPictures/domain/home/movies/movie/movie.dart';
 
-import '../../../domain/home/movies/movie.dart';
 import '../../home/widgets/build_show_info_modal_bottom_sheet_widget.dart';
 import '../app_colors.dart';
 import '../app_localizations.dart';

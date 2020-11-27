@@ -12,12 +12,6 @@ class CastList extends StatelessWidget {
     "Taylor Anna-Joy",
     "Kevin Hart",
     "Dwanye Johnson",
-    // "Drama",
-    // "Action",
-    // "Sci-Fi",
-    // "Sci-Fi",
-    // "Sci-Fi",
-    // "Sci-Fi",
   ];
 
   @override

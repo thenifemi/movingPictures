@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:movingPictures/domain/home/movies/movie/movie.dart';
+import 'package:movingPictures/domain/home/movies/movie/movies_failure.dart';
 
-import '../../../domain/home/movies/movie.dart';
 import '../../../domain/home/movies/movie_sub/movie_sub.dart';
-import '../../../domain/home/movies/movies_failure.dart';
 import '../../../domain/home/movies/movies_interface.dart';
 
 part 'movies_bloc.freezed.dart';

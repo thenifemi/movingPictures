@@ -2,9 +2,9 @@ import 'package:dartz/dartz.dart';
 
 import 'genres/genre.dart';
 import 'genres/genre_failure.dart';
-import 'movie.dart';
+import 'movie/movie.dart';
+import 'movie/movies_failure.dart';
 import 'movie_sub/movie_sub.dart';
-import 'movies_failure.dart';
 
 abstract class MoviesInterface {
   Future<Either<MovieFailure, Movie>> getMovie(int movieId);

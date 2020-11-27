@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 
-import '../../../domain/home/movies/movie.dart';
+import '../../../domain/home/movies/movie/movie.dart';
 import '../../core/app_colors.dart';
 import '../../routes/router.gr.dart';
 

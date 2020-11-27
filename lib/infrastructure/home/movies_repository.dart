@@ -6,9 +6,9 @@ import 'package:injectable/injectable.dart';
 
 import '../../domain/home/movies/genres/genre.dart';
 import '../../domain/home/movies/genres/genre_failure.dart';
-import '../../domain/home/movies/movie.dart';
+import '../../domain/home/movies/movie/movie.dart';
+import '../../domain/home/movies/movie/movies_failure.dart';
 import '../../domain/home/movies/movie_sub/movie_sub.dart';
-import '../../domain/home/movies/movies_failure.dart';
 import '../../domain/home/movies/movies_interface.dart';
 import '../core/credentials.dart';
 
@@ -41,7 +41,9 @@ class MoviesRepository extends MoviesInterface {
       final Movie movie = Movie.fromJson(response.data);
 
       return right(movie);
-    } catch (e) {
+    } catch (e, s) {
+      print(e);
+      print(s);
       return left(const MovieFailure.unexpected());
     }
   }
@@ -72,9 +74,7 @@ class MoviesRepository extends MoviesInterface {
           .toList();
 
       return right(movies);
-    } catch (e, s) {
-      print(e);
-      print(s);
+    } catch (e) {
       return left(const MovieFailure.unexpected());
     }
   }

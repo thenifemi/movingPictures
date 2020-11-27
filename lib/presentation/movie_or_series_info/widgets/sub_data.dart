@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:movingPictures/domain/home/movies/movie.dart';
+import 'package:movingPictures/domain/home/movies/movie/movie.dart';
 
 import '../../core/app_colors.dart';
 import '../../core/component_widgets/age_restriction_widget.dart';

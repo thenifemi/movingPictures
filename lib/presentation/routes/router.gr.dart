@@ -9,10 +9,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:movingPictures/domain/home/movies/movie/movie.dart';
 
 import '../../domain/auth/app_user.dart';
 import '../../domain/home/movies/genres/genre.dart';
-import '../../domain/home/movies/movie.dart';
 import '../home/movies/genre_movies_screen.dart';
 import '../main_layout_appbar_navbar/main_body_layout.dart';
 import '../movie_or_series_info/movie_or_series_info.dart';

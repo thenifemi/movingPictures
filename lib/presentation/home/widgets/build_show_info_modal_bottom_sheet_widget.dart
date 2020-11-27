@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../application/home/movies/movies_bloc.dart';
-import '../../../domain/home/movies/movie.dart';
+import '../../../domain/home/movies/movie/movie.dart';
 import '../../../infrastructure/core/credentials.dart';
 import '../../../injection.dart';
 import '../../core/app_colors.dart';
