@@ -3,11 +3,13 @@ import 'dart:ui';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:movingPictures/domain/home/movies/movie/movie.dart';
+import 'package:url_launcher/url_launcher.dart';
 
+import '../../../domain/home/movies/movie/movie.dart';
 import '../../../infrastructure/core/credentials.dart';
 import '../../core/app_colors.dart';
 import '../../core/app_localizations.dart';
+import '../../core/component_widgets/flushbar_method.dart';
 import '../../core/component_widgets/primary_button_widget.dart';
 import '../../core/component_widgets/small_buttons.dart';
 import '../../core/constants/constants.dart';
@@ -29,6 +31,19 @@ class Items extends StatelessWidget {
   Widget build(BuildContext context) {
     final heightSize = MediaQuery.of(context).size.height;
     final lang = AppLocalizations.of(context);
+
+    // ignore: avoid_void_async
+    void _launchURL() async {
+      final url = movie.homepage;
+      if (await canLaunch(url)) {
+        await launch(url);
+      } else {
+        showFlushbar(
+          context: context,
+          message: "No homepage available for this movie.",
+        );
+      }
+    }
 
     //! This is about pretty nested! Bear with me!
     return Container(
@@ -82,7 +97,7 @@ class Items extends StatelessWidget {
                 appTextTheme: appTextTheme,
                 name: lang.translate(visitHome),
                 color: AppColors.white.withOpacity(0.2),
-                onpressed: () {},
+                onpressed: _launchURL,
                 isFullButton: true,
               ),
             ],

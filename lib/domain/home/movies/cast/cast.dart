@@ -16,6 +16,6 @@ abstract class Cast with _$Cast {
   factory Cast.fromJson(Map<String, dynamic> json) => Cast(
         id: json['id'] as int,
         name: json['name'] as String,
-        profilePath: json['profile_path'] as String,
+        profilePath: json['profile_path'] as String ?? "",
       );
 }

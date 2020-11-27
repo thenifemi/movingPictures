@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movingPictures/application/home/movies/casts/casts_bloc.dart';
-import 'package:movingPictures/domain/home/movies/cast/cast.dart';
-import 'package:movingPictures/domain/home/movies/movie/movie.dart';
-import 'package:movingPictures/injection.dart';
-import 'package:movingPictures/presentation/core/app_colors.dart';
-import 'package:movingPictures/presentation/core/component_widgets/movie_loading_wigdet.dart';
 
+import '../../../application/home/movies/casts/casts_bloc.dart';
+import '../../../domain/home/movies/cast/cast.dart';
+import '../../../injection.dart';
+import '../../core/app_colors.dart';
 import '../../core/app_localizations.dart';
+import '../../core/component_widgets/movie_loading_wigdet.dart';
 import '../../core/constants/language_constants.dart';
 
 class CastList extends StatelessWidget {
@@ -25,15 +24,20 @@ class CastList extends StatelessWidget {
         child: BlocBuilder<CastsBloc, CastsState>(
           builder: (context, state) {
             return state.map(
-              initial: (_) => const MovieLoadingWidget(),
-              loading: (_) => const MovieLoadingWidget(),
+              initial: (_) => const SizedBox(
+                height: 30.0,
+                child: MovieLoadingWidget(),
+              ),
+              loading: (_) => const SizedBox(
+                height: 30.0,
+                child: MovieLoadingWidget(),
+              ),
               loadSuccess: (state) {
                 final casts = state.casts;
-
                 return CastData(casts: casts);
               },
               loadFailure: (_) => Container(
-                height: 100.0,
+                height: 10.0,
                 color: AppColors.red,
               ),
             );
@@ -70,7 +74,7 @@ class CastData extends StatelessWidget {
             itemBuilder: (context, i) {
               final cast = casts[i];
               return Text(
-                "$cast, ",
+                "${cast.name} ",
                 style: appTextTheme.subtitle1,
                 overflow: TextOverflow.ellipsis,
               );

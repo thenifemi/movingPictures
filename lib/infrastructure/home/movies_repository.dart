@@ -43,9 +43,7 @@ class MoviesRepository extends MoviesInterface {
       final Movie movie = Movie.fromJson(response.data);
 
       return right(movie);
-    } catch (e, s) {
-      print(e);
-      print(s);
+    } catch (e) {
       return left(const MovieFailure.unexpected());
     }
   }
@@ -188,7 +186,9 @@ class MoviesRepository extends MoviesInterface {
           .toList();
 
       return right(cast);
-    } catch (e) {
+    } catch (e, s) {
+      print(e);
+      print(s);
       return left(const CastFailure.unexpected());
     }
   }
