@@ -112,7 +112,7 @@ class PosterBlock extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(5.0),
         child: Image.network(
-          "$MOVIE_POSTER_PATH${movie.poster_path}",
+          "$MOVIE_POSTER_PATH${movie.posterPath}",
           fit: BoxFit.cover,
         ),
       ),
@@ -151,13 +151,13 @@ class TitleSubtitleBodyBlock extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        movie.release_date,
+                        movie.releaseDate,
                         style: appTextTheme.subtitle1,
                       ),
                       const SizedBox(width: 10.0),
                       const AgeRestrictionWidget(age: "18"),
                       const SizedBox(width: 10.0),
-                      Text(movie.vote_average.toString(),
+                      Text(movie.voteAverage.toString(),
                           style: TextStyle(
                             fontFamily: appTextTheme.subtitle2.fontFamily,
                             fontWeight: FontWeight.bold,

@@ -29,14 +29,14 @@ class SubData extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 10.0),
-        Text(movie.vote_average.toString(),
+        Text(movie.voteAverage.toString(),
             style: TextStyle(
               fontFamily: appTextTheme.subtitle2.fontFamily,
               fontWeight: FontWeight.bold,
               color: Colors.green,
             )),
         const SizedBox(width: 20.0),
-        Text(movie.release_date,
+        Text(movie.releaseDate,
             style: TextStyle(
               fontFamily: appTextTheme.subtitle1.fontFamily,
               fontWeight: FontWeight.w600,

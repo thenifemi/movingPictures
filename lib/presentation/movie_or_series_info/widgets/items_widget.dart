@@ -45,7 +45,7 @@ class Items extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(5.0),
               child: Image.network(
-                "$MOVIE_POSTER_PATH${movie.poster_path}",
+                "$MOVIE_POSTER_PATH${movie.posterPath}",
                 fit: BoxFit.cover,
               ),
             ),

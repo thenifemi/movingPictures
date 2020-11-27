@@ -20,21 +20,23 @@ class _$MovieTearOff {
   _Movie call(
       {@required int id,
       @required String title,
-      @required String poster_path,
+      @required String posterPath,
       @required String overview,
-      @required String release_date,
+      @required String releaseDate,
       @required int runtime,
-      @required double vote_average,
+      @required Map<String, dynamic> releaseDates,
+      @required double voteAverage,
       @required List<Genre> genres,
       @required String homepage}) {
     return _Movie(
       id: id,
       title: title,
-      poster_path: poster_path,
+      posterPath: posterPath,
       overview: overview,
-      release_date: release_date,
+      releaseDate: releaseDate,
       runtime: runtime,
-      vote_average: vote_average,
+      releaseDates: releaseDates,
+      voteAverage: voteAverage,
       genres: genres,
       homepage: homepage,
     );
@@ -54,11 +56,12 @@ const $Movie = _$MovieTearOff();
 mixin _$Movie {
   int get id;
   String get title;
-  String get poster_path;
+  String get posterPath;
   String get overview;
-  String get release_date;
-  int get runtime; // @required Map<String, dynamic> release_dates, //* This is age restriction.
-  double get vote_average;
+  String get releaseDate;
+  int get runtime;
+  Map<String, dynamic> get releaseDates; //* This is age restriction.
+  double get voteAverage;
   List<Genre> get genres; // @required List<String> cast,
   String get homepage;
 
@@ -73,11 +76,12 @@ abstract class $MovieCopyWith<$Res> {
   $Res call(
       {int id,
       String title,
-      String poster_path,
+      String posterPath,
       String overview,
-      String release_date,
+      String releaseDate,
       int runtime,
-      double vote_average,
+      Map<String, dynamic> releaseDates,
+      double voteAverage,
       List<Genre> genres,
       String homepage});
 }
@@ -94,27 +98,29 @@ class _$MovieCopyWithImpl<$Res> implements $MovieCopyWith<$Res> {
   $Res call({
     Object id = freezed,
     Object title = freezed,
-    Object poster_path = freezed,
+    Object posterPath = freezed,
     Object overview = freezed,
-    Object release_date = freezed,
+    Object releaseDate = freezed,
     Object runtime = freezed,
-    Object vote_average = freezed,
+    Object releaseDates = freezed,
+    Object voteAverage = freezed,
     Object genres = freezed,
     Object homepage = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as int,
       title: title == freezed ? _value.title : title as String,
-      poster_path:
-          poster_path == freezed ? _value.poster_path : poster_path as String,
+      posterPath:
+          posterPath == freezed ? _value.posterPath : posterPath as String,
       overview: overview == freezed ? _value.overview : overview as String,
-      release_date: release_date == freezed
-          ? _value.release_date
-          : release_date as String,
+      releaseDate:
+          releaseDate == freezed ? _value.releaseDate : releaseDate as String,
       runtime: runtime == freezed ? _value.runtime : runtime as int,
-      vote_average: vote_average == freezed
-          ? _value.vote_average
-          : vote_average as double,
+      releaseDates: releaseDates == freezed
+          ? _value.releaseDates
+          : releaseDates as Map<String, dynamic>,
+      voteAverage:
+          voteAverage == freezed ? _value.voteAverage : voteAverage as double,
       genres: genres == freezed ? _value.genres : genres as List<Genre>,
       homepage: homepage == freezed ? _value.homepage : homepage as String,
     ));
@@ -129,11 +135,12 @@ abstract class _$MovieCopyWith<$Res> implements $MovieCopyWith<$Res> {
   $Res call(
       {int id,
       String title,
-      String poster_path,
+      String posterPath,
       String overview,
-      String release_date,
+      String releaseDate,
       int runtime,
-      double vote_average,
+      Map<String, dynamic> releaseDates,
+      double voteAverage,
       List<Genre> genres,
       String homepage});
 }
@@ -151,27 +158,29 @@ class __$MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object title = freezed,
-    Object poster_path = freezed,
+    Object posterPath = freezed,
     Object overview = freezed,
-    Object release_date = freezed,
+    Object releaseDate = freezed,
     Object runtime = freezed,
-    Object vote_average = freezed,
+    Object releaseDates = freezed,
+    Object voteAverage = freezed,
     Object genres = freezed,
     Object homepage = freezed,
   }) {
     return _then(_Movie(
       id: id == freezed ? _value.id : id as int,
       title: title == freezed ? _value.title : title as String,
-      poster_path:
-          poster_path == freezed ? _value.poster_path : poster_path as String,
+      posterPath:
+          posterPath == freezed ? _value.posterPath : posterPath as String,
       overview: overview == freezed ? _value.overview : overview as String,
-      release_date: release_date == freezed
-          ? _value.release_date
-          : release_date as String,
+      releaseDate:
+          releaseDate == freezed ? _value.releaseDate : releaseDate as String,
       runtime: runtime == freezed ? _value.runtime : runtime as int,
-      vote_average: vote_average == freezed
-          ? _value.vote_average
-          : vote_average as double,
+      releaseDates: releaseDates == freezed
+          ? _value.releaseDates
+          : releaseDates as Map<String, dynamic>,
+      voteAverage:
+          voteAverage == freezed ? _value.voteAverage : voteAverage as double,
       genres: genres == freezed ? _value.genres : genres as List<Genre>,
       homepage: homepage == freezed ? _value.homepage : homepage as String,
     ));
@@ -185,20 +194,22 @@ class _$_Movie extends _Movie {
   const _$_Movie(
       {@required this.id,
       @required this.title,
-      @required this.poster_path,
+      @required this.posterPath,
       @required this.overview,
-      @required this.release_date,
+      @required this.releaseDate,
       @required this.runtime,
-      @required this.vote_average,
+      @required this.releaseDates,
+      @required this.voteAverage,
       @required this.genres,
       @required this.homepage})
       : assert(id != null),
         assert(title != null),
-        assert(poster_path != null),
+        assert(posterPath != null),
         assert(overview != null),
-        assert(release_date != null),
+        assert(releaseDate != null),
         assert(runtime != null),
-        assert(vote_average != null),
+        assert(releaseDates != null),
+        assert(voteAverage != null),
         assert(genres != null),
         assert(homepage != null),
         super._();
@@ -211,15 +222,17 @@ class _$_Movie extends _Movie {
   @override
   final String title;
   @override
-  final String poster_path;
+  final String posterPath;
   @override
   final String overview;
   @override
-  final String release_date;
+  final String releaseDate;
   @override
   final int runtime;
-  @override // @required Map<String, dynamic> release_dates, //* This is age restriction.
-  final double vote_average;
+  @override
+  final Map<String, dynamic> releaseDates;
+  @override //* This is age restriction.
+  final double voteAverage;
   @override
   final List<Genre> genres;
   @override // @required List<String> cast,
@@ -227,7 +240,7 @@ class _$_Movie extends _Movie {
 
   @override
   String toString() {
-    return 'Movie(id: $id, title: $title, poster_path: $poster_path, overview: $overview, release_date: $release_date, runtime: $runtime, vote_average: $vote_average, genres: $genres, homepage: $homepage)';
+    return 'Movie(id: $id, title: $title, posterPath: $posterPath, overview: $overview, releaseDate: $releaseDate, runtime: $runtime, releaseDates: $releaseDates, voteAverage: $voteAverage, genres: $genres, homepage: $homepage)';
   }
 
   @override
@@ -238,21 +251,24 @@ class _$_Movie extends _Movie {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
-            (identical(other.poster_path, poster_path) ||
+            (identical(other.posterPath, posterPath) ||
                 const DeepCollectionEquality()
-                    .equals(other.poster_path, poster_path)) &&
+                    .equals(other.posterPath, posterPath)) &&
             (identical(other.overview, overview) ||
                 const DeepCollectionEquality()
                     .equals(other.overview, overview)) &&
-            (identical(other.release_date, release_date) ||
+            (identical(other.releaseDate, releaseDate) ||
                 const DeepCollectionEquality()
-                    .equals(other.release_date, release_date)) &&
+                    .equals(other.releaseDate, releaseDate)) &&
             (identical(other.runtime, runtime) ||
                 const DeepCollectionEquality()
                     .equals(other.runtime, runtime)) &&
-            (identical(other.vote_average, vote_average) ||
+            (identical(other.releaseDates, releaseDates) ||
                 const DeepCollectionEquality()
-                    .equals(other.vote_average, vote_average)) &&
+                    .equals(other.releaseDates, releaseDates)) &&
+            (identical(other.voteAverage, voteAverage) ||
+                const DeepCollectionEquality()
+                    .equals(other.voteAverage, voteAverage)) &&
             (identical(other.genres, genres) ||
                 const DeepCollectionEquality().equals(other.genres, genres)) &&
             (identical(other.homepage, homepage) ||
@@ -265,11 +281,12 @@ class _$_Movie extends _Movie {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(poster_path) ^
+      const DeepCollectionEquality().hash(posterPath) ^
       const DeepCollectionEquality().hash(overview) ^
-      const DeepCollectionEquality().hash(release_date) ^
+      const DeepCollectionEquality().hash(releaseDate) ^
       const DeepCollectionEquality().hash(runtime) ^
-      const DeepCollectionEquality().hash(vote_average) ^
+      const DeepCollectionEquality().hash(releaseDates) ^
+      const DeepCollectionEquality().hash(voteAverage) ^
       const DeepCollectionEquality().hash(genres) ^
       const DeepCollectionEquality().hash(homepage);
 
@@ -288,11 +305,12 @@ abstract class _Movie extends Movie {
   const factory _Movie(
       {@required int id,
       @required String title,
-      @required String poster_path,
+      @required String posterPath,
       @required String overview,
-      @required String release_date,
+      @required String releaseDate,
       @required int runtime,
-      @required double vote_average,
+      @required Map<String, dynamic> releaseDates,
+      @required double voteAverage,
       @required List<Genre> genres,
       @required String homepage}) = _$_Movie;
 
@@ -303,15 +321,17 @@ abstract class _Movie extends Movie {
   @override
   String get title;
   @override
-  String get poster_path;
+  String get posterPath;
   @override
   String get overview;
   @override
-  String get release_date;
+  String get releaseDate;
   @override
   int get runtime;
-  @override // @required Map<String, dynamic> release_dates, //* This is age restriction.
-  double get vote_average;
+  @override
+  Map<String, dynamic> get releaseDates;
+  @override //* This is age restriction.
+  double get voteAverage;
   @override
   List<Genre> get genres;
   @override // @required List<String> cast,

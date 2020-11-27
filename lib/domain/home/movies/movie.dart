@@ -11,12 +11,12 @@ abstract class Movie implements _$Movie {
   const factory Movie({
     @required int id,
     @required String title,
-    @required String poster_path,
+    @required String posterPath,
     @required String overview,
-    @required String release_date,
+    @required String releaseDate,
     @required int runtime,
-    // @required Map<String, dynamic> release_dates, //* This is age restriction.
-    @required double vote_average,
+    @required Map<String, dynamic> releaseDates, //* This is age restriction.
+    @required double voteAverage,
     @required List<Genre> genres,
     // @required List<String> cast,
     @required String homepage,
@@ -28,25 +28,25 @@ abstract class Movie implements _$Movie {
     return Movie(
       id: id,
       title: title,
-      poster_path: poster_path,
+      posterPath: posterPath,
       overview: overview,
-      release_date: release_date,
+      releaseDate: releaseDate,
       runtime: runtime,
-      vote_average: vote_average,
+      voteAverage: voteAverage,
       genres: genres,
       homepage: homepage,
-      // release_dates: release_dates,
+      releaseDates: releaseDates,
     );
   }
 
   factory Movie.fromJson(Map<String, dynamic> json) => Movie(
         id: json['id'] as int,
         title: json['title'] as String,
-        poster_path: json['poster_path'] as String,
+        posterPath: json['poster_path'] as String,
         overview: json['overview'] as String ?? "",
-        release_date: json['release_date'] as String ?? "",
+        releaseDate: json['release_date'] as String ?? "",
         runtime: json['runtime'] as int ?? 0,
-        vote_average: (json['vote_average'] as num)?.toDouble() ?? 0.0,
+        voteAverage: (json['vote_average'] as num)?.toDouble() ?? 0.0,
         homepage: json['homepage'] as String ?? "n/a",
         genres: (json['genres'] as List ??
                 [
@@ -54,20 +54,30 @@ abstract class Movie implements _$Movie {
                 ])
             .map((genre) => Genre.fromJson(genre as Map<String, dynamic>))
             .toList(),
-        // release_dates: (json["release_dates"] as Map<String, dynamic> ??
-        //         {
-        //           "results": [
-        //             {
-        //               "iso_3166_1": "n/a",
-        //               "release_dates": [
-        //                 {"certification": "14"}
-        //               ],
-        //             }
-        //           ]
-        //         })
-        //     .map((key, value) => null),
+        releaseDates: (json["release_dates"] as Map<String, dynamic>)
+            .map((releaseDates, value) => MapEntry(
+                  releaseDates,
+                  (value as Map<String, dynamic>).map((results, value) =>
+                      MapEntry(
+                          results,
+                          (value as List).map((e) => (e as Map<String, dynamic>)
+                              .map((iso_3166_1, value) =>
+                                  MapEntry(iso_3166_1, value))))),
+                )),
       );
 
   factory Movie.fromFirebase(DocumentSnapshot doc) =>
       Movie.fromJson(doc.data());
 }
+
+// ??
+//                 {
+//                   "results": [
+//                     {
+//                       "iso_3166_1": "n/a",
+//                       "release_dates": [
+//                         {"certification": "14"}
+//                       ],
+//                     }
+//                   ]
+//                 }

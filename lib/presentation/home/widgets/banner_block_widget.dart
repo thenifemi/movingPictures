@@ -75,7 +75,7 @@ class BannerMovie extends StatelessWidget {
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10.0),
-              child: Image.network("$MOVIE_POSTER_PATH${movie.poster_path}",
+              child: Image.network("$MOVIE_POSTER_PATH${movie.posterPath}",
                   fit: BoxFit.fill,
                   loadingBuilder: (context, child, loadingProgress) {
                 if (loadingProgress == null) return child;

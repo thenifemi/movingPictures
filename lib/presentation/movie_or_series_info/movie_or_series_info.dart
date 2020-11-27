@@ -33,8 +33,8 @@ class MovieOrSeriesInfo extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: NetworkImage(
-                          "$MOVIE_POSTER_PATH${movie.poster_path}"),
+                      image:
+                          NetworkImage("$MOVIE_POSTER_PATH${movie.posterPath}"),
                       fit: BoxFit.cover,
                     ),
                   ),
