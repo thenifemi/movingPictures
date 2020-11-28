@@ -42,6 +42,7 @@ const String visitHome = "visitHome";
 const String starring = "starring";
 const String more = "more";
 const String morelikethis = "morelikethis";
+const String noHomePage = "noHomePage";
 
 //* Errors
 const cancelled = "cancelled";

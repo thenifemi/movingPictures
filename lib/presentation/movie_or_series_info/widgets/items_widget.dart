@@ -38,10 +38,7 @@ class Items extends StatelessWidget {
       if (await canLaunch(url)) {
         await launch(url);
       } else {
-        showFlushbar(
-          context: context,
-          message: "No homepage available for this movie.",
-        );
+        showFlushbar(context: context, message: lang.translate(noHomePage));
       }
     }
 

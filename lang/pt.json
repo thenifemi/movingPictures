@@ -36,7 +36,9 @@
   "visitHome": "Visite a página inicial",
   "starring": "Estrelando",
   "more": "Mais",
-  "morelikethis": "MAIS COMO ESTES",
+  "morelikethis": "MAIS COMO ISSO",
+  "noHomePage": "Nenhuma página inicial disponível para este filme.",
+
 
   "cancelled": "Cancelado",
   "oopsServerError": "Oops! Algo deu errado",
