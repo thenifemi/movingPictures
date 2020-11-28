@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../core/app_colors.dart';
-import '../../core/component_widgets/primary_button_widget.dart';
+import '../../core/app_localizations.dart';
 import '../../core/constants/constants.dart';
+import '../../core/constants/language_constants.dart';
 
 class GitHubBlock extends StatelessWidget {
   const GitHubBlock({
@@ -15,11 +15,13 @@ class GitHubBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final lang = AppLocalizations.of(context);
+
     return Center(
       child: Column(
         children: [
           Text(
-            "This project is Open-Source and available on GitHub.",
+            lang.translate(availableOnGithub),
             style: appTextTheme.headline6,
             textAlign: TextAlign.center,
           ),
@@ -31,9 +33,9 @@ class GitHubBlock extends StatelessWidget {
                 color: Colors.blue,
               ),
               const SizedBox(width: 5.0),
-              const Text(
-                "See on GitHub",
-                style: TextStyle(color: Colors.blue),
+              Text(
+                lang.translate(seeOnGithub),
+                style: const TextStyle(color: Colors.blue),
               ),
               const Icon(
                 Icons.arrow_forward_ios,

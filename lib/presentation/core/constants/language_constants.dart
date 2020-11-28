@@ -13,6 +13,10 @@ const String signedInWithGoogle = "signedInWithGoogle";
 const String signOut = "signOut";
 const String questionMark = "questionMark";
 const String cancel = "cancel";
+const String availableOnGithub = "availableOnGithub";
+const String seeOnGithub = "seeOnGithub";
+const String notEndorsedByTMDB = "notEndorsedByTMDB";
+const String goToTMDB = "goToTMDB";
 
 //* Tabs
 const String movies = "movies";

@@ -12,6 +12,10 @@
   "signOut": "Sign out",
   "questionMark": "?",
   "cancel": "Cancel",
+  "availableOnGithub": "This project is Open-Source and available on GitHub.",
+  "seeOnGithub": "See on GitHub",
+  "notEndorsedByTMDB": "This project uses the TMDB API but is NOT endorsed or certified by TMDB.",
+  "goToTMDB": "Go to TMDB",
 
   "movies": "Movies",
   "series": "Series",

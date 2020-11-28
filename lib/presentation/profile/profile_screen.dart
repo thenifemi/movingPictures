@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movingPictures/presentation/profile/widgets/tmdb_block.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../../domain/auth/app_user.dart';
@@ -11,6 +10,7 @@ import '../core/component_widgets/primary_button_widget.dart';
 import '../core/constants/language_constants.dart';
 import 'widgets/github_block.dart';
 import 'widgets/profile_info_block_widget.dart';
+import 'widgets/tmdb_block.dart';
 
 class ProfileScreen extends StatelessWidget {
   final TextTheme appTextTheme;
