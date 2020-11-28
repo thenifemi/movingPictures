@@ -23,13 +23,33 @@ class TmdbBlock extends StatelessWidget {
             style: appTextTheme.headline6,
             textAlign: TextAlign.center,
           ),
-          Image.asset(tmdbLogo),
-          PrimaryButton(
-            appTextTheme: appTextTheme,
-            name: "Go to TMDB",
-            color: AppColors.white.withOpacity(0.5),
-            onpressed: () {},
-            isFullButton: false,
+          GestureDetector(
+            onTap: () {},
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Image.asset(
+                    tmdbLogo,
+                    width: 150.0,
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text(
+                      "Go to TMDB",
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      color: Colors.blue,
+                      size: 14.0,
+                    )
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),

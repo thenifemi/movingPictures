@@ -74,13 +74,19 @@ class ProfileScreen extends StatelessWidget {
             const Spacer(),
             const SizedBox(height: 20.0),
             const Divider(color: AppColors.gray, height: 1.0),
+            //?
             const SizedBox(height: 20.0),
             TmdbBlock(appTextTheme: appTextTheme),
             const SizedBox(height: 20.0),
+
             const Divider(color: AppColors.gray, height: 1.0),
+
+            //?
             const SizedBox(height: 20.0),
             GitHubBlock(appTextTheme: appTextTheme),
             const SizedBox(height: 20.0),
+
+            //?
             const Divider(color: AppColors.gray, height: 1.0),
             const SizedBox(height: 20.0),
             Center(
