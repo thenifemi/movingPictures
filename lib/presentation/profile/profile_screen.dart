@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movingPictures/presentation/profile/widgets/tmdb_block.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../../domain/auth/app_user.dart';
@@ -71,6 +72,10 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(height: 20.0),
             const Divider(color: AppColors.gray, height: 1.0),
             const Spacer(),
+            const SizedBox(height: 20.0),
+            const Divider(color: AppColors.gray, height: 1.0),
+            const SizedBox(height: 20.0),
+            TmdbBlock(appTextTheme: appTextTheme),
             const SizedBox(height: 20.0),
             const Divider(color: AppColors.gray, height: 1.0),
             const SizedBox(height: 20.0),

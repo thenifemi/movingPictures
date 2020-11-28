@@ -3,7 +3,7 @@ const String appName = 'Moving Pictures';
 //*LOGOS
 const String movingPicturesLogoRed =
     'assets/logos/moving_pictures_logo_red.png';
-const String tmdbLogo = 'assets/logos/tmdb-logo.svg';
+const String tmdbLogo = 'assets/logos/tmdb-logo.png';
 
 //*IMAGES
 const String signInScreenBackgroundImageJohnWick = 'assets/images/johnwick.png';
