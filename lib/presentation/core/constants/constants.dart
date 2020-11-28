@@ -3,6 +3,7 @@ const String appName = 'Moving Pictures';
 //*LOGOS
 const String movingPicturesLogoRed =
     'assets/logos/moving_pictures_logo_red.png';
+const String tmdbLogo = 'assets/logos/tmdb-logo.svg';
 
 //*IMAGES
 const String signInScreenBackgroundImageJohnWick = 'assets/images/johnwick.png';
@@ -27,6 +28,7 @@ const String shareIcon = 'assets/icons/regularIcons/share.svg';
 const String infoIcon = 'assets/icons/regularIcons/info.svg';
 const String shieldIcon = 'assets/icons/regularIcons/shield.svg';
 const String playIcon = 'assets/icons/regularIcons/play.svg';
+const String githubIcon = 'assets/icons/regularIcons/github.svg';
 
 //*Top ten number icons
 const String number0Icon = 'assets/icons/numberIcons/0.svg';

@@ -38,14 +38,8 @@ class ProfileInfoBlock extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                user.name,
-                style: appTextTheme.bodyText1,
-              ),
-              Text(
-                user.email,
-                style: appTextTheme.headline6,
-              ),
+              Text(user.name, style: appTextTheme.bodyText1),
+              Text(user.email, style: appTextTheme.headline6),
               const SizedBox(height: 8.0),
               Container(
                 padding:

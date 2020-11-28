@@ -8,6 +8,7 @@ import '../core/app_localizations.dart';
 import '../core/component_widgets/cancel_button_widget.dart';
 import '../core/component_widgets/primary_button_widget.dart';
 import '../core/constants/language_constants.dart';
+import 'widgets/github_block.dart';
 import 'widgets/profile_info_block_widget.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -70,6 +71,11 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(height: 20.0),
             const Divider(color: AppColors.gray, height: 1.0),
             const Spacer(),
+            const SizedBox(height: 20.0),
+            const Divider(color: AppColors.gray, height: 1.0),
+            const SizedBox(height: 20.0),
+            GitHubBlock(appTextTheme: appTextTheme),
+            const SizedBox(height: 20.0),
             const Divider(color: AppColors.gray, height: 1.0),
             const SizedBox(height: 20.0),
             Center(
