@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 
-import '../main_layout_appbar_navbar/main_app_bar_widget.dart';
 import 'movies/movies_tab_screen.dart';
 import 'series/series_tab_screen.dart';
+import 'widgets/home_app_bar.dart';
 
 class Home extends StatelessWidget {
   final TextTheme appTextTheme;
 
   final TabController tabController;
+  final ScrollController scrollController;
 
   const Home({
     Key key,
     this.tabController,
     this.appTextTheme,
+    this.scrollController,
   }) : super(key: key);
 
   @override
@@ -20,14 +22,19 @@ class Home extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        appBar: MainAppBar(tabController: tabController),
-        body: TabBarView(
-          controller: tabController,
-          physics: const NeverScrollableScrollPhysics(),
-          children: const [
-            MoviesTabScreen(),
-            SeriesTabScreen(),
+        body: NestedScrollView(
+          controller: scrollController,
+          headerSliverBuilder: (context, innerBoxScrolled) => [
+            HomeAppBar(tabController: tabController),
           ],
+          body: TabBarView(
+            controller: tabController,
+            physics: const NeverScrollableScrollPhysics(),
+            children: const [
+              MoviesTabScreen(),
+              SeriesTabScreen(),
+            ],
+          ),
         ),
       ),
     );
