@@ -5,6 +5,8 @@ const String movingPicturesLogoRed =
     'assets/logos/moving_pictures_logo_red.png';
 const String movingPicturesManLogoRed =
     'assets/logos/moving_pictures_logo_man_boxy.png';
+const String movingPicturesManLogoRedNoBackground =
+    'assets/logos/moving_pictures_logo_man_boxy_no_background.png';
 const String tmdbLogo = 'assets/logos/tmdb-logo.png';
 
 //*IMAGES

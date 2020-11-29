@@ -25,7 +25,10 @@ class Home extends StatelessWidget {
         body: NestedScrollView(
           controller: scrollController,
           headerSliverBuilder: (context, innerBoxScrolled) => [
-            HomeAppBar(tabController: tabController),
+            HomeAppBar(
+              tabController: tabController,
+              innerBoxScrolled: innerBoxScrolled,
+            ),
           ],
           body: TabBarView(
             controller: tabController,

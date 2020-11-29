@@ -2,21 +2,24 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:movingPictures/application/auth/user_profile/user_profile_bloc.dart';
-import 'package:movingPictures/presentation/core/app_colors.dart';
-import 'package:movingPictures/presentation/core/app_localizations.dart';
-import 'package:movingPictures/presentation/core/constants/constants.dart';
-import 'package:movingPictures/presentation/core/constants/language_constants.dart';
 import 'package:shimmer/shimmer.dart';
+
+import '../../../application/auth/user_profile/user_profile_bloc.dart';
+import '../../core/app_colors.dart';
+import '../../core/app_localizations.dart';
+import '../../core/constants/constants.dart';
+import '../../core/constants/language_constants.dart';
 import '../../routes/router.gr.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({
     Key key,
     @required this.tabController,
+    @required this.innerBoxScrolled,
   }) : super(key: key);
 
   final TabController tabController;
+  final bool innerBoxScrolled;
 
   @override
   Widget build(BuildContext context) {
@@ -25,16 +28,17 @@ class HomeAppBar extends StatelessWidget {
 
     return SliverAppBar(
       floating: true,
+      forceElevated: innerBoxScrolled,
       snap: true,
       title: Row(
         children: [
           Image.asset(
-            movingPicturesManLogoRed,
+            movingPicturesManLogoRedNoBackground,
             height: 50.0,
           ),
           TabBar(
-            isScrollable: true,
             controller: tabController,
+            isScrollable: true,
             indicatorColor: AppColors.red,
             indicatorSize: TabBarIndicatorSize.label,
             indicatorWeight: 3.0,
