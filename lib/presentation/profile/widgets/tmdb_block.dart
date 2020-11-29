@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/app_localizations.dart';
+import '../../core/component_widgets/flushbar_method.dart';
 import '../../core/constants/constants.dart';
 import '../../core/constants/language_constants.dart';
 
@@ -16,6 +18,17 @@ class TmdbBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     final lang = AppLocalizations.of(context);
 
+    // ignore: avoid_void_async
+    void _launchURL() async {
+      const url = tmdbLink;
+      if (await canLaunch(url)) {
+        await launch(url);
+      } else {
+        showFlushbar(
+            context: context, message: lang.translate(unexpectedError));
+      }
+    }
+
     return Center(
       child: Column(
         children: [
@@ -25,7 +38,7 @@ class TmdbBlock extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: _launchURL,
             child: Column(
               children: [
                 Padding(

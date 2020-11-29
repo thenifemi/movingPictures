@@ -41,3 +41,7 @@ const String number6Icon = 'assets/icons/numberIcons/6.svg';
 const String number7Icon = 'assets/icons/numberIcons/7.svg';
 const String number8Icon = 'assets/icons/numberIcons/8.svg';
 const String number9Icon = 'assets/icons/numberIcons/9.svg';
+
+//*Links
+const String githubLink = 'https://github.com/thenifemi/movingPictures';
+const String tmdbLink = 'https://developers.themoviedb.org/';
