@@ -11,24 +11,23 @@ import '../../core/constants/constants.dart';
 import '../../core/constants/language_constants.dart';
 import '../../routes/router.gr.dart';
 
-class HomeAppBar extends StatelessWidget {
+class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
   const HomeAppBar({
     Key key,
     @required this.tabController,
-    @required this.innerBoxScrolled,
+    @required this.colorTween,
   }) : super(key: key);
 
   final TabController tabController;
-  final bool innerBoxScrolled;
+  final dynamic colorTween;
 
   @override
   Widget build(BuildContext context) {
     final appTextTheme = Theme.of(context).textTheme;
     final lang = AppLocalizations.of(context);
 
-    return SliverAppBar(
-      pinned: true,
-      forceElevated: innerBoxScrolled,
+    return AppBar(
+      backgroundColor: colorTween.value as Color,
       title: Row(
         children: [
           Image.asset(
@@ -106,4 +105,7 @@ class HomeAppBar extends StatelessWidget {
       ],
     );
   }
+
+  @override
+  Size get preferredSize => const Size(double.infinity, 60);
 }

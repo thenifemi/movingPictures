@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movingPictures/application/home/movies/movies/movies_bloc.dart';
 
+import '../../../application/home/movies/movies/movies_bloc.dart';
 import '../../../domain/home/movies/movie/movie.dart';
 import '../../../infrastructure/core/credentials.dart';
 import '../../../injection.dart';
@@ -22,7 +22,7 @@ class BannerBlockWidget extends StatelessWidget {
 
     return BlocProvider(
         create: (context) =>
-            getIt<MoviesBloc>()..add(const MoviesEvent.movieCalled(152601)),
+            getIt<MoviesBloc>()..add(const MoviesEvent.movieCalled(342470)),
         child: BlocBuilder<MoviesBloc, MoviesState>(
           builder: (context, state) {
             return state.map(
@@ -60,15 +60,14 @@ class BannerMovie extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height / 2,
+      height: MediaQuery.of(context).size.height / 1.6,
       child: Stack(
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 5.0),
             width: double.infinity,
             foregroundDecoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.transparent, AppColors.black.withOpacity(0.9)],
+                colors: [Colors.transparent, AppColors.black.withOpacity(1)],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
