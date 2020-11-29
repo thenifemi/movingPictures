@@ -32,7 +32,7 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
         children: [
           Image.asset(
             movingPicturesManLogoRedNoBackground,
-            height: 50.0,
+            height: 60.0,
           ),
           TabBar(
             controller: tabController,

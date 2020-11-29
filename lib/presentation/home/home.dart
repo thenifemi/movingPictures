@@ -69,11 +69,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             SizedBox(
               height: 80.0,
               child: AnimatedBuilder(
-                  animation: _colorAnimationController,
-                  builder: (context, child) => HomeAppBar(
-                        tabController: widget.tabController,
-                        colorTween: _colorTween,
-                      )),
+                animation: _colorAnimationController,
+                builder: (context, child) => HomeAppBar(
+                  tabController: widget.tabController,
+                  colorTween: _colorTween,
+                ),
+              ),
             ),
           ]),
         ),
