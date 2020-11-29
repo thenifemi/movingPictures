@@ -4,18 +4,22 @@ import 'movies/movies_tab_screen.dart';
 import 'series/series_tab_screen.dart';
 import 'widgets/home_app_bar.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   final TextTheme appTextTheme;
-
   final TabController tabController;
-  final ScrollController scrollController;
 
   const Home({
     Key key,
     this.tabController,
     this.appTextTheme,
-    this.scrollController,
   }) : super(key: key);
+
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  ScrollController scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +30,12 @@ class Home extends StatelessWidget {
           controller: scrollController,
           headerSliverBuilder: (context, innerBoxScrolled) => [
             HomeAppBar(
-              tabController: tabController,
+              tabController: widget.tabController,
               innerBoxScrolled: innerBoxScrolled,
             ),
           ],
           body: TabBarView(
-            controller: tabController,
+            controller: widget.tabController,
             physics: const NeverScrollableScrollPhysics(),
             children: const [
               MoviesTabScreen(),

@@ -27,9 +27,8 @@ class HomeAppBar extends StatelessWidget {
     final lang = AppLocalizations.of(context);
 
     return SliverAppBar(
-      floating: true,
+      pinned: true,
       forceElevated: innerBoxScrolled,
-      snap: true,
       title: Row(
         children: [
           Image.asset(
