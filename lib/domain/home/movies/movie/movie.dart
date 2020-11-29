@@ -17,7 +17,6 @@ abstract class Movie implements _$Movie {
     // @required String releaseDates, //* This is age restriction.
     @required double voteAverage,
     @required List<Genre> genres,
-    // @required List<String> cast,
     @required String homepage,
   }) = _Movie;
 
