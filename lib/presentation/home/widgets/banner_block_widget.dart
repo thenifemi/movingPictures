@@ -22,7 +22,7 @@ class BannerBlockWidget extends StatelessWidget {
 
     return BlocProvider(
         create: (context) =>
-            getIt<MoviesBloc>()..add(const MoviesEvent.movieCalled(342470)),
+            getIt<MoviesBloc>()..add(const MoviesEvent.movieCalled(497582)),
         child: BlocBuilder<MoviesBloc, MoviesState>(
           builder: (context, state) {
             return state.map(
@@ -67,7 +67,10 @@ class BannerMovie extends StatelessWidget {
             width: double.infinity,
             foregroundDecoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.transparent, AppColors.black.withOpacity(1)],
+                colors: [
+                  AppColors.black.withOpacity(0.2),
+                  AppColors.black.withOpacity(1)
+                ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),

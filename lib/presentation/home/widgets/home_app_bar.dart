@@ -41,7 +41,7 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
             indicatorSize: TabBarIndicatorSize.label,
             indicatorWeight: 3.0,
             labelColor: appTextTheme.bodyText1.color,
-            unselectedLabelColor: AppColors.white.withOpacity(0.5),
+            unselectedLabelColor: AppColors.white,
             tabs: [
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10.0),
