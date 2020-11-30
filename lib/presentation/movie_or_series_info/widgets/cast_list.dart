@@ -10,7 +10,7 @@ import '../../core/app_colors.dart';
 import '../../core/app_localizations.dart';
 import '../../core/component_widgets/movie_loading_wigdet.dart';
 import '../../core/constants/language_constants.dart';
-import '../cast_list_screen.dart';
+import '../build_cast_modal_sheet.dart';
 
 class CastList extends StatelessWidget {
   final Movie movie;
@@ -81,7 +81,7 @@ class CastData extends StatelessWidget {
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
-              itemCount: 3,
+              itemCount: casts.length < 3 ? 0 : 3,
               itemBuilder: (context, i) {
                 final cast = casts[i];
                 return Text(
