@@ -11,8 +11,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/auth/app_user.dart';
+import '../../domain/home/movies/cast/cast.dart';
 import '../../domain/home/movies/genres/genre.dart';
 import '../../domain/home/movies/movie/movie.dart';
+import '../home/movies/cast_movies_screen.dart';
 import '../home/movies/genre_movies_screen.dart';
 import '../main_layout_appbar_navbar/main_body_layout.dart';
 import '../movie_or_series_info/movie_or_series_info.dart';
@@ -27,6 +29,7 @@ class Routes {
   static const String profileScreen = '/profile-screen';
   static const String movieOrSeriesInfo = '/movie-or-series-info';
   static const String genreMoviesScreen = '/genre-movies-screen';
+  static const String castMoviesScreen = '/cast-movies-screen';
   static const all = <String>{
     splashScreen,
     signInScreen,
@@ -34,6 +37,7 @@ class Routes {
     profileScreen,
     movieOrSeriesInfo,
     genreMoviesScreen,
+    castMoviesScreen,
   };
 }
 
@@ -47,6 +51,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.profileScreen, page: ProfileScreen),
     RouteDef(Routes.movieOrSeriesInfo, page: MovieOrSeriesInfo),
     RouteDef(Routes.genreMoviesScreen, page: GenreMoviesScreen),
+    RouteDef(Routes.castMoviesScreen, page: CastMoviesScreen),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -105,6 +110,17 @@ class AppRouter extends RouterBase {
         fullscreenDialog: true,
       );
     },
+    CastMoviesScreen: (data) {
+      final args = data.getArgs<CastMoviesScreenArguments>(nullOk: false);
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => CastMoviesScreen(
+          key: args.key,
+          cast: args.cast,
+        ),
+        settings: data,
+        fullscreenDialog: true,
+      );
+    },
   };
 }
 
@@ -147,6 +163,15 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
         Routes.genreMoviesScreen,
         arguments: GenreMoviesScreenArguments(key: key, genre: genre),
       );
+
+  Future<dynamic> pushCastMoviesScreen({
+    Key key,
+    @required Cast cast,
+  }) =>
+      push<dynamic>(
+        Routes.castMoviesScreen,
+        arguments: CastMoviesScreenArguments(key: key, cast: cast),
+      );
 }
 
 /// ************************************************************************
@@ -173,4 +198,11 @@ class GenreMoviesScreenArguments {
   final Key key;
   final Genre genre;
   GenreMoviesScreenArguments({this.key, @required this.genre});
+}
+
+/// CastMoviesScreen arguments holder class
+class CastMoviesScreenArguments {
+  final Key key;
+  final Cast cast;
+  CastMoviesScreenArguments({this.key, @required this.cast});
 }

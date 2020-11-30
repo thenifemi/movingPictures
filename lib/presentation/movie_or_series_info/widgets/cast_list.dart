@@ -10,7 +10,7 @@ import '../../core/app_colors.dart';
 import '../../core/app_localizations.dart';
 import '../../core/component_widgets/movie_loading_wigdet.dart';
 import '../../core/constants/language_constants.dart';
-import '../build_cast_modal_sheet.dart';
+import 'build_cast_modal_sheet.dart';
 
 class CastList extends StatelessWidget {
   final Movie movie;
