@@ -51,26 +51,24 @@ Future buildCastModalSheet({
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height,
-                child: Align(
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: casts.length,
-                    itemBuilder: (context, i) {
-                      final cast = casts[i];
-                      return Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Center(
-                          child: Text(
-                            cast.name,
-                            style: TextStyle(
-                              color: appTextTheme.subtitle1.color,
-                              fontSize: 16.0,
-                            ),
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: casts.length,
+                  itemBuilder: (context, i) {
+                    final cast = casts[i];
+                    return Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Center(
+                        child: Text(
+                          cast.name,
+                          style: TextStyle(
+                            color: appTextTheme.subtitle1.color,
+                            fontSize: 16.0,
                           ),
                         ),
-                      );
-                    },
-                  ),
+                      ),
+                    );
+                  },
                 ),
               ),
             ],

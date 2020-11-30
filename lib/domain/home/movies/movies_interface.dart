@@ -19,6 +19,7 @@ abstract class MoviesInterface {
       int movieGenreId);
 
   Future<Either<CastFailure, List<Cast>>> getCast(int movieId);
+  Future<Either<MovieFailure, List<MovieSub>>> getMovieByCastId(int castId);
 
   Stream<Either<MovieFailure, List<Movie>>> watchMovieFavorites();
   Future<Either<MovieFailure, Unit>> createFavoriteMovie();

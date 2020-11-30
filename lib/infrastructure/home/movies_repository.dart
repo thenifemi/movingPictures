@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:movingPictures/domain/home/movies/cast/cast_failure.dart';
-import 'package:movingPictures/domain/home/movies/cast/cast.dart';
 
+import '../../domain/home/movies/cast/cast.dart';
+import '../../domain/home/movies/cast/cast_failure.dart';
 import '../../domain/home/movies/genres/genre.dart';
 import '../../domain/home/movies/genres/genre_failure.dart';
 import '../../domain/home/movies/movie/movie.dart';
@@ -166,6 +166,7 @@ class MoviesRepository extends MoviesInterface {
     }
   }
 
+  //* Gets only the Cast ID, Name and Profile path for a casts of a movie
   @override
   Future<Either<CastFailure, List<Cast>>> getCast(int movieId) async {
     if (deviceLocal == "pt_BR") deviceLocal = "pt-BR";
@@ -186,10 +187,37 @@ class MoviesRepository extends MoviesInterface {
           .toList();
 
       return right(cast);
-    } catch (e, s) {
-      print(e);
-      print(s);
+    } catch (e) {
       return left(const CastFailure.unexpected());
+    }
+  }
+
+  //* Gets only the movie ID, Title and Poster path for a specific cast member
+  @override
+  Future<Either<MovieFailure, List<MovieSub>>> getMovieByCastId(
+      int castId) async {
+    if (deviceLocal == "pt_BR") deviceLocal = "pt-BR";
+    if (deviceLocal == "en_US") deviceLocal = "en-US";
+
+    final getMovieByCastIdUrl = "$tmdbUrl/person/$castId/movie_credits";
+    final params = {
+      "api_key": apiKey,
+      "language": deviceLocal,
+      "page": 1,
+    };
+
+    try {
+      final Response<Map<String, dynamic>> response = await _dio.get(
+        getMovieByCastIdUrl,
+        queryParameters: params,
+      );
+      final List<MovieSub> movies = (response.data["cast"] as List)
+          .map((i) => MovieSub.fromJsonData(i as Map<String, dynamic>))
+          .toList();
+
+      return right(movies);
+    } catch (e) {
+      return left(const MovieFailure.unexpected());
     }
   }
 
