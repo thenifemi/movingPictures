@@ -59,7 +59,7 @@ mixin _$Movie {
   String get releaseDate;
   int get runtime; // @required String releaseDates, //* This is age restriction.
   double get voteAverage;
-  List<Genre> get genres; // @required List<String> cast,
+  List<Genre> get genres;
   String get homepage;
 
   Map<String, dynamic> toJson();
@@ -218,7 +218,7 @@ class _$_Movie extends _Movie {
   final double voteAverage;
   @override
   final List<Genre> genres;
-  @override // @required List<String> cast,
+  @override
   final String homepage;
 
   @override
@@ -310,7 +310,7 @@ abstract class _Movie extends Movie {
   double get voteAverage;
   @override
   List<Genre> get genres;
-  @override // @required List<String> cast,
+  @override
   String get homepage;
   @override
   _$MovieCopyWith<_Movie> get copyWith;

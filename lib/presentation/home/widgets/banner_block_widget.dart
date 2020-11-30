@@ -68,8 +68,8 @@ class BannerMovie extends StatelessWidget {
             foregroundDecoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  AppColors.black.withOpacity(0.2),
-                  AppColors.black.withOpacity(1)
+                  AppColors.black.withOpacity(0.1),
+                  AppColors.black.withOpacity(0.9)
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
