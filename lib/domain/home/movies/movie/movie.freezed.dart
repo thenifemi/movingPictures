@@ -24,6 +24,7 @@ class _$MovieTearOff {
       @required String overview,
       @required String releaseDate,
       @required int runtime,
+      @required ReleaseDates releaseDates,
       @required double voteAverage,
       @required List<Genre> genres,
       @required String homepage}) {
@@ -34,6 +35,7 @@ class _$MovieTearOff {
       overview: overview,
       releaseDate: releaseDate,
       runtime: runtime,
+      releaseDates: releaseDates,
       voteAverage: voteAverage,
       genres: genres,
       homepage: homepage,
@@ -57,7 +59,8 @@ mixin _$Movie {
   String get posterPath;
   String get overview;
   String get releaseDate;
-  int get runtime; // @required String releaseDates, //* This is age restriction.
+  int get runtime;
+  ReleaseDates get releaseDates; //* This is age restriction.
   double get voteAverage;
   List<Genre> get genres;
   String get homepage;
@@ -77,6 +80,7 @@ abstract class $MovieCopyWith<$Res> {
       String overview,
       String releaseDate,
       int runtime,
+      ReleaseDates releaseDates,
       double voteAverage,
       List<Genre> genres,
       String homepage});
@@ -98,6 +102,7 @@ class _$MovieCopyWithImpl<$Res> implements $MovieCopyWith<$Res> {
     Object overview = freezed,
     Object releaseDate = freezed,
     Object runtime = freezed,
+    Object releaseDates = freezed,
     Object voteAverage = freezed,
     Object genres = freezed,
     Object homepage = freezed,
@@ -111,6 +116,9 @@ class _$MovieCopyWithImpl<$Res> implements $MovieCopyWith<$Res> {
       releaseDate:
           releaseDate == freezed ? _value.releaseDate : releaseDate as String,
       runtime: runtime == freezed ? _value.runtime : runtime as int,
+      releaseDates: releaseDates == freezed
+          ? _value.releaseDates
+          : releaseDates as ReleaseDates,
       voteAverage:
           voteAverage == freezed ? _value.voteAverage : voteAverage as double,
       genres: genres == freezed ? _value.genres : genres as List<Genre>,
@@ -131,6 +139,7 @@ abstract class _$MovieCopyWith<$Res> implements $MovieCopyWith<$Res> {
       String overview,
       String releaseDate,
       int runtime,
+      ReleaseDates releaseDates,
       double voteAverage,
       List<Genre> genres,
       String homepage});
@@ -153,6 +162,7 @@ class __$MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res>
     Object overview = freezed,
     Object releaseDate = freezed,
     Object runtime = freezed,
+    Object releaseDates = freezed,
     Object voteAverage = freezed,
     Object genres = freezed,
     Object homepage = freezed,
@@ -166,6 +176,9 @@ class __$MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res>
       releaseDate:
           releaseDate == freezed ? _value.releaseDate : releaseDate as String,
       runtime: runtime == freezed ? _value.runtime : runtime as int,
+      releaseDates: releaseDates == freezed
+          ? _value.releaseDates
+          : releaseDates as ReleaseDates,
       voteAverage:
           voteAverage == freezed ? _value.voteAverage : voteAverage as double,
       genres: genres == freezed ? _value.genres : genres as List<Genre>,
@@ -185,6 +198,7 @@ class _$_Movie extends _Movie {
       @required this.overview,
       @required this.releaseDate,
       @required this.runtime,
+      @required this.releaseDates,
       @required this.voteAverage,
       @required this.genres,
       @required this.homepage})
@@ -194,6 +208,7 @@ class _$_Movie extends _Movie {
         assert(overview != null),
         assert(releaseDate != null),
         assert(runtime != null),
+        assert(releaseDates != null),
         assert(voteAverage != null),
         assert(genres != null),
         assert(homepage != null),
@@ -214,7 +229,9 @@ class _$_Movie extends _Movie {
   final String releaseDate;
   @override
   final int runtime;
-  @override // @required String releaseDates, //* This is age restriction.
+  @override
+  final ReleaseDates releaseDates;
+  @override //* This is age restriction.
   final double voteAverage;
   @override
   final List<Genre> genres;
@@ -223,7 +240,7 @@ class _$_Movie extends _Movie {
 
   @override
   String toString() {
-    return 'Movie(id: $id, title: $title, posterPath: $posterPath, overview: $overview, releaseDate: $releaseDate, runtime: $runtime, voteAverage: $voteAverage, genres: $genres, homepage: $homepage)';
+    return 'Movie(id: $id, title: $title, posterPath: $posterPath, overview: $overview, releaseDate: $releaseDate, runtime: $runtime, releaseDates: $releaseDates, voteAverage: $voteAverage, genres: $genres, homepage: $homepage)';
   }
 
   @override
@@ -246,6 +263,9 @@ class _$_Movie extends _Movie {
             (identical(other.runtime, runtime) ||
                 const DeepCollectionEquality()
                     .equals(other.runtime, runtime)) &&
+            (identical(other.releaseDates, releaseDates) ||
+                const DeepCollectionEquality()
+                    .equals(other.releaseDates, releaseDates)) &&
             (identical(other.voteAverage, voteAverage) ||
                 const DeepCollectionEquality()
                     .equals(other.voteAverage, voteAverage)) &&
@@ -265,6 +285,7 @@ class _$_Movie extends _Movie {
       const DeepCollectionEquality().hash(overview) ^
       const DeepCollectionEquality().hash(releaseDate) ^
       const DeepCollectionEquality().hash(runtime) ^
+      const DeepCollectionEquality().hash(releaseDates) ^
       const DeepCollectionEquality().hash(voteAverage) ^
       const DeepCollectionEquality().hash(genres) ^
       const DeepCollectionEquality().hash(homepage);
@@ -288,6 +309,7 @@ abstract class _Movie extends Movie {
       @required String overview,
       @required String releaseDate,
       @required int runtime,
+      @required ReleaseDates releaseDates,
       @required double voteAverage,
       @required List<Genre> genres,
       @required String homepage}) = _$_Movie;
@@ -306,7 +328,9 @@ abstract class _Movie extends Movie {
   String get releaseDate;
   @override
   int get runtime;
-  @override // @required String releaseDates, //* This is age restriction.
+  @override
+  ReleaseDates get releaseDates;
+  @override //* This is age restriction.
   double get voteAverage;
   @override
   List<Genre> get genres;
