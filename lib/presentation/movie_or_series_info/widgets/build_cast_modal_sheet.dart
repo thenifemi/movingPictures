@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import '../../../domain/home/movies/cast/cast.dart';
 import '../../../domain/home/movies/movie/movie.dart';
 import '../../core/app_colors.dart';
+import '../../core/app_localizations.dart';
 import '../../core/component_widgets/cancel_button_widget.dart';
+import '../../core/constants/language_constants.dart';
 import '../../routes/router.gr.dart';
 
 Future buildCastModalSheet({
@@ -23,6 +25,7 @@ Future buildCastModalSheet({
     context: context,
     builder: (context) {
       final appTextTheme = Theme.of(context).textTheme;
+      final lang = AppLocalizations.of(context);
 
       return Container(
         height: MediaQuery.of(context).size.height / 1.05,
@@ -43,9 +46,9 @@ Future buildCastModalSheet({
                 ),
               ),
               const SizedBox(height: 20.0),
-              const Text(
-                "Cast",
-                style: TextStyle(
+              Text(
+                lang.translate(cast),
+                style: const TextStyle(
                   color: AppColors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 16.0,
