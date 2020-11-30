@@ -62,6 +62,15 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
           (movie) => MoviesState.loadSuccessforMovie(movie),
         );
       },
+      movieByCastIdCalled: (e) async* {
+        yield const MoviesState.loading();
+        final failureOrMovies = await moviesInterface.getMovieByGenre(e.castId);
+
+        yield failureOrMovies.fold(
+          (f) => MoviesState.loadFailure(f),
+          (movies) => MoviesState.loadSuccess(movies),
+        );
+      },
     );
   }
 }
