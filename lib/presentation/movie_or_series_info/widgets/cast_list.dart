@@ -70,33 +70,36 @@ class CastData extends StatelessWidget {
         context: context,
         casts: casts,
       ),
-      child: Row(
-        children: [
-          Text(
-            "${lang.translate(starring)}: ",
-            style: appTextTheme.subtitle2,
-          ),
-          SizedBox(
-            height: 13.0,
-            child: ListView.builder(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemCount: casts.length < 3 ? 0 : 3,
-              itemBuilder: (context, i) {
-                final cast = casts[i];
-                return Text(
-                  "${cast.name}, ",
-                  style: appTextTheme.subtitle1,
-                  overflow: TextOverflow.ellipsis,
-                );
-              },
+      child: SizedBox(
+        height: 20.0,
+        child: Row(
+          children: [
+            Text(
+              "${lang.translate(starring)}: ",
+              style: appTextTheme.subtitle2,
             ),
-          ),
-          Text(
-            "..${lang.translate(more)}",
-            style: appTextTheme.subtitle2,
-          ),
-        ],
+            SizedBox(
+              height: 13.0,
+              child: ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: casts.length < 3 ? 0 : 3,
+                itemBuilder: (context, i) {
+                  final cast = casts[i];
+                  return Text(
+                    "${cast.name}, ",
+                    style: appTextTheme.subtitle1,
+                    overflow: TextOverflow.ellipsis,
+                  );
+                },
+              ),
+            ),
+            Text(
+              "..${lang.translate(more)}",
+              style: appTextTheme.subtitle2,
+            ),
+          ],
+        ),
       ),
     );
   }

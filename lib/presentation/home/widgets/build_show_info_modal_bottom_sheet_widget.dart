@@ -133,16 +133,15 @@ class TitleSubtitleBodyBlock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final releaseDates =
-        movie.releaseDates.results.where((e) => e.iso31661 == "US");
-    dynamic ageRestrictionorNull;
+        movie.releaseDates.results.where((e) => e.iso31661 == "US").isEmpty
+            ? null
+            : movie.releaseDates.results
+                .where((e) => e.iso31661 == "US")
+                .first
+                .releaseDates
+                .first
+                .certification;
 
-    if (releaseDates.first == null) {
-      ageRestrictionorNull = null;
-    } else {
-      ageRestrictionorNull =
-          releaseDates.where((e) => e.iso31661 == "US").first;
-    }
-    print(ageRestrictionorNull);
     return Column(
       children: [
         Row(
@@ -167,9 +166,9 @@ class TitleSubtitleBodyBlock extends StatelessWidget {
                       ),
                       const SizedBox(width: 10.0),
                       AgeRestrictionWidget(
-                        age: ageRestrictionorNull
-                                .releaseDates.first.certification as String ??
-                            "=",
+                        age: releaseDates == null || releaseDates == ""
+                            ? "N/A"
+                            : releaseDates,
                       ),
                       const SizedBox(width: 10.0),
                       Text(movie.voteAverage.toString(),

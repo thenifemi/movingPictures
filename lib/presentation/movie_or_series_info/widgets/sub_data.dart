@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:movingPictures/domain/home/movies/movie/movie.dart';
 
+import '../../../domain/home/movies/movie/movie.dart';
 import '../../core/app_colors.dart';
 import '../../core/component_widgets/age_restriction_widget.dart';
 import '../../core/constants/constants.dart';
@@ -18,11 +18,15 @@ class SubData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final releaseDates = movie.releaseDates.results;
-    final dynamic ageRestrictionorNull =
-        releaseDates.where((e) => e.iso31661 == "US").isNotEmpty
-            ? releaseDates.where((e) => e.iso31661 == "US")
-            : null;
+    final releaseDates =
+        movie.releaseDates.results.where((e) => e.iso31661 == "US").isEmpty
+            ? null
+            : movie.releaseDates.results
+                .where((e) => e.iso31661 == "US")
+                .first
+                .releaseDates
+                .first
+                .certification;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -50,9 +54,8 @@ class SubData extends StatelessWidget {
             )),
         const SizedBox(width: 20.0),
         AgeRestrictionWidget(
-          age: ageRestrictionorNull.first.releaseDates.first.certification
-                  as String ??
-              "=",
+          age:
+              releaseDates == null || releaseDates == "" ? "N/A" : releaseDates,
         ),
         const SizedBox(width: 20.0),
         Text("${movie.runtime} mins",
