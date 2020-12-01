@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../application/home/movies/movies/movies_bloc.dart';
 import '../../../domain/home/movies/movie/movie.dart';
@@ -11,7 +12,9 @@ import '../../core/app_colors.dart';
 import '../../core/app_localizations.dart';
 import '../../core/component_widgets/age_restriction_widget.dart';
 import '../../core/component_widgets/cancel_button_widget.dart';
+import '../../core/component_widgets/flushbar_method.dart';
 import '../../core/component_widgets/movie_loading_wigdet.dart';
+import '../../core/component_widgets/poster_image_widget.dart';
 import '../../core/component_widgets/primary_button_widget.dart';
 import '../../core/component_widgets/small_buttons.dart';
 import '../../core/constants/constants.dart';
@@ -83,7 +86,10 @@ class MovieData extends StatelessWidget {
               ),
             ],
           ),
-          TrailerButtonBlock(appTextTheme: appTextTheme),
+          TrailerButtonBlock(
+            appTextTheme: appTextTheme,
+            movie: movie,
+          ),
           const Divider(color: AppColors.white),
           SizedBox(
               height: 40.0,
@@ -111,10 +117,7 @@ class PosterBlock extends StatelessWidget {
       height: MediaQuery.of(context).size.height / 6.5,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(5.0),
-        child: Image.network(
-          "$MOVIE_POSTER_PATH${movie.posterPath}",
-          fit: BoxFit.cover,
-        ),
+        child: PosterImageWidget(movie: movie),
       ),
     );
   }
@@ -203,15 +206,35 @@ class TitleSubtitleBodyBlock extends StatelessWidget {
 }
 
 class TrailerButtonBlock extends StatelessWidget {
+  final Movie movie;
   final TextTheme appTextTheme;
   const TrailerButtonBlock({
     Key key,
     @required this.appTextTheme,
+    @required this.movie,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final lang = AppLocalizations.of(context);
+
+    // ignore: avoid_void_async
+    void _launchTrailerURL() async {
+      final url = movie.video.results
+              .where((e) => e.site == "YouTube" && e.type == "Trailer")
+              .isEmpty
+          ? null
+          : YOUTUBE_VIDEO_PATH +
+              movie.video.results
+                  .where((e) => e.site == "YouTube" && e.type == "Trailer")
+                  .first
+                  .key;
+      if (await canLaunch(url)) {
+        await launch(url);
+      } else {
+        showFlushbar(context: context, message: lang.translate(noTrailer));
+      }
+    }
 
     return Row(
       children: [
@@ -219,7 +242,7 @@ class TrailerButtonBlock extends StatelessWidget {
           appTextTheme: appTextTheme,
           name: lang.translate(watchTrailer),
           color: AppColors.white,
-          onpressed: () {},
+          onpressed: _launchTrailerURL,
           isFullButton: false,
         ),
         Expanded(

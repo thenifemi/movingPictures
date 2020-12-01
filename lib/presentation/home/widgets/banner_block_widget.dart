@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movingPictures/presentation/core/component_widgets/poster_image_widget.dart';
 
 import '../../../application/home/movies/movies/movies_bloc.dart';
 import '../../../domain/home/movies/movie/movie.dart';
@@ -77,19 +78,7 @@ class BannerMovie extends StatelessWidget {
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10.0),
-              child: Image.network("$MOVIE_POSTER_PATH${movie.posterPath}",
-                  fit: BoxFit.fill,
-                  loadingBuilder: (context, child, loadingProgress) {
-                if (loadingProgress == null) return child;
-                return Center(
-                  child: CircularProgressIndicator(
-                    value: loadingProgress.expectedTotalBytes != null
-                        ? loadingProgress.cumulativeBytesLoaded /
-                            loadingProgress.expectedTotalBytes
-                        : null,
-                  ),
-                );
-              }),
+              child: PosterImageWidget(movie: movie),
             ),
           ),
           BottomItems(

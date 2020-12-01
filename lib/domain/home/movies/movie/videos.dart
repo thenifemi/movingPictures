@@ -30,7 +30,6 @@ class Result {
   });
 
   final String id;
-
   final String key;
   final String name;
   final String site;

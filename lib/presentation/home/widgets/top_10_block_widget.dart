@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:movingPictures/application/home/movies/movies/movies_bloc.dart';
 
+import '../../../application/home/movies/movies/movies_bloc.dart';
 import '../../../domain/home/movies/movie_sub/movie_sub.dart';
-
-import '../../../infrastructure/core/credentials.dart';
 import '../../../injection.dart';
 import '../../core/app_colors.dart';
 import '../../core/app_localizations.dart';
 import '../../core/component_widgets/movie_loading_wigdet.dart';
+import '../../core/component_widgets/poster_image_widget.dart';
 import '../../core/constants/constants.dart';
 import '../../core/constants/language_constants.dart';
 import 'build_show_info_modal_bottom_sheet_widget.dart';
@@ -116,22 +115,7 @@ class MovieData extends StatelessWidget {
                         width: MediaQuery.of(context).size.height / 5,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(5.0),
-                          child: Image.network(
-                            "$MOVIE_POSTER_PATH${movie.poster_path}",
-                            fit: BoxFit.fill,
-                            loadingBuilder: (context, child, loadingProgress) {
-                              if (loadingProgress == null) return child;
-                              return Center(
-                                child: CircularProgressIndicator(
-                                  value: loadingProgress.expectedTotalBytes !=
-                                          null
-                                      ? loadingProgress.cumulativeBytesLoaded /
-                                          loadingProgress.expectedTotalBytes
-                                      : null,
-                                ),
-                              );
-                            },
-                          ),
+                          child: PosterImageWidget(movie: movie),
                         ),
                       ),
                       Align(

@@ -32,7 +32,7 @@ class MoviesRepository extends MoviesInterface {
     final params = {
       "api_key": apiKey,
       "language": deviceLocal,
-      "append_to_response": "release_dates"
+      "append_to_response": "release_dates,videos"
     };
 
     try {
@@ -43,7 +43,9 @@ class MoviesRepository extends MoviesInterface {
       final Movie movie = Movie.fromJson(response.data);
 
       return right(movie);
-    } catch (e) {
+    } catch (e, s) {
+      print(e);
+      print(s);
       return left(const MovieFailure.unexpected());
     }
   }

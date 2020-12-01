@@ -43,9 +43,9 @@ abstract class Movie implements _$Movie {
   }
 
   factory Movie.fromJson(Map<String, dynamic> json) => Movie(
-        id: json['id'] as int,
-        title: json['title'] as String,
-        posterPath: json['poster_path'] as String,
+        id: json['id'] as int ?? -0,
+        title: json['title'] as String ?? "",
+        posterPath: json['poster_path'] as String ?? "",
         overview: json['overview'] as String ?? "",
         releaseDate: json['release_date'] as String ?? "",
         runtime: json['runtime'] as int ?? 0,
@@ -60,7 +60,8 @@ abstract class Movie implements _$Movie {
         releaseDates: ReleaseDates.fromJson(
             json["release_dates"] as Map<String, dynamic> ??
                 {"release_dates": ""}),
-        video: null,
+        video:
+            Videos.fromJson(json["videos"] as Map<String, dynamic> ?? {"": ""}),
       );
 
   factory Movie.fromFirebase(DocumentSnapshot doc) =>
