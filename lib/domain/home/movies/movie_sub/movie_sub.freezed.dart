@@ -15,13 +15,11 @@ class _$MovieSubTearOff {
 
 // ignore: unused_element
   _MovieSub call(
-      {@required int id,
-      @required String title,
-      @required String poster_path}) {
+      {@required int id, @required String title, @required String posterPath}) {
     return _MovieSub(
       id: id,
       title: title,
-      poster_path: poster_path,
+      posterPath: posterPath,
     );
   }
 }
@@ -34,7 +32,7 @@ const $MovieSub = _$MovieSubTearOff();
 mixin _$MovieSub {
   int get id;
   String get title;
-  String get poster_path;
+  String get posterPath;
 
   $MovieSubCopyWith<MovieSub> get copyWith;
 }
@@ -43,7 +41,7 @@ mixin _$MovieSub {
 abstract class $MovieSubCopyWith<$Res> {
   factory $MovieSubCopyWith(MovieSub value, $Res Function(MovieSub) then) =
       _$MovieSubCopyWithImpl<$Res>;
-  $Res call({int id, String title, String poster_path});
+  $Res call({int id, String title, String posterPath});
 }
 
 /// @nodoc
@@ -58,13 +56,13 @@ class _$MovieSubCopyWithImpl<$Res> implements $MovieSubCopyWith<$Res> {
   $Res call({
     Object id = freezed,
     Object title = freezed,
-    Object poster_path = freezed,
+    Object posterPath = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as int,
       title: title == freezed ? _value.title : title as String,
-      poster_path:
-          poster_path == freezed ? _value.poster_path : poster_path as String,
+      posterPath:
+          posterPath == freezed ? _value.posterPath : posterPath as String,
     ));
   }
 }
@@ -74,7 +72,7 @@ abstract class _$MovieSubCopyWith<$Res> implements $MovieSubCopyWith<$Res> {
   factory _$MovieSubCopyWith(_MovieSub value, $Res Function(_MovieSub) then) =
       __$MovieSubCopyWithImpl<$Res>;
   @override
-  $Res call({int id, String title, String poster_path});
+  $Res call({int id, String title, String posterPath});
 }
 
 /// @nodoc
@@ -90,13 +88,13 @@ class __$MovieSubCopyWithImpl<$Res> extends _$MovieSubCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object title = freezed,
-    Object poster_path = freezed,
+    Object posterPath = freezed,
   }) {
     return _then(_MovieSub(
       id: id == freezed ? _value.id : id as int,
       title: title == freezed ? _value.title : title as String,
-      poster_path:
-          poster_path == freezed ? _value.poster_path : poster_path as String,
+      posterPath:
+          posterPath == freezed ? _value.posterPath : posterPath as String,
     ));
   }
 }
@@ -104,10 +102,10 @@ class __$MovieSubCopyWithImpl<$Res> extends _$MovieSubCopyWithImpl<$Res>
 /// @nodoc
 class _$_MovieSub extends _MovieSub {
   const _$_MovieSub(
-      {@required this.id, @required this.title, @required this.poster_path})
+      {@required this.id, @required this.title, @required this.posterPath})
       : assert(id != null),
         assert(title != null),
-        assert(poster_path != null),
+        assert(posterPath != null),
         super._();
 
   @override
@@ -115,11 +113,11 @@ class _$_MovieSub extends _MovieSub {
   @override
   final String title;
   @override
-  final String poster_path;
+  final String posterPath;
 
   @override
   String toString() {
-    return 'MovieSub(id: $id, title: $title, poster_path: $poster_path)';
+    return 'MovieSub(id: $id, title: $title, posterPath: $posterPath)';
   }
 
   @override
@@ -130,9 +128,9 @@ class _$_MovieSub extends _MovieSub {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
-            (identical(other.poster_path, poster_path) ||
+            (identical(other.posterPath, posterPath) ||
                 const DeepCollectionEquality()
-                    .equals(other.poster_path, poster_path)));
+                    .equals(other.posterPath, posterPath)));
   }
 
   @override
@@ -140,7 +138,7 @@ class _$_MovieSub extends _MovieSub {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(poster_path);
+      const DeepCollectionEquality().hash(posterPath);
 
   @override
   _$MovieSubCopyWith<_MovieSub> get copyWith =>
@@ -152,14 +150,14 @@ abstract class _MovieSub extends MovieSub {
   const factory _MovieSub(
       {@required int id,
       @required String title,
-      @required String poster_path}) = _$_MovieSub;
+      @required String posterPath}) = _$_MovieSub;
 
   @override
   int get id;
   @override
   String get title;
   @override
-  String get poster_path;
+  String get posterPath;
   @override
   _$MovieSubCopyWith<_MovieSub> get copyWith;
 }

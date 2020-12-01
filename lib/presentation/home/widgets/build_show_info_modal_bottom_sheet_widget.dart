@@ -113,7 +113,7 @@ class PosterBlock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.height / 9,
+      width: MediaQuery.of(context).size.width / 4,
       height: MediaQuery.of(context).size.height / 6.5,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(5.0),
@@ -161,7 +161,9 @@ class TitleSubtitleBodyBlock extends StatelessWidget {
                     softWrap: true,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  Row(
+                  const SizedBox(height: 5.0),
+                  Wrap(
+                    crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
                       Text(
                         movie.releaseDate,
