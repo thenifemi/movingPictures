@@ -36,6 +36,7 @@ dependencies:
   injectable: ^1.0.5
   json_annotation: ^3.1.0
   kt_dart: ^0.8.0
+  share: ^0.6.5+4
   shimmer: ^1.1.2
   url_launcher: ^5.7.10
   uuid: ^2.2.2
