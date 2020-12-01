@@ -30,7 +30,7 @@ class CastMoviesScreen extends StatelessWidget {
       ),
       body: BlocProvider(
         create: (context) =>
-            getIt<MoviesBloc>()..add(MoviesEvent.movieByCastIdCalled(cast.id)),
+            getIt<MoviesBloc>()..add(MoviesEvent.movieByGenreCalled(cast.id)),
         child: BlocBuilder<MoviesBloc, MoviesState>(
           builder: (context, state) {
             return state.map(

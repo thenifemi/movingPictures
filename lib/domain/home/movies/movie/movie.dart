@@ -55,7 +55,21 @@ abstract class Movie implements _$Movie {
             .map((genre) => Genre.fromJson(genre as Map<String, dynamic>))
             .toList(),
         releaseDates: ReleaseDates.fromJson(
-            json["release_dates"] as Map<String, dynamic> ?? {"": ""}),
+            json["release_dates"] as Map<String, dynamic> ??
+                {
+                  "release_dates": {
+                    "results": [
+                      {
+                        "iso_3166_1": "US",
+                        "release_dates": [
+                          {
+                            "certification": "-",
+                          }
+                        ]
+                      },
+                    ]
+                  }
+                }),
       );
 
   factory Movie.fromFirebase(DocumentSnapshot doc) =>

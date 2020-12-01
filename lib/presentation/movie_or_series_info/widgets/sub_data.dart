@@ -18,6 +18,12 @@ class SubData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final releaseDates = movie.releaseDates.results;
+    final dynamic ageRestrictionorNull =
+        releaseDates.where((e) => e.iso31661 == "US").isNotEmpty
+            ? releaseDates.where((e) => e.iso31661 == "US")
+            : null;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -44,12 +50,9 @@ class SubData extends StatelessWidget {
             )),
         const SizedBox(width: 20.0),
         AgeRestrictionWidget(
-          age: movie.releaseDates.results
-              .where((e) => e.iso31661 == "BR")
-              .single
-              .releaseDates
-              .single
-              .certification,
+          age: ageRestrictionorNull.first.releaseDates.first.certification
+                  as String ??
+              "=",
         ),
         const SizedBox(width: 20.0),
         Text("${movie.runtime} mins",
