@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../genres/genre.dart';
 import 'release_dates.dart';
+import 'videos.dart';
 
 part 'movie.freezed.dart';
 part 'movie.g.dart';
@@ -16,10 +17,11 @@ abstract class Movie implements _$Movie {
     @required String overview,
     @required String releaseDate,
     @required int runtime,
-    @required ReleaseDates releaseDates, //* This is age restriction.
+    @required ReleaseDates releaseDates, //* This is for age restriction.
     @required double voteAverage,
     @required List<Genre> genres,
     @required String homepage,
+    @required Videos video,
   }) = _Movie;
 
   const Movie._();
@@ -36,6 +38,7 @@ abstract class Movie implements _$Movie {
       genres: genres,
       homepage: homepage,
       releaseDates: releaseDates,
+      video: video,
     );
   }
 
@@ -56,20 +59,8 @@ abstract class Movie implements _$Movie {
             .toList(),
         releaseDates: ReleaseDates.fromJson(
             json["release_dates"] as Map<String, dynamic> ??
-                {
-                  "release_dates": {
-                    "results": [
-                      {
-                        "iso_3166_1": "US",
-                        "release_dates": [
-                          {
-                            "certification": "-",
-                          }
-                        ]
-                      },
-                    ]
-                  }
-                }),
+                {"release_dates": ""}),
+        video: null,
       );
 
   factory Movie.fromFirebase(DocumentSnapshot doc) =>

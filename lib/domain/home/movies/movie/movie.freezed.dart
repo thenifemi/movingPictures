@@ -27,7 +27,8 @@ class _$MovieTearOff {
       @required ReleaseDates releaseDates,
       @required double voteAverage,
       @required List<Genre> genres,
-      @required String homepage}) {
+      @required String homepage,
+      @required Videos video}) {
     return _Movie(
       id: id,
       title: title,
@@ -39,6 +40,7 @@ class _$MovieTearOff {
       voteAverage: voteAverage,
       genres: genres,
       homepage: homepage,
+      video: video,
     );
   }
 
@@ -60,10 +62,11 @@ mixin _$Movie {
   String get overview;
   String get releaseDate;
   int get runtime;
-  ReleaseDates get releaseDates; //* This is age restriction.
+  ReleaseDates get releaseDates; //* This is for age restriction.
   double get voteAverage;
   List<Genre> get genres;
   String get homepage;
+  Videos get video;
 
   Map<String, dynamic> toJson();
   $MovieCopyWith<Movie> get copyWith;
@@ -83,7 +86,8 @@ abstract class $MovieCopyWith<$Res> {
       ReleaseDates releaseDates,
       double voteAverage,
       List<Genre> genres,
-      String homepage});
+      String homepage,
+      Videos video});
 }
 
 /// @nodoc
@@ -106,6 +110,7 @@ class _$MovieCopyWithImpl<$Res> implements $MovieCopyWith<$Res> {
     Object voteAverage = freezed,
     Object genres = freezed,
     Object homepage = freezed,
+    Object video = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as int,
@@ -123,6 +128,7 @@ class _$MovieCopyWithImpl<$Res> implements $MovieCopyWith<$Res> {
           voteAverage == freezed ? _value.voteAverage : voteAverage as double,
       genres: genres == freezed ? _value.genres : genres as List<Genre>,
       homepage: homepage == freezed ? _value.homepage : homepage as String,
+      video: video == freezed ? _value.video : video as Videos,
     ));
   }
 }
@@ -142,7 +148,8 @@ abstract class _$MovieCopyWith<$Res> implements $MovieCopyWith<$Res> {
       ReleaseDates releaseDates,
       double voteAverage,
       List<Genre> genres,
-      String homepage});
+      String homepage,
+      Videos video});
 }
 
 /// @nodoc
@@ -166,6 +173,7 @@ class __$MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res>
     Object voteAverage = freezed,
     Object genres = freezed,
     Object homepage = freezed,
+    Object video = freezed,
   }) {
     return _then(_Movie(
       id: id == freezed ? _value.id : id as int,
@@ -183,6 +191,7 @@ class __$MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res>
           voteAverage == freezed ? _value.voteAverage : voteAverage as double,
       genres: genres == freezed ? _value.genres : genres as List<Genre>,
       homepage: homepage == freezed ? _value.homepage : homepage as String,
+      video: video == freezed ? _value.video : video as Videos,
     ));
   }
 }
@@ -201,7 +210,8 @@ class _$_Movie extends _Movie {
       @required this.releaseDates,
       @required this.voteAverage,
       @required this.genres,
-      @required this.homepage})
+      @required this.homepage,
+      @required this.video})
       : assert(id != null),
         assert(title != null),
         assert(posterPath != null),
@@ -212,6 +222,7 @@ class _$_Movie extends _Movie {
         assert(voteAverage != null),
         assert(genres != null),
         assert(homepage != null),
+        assert(video != null),
         super._();
 
   factory _$_Movie.fromJson(Map<String, dynamic> json) =>
@@ -231,16 +242,18 @@ class _$_Movie extends _Movie {
   final int runtime;
   @override
   final ReleaseDates releaseDates;
-  @override //* This is age restriction.
+  @override //* This is for age restriction.
   final double voteAverage;
   @override
   final List<Genre> genres;
   @override
   final String homepage;
+  @override
+  final Videos video;
 
   @override
   String toString() {
-    return 'Movie(id: $id, title: $title, posterPath: $posterPath, overview: $overview, releaseDate: $releaseDate, runtime: $runtime, releaseDates: $releaseDates, voteAverage: $voteAverage, genres: $genres, homepage: $homepage)';
+    return 'Movie(id: $id, title: $title, posterPath: $posterPath, overview: $overview, releaseDate: $releaseDate, runtime: $runtime, releaseDates: $releaseDates, voteAverage: $voteAverage, genres: $genres, homepage: $homepage, video: $video)';
   }
 
   @override
@@ -273,7 +286,9 @@ class _$_Movie extends _Movie {
                 const DeepCollectionEquality().equals(other.genres, genres)) &&
             (identical(other.homepage, homepage) ||
                 const DeepCollectionEquality()
-                    .equals(other.homepage, homepage)));
+                    .equals(other.homepage, homepage)) &&
+            (identical(other.video, video) ||
+                const DeepCollectionEquality().equals(other.video, video)));
   }
 
   @override
@@ -288,7 +303,8 @@ class _$_Movie extends _Movie {
       const DeepCollectionEquality().hash(releaseDates) ^
       const DeepCollectionEquality().hash(voteAverage) ^
       const DeepCollectionEquality().hash(genres) ^
-      const DeepCollectionEquality().hash(homepage);
+      const DeepCollectionEquality().hash(homepage) ^
+      const DeepCollectionEquality().hash(video);
 
   @override
   _$MovieCopyWith<_Movie> get copyWith =>
@@ -312,7 +328,8 @@ abstract class _Movie extends Movie {
       @required ReleaseDates releaseDates,
       @required double voteAverage,
       @required List<Genre> genres,
-      @required String homepage}) = _$_Movie;
+      @required String homepage,
+      @required Videos video}) = _$_Movie;
 
   factory _Movie.fromJson(Map<String, dynamic> json) = _$_Movie.fromJson;
 
@@ -330,12 +347,14 @@ abstract class _Movie extends Movie {
   int get runtime;
   @override
   ReleaseDates get releaseDates;
-  @override //* This is age restriction.
+  @override //* This is for age restriction.
   double get voteAverage;
   @override
   List<Genre> get genres;
   @override
   String get homepage;
+  @override
+  Videos get video;
   @override
   _$MovieCopyWith<_Movie> get copyWith;
 }
