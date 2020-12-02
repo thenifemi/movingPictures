@@ -43,9 +43,7 @@ class MoviesRepository extends MoviesInterface {
       final Movie movie = Movie.fromJson(response.data);
 
       return right(movie);
-    } catch (e, s) {
-      print(e);
-      print(s);
+    } catch (e) {
       return left(const MovieFailure.unexpected());
     }
   }
@@ -221,20 +219,5 @@ class MoviesRepository extends MoviesInterface {
     } catch (e) {
       return left(const MovieFailure.unexpected());
     }
-  }
-
-  @override
-  Stream<Either<MovieFailure, List<Movie>>> watchMovieFavorites() {
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<Either<MovieFailure, Unit>> createFavoriteMovie() {
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<Either<MovieFailure, Unit>> deleteFavoriteMovie() {
-    throw UnimplementedError();
   }
 }

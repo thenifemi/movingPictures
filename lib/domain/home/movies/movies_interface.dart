@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:movingPictures/domain/home/movies/cast/cast.dart';
-import 'package:movingPictures/domain/home/movies/cast/cast_failure.dart';
 
+import 'cast/cast.dart';
+import 'cast/cast_failure.dart';
 import 'genres/genre.dart';
 import 'genres/genre_failure.dart';
 import 'movie/movie.dart';
@@ -20,8 +20,4 @@ abstract class MoviesInterface {
 
   Future<Either<CastFailure, List<Cast>>> getCast(int movieId);
   Future<Either<MovieFailure, List<MovieSub>>> getMovieByCastId(int castId);
-
-  Stream<Either<MovieFailure, List<Movie>>> watchMovieFavorites();
-  Future<Either<MovieFailure, Unit>> createFavoriteMovie();
-  Future<Either<MovieFailure, Unit>> deleteFavoriteMovie();
 }
