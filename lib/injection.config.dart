@@ -15,6 +15,7 @@ import 'domain/auth/auth_repository_interface.dart';
 import 'application/home/movies/casts/casts_bloc.dart';
 import 'domain/home/movies/favorite_movies_interface.dart';
 import 'infrastructure/home/movies/favorite_movies_repository.dart';
+import 'application/home/movies/favorite_movies/favoritemovies_bloc.dart';
 import 'infrastructure/auth/firebase_auth_repository.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
 import 'application/home/movies/genres/genres_bloc.dart';
@@ -46,6 +47,8 @@ GetIt $initGetIt(
   gh.factory<CastsBloc>(() => CastsBloc(get<MoviesInterface>()));
   gh.lazySingleton<FavoriteMoviesInterface>(
       () => FavoriteMoviesRepository(get<FirebaseFirestore>()));
+  gh.factory<FavoritemoviesBloc>(
+      () => FavoritemoviesBloc(get<FavoriteMoviesInterface>()));
   gh.factory<GenresBloc>(() => GenresBloc(get<MoviesInterface>()));
   gh.factory<MoviesBloc>(() => MoviesBloc(get<MoviesInterface>()));
   gh.factory<SignInBloc>(() => SignInBloc(get<AuthInterface>()));
