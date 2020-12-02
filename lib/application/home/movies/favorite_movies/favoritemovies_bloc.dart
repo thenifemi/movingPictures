@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -17,6 +18,8 @@ class FavoritemoviesBloc
     extends Bloc<FavoritemoviesEvent, FavoritemoviesState> {
   final FavoriteMoviesInterface favoriteMoviesInterface;
   FavoritemoviesBloc(this.favoriteMoviesInterface) : super(const _Initial());
+
+  StreamSubscription<Either<MovieFailure, List<MovieSub>>> favoriteMoviesStream;
 
   @override
   Stream<FavoritemoviesState> mapEventToState(
@@ -43,6 +46,30 @@ class FavoritemoviesBloc
           (_) => const FavoritemoviesState.deleteSuccess(),
         );
       },
+      watchFavorites: (e) async* {
+        yield const FavoritemoviesState.loading();
+        await favoriteMoviesStream?.cancel();
+
+        favoriteMoviesStream = favoriteMoviesInterface
+            .watchMovieFavorites()
+            .listen((failureOrMovies) => add(
+                  FavoritemoviesEvent.favoritesRecieved(failureOrMovies),
+                ));
+
+        yield favoriteMoviesStream;
+      },
+      favoritesRecieved: (e) async* {
+        yield e.failureOrMovies.fold(
+          (f) => FavoritemoviesState.failure(f),
+          (movies) => FavoritemoviesState.watchSuccess(movies),
+        );
+      },
     );
+  }
+
+  @override
+  Future<void> close() async {
+    await favoriteMoviesStream?.cancel();
+    return super.close();
   }
 }
