@@ -100,7 +100,7 @@ class FavoriteButtonWidget extends HookWidget {
                     ? FavoritemoviesEvent.favoriteCreated(movie)
                     : FavoritemoviesEvent.favoriteDeleted(movie));
               },
-              child: state.map(
+              child: state.maybeMap(
                 initial: (_) {
                   return const CircularProgressIndicator();
                 },
@@ -142,7 +142,7 @@ class FavoriteButtonWidget extends HookWidget {
                     ],
                   );
                 },
-                watchSuccess: (_) {},
+                orElse: null,
               ),
             ),
           );
