@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'serie.freezed.dart';
-part 'serie.g.dart';
 
 @freezed
 abstract class Serie implements _$Serie {
@@ -40,8 +39,9 @@ abstract class Serie implements _$Serie {
     );
   }
 
-  factory Serie.fromJson(Map<String, dynamic> json) => _$SerieFromJson(json);
+  // factory Serie.fromJson(Map<String, dynamic> json) => _$SerieFromJson(json);
 
-  factory Serie.fromFirebase(DocumentSnapshot doc) =>
-      Serie.fromJson(doc.data()).copyWith(id: doc.id);
+//   factory Serie.fromFirebase(DocumentSnapshot doc) =>
+//       Serie.fromJson(doc.data()).copyWith(id: doc.id);
+// }
 }

@@ -8,9 +8,6 @@ part of 'serie.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-Serie _$SerieFromJson(Map<String, dynamic> json) {
-  return _Serie.fromJson(json);
-}
 
 /// @nodoc
 class _$SerieTearOff {
@@ -45,11 +42,6 @@ class _$SerieTearOff {
       homepageLink: homepageLink,
     );
   }
-
-// ignore: unused_element
-  Serie fromJson(Map<String, Object> json) {
-    return Serie.fromJson(json);
-  }
 }
 
 /// @nodoc
@@ -71,7 +63,6 @@ mixin _$Serie {
   String get trailerLink;
   String get homepageLink;
 
-  Map<String, dynamic> toJson();
   $SerieCopyWith<Serie> get copyWith;
 }
 
@@ -207,8 +198,6 @@ class __$SerieCopyWithImpl<$Res> extends _$SerieCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
 class _$_Serie extends _Serie {
   const _$_Serie(
@@ -237,9 +226,6 @@ class _$_Serie extends _Serie {
         assert(trailerLink != null),
         assert(homepageLink != null),
         super._();
-
-  factory _$_Serie.fromJson(Map<String, dynamic> json) =>
-      _$_$_SerieFromJson(json);
 
   @override
   final String id;
@@ -324,11 +310,6 @@ class _$_Serie extends _Serie {
   @override
   _$SerieCopyWith<_Serie> get copyWith =>
       __$SerieCopyWithImpl<_Serie>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$_$_SerieToJson(this);
-  }
 }
 
 abstract class _Serie extends Serie {
@@ -346,8 +327,6 @@ abstract class _Serie extends Serie {
       @required List<String> cast,
       @required String trailerLink,
       @required String homepageLink}) = _$_Serie;
-
-  factory _Serie.fromJson(Map<String, dynamic> json) = _$_Serie.fromJson;
 
   @override
   String get id;

@@ -5,6 +5,6 @@ import 'movie_sub/movie_sub.dart';
 
 abstract class FavoriteMoviesInterface {
   Stream<Either<MovieFailure, List<MovieSub>>> watchMovieFavorites();
-  Future<Either<MovieFailure, Unit>> createFavoriteMovie();
-  Future<Either<MovieFailure, Unit>> deleteFavoriteMovie();
+  Future<Either<MovieFailure, Unit>> createFavoriteMovie(MovieSub movieSub);
+  Future<Either<MovieFailure, Unit>> deleteFavoriteMovie(MovieSub movieSub);
 }
