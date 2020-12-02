@@ -131,7 +131,7 @@ class Items extends StatelessWidget {
             children: [
               FavoriteButtonWidget(
                 appTextTheme: appTextTheme,
-                onPressed: () {},
+                movie: movie,
               ),
               const SizedBox(width: 20.0),
               ShareButtonWidget(

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:movingPictures/presentation/core/constants/language_constants.dart';
 
 import '../genres/genre.dart';
 import 'release_dates.dart';
@@ -63,6 +64,21 @@ abstract class Movie implements _$Movie {
         video:
             Videos.fromJson(json["videos"] as Map<String, dynamic> ?? {"": ""}),
       );
+
+  @override
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "title": title,
+        "poster_path": posterPath,
+        "overview": overview,
+        "runtime": runtime,
+        "release_date": releaseDate,
+        "release_dates": releaseDates,
+        "homepage": home,
+        "vote_average": voteAverage,
+        "genres": genres,
+        "videos": video,
+      };
 
   factory Movie.fromFirebase(DocumentSnapshot doc) =>
       Movie.fromJson(doc.data());

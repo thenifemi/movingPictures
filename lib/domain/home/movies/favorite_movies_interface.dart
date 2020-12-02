@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
 
+import 'movie/movie.dart';
 import 'movie/movies_failure.dart';
-import 'movie_sub/movie_sub.dart';
 
 abstract class FavoriteMoviesInterface {
-  Stream<Either<MovieFailure, List<MovieSub>>> watchMovieFavorites();
-  Future<Either<MovieFailure, Unit>> createFavoriteMovie(MovieSub movieSub);
-  Future<Either<MovieFailure, Unit>> deleteFavoriteMovie(MovieSub movieSub);
+  Stream<Either<MovieFailure, List<Movie>>> watchMovieFavorites();
+  Future<Either<MovieFailure, Unit>> createFavoriteMovie(Movie movie);
+  Future<Either<MovieFailure, Unit>> deleteFavoriteMovie(Movie movie);
 }

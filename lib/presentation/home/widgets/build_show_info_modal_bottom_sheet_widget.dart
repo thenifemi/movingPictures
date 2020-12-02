@@ -248,7 +248,7 @@ class TrailerButtonBlock extends StatelessWidget {
         Expanded(
           child: FavoriteButtonWidget(
             appTextTheme: appTextTheme,
-            onPressed: () {},
+            movie: movie,
           ),
         ),
         Expanded(

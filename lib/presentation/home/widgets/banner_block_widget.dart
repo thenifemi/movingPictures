@@ -115,7 +115,7 @@ class BottomItems extends StatelessWidget {
             children: [
               FavoriteButtonWidget(
                 appTextTheme: appTextTheme,
-                onPressed: () {},
+                movie: movie,
               ),
               Container(
                 height: 40.0,

@@ -4,7 +4,12 @@ import 'dart:typed_data';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:movingPictures/application/home/movies/favorite_movies/favoritemovies_bloc.dart';
+import 'package:movingPictures/domain/home/movies/movie_sub/movie_sub.dart';
+import 'package:movingPictures/injection.dart';
 import 'package:wc_flutter_share/wc_flutter_share.dart';
 
 import '../../../domain/home/movies/movie/movie.dart';
@@ -40,14 +45,6 @@ class ShareButtonWidget extends StatelessWidget {
           "Hey! Check out ${movie.title} on Moving Pictures. Download the app now https://github.com/thenifemi/movingPictures",
       fileName: "${movie.title}.jpg",
     );
-    // await Share.file(
-    //   movie.title,
-    //   'amlog.jpg',
-    //   bytes,
-    //   'image/jpg',
-    //   text:
-    //       "Hey! Check out ${movie.title} on Moving Pictures. Download the app now https://github.com/thenifemi/movingPictures",
-    // );
   }
 
   @override
@@ -75,35 +72,81 @@ class ShareButtonWidget extends StatelessWidget {
   }
 }
 
-class FavoriteButtonWidget extends StatelessWidget {
+class FavoriteButtonWidget extends HookWidget {
   final TextTheme appTextTheme;
-  final Function onPressed;
+  final Movie movie;
   const FavoriteButtonWidget({
     Key key,
     @required this.appTextTheme,
-    @required this.onPressed,
+    @required this.movie,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final toggleState = useState(false);
+
     final lang = AppLocalizations.of(context);
 
-    return SizedBox(
-      child: RawMaterialButton(
-        onPressed: () {},
-        child: Column(
-          children: [
-            SvgPicture.asset(
-              favoriteIcon,
-              color: AppColors.white,
+    return BlocProvider(
+      create: (context) => getIt<FavoritemoviesBloc>()
+        ..add(const FavoritemoviesEvent.watchFavorites()),
+      child: BlocBuilder<FavoritemoviesBloc, FavoritemoviesState>(
+        builder: (context, state) {
+          return SizedBox(
+            child: RawMaterialButton(
+              onPressed: () {
+                toggleState.value = !toggleState.value;
+                context.watch<FavoritemoviesBloc>().add(toggleState.value
+                    ? FavoritemoviesEvent.favoriteCreated(movie)
+                    : FavoritemoviesEvent.favoriteDeleted(movie));
+              },
+              child: state.map(
+                initial: (_) {
+                  return const CircularProgressIndicator();
+                },
+                loading: (_) {
+                  return const CircularProgressIndicator();
+                },
+                failure: (_) {
+                  return Container(
+                    color: Colors.red,
+                  );
+                },
+                createSuccess: (_) {
+                  return Column(
+                    children: [
+                      SvgPicture.asset(
+                        favoriteFilledIcon,
+                        color: AppColors.white,
+                      ),
+                      const SizedBox(height: 5.0),
+                      Text(
+                        lang.translate(favorite),
+                        style: appTextTheme.subtitle1,
+                      ),
+                    ],
+                  );
+                },
+                deleteSuccess: (_) {
+                  return Column(
+                    children: [
+                      SvgPicture.asset(
+                        favoriteIcon,
+                        color: AppColors.white,
+                      ),
+                      const SizedBox(height: 5.0),
+                      Text(
+                        lang.translate(favorite),
+                        style: appTextTheme.subtitle1,
+                      ),
+                    ],
+                  );
+                },
+                watchSuccess: (_) {},
+              ),
             ),
-            const SizedBox(height: 5.0),
-            Text(
-              lang.translate(favorite),
-              style: appTextTheme.subtitle1,
-            ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }
