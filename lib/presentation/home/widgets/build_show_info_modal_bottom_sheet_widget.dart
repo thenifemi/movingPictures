@@ -74,9 +74,7 @@ class MovieData extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              PosterBlock(
-                movie: movie,
-              ),
+              PosterBlock(movie: movie),
               const SizedBox(width: 10.0),
               Expanded(
                 child: TitleSubtitleBodyBlock(
@@ -256,7 +254,7 @@ class TrailerButtonBlock extends StatelessWidget {
         Expanded(
           child: ShareButtonWidget(
             appTextTheme: appTextTheme,
-            onPressed: () {},
+            movie: movie,
           ),
         ),
       ],

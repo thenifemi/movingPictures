@@ -136,7 +136,7 @@ class Items extends StatelessWidget {
               const SizedBox(width: 20.0),
               ShareButtonWidget(
                 appTextTheme: appTextTheme,
-                onPressed: () {},
+                movie: movie,
               ),
             ],
           ),

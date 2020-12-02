@@ -1,8 +1,14 @@
+import 'dart:io';
+import 'dart:typed_data';
+
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:movingPictures/domain/home/movies/movie/movie.dart';
+import 'package:wc_flutter_share/wc_flutter_share.dart';
 
+import '../../../domain/home/movies/movie/movie.dart';
+import '../../../infrastructure/core/credentials.dart';
 import '../../home/widgets/build_show_info_modal_bottom_sheet_widget.dart';
 import '../app_colors.dart';
 import '../app_localizations.dart';
@@ -11,13 +17,38 @@ import '../constants/language_constants.dart';
 
 class ShareButtonWidget extends StatelessWidget {
   final TextTheme appTextTheme;
-  final Function onPressed;
+  final Movie movie;
 
   const ShareButtonWidget({
     Key key,
     @required this.appTextTheme,
-    @required this.onPressed,
+    @required this.movie,
   }) : super(key: key);
+
+  Future<void> shareFunction({
+    @required Movie movie,
+  }) async {
+    final request = await HttpClient()
+        .getUrl(Uri.parse('$MOVIE_POSTER_PATH${movie.posterPath}'));
+    final response = await request.close();
+    final Uint8List bytes = await consolidateHttpClientResponseBytes(response);
+    await WcFlutterShare.share(
+      sharePopupTitle: movie.title,
+      mimeType: 'image/jpg',
+      bytesOfFile: bytes,
+      text:
+          "Hey! Check out ${movie.title} on Moving Pictures. Download the app now https://github.com/thenifemi/movingPictures",
+      fileName: "${movie.title}.jpg",
+    );
+    // await Share.file(
+    //   movie.title,
+    //   'amlog.jpg',
+    //   bytes,
+    //   'image/jpg',
+    //   text:
+    //       "Hey! Check out ${movie.title} on Moving Pictures. Download the app now https://github.com/thenifemi/movingPictures",
+    // );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +56,7 @@ class ShareButtonWidget extends StatelessWidget {
 
     return SizedBox(
       child: RawMaterialButton(
-        onPressed: () {},
+        onPressed: () async => shareFunction(movie: movie),
         child: Column(
           children: [
             SvgPicture.asset(
