@@ -5,8 +5,8 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../../domain/home/movies/favorite_movies/favorite_movies.dart';
 import '../../../../domain/home/movies/favorite_movies_interface.dart';
-import '../../../../domain/home/movies/movie/movie.dart';
 import '../../../../domain/home/movies/movie/movies_failure.dart';
 
 part 'favoritemovies_bloc.freezed.dart';

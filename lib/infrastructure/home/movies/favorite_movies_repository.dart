@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../domain/home/movies/favorite_movies/favorite_movies.dart';
 import '../../../domain/home/movies/favorite_movies_interface.dart';
-import '../../../domain/home/movies/movie/movie.dart';
 import '../../../domain/home/movies/movie/movies_failure.dart';
 import '../../../infrastructure/core/firestore_helper.dart';
 
@@ -50,14 +50,17 @@ class FavoriteMoviesRepository extends FavoriteMoviesInterface {
   }
 
   @override
-  Stream<Either<MovieFailure, List<int>>> watchMovieFavorites() async* {
+  Stream<Either<MovieFailure, List<FavoriteMovie>>>
+      watchMovieFavorites() async* {
     final userDoc = await _firestore.userDocument();
     yield* userDoc
         .collection('movies')
         .snapshots()
         .map(
-          (snapshot) => right<MovieFailure, List<int>>(
-            snapshot.docs.map((doc) => doc.data() as int).toList(),
+          (snapshot) => right<MovieFailure, List<FavoriteMovie>>(
+            snapshot.docs
+                .map((doc) => FavoriteMovie.fromFirebase(doc))
+                .toList(),
           ),
         )
         .handleError((e, s) {

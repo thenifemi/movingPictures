@@ -85,17 +85,3 @@ abstract class Movie implements _$Movie {
   factory Movie.fromFirebase(DocumentSnapshot doc) =>
       Movie.fromJson(doc.data());
 }
-
-class FavoriteMovie {
-  final int favoriteMovieId;
-
-  FavoriteMovie({@required this.favoriteMovieId});
-
-  Map<String, dynamic> toJson() => {"id": favoriteMovieId};
-
-  factory FavoriteMovie.fromJson(Map<String, dynamic> json) =>
-      FavoriteMovie(favoriteMovieId: json["id"] as int ?? -0);
-
-  factory FavoriteMovie.fromFirebase(DocumentSnapshot doc) =>
-      FavoriteMovie.fromJson(doc.data());
-}

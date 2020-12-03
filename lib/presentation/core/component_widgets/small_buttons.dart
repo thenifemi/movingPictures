@@ -106,9 +106,12 @@ class FavoriteButtonWidget extends HookWidget {
               ),
             ),
             watchSuccess: (state) {
-              if (state.favoriteMovies.contains(movie.id)) {
-                toggleState.value = true;
-              }
+              // if (state.favoriteMovies.where((e) => e.favoriteMovieId == movie.id)) {
+
+              // }
+              // if (state.favoriteMovies.contains(movie.id)) {
+              //   toggleState.value = true;
+              // }
 
               return SizedBox(
                 child: RawMaterialButton(
