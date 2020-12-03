@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:movingPictures/presentation/core/component_widgets/favorite_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../application/home/movies/movies/movies_bloc.dart';
@@ -247,13 +248,11 @@ class TrailerButtonBlock extends StatelessWidget {
         ),
         Expanded(
           child: FavoriteButtonWidget(
-            appTextTheme: appTextTheme,
             movie: movie,
           ),
         ),
         Expanded(
           child: ShareButtonWidget(
-            appTextTheme: appTextTheme,
             movie: movie,
           ),
         ),

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movingPictures/presentation/core/component_widgets/poster_image_widget.dart';
 
 import '../../../application/home/movies/movies/movies_bloc.dart';
 import '../../../domain/home/movies/movie/movie.dart';
-import '../../../infrastructure/core/credentials.dart';
 import '../../../injection.dart';
 import '../../core/app_colors.dart';
 import '../../core/app_localizations.dart';
+import '../../core/component_widgets/favorite_button.dart';
 import '../../core/component_widgets/movie_loading_wigdet.dart';
+import '../../core/component_widgets/poster_image_widget.dart';
 import '../../core/component_widgets/small_buttons.dart';
 import '../../core/constants/language_constants.dart';
 
@@ -114,7 +114,6 @@ class BottomItems extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               FavoriteButtonWidget(
-                appTextTheme: appTextTheme,
                 movie: movie,
               ),
               Container(
