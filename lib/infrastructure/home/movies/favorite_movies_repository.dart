@@ -60,11 +60,14 @@ class FavoriteMoviesRepository extends FavoriteMoviesInterface {
             snapshot.docs.map((doc) => Movie.fromFirebase(doc)).toList(),
           ),
         )
-        .handleError((e) {
+        .handleError((e, s) {
       if (e is FirebaseException && e.message.contains('PERMISSION_DENIED')) {
         return left(const MovieFailure.insufficientPermissions());
       } else {
         //log error
+        print(e);
+        print(s);
+
         return left(const MovieFailure.unexpected());
       }
     });

@@ -90,64 +90,71 @@ class FavoriteButtonWidget extends HookWidget {
     return BlocProvider(
       create: (context) => getIt<FavoritemoviesBloc>()
         ..add(const FavoritemoviesEvent.watchFavorites()),
-      child: BlocBuilder<FavoritemoviesBloc, FavoritemoviesState>(
+      child: BlocConsumer<FavoritemoviesBloc, FavoritemoviesState>(
+        listener: (context, state) {
+          state.maybeMap(
+            orElse: () => Container(),
+          );
+        },
         builder: (context, state) {
-          return SizedBox(
-            child: RawMaterialButton(
-              onPressed: () {
-                toggleState.value = !toggleState.value;
-                context.read()<FavoritemoviesBloc>().add(toggleState.value
-                    ? FavoritemoviesEvent.favoriteCreated(movie)
-                    : FavoritemoviesEvent.favoriteDeleted(movie));
-              },
-              child: state.maybeMap(
-                initial: (_) {
-                  return Container(
-                    height: 30.0,
-                    color: Colors.green,
-                  );
-                },
-                loading: (_) {
-                  return const CircularProgressIndicator();
-                },
-                failure: (_) {
-                  return Container(
-                    color: Colors.red,
-                  );
-                },
-                createSuccess: (_) {
-                  return Column(
-                    children: [
-                      SvgPicture.asset(
-                        favoriteFilledIcon,
-                        color: AppColors.white,
-                      ),
-                      const SizedBox(height: 5.0),
-                      Text(
-                        lang.translate(favorite),
-                        style: appTextTheme.subtitle1,
-                      ),
-                    ],
-                  );
-                },
-                deleteSuccess: (_) {
-                  return Column(
-                    children: [
-                      SvgPicture.asset(
-                        favoriteIcon,
-                        color: AppColors.white,
-                      ),
-                      const SizedBox(height: 5.0),
-                      Text(
-                        lang.translate(favorite),
-                        style: appTextTheme.subtitle1,
-                      ),
-                    ],
-                  );
-                },
-                orElse: () => null,
+          return state.maybeMap(
+            orElse: () => Container(),
+            loading: (_) => const SizedBox(
+              height: 30.0,
+              child: CircularProgressIndicator(
+                backgroundColor: AppColors.white,
               ),
             ),
+            watchSuccess: (state) {
+              if (state.movies.contains(movie.id)) toggleState.value = true;
+
+              return SizedBox(
+                child: RawMaterialButton(
+                  onPressed: () {
+                    toggleState.value = !toggleState.value;
+                    context.read<FavoritemoviesBloc>().add(
+                          toggleState.value
+                              ? FavoritemoviesEvent.favoriteCreated(movie)
+                              : FavoritemoviesEvent.favoriteDeleted(movie),
+                        );
+                  },
+                  child: AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 300),
+                    transitionBuilder: (child, animation) => ScaleTransition(
+                      scale: animation,
+                      child: child,
+                    ),
+                    child: toggleState.value
+                        ? Column(
+                            children: [
+                              SvgPicture.asset(
+                                favoriteFilledIcon,
+                                color: AppColors.white,
+                              ),
+                              const SizedBox(height: 5.0),
+                              Text(
+                                lang.translate(favorite),
+                                style: appTextTheme.subtitle1,
+                              ),
+                            ],
+                          )
+                        : Column(
+                            children: [
+                              SvgPicture.asset(
+                                favoriteIcon,
+                                color: AppColors.white,
+                              ),
+                              const SizedBox(height: 5.0),
+                              Text(
+                                lang.translate(favorite),
+                                style: appTextTheme.subtitle1,
+                              ),
+                            ],
+                          ),
+                  ),
+                ),
+              );
+            },
           );
         },
       ),

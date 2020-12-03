@@ -652,9 +652,9 @@ class _$FavoritemoviesStateTearOff {
   }
 
 // ignore: unused_element
-  _WatchSuccess watchSuccess(List<Movie> failureOrMovies) {
+  _WatchSuccess watchSuccess(List<Movie> movies) {
     return _WatchSuccess(
-      failureOrMovies,
+      movies,
     );
   }
 }
@@ -672,7 +672,7 @@ mixin _$FavoritemoviesState {
     @required Result failure(MovieFailure movieFailure),
     @required Result createSuccess(),
     @required Result deleteSuccess(),
-    @required Result watchSuccess(List<Movie> failureOrMovies),
+    @required Result watchSuccess(List<Movie> movies),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
@@ -681,7 +681,7 @@ mixin _$FavoritemoviesState {
     Result failure(MovieFailure movieFailure),
     Result createSuccess(),
     Result deleteSuccess(),
-    Result watchSuccess(List<Movie> failureOrMovies),
+    Result watchSuccess(List<Movie> movies),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -764,7 +764,7 @@ class _$_Initial implements _Initial {
     @required Result failure(MovieFailure movieFailure),
     @required Result createSuccess(),
     @required Result deleteSuccess(),
-    @required Result watchSuccess(List<Movie> failureOrMovies),
+    @required Result watchSuccess(List<Movie> movies),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -783,7 +783,7 @@ class _$_Initial implements _Initial {
     Result failure(MovieFailure movieFailure),
     Result createSuccess(),
     Result deleteSuccess(),
-    Result watchSuccess(List<Movie> failureOrMovies),
+    Result watchSuccess(List<Movie> movies),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -877,7 +877,7 @@ class _$_Loading implements _Loading {
     @required Result failure(MovieFailure movieFailure),
     @required Result createSuccess(),
     @required Result deleteSuccess(),
-    @required Result watchSuccess(List<Movie> failureOrMovies),
+    @required Result watchSuccess(List<Movie> movies),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -896,7 +896,7 @@ class _$_Loading implements _Loading {
     Result failure(MovieFailure movieFailure),
     Result createSuccess(),
     Result deleteSuccess(),
-    Result watchSuccess(List<Movie> failureOrMovies),
+    Result watchSuccess(List<Movie> movies),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1026,7 +1026,7 @@ class _$_Failure implements _Failure {
     @required Result failure(MovieFailure movieFailure),
     @required Result createSuccess(),
     @required Result deleteSuccess(),
-    @required Result watchSuccess(List<Movie> failureOrMovies),
+    @required Result watchSuccess(List<Movie> movies),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -1045,7 +1045,7 @@ class _$_Failure implements _Failure {
     Result failure(MovieFailure movieFailure),
     Result createSuccess(),
     Result deleteSuccess(),
-    Result watchSuccess(List<Movie> failureOrMovies),
+    Result watchSuccess(List<Movie> movies),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1144,7 +1144,7 @@ class _$_CreateSuccess implements _CreateSuccess {
     @required Result failure(MovieFailure movieFailure),
     @required Result createSuccess(),
     @required Result deleteSuccess(),
-    @required Result watchSuccess(List<Movie> failureOrMovies),
+    @required Result watchSuccess(List<Movie> movies),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -1163,7 +1163,7 @@ class _$_CreateSuccess implements _CreateSuccess {
     Result failure(MovieFailure movieFailure),
     Result createSuccess(),
     Result deleteSuccess(),
-    Result watchSuccess(List<Movie> failureOrMovies),
+    Result watchSuccess(List<Movie> movies),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1259,7 +1259,7 @@ class _$_DeleteSuccess implements _DeleteSuccess {
     @required Result failure(MovieFailure movieFailure),
     @required Result createSuccess(),
     @required Result deleteSuccess(),
-    @required Result watchSuccess(List<Movie> failureOrMovies),
+    @required Result watchSuccess(List<Movie> movies),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -1278,7 +1278,7 @@ class _$_DeleteSuccess implements _DeleteSuccess {
     Result failure(MovieFailure movieFailure),
     Result createSuccess(),
     Result deleteSuccess(),
-    Result watchSuccess(List<Movie> failureOrMovies),
+    Result watchSuccess(List<Movie> movies),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1335,7 +1335,7 @@ abstract class _$WatchSuccessCopyWith<$Res> {
   factory _$WatchSuccessCopyWith(
           _WatchSuccess value, $Res Function(_WatchSuccess) then) =
       __$WatchSuccessCopyWithImpl<$Res>;
-  $Res call({List<Movie> failureOrMovies});
+  $Res call({List<Movie> movies});
 }
 
 /// @nodoc
@@ -1351,41 +1351,37 @@ class __$WatchSuccessCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object failureOrMovies = freezed,
+    Object movies = freezed,
   }) {
     return _then(_WatchSuccess(
-      failureOrMovies == freezed
-          ? _value.failureOrMovies
-          : failureOrMovies as List<Movie>,
+      movies == freezed ? _value.movies : movies as List<Movie>,
     ));
   }
 }
 
 /// @nodoc
 class _$_WatchSuccess implements _WatchSuccess {
-  const _$_WatchSuccess(this.failureOrMovies) : assert(failureOrMovies != null);
+  const _$_WatchSuccess(this.movies) : assert(movies != null);
 
   @override
-  final List<Movie> failureOrMovies;
+  final List<Movie> movies;
 
   @override
   String toString() {
-    return 'FavoritemoviesState.watchSuccess(failureOrMovies: $failureOrMovies)';
+    return 'FavoritemoviesState.watchSuccess(movies: $movies)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _WatchSuccess &&
-            (identical(other.failureOrMovies, failureOrMovies) ||
-                const DeepCollectionEquality()
-                    .equals(other.failureOrMovies, failureOrMovies)));
+            (identical(other.movies, movies) ||
+                const DeepCollectionEquality().equals(other.movies, movies)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(failureOrMovies);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(movies);
 
   @override
   _$WatchSuccessCopyWith<_WatchSuccess> get copyWith =>
@@ -1399,7 +1395,7 @@ class _$_WatchSuccess implements _WatchSuccess {
     @required Result failure(MovieFailure movieFailure),
     @required Result createSuccess(),
     @required Result deleteSuccess(),
-    @required Result watchSuccess(List<Movie> failureOrMovies),
+    @required Result watchSuccess(List<Movie> movies),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -1407,7 +1403,7 @@ class _$_WatchSuccess implements _WatchSuccess {
     assert(createSuccess != null);
     assert(deleteSuccess != null);
     assert(watchSuccess != null);
-    return watchSuccess(failureOrMovies);
+    return watchSuccess(movies);
   }
 
   @override
@@ -1418,12 +1414,12 @@ class _$_WatchSuccess implements _WatchSuccess {
     Result failure(MovieFailure movieFailure),
     Result createSuccess(),
     Result deleteSuccess(),
-    Result watchSuccess(List<Movie> failureOrMovies),
+    Result watchSuccess(List<Movie> movies),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (watchSuccess != null) {
-      return watchSuccess(failureOrMovies);
+      return watchSuccess(movies);
     }
     return orElse();
   }
@@ -1467,8 +1463,8 @@ class _$_WatchSuccess implements _WatchSuccess {
 }
 
 abstract class _WatchSuccess implements FavoritemoviesState {
-  const factory _WatchSuccess(List<Movie> failureOrMovies) = _$_WatchSuccess;
+  const factory _WatchSuccess(List<Movie> movies) = _$_WatchSuccess;
 
-  List<Movie> get failureOrMovies;
+  List<Movie> get movies;
   _$WatchSuccessCopyWith<_WatchSuccess> get copyWith;
 }

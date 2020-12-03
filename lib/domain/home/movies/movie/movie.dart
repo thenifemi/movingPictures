@@ -60,7 +60,7 @@ abstract class Movie implements _$Movie {
             .toList(),
         releaseDates: ReleaseDates.fromJson(
             json["release_dates"] as Map<String, dynamic> ??
-                {"release_dates": ""}),
+                {"release_dates": []}),
         video:
             Videos.fromJson(json["videos"] as Map<String, dynamic> ?? {"": ""}),
       );

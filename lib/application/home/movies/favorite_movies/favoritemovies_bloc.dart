@@ -8,6 +8,7 @@ import 'package:injectable/injectable.dart';
 import '../../../../domain/home/movies/favorite_movies_interface.dart';
 import '../../../../domain/home/movies/movie/movie.dart';
 import '../../../../domain/home/movies/movie/movies_failure.dart';
+
 part 'favoritemovies_bloc.freezed.dart';
 part 'favoritemovies_event.dart';
 part 'favoritemovies_state.dart';
@@ -16,9 +17,9 @@ part 'favoritemovies_state.dart';
 class FavoritemoviesBloc
     extends Bloc<FavoritemoviesEvent, FavoritemoviesState> {
   final FavoriteMoviesInterface favoriteMoviesInterface;
-  FavoritemoviesBloc(this.favoriteMoviesInterface) : super(const _Initial());
-
   StreamSubscription<Either<MovieFailure, List<Movie>>> favoriteMoviesStream;
+
+  FavoritemoviesBloc(this.favoriteMoviesInterface) : super(const _Initial());
 
   @override
   Stream<FavoritemoviesState> mapEventToState(
@@ -45,6 +46,8 @@ class FavoritemoviesBloc
           (_) => const FavoritemoviesState.deleteSuccess(),
         );
       },
+
+      //? Stream watchers
       watchFavorites: (e) async* {
         yield const FavoritemoviesState.loading();
         await favoriteMoviesStream?.cancel();

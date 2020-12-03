@@ -11,7 +11,7 @@ class ReleaseDates {
         results: List<Result>.from(
           json["results"].map(
             (x) => Result.fromJson(x as Map<String, dynamic>),
-          ) as Iterable,
+          ) as Iterable<dynamic>,
         ),
       );
 
@@ -34,7 +34,7 @@ class Result {
         releaseDates: List<ReleaseDate>.from(
           json["release_dates"].map(
             (x) => ReleaseDate.fromJson(x as Map<String, dynamic>),
-          ) as Iterable,
+          ) as Iterable<dynamic>,
         ),
       );
 
