@@ -8,6 +8,5 @@ abstract class FavoritemoviesEvent with _$FavoritemoviesEvent {
       _FavoriteDeleted;
   const factory FavoritemoviesEvent.watchFavorites() = _WatchFavorites;
   const factory FavoritemoviesEvent.favoritesRecieved(
-          Either<MovieFailure, List<FavoriteMovie>> failureOrMovies) =
-      _FavoritesRecieved;
+      Either<MovieFailure, List<int>> failureOrMovies) = _FavoritesRecieved;
 }

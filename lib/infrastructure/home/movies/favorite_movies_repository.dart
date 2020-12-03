@@ -14,12 +14,10 @@ class FavoriteMoviesRepository extends FavoriteMoviesInterface {
   FavoriteMoviesRepository(this._firestore);
 
   @override
-  Future<Either<MovieFailure, Unit>> createFavoriteMovie(
-      FavoriteMovie favoriteMovie) async {
+  Future<Either<MovieFailure, Unit>> createFavoriteMovie(int movieId) async {
     try {
-      final favoriteMovieDoc =
-          await _firestore.favoriteMovieDocument(favoriteMovie.favoriteMovieId);
-      await favoriteMovieDoc.set(favoriteMovie.toJson());
+      final favoriteMovieDoc = await _firestore.favoriteMovieDocument(movieId);
+      await favoriteMovieDoc.set({"id": movieId});
 
       return right(unit);
     } on FirebaseException catch (e) {
@@ -33,11 +31,9 @@ class FavoriteMoviesRepository extends FavoriteMoviesInterface {
   }
 
   @override
-  Future<Either<MovieFailure, Unit>> deleteFavoriteMovie(
-      FavoriteMovie favoriteMovie) async {
+  Future<Either<MovieFailure, Unit>> deleteFavoriteMovie(int movieId) async {
     try {
-      final favoriteMovieDoc =
-          await _firestore.favoriteMovieDocument(favoriteMovie.favoriteMovieId);
+      final favoriteMovieDoc = await _firestore.favoriteMovieDocument(movieId);
       await favoriteMovieDoc.delete();
 
       return right(unit);
@@ -54,17 +50,14 @@ class FavoriteMoviesRepository extends FavoriteMoviesInterface {
   }
 
   @override
-  Stream<Either<MovieFailure, List<FavoriteMovie>>>
-      watchMovieFavorites() async* {
+  Stream<Either<MovieFailure, List<int>>> watchMovieFavorites() async* {
     final userDoc = await _firestore.userDocument();
     yield* userDoc
         .collection('movies')
         .snapshots()
         .map(
-          (snapshot) => right<MovieFailure, List<FavoriteMovie>>(
-            snapshot.docs
-                .map((doc) => FavoriteMovie.fromFirebase(doc))
-                .toList(),
+          (snapshot) => right<MovieFailure, List<int>>(
+            snapshot.docs.map((doc) => doc.data() as int).toList(),
           ),
         )
         .handleError((e, s) {

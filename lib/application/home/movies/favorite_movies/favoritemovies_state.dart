@@ -8,6 +8,6 @@ abstract class FavoritemoviesState with _$FavoritemoviesState {
       _Failure;
   const factory FavoritemoviesState.createSuccess() = _CreateSuccess;
   const factory FavoritemoviesState.deleteSuccess() = _DeleteSuccess;
-  const factory FavoritemoviesState.watchSuccess(
-      List<FavoriteMovie> favoriteMovies) = _WatchSuccess;
+  const factory FavoritemoviesState.watchSuccess(List<int> favoriteMovies) =
+      _WatchSuccess;
 }
