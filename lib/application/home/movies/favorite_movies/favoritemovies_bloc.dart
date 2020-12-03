@@ -17,7 +17,8 @@ part 'favoritemovies_state.dart';
 class FavoritemoviesBloc
     extends Bloc<FavoritemoviesEvent, FavoritemoviesState> {
   final FavoriteMoviesInterface favoriteMoviesInterface;
-  StreamSubscription<Either<MovieFailure, List<Movie>>> favoriteMoviesStream;
+  StreamSubscription<Either<MovieFailure, List<FavoriteMovie>>>
+      favoriteMoviesStream;
 
   FavoritemoviesBloc(this.favoriteMoviesInterface) : super(const _Initial());
 
@@ -29,7 +30,7 @@ class FavoritemoviesBloc
       favoriteCreated: (e) async* {
         yield const FavoritemoviesState.loading();
         final failureOrSuccess =
-            await favoriteMoviesInterface.createFavoriteMovie(e.movie);
+            await favoriteMoviesInterface.createFavoriteMovie(e.movieId);
 
         yield failureOrSuccess.fold(
           (f) => FavoritemoviesState.failure(f),
@@ -39,7 +40,7 @@ class FavoritemoviesBloc
       favoriteDeleted: (e) async* {
         yield const FavoritemoviesState.loading();
         final failureOrSuccess =
-            await favoriteMoviesInterface.deleteFavoriteMovie(e.movie);
+            await favoriteMoviesInterface.deleteFavoriteMovie(e.movieId);
 
         yield failureOrSuccess.fold(
           (f) => FavoritemoviesState.failure(f),

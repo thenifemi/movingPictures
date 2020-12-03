@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:meta/meta.dart';
+
 import 'package:movingPictures/presentation/core/constants/language_constants.dart';
 
 import '../genres/genre.dart';
@@ -82,4 +84,18 @@ abstract class Movie implements _$Movie {
 
   factory Movie.fromFirebase(DocumentSnapshot doc) =>
       Movie.fromJson(doc.data());
+}
+
+class FavoriteMovie {
+  final int favoriteMovieId;
+
+  FavoriteMovie({@required this.favoriteMovieId});
+
+  Map<String, dynamic> toJson() => {"id": favoriteMovieId};
+
+  factory FavoriteMovie.fromJson(Map<String, dynamic> json) =>
+      FavoriteMovie(favoriteMovieId: json["id"] as int ?? -0);
+
+  factory FavoriteMovie.fromFirebase(DocumentSnapshot doc) =>
+      FavoriteMovie.fromJson(doc.data());
 }

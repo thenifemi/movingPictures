@@ -4,7 +4,7 @@ import 'movie/movie.dart';
 import 'movie/movies_failure.dart';
 
 abstract class FavoriteMoviesInterface {
-  Stream<Either<MovieFailure, List<Movie>>> watchMovieFavorites();
-  Future<Either<MovieFailure, Unit>> createFavoriteMovie(Movie movie);
-  Future<Either<MovieFailure, Unit>> deleteFavoriteMovie(Movie movie);
+  Stream<Either<MovieFailure, List<FavoriteMovie>>> watchMovieFavorites();
+  Future<Either<MovieFailure, Unit>> createFavoriteMovie(int movieId);
+  Future<Either<MovieFailure, Unit>> deleteFavoriteMovie(int movieId);
 }

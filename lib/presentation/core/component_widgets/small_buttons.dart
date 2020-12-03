@@ -106,7 +106,8 @@ class FavoriteButtonWidget extends HookWidget {
               ),
             ),
             watchSuccess: (state) {
-              if (state.movies.contains(movie.id)) toggleState.value = true;
+              if (state.favoriteMovies.contains(movie.id))
+                toggleState.value = true;
 
               return SizedBox(
                 child: RawMaterialButton(
@@ -114,8 +115,8 @@ class FavoriteButtonWidget extends HookWidget {
                     toggleState.value = !toggleState.value;
                     context.read<FavoritemoviesBloc>().add(
                           toggleState.value
-                              ? FavoritemoviesEvent.favoriteCreated(movie)
-                              : FavoritemoviesEvent.favoriteDeleted(movie),
+                              ? FavoritemoviesEvent.favoriteCreated(movie.id)
+                              : FavoritemoviesEvent.favoriteDeleted(movie.id),
                         );
                   },
                   child: AnimatedSwitcher(
