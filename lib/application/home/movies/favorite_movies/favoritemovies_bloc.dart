@@ -8,7 +8,6 @@ import 'package:injectable/injectable.dart';
 import '../../../../domain/home/movies/favorite_movies_interface.dart';
 import '../../../../domain/home/movies/movie/movie.dart';
 import '../../../../domain/home/movies/movie/movies_failure.dart';
-
 part 'favoritemovies_bloc.freezed.dart';
 part 'favoritemovies_event.dart';
 part 'favoritemovies_state.dart';
@@ -55,8 +54,6 @@ class FavoritemoviesBloc
             .listen((failureOrMovies) => add(
                   FavoritemoviesEvent.favoritesRecieved(failureOrMovies),
                 ));
-
-        yield favoriteMoviesStream;
       },
       favoritesRecieved: (e) async* {
         yield e.failureOrMovies.fold(

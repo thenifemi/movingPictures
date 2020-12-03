@@ -96,13 +96,16 @@ class FavoriteButtonWidget extends HookWidget {
             child: RawMaterialButton(
               onPressed: () {
                 toggleState.value = !toggleState.value;
-                context.watch<FavoritemoviesBloc>().add(toggleState.value
+                context.read()<FavoritemoviesBloc>().add(toggleState.value
                     ? FavoritemoviesEvent.favoriteCreated(movie)
                     : FavoritemoviesEvent.favoriteDeleted(movie));
               },
               child: state.maybeMap(
                 initial: (_) {
-                  return const CircularProgressIndicator();
+                  return Container(
+                    height: 30.0,
+                    color: Colors.green,
+                  );
                 },
                 loading: (_) {
                   return const CircularProgressIndicator();
@@ -142,7 +145,7 @@ class FavoriteButtonWidget extends HookWidget {
                     ],
                   );
                 },
-                orElse: null,
+                orElse: () => null,
               ),
             ),
           );

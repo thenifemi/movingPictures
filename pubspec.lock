@@ -517,7 +517,7 @@ packages:
       name: json_serializable
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.5.0"
+    version: "3.5.1"
   kt_dart:
     dependency: "direct main"
     description:
@@ -746,7 +746,7 @@ packages:
       name: source_gen
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.9.8"
+    version: "0.9.9"
   source_span:
     dependency: transitive
     description:
