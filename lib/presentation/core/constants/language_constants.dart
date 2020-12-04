@@ -37,6 +37,7 @@ const String moreInfo = "moreInfo";
 const String info = "info";
 const String share = "share";
 const String favorite = "favorite";
+const String favorited = "favorited";
 const String watchTrailer = "watchTrailer";
 const String visitHome = "visitHome";
 const String starring = "starring";

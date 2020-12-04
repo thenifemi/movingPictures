@@ -20,71 +20,52 @@ class FavoriteButtonWidget extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final toggleState = useState(false);
-
     final lang = AppLocalizations.of(context);
     final appTextTheme = Theme.of(context).textTheme;
 
     return BlocProvider(
       create: (context) => getIt<FavoritemoviesBloc>()
         ..add(const FavoritemoviesEvent.watchFavorites()),
-      child: BlocConsumer<FavoritemoviesBloc, FavoritemoviesState>(
-        listener: (context, state) {
-          state.maybeMap(
-            orElse: () => Container(),
-          );
-        },
+      child: BlocBuilder<FavoritemoviesBloc, FavoritemoviesState>(
+        buildWhen: (previous, current) => previous != current,
         builder: (context, state) {
           return state.maybeMap(
             orElse: () => Container(),
             loading: (_) => const RawMaterialButton(
+                onPressed: null,
+                child: CircularProgressIndicator(
+                  backgroundColor: AppColors.white,
+                )),
+            failure: (_) => RawMaterialButton(
               onPressed: null,
-              child: CircularProgressIndicator(
-                backgroundColor: AppColors.white,
-              ),
+              child: Container(color: AppColors.red),
             ),
             watchSuccess: (state) {
               final isMovieEmpty = state.favoriteMovies
                   .where((e) => e.favoriteMovieId == movie.id);
-              if (isMovieEmpty.isNotEmpty) {
-                toggleState.value = true;
-              }
 
               return SizedBox(
                 child: RawMaterialButton(
                   onPressed: () async {
-                    context.read<FavoritemoviesBloc>().add(
-                          toggleState.value == false
-                              ? FavoritemoviesEvent.favoriteCreated(movie.id)
-                              : FavoritemoviesEvent.favoriteDeleted(movie.id),
-                        );
-                    toggleState.value == true
-                        ? toggleState.value = false
-                        : toggleState.value;
+                    context.read<FavoritemoviesBloc>().add(isMovieEmpty.isEmpty
+                        ? FavoritemoviesEvent.favoriteCreated(movie.id)
+                        : FavoritemoviesEvent.favoriteDeleted(movie.id));
                   },
-                  child: AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 300),
-                    transitionBuilder: (child, animation) => ScaleTransition(
-                      scale: animation,
-                      child: child,
-                    ),
-                    child: Column(
-                      children: [
-                        SvgPicture.asset(
-                          toggleState.value == true
-                              ? favoriteFilledIcon
-                              : favoriteIcon,
-                          color: AppColors.white,
-                        ),
-                        const SizedBox(height: 5.0),
-                        Text(
-                          toggleState.value == true
-                              ? "favorited"
-                              : lang.translate(favorite),
-                          style: appTextTheme.subtitle1,
-                        ),
-                      ],
-                    ),
+                  child: Column(
+                    children: [
+                      SvgPicture.asset(
+                        isMovieEmpty.isNotEmpty
+                            ? favoriteFilledIcon
+                            : favoriteIcon,
+                        color: AppColors.white,
+                      ),
+                      const SizedBox(height: 5.0),
+                      Text(
+                        lang.translate(
+                            isMovieEmpty.isNotEmpty ? favorited : favorite),
+                        style: appTextTheme.subtitle1,
+                      ),
+                    ],
                   ),
                 ),
               );
