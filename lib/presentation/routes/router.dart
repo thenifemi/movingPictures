@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route_annotations.dart';
+import 'package:movingPictures/presentation/favorites/favorites.dart';
 
 import '../home/movies/cast_movies_screen.dart';
 import '../home/movies/genre_movies_screen.dart';
@@ -17,6 +18,7 @@ import '../splash/splash_screen.dart';
     CupertinoRoute(page: MovieOrSeriesInfo, fullscreenDialog: true),
     CupertinoRoute(page: GenreMoviesScreen, fullscreenDialog: true),
     CupertinoRoute(page: CastMoviesScreen, fullscreenDialog: true),
+    CupertinoRoute(page: Favorites, fullscreenDialog: true),
   ],
   generateNavigationHelperExtension: true,
 )

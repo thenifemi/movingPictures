@@ -14,6 +14,7 @@ import '../../domain/auth/app_user.dart';
 import '../../domain/home/movies/cast/cast.dart';
 import '../../domain/home/movies/genres/genre.dart';
 import '../../domain/home/movies/movie/movie.dart';
+import '../favorites/favorites.dart';
 import '../home/movies/cast_movies_screen.dart';
 import '../home/movies/genre_movies_screen.dart';
 import '../main_layout_appbar_navbar/main_body_layout.dart';
@@ -30,6 +31,7 @@ class Routes {
   static const String movieOrSeriesInfo = '/movie-or-series-info';
   static const String genreMoviesScreen = '/genre-movies-screen';
   static const String castMoviesScreen = '/cast-movies-screen';
+  static const String favorites = '/Favorites';
   static const all = <String>{
     splashScreen,
     signInScreen,
@@ -38,6 +40,7 @@ class Routes {
     movieOrSeriesInfo,
     genreMoviesScreen,
     castMoviesScreen,
+    favorites,
   };
 }
 
@@ -52,6 +55,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.movieOrSeriesInfo, page: MovieOrSeriesInfo),
     RouteDef(Routes.genreMoviesScreen, page: GenreMoviesScreen),
     RouteDef(Routes.castMoviesScreen, page: CastMoviesScreen),
+    RouteDef(Routes.favorites, page: Favorites),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -121,6 +125,17 @@ class AppRouter extends RouterBase {
         fullscreenDialog: true,
       );
     },
+    Favorites: (data) {
+      final args = data.getArgs<FavoritesArguments>(nullOk: false);
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => Favorites(
+          key: args.key,
+          automaticallyImplyLeading: args.automaticallyImplyLeading,
+        ),
+        settings: data,
+        fullscreenDialog: true,
+      );
+    },
   };
 }
 
@@ -172,6 +187,16 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
         Routes.castMoviesScreen,
         arguments: CastMoviesScreenArguments(key: key, cast: cast),
       );
+
+  Future<dynamic> pushFavorites({
+    Key key,
+    @required bool automaticallyImplyLeading,
+  }) =>
+      push<dynamic>(
+        Routes.favorites,
+        arguments: FavoritesArguments(
+            key: key, automaticallyImplyLeading: automaticallyImplyLeading),
+      );
 }
 
 /// ************************************************************************
@@ -205,4 +230,11 @@ class CastMoviesScreenArguments {
   final Key key;
   final Cast cast;
   CastMoviesScreenArguments({this.key, @required this.cast});
+}
+
+/// Favorites arguments holder class
+class FavoritesArguments {
+  final Key key;
+  final bool automaticallyImplyLeading;
+  FavoritesArguments({this.key, @required this.automaticallyImplyLeading});
 }

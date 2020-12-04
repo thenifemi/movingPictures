@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movingPictures/domain/home/movies/favorite_movies/favorite_movies.dart';
 
 import '../../application/home/movies/favorite_movies/favoritemovies_bloc.dart';
 import '../../application/home/movies/movies/movies_bloc.dart';
+import '../../domain/home/movies/favorite_movies/favorite_movies.dart';
 import '../../injection.dart';
 import '../core/app_colors.dart';
 import '../core/app_localizations.dart';
