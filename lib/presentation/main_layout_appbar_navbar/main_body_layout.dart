@@ -22,7 +22,7 @@ class _MainBodyLayoutState extends State<MainBodyLayout> {
   final _children = [
     const Home(),
     Search(),
-    Favorites(),
+    const Favorites(automaticallyImplyLeading: false),
     Friends(),
   ];
 
