@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movingPictures/presentation/core/component_widgets/poster_image_widget.dart';
 
 import '../../../application/home/movies/movies/movies_bloc.dart';
 import '../../../domain/home/movies/movie_sub/movie_sub.dart';
-import '../../../infrastructure/core/credentials.dart';
 import '../../../injection.dart';
 import '../../core/app_colors.dart';
 import '../../core/app_localizations.dart';
 import '../../core/component_widgets/movie_loading_wigdet.dart';
+import '../../core/component_widgets/poster_image_widget.dart';
 import 'build_show_info_modal_bottom_sheet_widget.dart';
 
 class RegularBlockWidget extends StatelessWidget {
@@ -99,7 +98,7 @@ class MovieData extends StatelessWidget {
                   message: movie.title,
                   child: Container(
                     padding: const EdgeInsets.only(right: 10.0),
-                    width: MediaQuery.of(context).size.height / 7,
+                    width: MediaQuery.of(context).size.width / 3.5,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(5.0),
                       child: PosterImageWidget(movie: movie),
