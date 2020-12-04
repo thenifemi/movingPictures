@@ -32,7 +32,7 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
         children: [
           Image.asset(
             movingPicturesManLogoRedNoBackground,
-            height: 60.0,
+            height: 50.0,
           ),
           TabBar(
             controller: tabController,
@@ -83,7 +83,7 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
                     onTap: () => ExtendedNavigator.of(context)
                         .pushProfileScreen(user: user),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10.0),
+                      padding: const EdgeInsets.symmetric(vertical: 5.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(100.0),
                         child: Image.network(
