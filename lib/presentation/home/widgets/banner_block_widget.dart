@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movingPictures/presentation/home/widgets/build_show_info_modal_bottom_sheet_widget.dart';
 
 import '../../../application/home/movies/movies/movies_bloc.dart';
 import '../../../domain/home/movies/movie/movie.dart';
@@ -62,30 +63,37 @@ class BannerMovie extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: MediaQuery.of(context).size.height / 1.6,
-      child: Stack(
-        children: [
-          Container(
-            width: double.infinity,
-            foregroundDecoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  AppColors.black.withOpacity(0.1),
-                  AppColors.black.withOpacity(0.9)
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
+      child: GestureDetector(
+        onTap: () => buildShowInfoModalBottomSheet(
+          context: context,
+          appTextTheme: appTextTheme,
+          movieId: movie.id,
+        ),
+        child: Stack(
+          children: [
+            Container(
+              width: double.infinity,
+              foregroundDecoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    AppColors.black.withOpacity(0.1),
+                    AppColors.black.withOpacity(0.9)
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10.0),
+                child: PosterImageWidget(movie: movie),
               ),
             ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10.0),
-              child: PosterImageWidget(movie: movie),
+            BottomItems(
+              appTextTheme: appTextTheme,
+              movie: movie,
             ),
-          ),
-          BottomItems(
-            appTextTheme: appTextTheme,
-            movie: movie,
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

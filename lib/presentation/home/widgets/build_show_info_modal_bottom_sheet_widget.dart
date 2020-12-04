@@ -23,7 +23,7 @@ import '../../core/constants/language_constants.dart';
 import '../../routes/router.gr.dart';
 
 Future buildShowInfoModalBottomSheet({
-  BuildContext context,
+  @required BuildContext context,
   @required TextTheme appTextTheme,
   @required int movieId,
 }) {
@@ -75,12 +75,20 @@ class MovieData extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              PosterBlock(movie: movie),
+              GestureDetector(
+                onTap: () => ExtendedNavigator.of(context)
+                    .pushMovieOrSeriesInfo(movie: movie),
+                child: PosterBlock(movie: movie),
+              ),
               const SizedBox(width: 10.0),
               Expanded(
-                child: TitleSubtitleBodyBlock(
-                  appTextTheme: appTextTheme,
-                  movie: movie,
+                child: GestureDetector(
+                  onTap: () => ExtendedNavigator.of(context)
+                      .pushMovieOrSeriesInfo(movie: movie),
+                  child: TitleSubtitleBodyBlock(
+                    appTextTheme: appTextTheme,
+                    movie: movie,
+                  ),
                 ),
               ),
             ],
