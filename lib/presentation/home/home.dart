@@ -57,26 +57,28 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       child: Scaffold(
         body: NotificationListener<ScrollNotification>(
           onNotification: _scrollListener,
-          child: Stack(children: [
-            TabBarView(
-              controller: widget.tabController,
-              physics: const NeverScrollableScrollPhysics(),
-              children: const [
-                MoviesTabScreen(),
-                SeriesTabScreen(),
-              ],
-            ),
-            SizedBox(
-              height: 80.0,
-              child: AnimatedBuilder(
-                animation: _colorAnimationController,
-                builder: (context, child) => HomeAppBar(
-                  tabController: widget.tabController,
-                  colorTween: _colorTween,
+          child: Stack(
+            children: [
+              TabBarView(
+                controller: widget.tabController,
+                physics: const NeverScrollableScrollPhysics(),
+                children: const [
+                  MoviesTabScreen(),
+                  SeriesTabScreen(),
+                ],
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 10,
+                child: AnimatedBuilder(
+                  animation: _colorAnimationController,
+                  builder: (context, child) => HomeAppBar(
+                    tabController: widget.tabController,
+                    colorTween: _colorTween,
+                  ),
                 ),
               ),
-            ),
-          ]),
+            ],
+          ),
         ),
       ),
     );
