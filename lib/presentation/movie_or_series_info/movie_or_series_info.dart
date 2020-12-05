@@ -26,7 +26,7 @@ class MovieOrSeriesInfo extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: heightSize * 0.03),
+            SizedBox(height: heightSize * 0.04),
             //* Top Container: Holds Movie/Series information
             Stack(
               children: [
