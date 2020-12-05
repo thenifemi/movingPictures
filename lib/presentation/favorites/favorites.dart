@@ -7,10 +7,12 @@ import 'favorite_movies_tab.dart';
 
 class Favorites extends StatelessWidget {
   final bool automaticallyImplyLeading;
+  final TabController tabController;
 
   const Favorites({
     Key key,
     @required this.automaticallyImplyLeading,
+    this.tabController,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
