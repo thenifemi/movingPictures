@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:movingPictures/presentation/core/constants/constants.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../../domain/auth/app_user.dart';
@@ -10,11 +9,12 @@ import '../core/app_colors.dart';
 import '../core/app_localizations.dart';
 import '../core/component_widgets/cancel_button_widget.dart';
 import '../core/component_widgets/primary_button_widget.dart';
+import '../core/constants/constants.dart';
 import '../core/constants/language_constants.dart';
+import '../routes/router.gr.dart';
 import 'widgets/github_block.dart';
 import 'widgets/profile_info_block_widget.dart';
 import 'widgets/tmdb_block.dart';
-import '../routes/router.gr.dart';
 
 class ProfileScreen extends StatelessWidget {
   final TextTheme appTextTheme;
@@ -38,7 +38,7 @@ class ProfileScreen extends StatelessWidget {
           return AlertDialog(
             backgroundColor: AppColors.gray,
             title: Text(
-              "${lang.translate(signOut)} ${lang.translate(questionMark)}",
+              "${lang.translate(signOut)} ?",
               style: appTextTheme.headline6,
             ),
             actions: <Widget>[
@@ -77,30 +77,22 @@ class ProfileScreen extends StatelessWidget {
             const Divider(color: AppColors.gray, height: 1.0),
 
             //?
-            RawMaterialButton(
-              onPressed: () => ExtendedNavigator.of(context)
+            ListTile(
+              onTap: () => ExtendedNavigator.of(context)
                   .pushFavorites(automaticallyImplyLeading: true),
-              child: SizedBox(
-                height: 60.0,
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      favoriteFilledIcon,
-                      color: AppColors.white,
-                    ),
-                    const SizedBox(width: 5.0),
-                    Text(lang.translate(favorites),
-                        style: appTextTheme.bodyText1),
-                    const Spacer(),
-                    const Icon(
-                      Icons.arrow_forward_ios,
-                      color: AppColors.white,
-                      size: 10.0,
-                    )
-                  ],
-                ),
+              leading: SvgPicture.asset(
+                favoriteFilledIcon,
+                color: AppColors.white,
+              ),
+              title: Text(lang.translate(favorites),
+                  style: appTextTheme.bodyText1),
+              trailing: const Icon(
+                Icons.arrow_forward_ios,
+                color: AppColors.white,
+                size: 10.0,
               ),
             ),
+
             const Divider(color: AppColors.gray, height: 1.0),
             //?
             const Spacer(),
