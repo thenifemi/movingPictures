@@ -40,6 +40,8 @@ class Favorites extends StatelessWidget {
   }
 }
 
+//*AppBar Widget
+
 class FavoritesTabBar extends StatelessWidget implements PreferredSizeWidget {
   const FavoritesTabBar({
     Key key,
