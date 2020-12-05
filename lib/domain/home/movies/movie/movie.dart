@@ -3,8 +3,6 @@ import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
-import 'package:movingPictures/presentation/core/constants/language_constants.dart';
-
 import '../genres/genre.dart';
 import 'release_dates.dart';
 import 'videos.dart';
