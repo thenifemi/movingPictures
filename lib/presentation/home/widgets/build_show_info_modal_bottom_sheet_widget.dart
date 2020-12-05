@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:movingPictures/presentation/core/component_widgets/favorite_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../application/home/movies/movies/movies_bloc.dart';
@@ -13,6 +12,7 @@ import '../../core/app_colors.dart';
 import '../../core/app_localizations.dart';
 import '../../core/component_widgets/age_restriction_widget.dart';
 import '../../core/component_widgets/cancel_button_widget.dart';
+import '../../core/component_widgets/favorite_button.dart';
 import '../../core/component_widgets/flushbar_method.dart';
 import '../../core/component_widgets/movie_loading_wigdet.dart';
 import '../../core/component_widgets/poster_image_widget.dart';
@@ -20,6 +20,7 @@ import '../../core/component_widgets/primary_button_widget.dart';
 import '../../core/component_widgets/small_buttons.dart';
 import '../../core/constants/constants.dart';
 import '../../core/constants/language_constants.dart';
+import '../../movie_or_series_info/widgets/little_favorite_sub_data_icon.dart';
 import '../../routes/router.gr.dart';
 
 Future buildShowInfoModalBottomSheet({
@@ -172,6 +173,7 @@ class TitleSubtitleBodyBlock extends StatelessWidget {
                   Wrap(
                     crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
+                      LitteFavoriteSubDataIcon(movie: movie),
                       Text(
                         movie.releaseDate,
                         style: appTextTheme.subtitle1,
