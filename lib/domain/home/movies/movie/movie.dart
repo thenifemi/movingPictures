@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -12,7 +13,7 @@ part 'movie.freezed.dart';
 part 'movie.g.dart';
 
 @freezed
-abstract class Movie implements _$Movie {
+abstract class Movie extends Equatable implements _$Movie {
   const factory Movie({
     @required int id,
     @required String title,
@@ -27,7 +28,7 @@ abstract class Movie implements _$Movie {
     @required Videos video,
   }) = _Movie;
 
-  const Movie._();
+  const Movie._() : super();
 
   Movie toDomain() {
     return Movie(
@@ -76,7 +77,7 @@ abstract class Movie implements _$Movie {
         "runtime": runtime,
         "release_date": releaseDate,
         "release_dates": releaseDates,
-        "homepage": home,
+        "homepage": homepage,
         "vote_average": voteAverage,
         "genres": genres,
         "videos": video,
@@ -84,4 +85,18 @@ abstract class Movie implements _$Movie {
 
   factory Movie.fromFirebase(DocumentSnapshot doc) =>
       Movie.fromJson(doc.data());
+
+  @override
+  List<Object> get props => [
+        id,
+        title,
+        posterPath,
+        overview,
+        runtime,
+        releaseDate,
+        releaseDates,
+        homepage,
+        genres,
+        video,
+      ];
 }

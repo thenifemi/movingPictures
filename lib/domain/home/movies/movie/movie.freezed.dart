@@ -252,11 +252,6 @@ class _$_Movie extends _Movie {
   final Videos video;
 
   @override
-  String toString() {
-    return 'Movie(id: $id, title: $title, posterPath: $posterPath, overview: $overview, releaseDate: $releaseDate, runtime: $runtime, releaseDates: $releaseDates, voteAverage: $voteAverage, genres: $genres, homepage: $homepage, video: $video)';
-  }
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Movie &&
