@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movingPictures/application/home/movies/movies/movies_bloc.dart';
 
+import '../../../application/home/movies/movies/movies_bloc.dart';
 import '../../core/constants/language_constants.dart';
 import '../widgets/all_genres_block.dart';
 import '../widgets/banner_block_widget.dart';
