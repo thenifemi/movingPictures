@@ -1,13 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'favorite_movies.freezed.dart';
-
-@freezed
-abstract class FavoriteMovie implements _$FavoriteMovie {
-  const factory FavoriteMovie({@required int favoriteMovieId}) = _FavoriteMovie;
-  const FavoriteMovie._();
+class FavoriteMovie extends Equatable {
+  final int favoriteMovieId;
+  const FavoriteMovie({@required this.favoriteMovieId}) : super();
 
   Map<String, dynamic> toJson() => {"id": favoriteMovieId};
 
@@ -16,4 +14,7 @@ abstract class FavoriteMovie implements _$FavoriteMovie {
 
   factory FavoriteMovie.fromFirebase(DocumentSnapshot doc) =>
       FavoriteMovie.fromJsonData(doc.data());
+
+  @override
+  List<Object> get props => [favoriteMovieId];
 }

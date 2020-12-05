@@ -34,7 +34,15 @@ class Favorites extends StatelessWidget {
       body: BlocProvider(
         create: (context) => getIt<FavoritemoviesBloc>()
           ..add(const FavoritemoviesEvent.watchFavorites()),
-        child: BlocBuilder<FavoritemoviesBloc, FavoritemoviesState>(
+        child: BlocConsumer<FavoritemoviesBloc, FavoritemoviesState>(
+          listener: (context, state) {
+            state.maybeMap(
+              createSuccess: (_) => const FavoritemoviesEvent.watchFavorites(),
+              deleteSuccess: (_) => const FavoritemoviesEvent.watchFavorites(),
+              orElse: () => null,
+            );
+          },
+          buildWhen: (previous, current) => previous != current,
           builder: (context, state) {
             return state.maybeMap(
               orElse: () => Container(),
@@ -96,6 +104,7 @@ class FavMovies extends StatelessWidget {
               create: (context) => getIt<MoviesBloc>()
                 ..add(MoviesEvent.movieCalled(favMovie.favoriteMovieId)),
               child: BlocBuilder<MoviesBloc, MoviesState>(
+                buildWhen: (previous, current) => previous != current,
                 builder: (context, state) {
                   return state.map(
                     initial: (_) => const MovieLoadingWidget(),
