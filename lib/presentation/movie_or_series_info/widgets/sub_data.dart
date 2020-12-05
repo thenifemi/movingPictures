@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../../domain/home/movies/movie/movie.dart';
-import '../../core/app_colors.dart';
 import '../../core/component_widgets/age_restriction_widget.dart';
-import '../../core/constants/constants.dart';
+import 'little_favorite_sub_data_icon.dart';
 
 class SubData extends StatelessWidget {
   final Movie movie;
@@ -31,13 +29,7 @@ class SubData extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(
-          height: 15.0,
-          child: SvgPicture.asset(
-            favoriteFilledIcon,
-            color: AppColors.white,
-          ),
-        ),
+        LitteFavoriteSubDataIcon(movie: movie),
         const SizedBox(width: 10.0),
         Text(movie.voteAverage.toString(),
             style: TextStyle(
