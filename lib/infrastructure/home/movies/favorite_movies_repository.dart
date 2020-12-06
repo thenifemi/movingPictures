@@ -63,14 +63,10 @@ class FavoriteMoviesRepository extends FavoriteMoviesInterface {
                 .toList(),
           ),
         )
-        .handleError((e, s) {
+        .handleError((e) {
       if (e is FirebaseException && e.message.contains('PERMISSION_DENIED')) {
         return left(const MovieFailure.insufficientPermissions());
       } else {
-        //log error
-        print(e);
-        print(s);
-
         return left(const MovieFailure.unexpected());
       }
     });
