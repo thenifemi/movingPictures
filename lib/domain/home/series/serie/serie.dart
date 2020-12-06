@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../presentation/home/widgets/all_genres_block.dart';
 import '../../shared_classes/genres/genre.dart';
 import '../../shared_classes/videos.dart';
 import 'content_ratings.dart';
@@ -47,6 +46,7 @@ abstract class Serie with _$Serie {
         videos: Videos.fromJson(json["videos"] as Map<String, dynamic>),
       );
 
+  @override
   Map<String, dynamic> toJson() => {
         "first_air_date": firstAirDate,
         "genres": genres,
