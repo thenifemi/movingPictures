@@ -8,6 +8,9 @@ part of 'serie.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+Serie _$SerieFromJson(Map<String, dynamic> json) {
+  return _Serie.fromJson(json);
+}
 
 /// @nodoc
 class _$SerieTearOff {
@@ -16,7 +19,7 @@ class _$SerieTearOff {
 // ignore: unused_element
   _Serie call(
       {@required DateTime firstAirDate,
-      @required List<Genres> genres,
+      @required List<Genre> genres,
       @required String homepage,
       @required int id,
       @required String name,
@@ -44,6 +47,11 @@ class _$SerieTearOff {
       videos: videos,
     );
   }
+
+// ignore: unused_element
+  Serie fromJson(Map<String, Object> json) {
+    return Serie.fromJson(json);
+  }
 }
 
 /// @nodoc
@@ -53,7 +61,7 @@ const $Serie = _$SerieTearOff();
 /// @nodoc
 mixin _$Serie {
   DateTime get firstAirDate;
-  List<Genres> get genres;
+  List<Genre> get genres;
   String get homepage;
   int get id;
   String get name;
@@ -66,6 +74,7 @@ mixin _$Serie {
   ContentRatings get contentRatings;
   Videos get videos;
 
+  Map<String, dynamic> toJson();
   $SerieCopyWith<Serie> get copyWith;
 }
 
@@ -75,7 +84,7 @@ abstract class $SerieCopyWith<$Res> {
       _$SerieCopyWithImpl<$Res>;
   $Res call(
       {DateTime firstAirDate,
-      List<Genres> genres,
+      List<Genre> genres,
       String homepage,
       int id,
       String name,
@@ -117,7 +126,7 @@ class _$SerieCopyWithImpl<$Res> implements $SerieCopyWith<$Res> {
       firstAirDate: firstAirDate == freezed
           ? _value.firstAirDate
           : firstAirDate as DateTime,
-      genres: genres == freezed ? _value.genres : genres as List<Genres>,
+      genres: genres == freezed ? _value.genres : genres as List<Genre>,
       homepage: homepage == freezed ? _value.homepage : homepage as String,
       id: id == freezed ? _value.id : id as int,
       name: name == freezed ? _value.name : name as String,
@@ -148,7 +157,7 @@ abstract class _$SerieCopyWith<$Res> implements $SerieCopyWith<$Res> {
   @override
   $Res call(
       {DateTime firstAirDate,
-      List<Genres> genres,
+      List<Genre> genres,
       String homepage,
       int id,
       String name,
@@ -191,7 +200,7 @@ class __$SerieCopyWithImpl<$Res> extends _$SerieCopyWithImpl<$Res>
       firstAirDate: firstAirDate == freezed
           ? _value.firstAirDate
           : firstAirDate as DateTime,
-      genres: genres == freezed ? _value.genres : genres as List<Genres>,
+      genres: genres == freezed ? _value.genres : genres as List<Genre>,
       homepage: homepage == freezed ? _value.homepage : homepage as String,
       id: id == freezed ? _value.id : id as int,
       name: name == freezed ? _value.name : name as String,
@@ -214,6 +223,8 @@ class __$SerieCopyWithImpl<$Res> extends _$SerieCopyWithImpl<$Res>
     ));
   }
 }
+
+@JsonSerializable()
 
 /// @nodoc
 class _$_Serie extends _Serie {
@@ -246,10 +257,13 @@ class _$_Serie extends _Serie {
         assert(videos != null),
         super._();
 
+  factory _$_Serie.fromJson(Map<String, dynamic> json) =>
+      _$_$_SerieFromJson(json);
+
   @override
   final DateTime firstAirDate;
   @override
-  final List<Genres> genres;
+  final List<Genre> genres;
   @override
   final String homepage;
   @override
@@ -338,13 +352,18 @@ class _$_Serie extends _Serie {
   @override
   _$SerieCopyWith<_Serie> get copyWith =>
       __$SerieCopyWithImpl<_Serie>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_SerieToJson(this);
+  }
 }
 
 abstract class _Serie extends Serie {
   const _Serie._() : super._();
   const factory _Serie(
       {@required DateTime firstAirDate,
-      @required List<Genres> genres,
+      @required List<Genre> genres,
       @required String homepage,
       @required int id,
       @required String name,
@@ -357,10 +376,12 @@ abstract class _Serie extends Serie {
       @required ContentRatings contentRatings,
       @required Videos videos}) = _$_Serie;
 
+  factory _Serie.fromJson(Map<String, dynamic> json) = _$_Serie.fromJson;
+
   @override
   DateTime get firstAirDate;
   @override
-  List<Genres> get genres;
+  List<Genre> get genres;
   @override
   String get homepage;
   @override
