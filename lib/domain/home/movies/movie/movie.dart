@@ -11,7 +11,7 @@ part 'movie.freezed.dart';
 part 'movie.g.dart';
 
 @freezed
-abstract class Movie extends Equatable implements _$Movie {
+abstract class Movie implements _$Movie {
   const factory Movie({
     @required int id,
     @required String title,
@@ -19,7 +19,7 @@ abstract class Movie extends Equatable implements _$Movie {
     @required String overview,
     @required String releaseDate,
     @required int runtime,
-    @required ReleaseDates releaseDates, //* This is for age restriction.
+    @required ReleaseDates releaseDates,
     @required double voteAverage,
     @required List<Genre> genres,
     @required String homepage,
@@ -27,22 +27,6 @@ abstract class Movie extends Equatable implements _$Movie {
   }) = _Movie;
 
   const Movie._() : super();
-
-  Movie toDomain() {
-    return Movie(
-      id: id,
-      title: title,
-      posterPath: posterPath,
-      overview: overview,
-      releaseDate: releaseDate,
-      runtime: runtime,
-      voteAverage: voteAverage,
-      genres: genres,
-      homepage: homepage,
-      releaseDates: releaseDates,
-      video: video,
-    );
-  }
 
   factory Movie.fromJson(Map<String, dynamic> json) => Movie(
         id: json['id'] as int ?? -0,
@@ -83,18 +67,4 @@ abstract class Movie extends Equatable implements _$Movie {
 
   factory Movie.fromFirebase(DocumentSnapshot doc) =>
       Movie.fromJson(doc.data());
-
-  @override
-  List<Object> get props => [
-        id,
-        title,
-        posterPath,
-        overview,
-        runtime,
-        releaseDate,
-        releaseDates,
-        homepage,
-        genres,
-        video,
-      ];
 }

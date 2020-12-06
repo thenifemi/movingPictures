@@ -62,7 +62,7 @@ mixin _$Movie {
   String get overview;
   String get releaseDate;
   int get runtime;
-  ReleaseDates get releaseDates; //* This is for age restriction.
+  ReleaseDates get releaseDates;
   double get voteAverage;
   List<Genre> get genres;
   String get homepage;
@@ -242,7 +242,7 @@ class _$_Movie extends _Movie {
   final int runtime;
   @override
   final ReleaseDates releaseDates;
-  @override //* This is for age restriction.
+  @override
   final double voteAverage;
   @override
   final List<Genre> genres;
@@ -342,7 +342,7 @@ abstract class _Movie extends Movie {
   int get runtime;
   @override
   ReleaseDates get releaseDates;
-  @override //* This is for age restriction.
+  @override
   double get voteAverage;
   @override
   List<Genre> get genres;
