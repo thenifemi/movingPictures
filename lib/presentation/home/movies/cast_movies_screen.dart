@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/home/movies/movies/movies_bloc.dart';
-import '../../../domain/home/movies/cast/cast.dart';
 import '../../../domain/home/movies/movie_sub/movie_sub.dart';
+import '../../../domain/home/shared_classes/cast/cast.dart';
 import '../../../injection.dart';
 import '../../core/app_colors.dart';
 import '../../core/component_widgets/cancel_button_widget.dart';

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/home/movies/casts/casts_bloc.dart';
-import '../../../domain/home/movies/cast/cast.dart';
 import '../../../domain/home/movies/movie/movie.dart';
+import '../../../domain/home/shared_classes/cast/cast.dart';
 import '../../../injection.dart';
 import '../../core/app_colors.dart';
 import '../../core/app_localizations.dart';

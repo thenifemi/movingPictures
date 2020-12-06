@@ -3,9 +3,9 @@ import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
-import '../genres/genre.dart';
+import '../../shared_classes/genres/genre.dart';
+import '../../shared_classes/videos.dart';
 import 'release_dates.dart';
-import 'videos.dart';
 
 part 'movie.freezed.dart';
 part 'movie.g.dart';

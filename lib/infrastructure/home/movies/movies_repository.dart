@@ -4,14 +4,14 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../domain/home/movies/cast/cast.dart';
-import '../../../domain/home/movies/cast/cast_failure.dart';
-import '../../../domain/home/movies/genres/genre.dart';
-import '../../../domain/home/movies/genres/genre_failure.dart';
 import '../../../domain/home/movies/movie/movie.dart';
 import '../../../domain/home/movies/movie/movies_failure.dart';
 import '../../../domain/home/movies/movie_sub/movie_sub.dart';
 import '../../../domain/home/movies/movies_interface.dart';
+import '../../../domain/home/shared_classes/cast/cast.dart';
+import '../../../domain/home/shared_classes/cast/cast_failure.dart';
+import '../../../domain/home/shared_classes/genres/genre.dart';
+import '../../../domain/home/shared_classes/genres/genre_failure.dart';
 import '../../core/credentials.dart';
 
 @LazySingleton(as: MoviesInterface)

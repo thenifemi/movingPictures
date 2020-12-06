@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../../../domain/home/movies/cast/cast.dart';
 import '../../../domain/home/movies/movie/movie.dart';
+import '../../../domain/home/shared_classes/cast/cast.dart';
 import '../../core/app_colors.dart';
 import '../../core/app_localizations.dart';
 import '../../core/component_widgets/cancel_button_widget.dart';

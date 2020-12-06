@@ -11,9 +11,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/auth/app_user.dart';
-import '../../domain/home/movies/cast/cast.dart';
-import '../../domain/home/movies/genres/genre.dart';
 import '../../domain/home/movies/movie/movie.dart';
+import '../../domain/home/shared_classes/cast/cast.dart';
+import '../../domain/home/shared_classes/genres/genre.dart';
 import '../favorites/favorites.dart';
 import '../home/movies/cast_movies_screen.dart';
 import '../home/movies/genre_movies_screen.dart';
@@ -131,6 +131,7 @@ class AppRouter extends RouterBase {
         builder: (context) => Favorites(
           key: args.key,
           automaticallyImplyLeading: args.automaticallyImplyLeading,
+          tabController: args.tabController,
         ),
         settings: data,
         fullscreenDialog: true,
@@ -191,11 +192,14 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushFavorites({
     Key key,
     @required bool automaticallyImplyLeading,
+    TabController tabController,
   }) =>
       push<dynamic>(
         Routes.favorites,
         arguments: FavoritesArguments(
-            key: key, automaticallyImplyLeading: automaticallyImplyLeading),
+            key: key,
+            automaticallyImplyLeading: automaticallyImplyLeading,
+            tabController: tabController),
       );
 }
 
@@ -236,5 +240,7 @@ class CastMoviesScreenArguments {
 class FavoritesArguments {
   final Key key;
   final bool automaticallyImplyLeading;
-  FavoritesArguments({this.key, @required this.automaticallyImplyLeading});
+  final TabController tabController;
+  FavoritesArguments(
+      {this.key, @required this.automaticallyImplyLeading, this.tabController});
 }

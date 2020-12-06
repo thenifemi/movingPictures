@@ -3,9 +3,8 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-
-import '../../../../domain/home/movies/genres/genre.dart';
-import '../../../../domain/home/movies/genres/genre_failure.dart';
+import 'package:movingPictures/domain/home/shared_classes/genres/genre.dart';
+import 'package:movingPictures/domain/home/shared_classes/genres/genre_failure.dart';
 import '../../../../domain/home/movies/movies_interface.dart';
 
 part 'genres_bloc.freezed.dart';

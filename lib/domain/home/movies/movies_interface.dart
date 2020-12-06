@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 
-import 'cast/cast.dart';
-import 'cast/cast_failure.dart';
-import 'genres/genre.dart';
-import 'genres/genre_failure.dart';
+import '../shared_classes/cast/cast.dart';
+import '../shared_classes/cast/cast_failure.dart';
+import '../shared_classes/genres/genre.dart';
+import '../shared_classes/genres/genre_failure.dart';
 import 'movie/movie.dart';
 import 'movie/movies_failure.dart';
 import 'movie_sub/movie_sub.dart';

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/home/movies/genres/genres_bloc.dart';
-import '../../../domain/home/movies/genres/genre.dart';
+import '../../../domain/home/shared_classes/genres/genre.dart';
 import '../../../injection.dart';
 import '../../core/app_colors.dart';
 import '../../core/component_widgets/movie_loading_wigdet.dart';

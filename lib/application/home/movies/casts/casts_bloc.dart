@@ -4,9 +4,9 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../domain/home/movies/cast/cast.dart';
-import '../../../../domain/home/movies/cast/cast_failure.dart';
 import '../../../../domain/home/movies/movies_interface.dart';
+import '../../../../domain/home/shared_classes/cast/cast.dart';
+import '../../../../domain/home/shared_classes/cast/cast_failure.dart';
 
 part 'casts_bloc.freezed.dart';
 part 'casts_event.dart';
