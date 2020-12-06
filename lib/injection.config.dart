@@ -15,13 +15,18 @@ import 'domain/auth/auth_repository_interface.dart';
 import 'application/home/movies/casts/casts_bloc.dart';
 import 'domain/home/movies/favorite_movies_interface.dart';
 import 'infrastructure/home/movies/favorite_movies_repository.dart';
+import 'domain/home/series/favorite_series_interface.dart';
+import 'infrastructure/home/series/favorite_series_repository.dart';
 import 'application/home/movies/favorite_movies/favoritemovies_bloc.dart';
 import 'infrastructure/auth/firebase_auth_repository.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
 import 'application/home/movies/genres/genres_bloc.dart';
+import 'application/home/series/genres/genres_bloc.dart' as movingPictures;
 import 'application/home/movies/movies/movies_bloc.dart';
 import 'domain/home/movies/movies_interface.dart';
 import 'infrastructure/home/movies/movies_repository.dart';
+import 'domain/home/series/series_interface.dart';
+import 'infrastructure/home/series/series_repository.dart';
 import 'application/auth/sign_in/sign_in_bloc.dart';
 import 'application/auth/user_profile/user_profile_bloc.dart';
 
@@ -39,6 +44,7 @@ GetIt $initGetIt(
   gh.lazySingleton<FirebaseFirestore>(() => firebaseinjectableModule.firestore);
   gh.lazySingleton<GoogleSignIn>(() => firebaseinjectableModule.googleSignIn);
   gh.lazySingleton<MoviesInterface>(() => MoviesRepository());
+  gh.lazySingleton<SeriesInterface>(() => SeriesRepository());
   gh.lazySingleton<AuthInterface>(() => FirebaseAuthRepository(
         get<FirebaseAuth>(),
         get<GoogleSignIn>(),
@@ -47,9 +53,13 @@ GetIt $initGetIt(
   gh.factory<CastsBloc>(() => CastsBloc(get<MoviesInterface>()));
   gh.lazySingleton<FavoriteMoviesInterface>(
       () => FavoriteMoviesRepository(get<FirebaseFirestore>()));
+  gh.lazySingleton<FavoriteSeriesInterface>(
+      () => FavoriteSeriesRepository(get<FirebaseFirestore>()));
   gh.factory<FavoritemoviesBloc>(
       () => FavoritemoviesBloc(get<FavoriteMoviesInterface>()));
   gh.factory<GenresBloc>(() => GenresBloc(get<MoviesInterface>()));
+  gh.factory<movingPictures.GenresBloc>(
+      () => movingPictures.GenresBloc(get<SeriesInterface>()));
   gh.factory<MoviesBloc>(() => MoviesBloc(get<MoviesInterface>()));
   gh.factory<SignInBloc>(() => SignInBloc(get<AuthInterface>()));
   gh.factory<UserProfileBloc>(() => UserProfileBloc(get<AuthInterface>()));
