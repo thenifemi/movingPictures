@@ -17,6 +17,12 @@ extension FirestoreX on FirebaseFirestore {
 
     return userDoc.collection('movies').doc(movieId.toString());
   }
+
+  Future<DocumentReference> favoriteSerieDocument(int serieId) async {
+    final userDoc = await userDocument();
+
+    return userDoc.collection('series').doc(serieId.toString());
+  }
 }
 
 // extension DocumentReferenceX on DocumentReference {
