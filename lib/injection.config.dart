@@ -13,6 +13,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'application/auth/auth_bloc.dart';
 import 'domain/auth/auth_repository_interface.dart';
 import 'application/home/movies/casts/casts_bloc.dart';
+import 'application/home/series/casts/casts_bloc.dart' as movingPictures1;
 import 'domain/home/movies/favorite_movies_interface.dart';
 import 'infrastructure/home/movies/favorite_movies_repository.dart';
 import 'domain/home/series/favorite_series_interface.dart';
@@ -51,6 +52,8 @@ GetIt $initGetIt(
         get<FirebaseFirestore>(),
       ));
   gh.factory<CastsBloc>(() => CastsBloc(get<MoviesInterface>()));
+  gh.factory<movingPictures1.CastsBloc>(
+      () => movingPictures1.CastsBloc(get<SeriesInterface>()));
   gh.lazySingleton<FavoriteMoviesInterface>(
       () => FavoriteMoviesRepository(get<FirebaseFirestore>()));
   gh.lazySingleton<FavoriteSeriesInterface>(
