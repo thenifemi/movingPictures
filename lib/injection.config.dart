@@ -13,7 +13,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'application/auth/auth_bloc.dart';
 import 'domain/auth/auth_repository_interface.dart';
 import 'application/home/movies/casts/casts_bloc.dart';
-import 'application/home/series/casts/casts_bloc.dart' as movingPictures1;
+import 'application/home/series/casts/casts_bloc.dart' as movingPictures;
 import 'domain/home/movies/favorite_movies_interface.dart';
 import 'infrastructure/home/movies/favorite_movies_repository.dart';
 import 'domain/home/series/favorite_series_interface.dart';
@@ -22,7 +22,7 @@ import 'application/home/movies/favorite_movies/favoritemovies_bloc.dart';
 import 'infrastructure/auth/firebase_auth_repository.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
 import 'application/home/movies/genres/genres_bloc.dart';
-import 'application/home/series/genres/genres_bloc.dart' as movingPictures;
+import 'application/home/series/genres/genres_bloc.dart' as movingPictures1;
 import 'application/home/movies/movies/movies_bloc.dart';
 import 'domain/home/movies/movies_interface.dart';
 import 'infrastructure/home/movies/movies_repository.dart';
@@ -53,8 +53,8 @@ GetIt $initGetIt(
         get<FirebaseFirestore>(),
       ));
   gh.factory<CastsBloc>(() => CastsBloc(get<MoviesInterface>()));
-  gh.factory<movingPictures1.CastsBloc>(
-      () => movingPictures1.CastsBloc(get<SeriesInterface>()));
+  gh.factory<movingPictures.CastsBloc>(
+      () => movingPictures.CastsBloc(get<SeriesInterface>()));
   gh.lazySingleton<FavoriteMoviesInterface>(
       () => FavoriteMoviesRepository(get<FirebaseFirestore>()));
   gh.lazySingleton<FavoriteSeriesInterface>(
@@ -62,8 +62,8 @@ GetIt $initGetIt(
   gh.factory<FavoritemoviesBloc>(
       () => FavoritemoviesBloc(get<FavoriteMoviesInterface>()));
   gh.factory<GenresBloc>(() => GenresBloc(get<MoviesInterface>()));
-  gh.factory<movingPictures.GenresBloc>(
-      () => movingPictures.GenresBloc(get<SeriesInterface>()));
+  gh.factory<movingPictures1.GenresBloc>(
+      () => movingPictures1.GenresBloc(get<SeriesInterface>()));
   gh.factory<MoviesBloc>(() => MoviesBloc(get<MoviesInterface>()));
   gh.factory<SeriesBloc>(() => SeriesBloc(get<SeriesInterface>()));
   gh.factory<SignInBloc>(() => SignInBloc(get<AuthInterface>()));
