@@ -19,6 +19,7 @@ import '../favorites/favorites.dart';
 import '../home/movies/cast_movies_screen.dart';
 import '../home/movies/genre_movies_screen.dart';
 import '../home/movies/movie_info/movie_info.dart';
+import '../home/series/cast_series_screen.dart';
 import '../home/series/genre_series_screen.dart';
 import '../home/series/serie_info/serie_info.dart';
 import '../main_layout_appbar_navbar/main_body_layout.dart';
@@ -36,6 +37,7 @@ class Routes {
   static const String genreMoviesScreen = '/genre-movies-screen';
   static const String genreSeriesScreen = '/genre-series-screen';
   static const String castMoviesScreen = '/cast-movies-screen';
+  static const String castSeriesScreen = '/cast-series-screen';
   static const String favorites = '/Favorites';
   static const all = <String>{
     splashScreen,
@@ -47,6 +49,7 @@ class Routes {
     genreMoviesScreen,
     genreSeriesScreen,
     castMoviesScreen,
+    castSeriesScreen,
     favorites,
   };
 }
@@ -64,6 +67,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.genreMoviesScreen, page: GenreMoviesScreen),
     RouteDef(Routes.genreSeriesScreen, page: GenreSeriesScreen),
     RouteDef(Routes.castMoviesScreen, page: CastMoviesScreen),
+    RouteDef(Routes.castSeriesScreen, page: CastSeriesScreen),
     RouteDef(Routes.favorites, page: Favorites),
   ];
   @override
@@ -156,6 +160,17 @@ class AppRouter extends RouterBase {
         fullscreenDialog: true,
       );
     },
+    CastSeriesScreen: (data) {
+      final args = data.getArgs<CastSeriesScreenArguments>(nullOk: false);
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => CastSeriesScreen(
+          key: args.key,
+          cast: args.cast,
+        ),
+        settings: data,
+        fullscreenDialog: true,
+      );
+    },
     Favorites: (data) {
       final args = data.getArgs<FavoritesArguments>(nullOk: false);
       return CupertinoPageRoute<dynamic>(
@@ -238,6 +253,15 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
         arguments: CastMoviesScreenArguments(key: key, cast: cast),
       );
 
+  Future<dynamic> pushCastSeriesScreen({
+    Key key,
+    @required Cast cast,
+  }) =>
+      push<dynamic>(
+        Routes.castSeriesScreen,
+        arguments: CastSeriesScreenArguments(key: key, cast: cast),
+      );
+
   Future<dynamic> pushFavorites({
     Key key,
     @required bool automaticallyImplyLeading,
@@ -297,6 +321,13 @@ class CastMoviesScreenArguments {
   final Key key;
   final Cast cast;
   CastMoviesScreenArguments({this.key, @required this.cast});
+}
+
+/// CastSeriesScreen arguments holder class
+class CastSeriesScreenArguments {
+  final Key key;
+  final Cast cast;
+  CastSeriesScreenArguments({this.key, @required this.cast});
 }
 
 /// Favorites arguments holder class

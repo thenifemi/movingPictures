@@ -65,9 +65,8 @@ Future buildCastModalSheet({
                       padding: const EdgeInsets.all(10.0),
                       child: Center(
                         child: GestureDetector(
-                          //TODO
-                          // onTap: () => ExtendedNavigator.of(context)
-                          //     .pushCastSeriesScreen(cast: cast),
+                          onTap: () => ExtendedNavigator.of(context)
+                              .pushCastSeriesScreen(cast: cast),
                           child: Text(
                             cast.name,
                             style: TextStyle(
