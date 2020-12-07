@@ -12,16 +12,16 @@ import '../../../core/app_colors.dart';
 import '../../../core/app_localizations.dart';
 import '../../../core/component_widgets/age_restriction_widget.dart';
 import '../../../core/component_widgets/cancel_button_widget.dart';
-import 'favorite_button.dart';
 import '../../../core/component_widgets/flushbar_method.dart';
 import '../../../core/component_widgets/movie_loading_wigdet.dart';
 import '../../../core/component_widgets/poster_image_widget.dart';
 import '../../../core/component_widgets/primary_button_widget.dart';
-import 'small_buttons.dart';
 import '../../../core/constants/constants.dart';
 import '../../../core/constants/language_constants.dart';
-import '../../../movie_or_series_info/widgets/little_favorite_sub_data_icon.dart';
 import '../../../routes/router.gr.dart';
+import 'favorite_button.dart';
+import 'little_favorite_sub_data_icon.dart';
+import 'small_buttons.dart';
 
 Future buildShowInfoModalBottomSheet({
   @required BuildContext context,

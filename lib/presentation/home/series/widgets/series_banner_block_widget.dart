@@ -9,6 +9,7 @@ import '../../../core/app_localizations.dart';
 import '../../../core/component_widgets/movie_loading_wigdet.dart';
 import '../../../core/component_widgets/poster_image_widget.dart';
 import '../../../core/constants/language_constants.dart';
+import 'build_show_series_info_modal_bottom_sheet_widget.dart';
 import 'series_favorite_button.dart';
 import 'series_small_buttons.dart';
 
@@ -19,7 +20,7 @@ class SeriesBannerBlockWidget extends StatelessWidget {
 
     return BlocProvider(
         create: (context) =>
-            getIt<SeriesBloc>()..add(const SeriesEvent.serieCalled(497582)),
+            getIt<SeriesBloc>()..add(const SeriesEvent.serieCalled(87739)),
         child: BlocBuilder<SeriesBloc, SeriesState>(
           builder: (context, state) {
             return state.map(
@@ -59,12 +60,11 @@ class BannerSerie extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.of(context).size.height / 1.6,
       child: GestureDetector(
-        //TODO
-        // onTap: () => buildShowInfoModalBottomSheet(
-        //   context: context,
-        //   appTextTheme: appTextTheme,
-        //   // movieId: movie.id,
-        // ),
+        onTap: () => buildShowSeriesInfoModalBottomSheet(
+          context: context,
+          appTextTheme: appTextTheme,
+          serieId: serie.id,
+        ),
         child: Stack(
           children: [
             Container(

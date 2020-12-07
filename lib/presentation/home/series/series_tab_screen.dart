@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movingPictures/presentation/home/series/widgets/series_banner_block_widget.dart';
 
 class SeriesTabScreen extends StatelessWidget {
   const SeriesTabScreen({Key key}) : super(key: key);
@@ -9,7 +10,7 @@ class SeriesTabScreen extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       child: Column(
         children: [
-          // const BannerBlockWidget(),
+          SeriesBannerBlockWidget(),
           const SizedBox(height: 20.0),
           // RegularBlockWidget(
           //   blockName: trendingNow,

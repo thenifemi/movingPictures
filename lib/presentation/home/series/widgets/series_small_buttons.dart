@@ -13,6 +13,7 @@ import '../../../core/app_colors.dart';
 import '../../../core/app_localizations.dart';
 import '../../../core/constants/constants.dart';
 import '../../../core/constants/language_constants.dart';
+import 'build_show_series_info_modal_bottom_sheet_widget.dart';
 
 class SeriesShareButtonWidget extends StatelessWidget {
   final Serie serie;
@@ -80,12 +81,11 @@ class SeriesInfoButtonWidget extends StatelessWidget {
 
     return SizedBox(
       child: RawMaterialButton(
-        //TODO
-        // onPressed: () => buildShowInfoModalBottomSheet(
-        //   appTextTheme: appTextTheme,
-        //   context: context,
-        //   movieId: movie.id,
-        // ),
+        onPressed: () => buildShowSeriesInfoModalBottomSheet(
+          context: context,
+          appTextTheme: appTextTheme,
+          serieId: serie.id,
+        ),
         child: Column(
           children: [
             SvgPicture.asset(
