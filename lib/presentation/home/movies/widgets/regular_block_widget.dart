@@ -101,7 +101,7 @@ class MovieData extends StatelessWidget {
                     width: MediaQuery.of(context).size.width / 3.5,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(5.0),
-                      child: PosterImageWidget(movie: movie),
+                      child: PosterImageWidget(movieOrSeries: movie),
                     ),
                   ),
                 ),

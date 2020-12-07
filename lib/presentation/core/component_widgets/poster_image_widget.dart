@@ -5,15 +5,15 @@ import '../../../infrastructure/core/credentials.dart';
 class PosterImageWidget extends StatelessWidget {
   const PosterImageWidget({
     Key key,
-    @required this.movie,
+    @required this.movieOrSeries,
   }) : super(key: key);
 
-  final dynamic movie;
+  final dynamic movieOrSeries;
 
   @override
   Widget build(BuildContext context) {
     return Image.network(
-      "$MOVIE_POSTER_PATH${movie.posterPath}",
+      "$MOVIE_POSTER_PATH${movieOrSeries.posterPath}",
       fit: BoxFit.cover,
       errorBuilder: (context, e, error) =>
           const Center(child: Icon(Icons.image_outlined)),

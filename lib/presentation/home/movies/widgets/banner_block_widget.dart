@@ -6,10 +6,10 @@ import '../../../../domain/home/movies/movie/movie.dart';
 import '../../../../injection.dart';
 import '../../../core/app_colors.dart';
 import '../../../core/app_localizations.dart';
-import '../../../core/component_widgets/favorite_button.dart';
+import 'favorite_button.dart';
 import '../../../core/component_widgets/movie_loading_wigdet.dart';
 import '../../../core/component_widgets/poster_image_widget.dart';
-import '../../../core/component_widgets/small_buttons.dart';
+import 'small_buttons.dart';
 import '../../../core/constants/language_constants.dart';
 import 'build_show_info_modal_bottom_sheet_widget.dart';
 
@@ -85,7 +85,7 @@ class BannerMovie extends StatelessWidget {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10.0),
-                child: PosterImageWidget(movie: movie),
+                child: PosterImageWidget(movieOrSeries: movie),
               ),
             ),
             BottomItems(

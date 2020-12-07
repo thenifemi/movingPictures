@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../core/app_colors.dart';
 import 'movies/movies_tab_screen.dart';
-import 'movies/widgets/home_app_bar.dart';
 import 'series/series_tab_screen.dart';
+import 'shared_widgets/home_app_bar.dart';
 
 class Home extends StatefulWidget {
   final TextTheme appTextTheme;

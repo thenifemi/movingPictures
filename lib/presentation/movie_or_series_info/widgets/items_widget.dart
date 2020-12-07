@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:movingPictures/presentation/core/component_widgets/favorite_button.dart';
+import 'package:movingPictures/presentation/home/movies/widgets/favorite_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../domain/home/movies/movie/movie.dart';
@@ -11,7 +11,7 @@ import '../../core/app_localizations.dart';
 import '../../core/component_widgets/flushbar_method.dart';
 import '../../core/component_widgets/poster_image_widget.dart';
 import '../../core/component_widgets/primary_button_widget.dart';
-import '../../core/component_widgets/small_buttons.dart';
+import '../../home/movies/widgets/small_buttons.dart';
 import '../../core/constants/constants.dart';
 import '../../core/constants/language_constants.dart';
 import 'cast_list.dart';
@@ -74,7 +74,7 @@ class Items extends StatelessWidget {
             height: MediaQuery.of(context).size.height / 4,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(5.0),
-              child: PosterImageWidget(movie: movie),
+              child: PosterImageWidget(movieOrSeries: movie),
             ),
           ),
           const SizedBox(height: 20.0),

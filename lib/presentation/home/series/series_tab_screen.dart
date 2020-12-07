@@ -5,17 +5,9 @@ class SeriesTabScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appTextTheme = Theme.of(context).textTheme;
-
-    // Future showInfoBottomSheet() => buildShowInfoModalBottomSheet(
-    //       context: context,
-    //       appTextTheme: appTextTheme,
-    //     );
-
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // const BannerBlockWidget(),
           const SizedBox(height: 20.0),

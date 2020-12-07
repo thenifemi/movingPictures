@@ -106,7 +106,7 @@ class FavMovies extends StatelessWidget {
                           message: movie.title,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(5.0),
-                            child: PosterImageWidget(movie: movie),
+                            child: PosterImageWidget(movieOrSeries: movie),
                           ),
                         ),
                       );
