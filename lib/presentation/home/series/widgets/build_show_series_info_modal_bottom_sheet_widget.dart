@@ -18,6 +18,7 @@ import '../../../core/component_widgets/poster_image_widget.dart';
 import '../../../core/component_widgets/primary_button_widget.dart';
 import '../../../core/constants/constants.dart';
 import '../../../core/constants/language_constants.dart';
+import '../../../routes/router.gr.dart';
 import 'little_favorite_sub_data_icon.dart';
 import 'series_favorite_button.dart';
 import 'series_small_buttons.dart';
@@ -76,17 +77,15 @@ class SerieData extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               GestureDetector(
-                //TODO
-                // onTap: () => ExtendedNavigator.of(context)
-                //     .pushMovieOrSeriesInfo(movie: serie),
+                onTap: () =>
+                    ExtendedNavigator.of(context).pushSerieInfo(serie: serie),
                 child: PosterBlock(serie: serie),
               ),
               const SizedBox(width: 10.0),
               Expanded(
                 child: GestureDetector(
-                  //TODO
-                  // onTap: () => ExtendedNavigator.of(context)
-                  //     .pushMovieOrSeriesInfo(movie: movie),
+                  onTap: () =>
+                      ExtendedNavigator.of(context).pushSerieInfo(serie: serie),
                   child: TitleSubtitleBodyBlock(
                     appTextTheme: appTextTheme,
                     serie: serie,
@@ -285,9 +284,8 @@ class MoreInfoButton extends StatelessWidget {
     final lang = AppLocalizations.of(context);
 
     return RawMaterialButton(
-      //TODO
-      // onPressed: () =>
-      //     ExtendedNavigator.of(context).pushMovieOrSeriesInfo(movie: movie),
+      onPressed: () =>
+          ExtendedNavigator.of(context).pushSerieInfo(serie: serie),
       child: Container(
         padding: const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
         width: double.infinity,

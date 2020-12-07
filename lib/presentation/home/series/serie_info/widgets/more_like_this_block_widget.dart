@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movingPictures/application/home/series/series/series_bloc.dart';
-import 'package:movingPictures/domain/home/series/serie/serie.dart';
-import 'package:movingPictures/domain/home/series/serie_sub/serie_sub.dart';
-import 'package:movingPictures/presentation/home/series/widgets/build_show_series_info_modal_bottom_sheet_widget.dart';
 
-import '../../../../../application/home/movies/movies/movies_bloc.dart';
-import '../../../../../domain/home/movies/movie/movie.dart';
-import '../../../../../domain/home/movies/movie_sub/movie_sub.dart';
+import '../../../../../application/home/series/series/series_bloc.dart';
+import '../../../../../domain/home/series/serie/serie.dart';
+import '../../../../../domain/home/series/serie_sub/serie_sub.dart';
 import '../../../../../injection.dart';
 import '../../../../core/app_colors.dart';
 import '../../../../core/app_localizations.dart';
 import '../../../../core/component_widgets/movie_loading_wigdet.dart';
 import '../../../../core/component_widgets/poster_image_widget.dart';
 import '../../../../core/constants/language_constants.dart';
+import '../../widgets/build_show_series_info_modal_bottom_sheet_widget.dart';
 
 class MoreLikeThisBlock extends StatelessWidget {
   final Serie serie;

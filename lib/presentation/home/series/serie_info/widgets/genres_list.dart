@@ -1,8 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:movingPictures/domain/home/series/serie/serie.dart';
 
-import '../../../../../domain/home/movies/movie/movie.dart';
+import '../../../../../domain/home/series/serie/serie.dart';
 import '../../../../core/app_colors.dart';
 import '../../../../routes/router.gr.dart';
 
