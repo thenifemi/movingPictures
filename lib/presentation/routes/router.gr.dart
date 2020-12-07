@@ -19,6 +19,7 @@ import '../favorites/favorites.dart';
 import '../home/movies/cast_movies_screen.dart';
 import '../home/movies/genre_movies_screen.dart';
 import '../home/movies/movie_info/movie_info.dart';
+import '../home/series/genre_series_screen.dart';
 import '../home/series/serie_info/serie_info.dart';
 import '../main_layout_appbar_navbar/main_body_layout.dart';
 import '../profile/profile_screen.dart';
@@ -33,6 +34,7 @@ class Routes {
   static const String movieInfo = '/movie-info';
   static const String serieInfo = '/serie-info';
   static const String genreMoviesScreen = '/genre-movies-screen';
+  static const String genreSeriesScreen = '/genre-series-screen';
   static const String castMoviesScreen = '/cast-movies-screen';
   static const String favorites = '/Favorites';
   static const all = <String>{
@@ -43,6 +45,7 @@ class Routes {
     movieInfo,
     serieInfo,
     genreMoviesScreen,
+    genreSeriesScreen,
     castMoviesScreen,
     favorites,
   };
@@ -59,6 +62,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.movieInfo, page: MovieInfo),
     RouteDef(Routes.serieInfo, page: SerieInfo),
     RouteDef(Routes.genreMoviesScreen, page: GenreMoviesScreen),
+    RouteDef(Routes.genreSeriesScreen, page: GenreSeriesScreen),
     RouteDef(Routes.castMoviesScreen, page: CastMoviesScreen),
     RouteDef(Routes.favorites, page: Favorites),
   ];
@@ -123,6 +127,17 @@ class AppRouter extends RouterBase {
       final args = data.getArgs<GenreMoviesScreenArguments>(nullOk: false);
       return CupertinoPageRoute<dynamic>(
         builder: (context) => GenreMoviesScreen(
+          key: args.key,
+          genre: args.genre,
+        ),
+        settings: data,
+        fullscreenDialog: true,
+      );
+    },
+    GenreSeriesScreen: (data) {
+      final args = data.getArgs<GenreSeriesScreenArguments>(nullOk: false);
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => GenreSeriesScreen(
           key: args.key,
           genre: args.genre,
         ),
@@ -205,6 +220,15 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
         arguments: GenreMoviesScreenArguments(key: key, genre: genre),
       );
 
+  Future<dynamic> pushGenreSeriesScreen({
+    Key key,
+    @required Genre genre,
+  }) =>
+      push<dynamic>(
+        Routes.genreSeriesScreen,
+        arguments: GenreSeriesScreenArguments(key: key, genre: genre),
+      );
+
   Future<dynamic> pushCastMoviesScreen({
     Key key,
     @required Cast cast,
@@ -259,6 +283,13 @@ class GenreMoviesScreenArguments {
   final Key key;
   final Genre genre;
   GenreMoviesScreenArguments({this.key, @required this.genre});
+}
+
+/// GenreSeriesScreen arguments holder class
+class GenreSeriesScreenArguments {
+  final Key key;
+  final Genre genre;
+  GenreSeriesScreenArguments({this.key, @required this.genre});
 }
 
 /// CastMoviesScreen arguments holder class

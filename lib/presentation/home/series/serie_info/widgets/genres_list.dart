@@ -25,7 +25,7 @@ class GenresList extends StatelessWidget {
         children: serie.genres
             .map((genre) => GestureDetector(
                   onTap: () => ExtendedNavigator.of(context)
-                      .pushGenreMoviesScreen(genre: genre),
+                      .pushGenreSeriesScreen(genre: genre),
                   child: Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 5.0,
