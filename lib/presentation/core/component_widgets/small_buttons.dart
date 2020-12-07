@@ -9,7 +9,7 @@ import 'package:wc_flutter_share/wc_flutter_share.dart';
 
 import '../../../domain/home/movies/movie/movie.dart';
 import '../../../infrastructure/core/credentials.dart';
-import '../../home/widgets/build_show_info_modal_bottom_sheet_widget.dart';
+import '../../home/movies/widgets/build_show_info_modal_bottom_sheet_widget.dart';
 import '../app_colors.dart';
 import '../app_localizations.dart';
 import '../constants/constants.dart';

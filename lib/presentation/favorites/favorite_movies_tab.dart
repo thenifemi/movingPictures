@@ -8,7 +8,7 @@ import '../../injection.dart';
 import '../core/app_colors.dart';
 import '../core/component_widgets/movie_loading_wigdet.dart';
 import '../core/component_widgets/poster_image_widget.dart';
-import '../home/widgets/build_show_info_modal_bottom_sheet_widget.dart';
+import '../home/movies/widgets/build_show_info_modal_bottom_sheet_widget.dart';
 
 class FavoriteMoviesTab extends StatelessWidget {
   const FavoriteMoviesTab({Key key}) : super(key: key);

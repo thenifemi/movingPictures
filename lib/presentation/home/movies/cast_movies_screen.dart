@@ -9,7 +9,7 @@ import '../../core/app_colors.dart';
 import '../../core/component_widgets/cancel_button_widget.dart';
 import '../../core/component_widgets/movie_loading_wigdet.dart';
 import '../../core/component_widgets/poster_image_widget.dart';
-import '../widgets/build_show_info_modal_bottom_sheet_widget.dart';
+import 'widgets/build_show_info_modal_bottom_sheet_widget.dart';
 
 class CastMoviesScreen extends StatelessWidget {
   final Cast cast;

@@ -10,7 +10,7 @@ import '../../core/app_localizations.dart';
 import '../../core/component_widgets/movie_loading_wigdet.dart';
 import '../../core/component_widgets/poster_image_widget.dart';
 import '../../core/constants/language_constants.dart';
-import '../../home/widgets/build_show_info_modal_bottom_sheet_widget.dart';
+import '../../home/movies/widgets/build_show_info_modal_bottom_sheet_widget.dart';
 
 class MoreLikeThisBlock extends StatelessWidget {
   final Movie movie;
