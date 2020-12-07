@@ -191,7 +191,7 @@ class TitleSubtitleBodyBlock extends StatelessWidget {
                           )),
                       const SizedBox(width: 10.0),
                       Text(
-                        serie.type.toString(),
+                        "${serie.numberOfSeasons.toString()} Seasons",
                         style: appTextTheme.subtitle1,
                       ),
                     ],

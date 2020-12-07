@@ -48,7 +48,7 @@ class SubData extends StatelessWidget {
               releaseDates == null || releaseDates == "" ? "N/A" : releaseDates,
         ),
         const SizedBox(width: 20.0),
-        Text(serie.type,
+        Text("${serie.numberOfSeasons.toString()} Seasons",
             style: TextStyle(
               fontFamily: appTextTheme.subtitle1.fontFamily,
               fontWeight: FontWeight.w600,

@@ -31,7 +31,7 @@ class MoreLikeThisBlock extends StatelessWidget {
     final lang = AppLocalizations.of(context);
 
     return Container(
-      height: MediaQuery.of(context).size.height,
+      height: MediaQuery.of(context).size.height / 1.8,
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       color: AppColors.black,
       child: Column(
