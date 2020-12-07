@@ -1,0 +1,139 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
+
+import '../../../../application/home/series/series/series_bloc.dart';
+import '../../../../domain/home/series/serie_sub/serie_sub.dart';
+import '../../../../injection.dart';
+import '../../../core/app_colors.dart';
+import '../../../core/app_localizations.dart';
+import '../../../core/component_widgets/movie_loading_wigdet.dart';
+import '../../../core/component_widgets/poster_image_widget.dart';
+import '../../../core/constants/constants.dart';
+import '../../../core/constants/language_constants.dart';
+import 'build_show_series_info_modal_bottom_sheet_widget.dart';
+
+class TopTenBlockWidget extends StatelessWidget {
+  final SeriesEvent seriesEvent;
+
+  const TopTenBlockWidget({
+    Key key,
+    @required this.seriesEvent,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => getIt<SeriesBloc>()..add(seriesEvent),
+      child: BlocBuilder<SeriesBloc, SeriesState>(
+        builder: (context, state) {
+          return BlocBuilder<SeriesBloc, SeriesState>(
+            builder: (context, state) {
+              return state.map(
+                initial: (_) => const MovieLoadingWidget(),
+                loading: (_) => const MovieLoadingWidget(),
+                loadSuccess: (state) => SerieData(
+                  series: state.series,
+                ),
+                loadFailure: (_) => Container(
+                  height: 100.0,
+                  color: AppColors.red,
+                ),
+                loadSuccessforSerie: (_) => null,
+              );
+            },
+          );
+        },
+      ),
+    );
+  }
+}
+
+class SerieData extends StatelessWidget {
+  const SerieData({Key key, @required this.series}) : super(key: key);
+
+  final List<SerieSub> series;
+
+  @override
+  Widget build(BuildContext context) {
+    final appTextTheme = Theme.of(context).textTheme;
+    final lang = AppLocalizations.of(context);
+    final List _numberIcons = [
+      number1Icon,
+      number2Icon,
+      number3Icon,
+      number4Icon,
+      number5Icon,
+      number6Icon,
+      number7Icon,
+      number8Icon,
+      number9Icon,
+      number0Icon,
+    ];
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: Text(
+            "${lang.translate(top10)} Rated",
+            style: const TextStyle(
+              color: AppColors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 20.0,
+            ),
+          ),
+        ),
+        const SizedBox(height: 10.0),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          height: MediaQuery.of(context).size.height / 3,
+          child: ListView.builder(
+            physics: const BouncingScrollPhysics(),
+            scrollDirection: Axis.horizontal,
+            itemCount: 10,
+            itemBuilder: (context, i) {
+              final serie = series[i];
+              final _number = _numberIcons[i];
+
+              return GestureDetector(
+                onTap: () => buildShowSeriesInfoModalBottomSheet(
+                  context: context,
+                  appTextTheme: appTextTheme,
+                  serieId: serie.id,
+                ),
+                child: Tooltip(
+                  message: serie.name,
+                  child: Stack(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.only(right: 10.0),
+                        width: MediaQuery.of(context).size.height / 5,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(5.0),
+                          child: PosterImageWidget(movieOrSeries: serie),
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: SvgPicture.asset(
+                            _number.toString(),
+                            color: AppColors.red,
+                            height: 100.0,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}

@@ -21,7 +21,7 @@ class SeriesBannerBlockWidget extends StatelessWidget {
 
     return BlocProvider(
         create: (context) =>
-            getIt<SeriesBloc>()..add(const SeriesEvent.serieCalled(1421)),
+            getIt<SeriesBloc>()..add(const SeriesEvent.serieCalled(1399)),
         child: BlocBuilder<SeriesBloc, SeriesState>(
           builder: (context, state) {
             return state.map(
