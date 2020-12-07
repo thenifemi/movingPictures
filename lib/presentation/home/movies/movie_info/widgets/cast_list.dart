@@ -2,14 +2,14 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/home/movies/casts/casts_bloc.dart';
-import '../../../domain/home/movies/movie/movie.dart';
-import '../../../domain/home/shared_classes/cast/cast.dart';
-import '../../../injection.dart';
-import '../../core/app_colors.dart';
-import '../../core/app_localizations.dart';
-import '../../core/component_widgets/movie_loading_wigdet.dart';
-import '../../core/constants/language_constants.dart';
+import '../../../../../application/home/movies/casts/casts_bloc.dart';
+import '../../../../../domain/home/movies/movie/movie.dart';
+import '../../../../../domain/home/shared_classes/cast/cast.dart';
+import '../../../../../injection.dart';
+import '../../../../core/app_colors.dart';
+import '../../../../core/app_localizations.dart';
+import '../../../../core/component_widgets/movie_loading_wigdet.dart';
+import '../../../../core/constants/language_constants.dart';
 import 'build_cast_modal_sheet.dart';
 
 class CastList extends StatelessWidget {

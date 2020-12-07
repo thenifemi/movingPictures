@@ -2,17 +2,17 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import '../../domain/home/movies/movie/movie.dart';
-import '../../infrastructure/core/credentials.dart';
-import '../core/app_colors.dart';
-import '../core/component_widgets/cancel_button_widget.dart';
+import '../../../../domain/home/movies/movie/movie.dart';
+import '../../../../infrastructure/core/credentials.dart';
+import '../../../core/app_colors.dart';
+import '../../../core/component_widgets/cancel_button_widget.dart';
 import 'widgets/items_widget.dart';
 import 'widgets/more_like_this_block_widget.dart';
 
-class MovieOrSeriesInfo extends StatelessWidget {
+class MovieInfo extends StatelessWidget {
   final Movie movie;
 
-  const MovieOrSeriesInfo({
+  const MovieInfo({
     Key key,
     @required this.movie,
   }) : super(key: key);

@@ -17,8 +17,8 @@ import '../../domain/home/shared_classes/genres/genre.dart';
 import '../favorites/favorites.dart';
 import '../home/movies/cast_movies_screen.dart';
 import '../home/movies/genre_movies_screen.dart';
+import '../home/movies/movie_info/movie_info.dart';
 import '../main_layout_appbar_navbar/main_body_layout.dart';
-import '../movie_or_series_info/movie_or_series_info.dart';
 import '../profile/profile_screen.dart';
 import '../signin/sign_in_screen.dart';
 import '../splash/splash_screen.dart';
@@ -28,7 +28,7 @@ class Routes {
   static const String signInScreen = '/sign-in-screen';
   static const String mainBodyLayout = '/main-body-layout';
   static const String profileScreen = '/profile-screen';
-  static const String movieOrSeriesInfo = '/movie-or-series-info';
+  static const String movieInfo = '/movie-info';
   static const String genreMoviesScreen = '/genre-movies-screen';
   static const String castMoviesScreen = '/cast-movies-screen';
   static const String favorites = '/Favorites';
@@ -37,7 +37,7 @@ class Routes {
     signInScreen,
     mainBodyLayout,
     profileScreen,
-    movieOrSeriesInfo,
+    movieInfo,
     genreMoviesScreen,
     castMoviesScreen,
     favorites,
@@ -52,7 +52,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.signInScreen, page: SignInScreen),
     RouteDef(Routes.mainBodyLayout, page: MainBodyLayout),
     RouteDef(Routes.profileScreen, page: ProfileScreen),
-    RouteDef(Routes.movieOrSeriesInfo, page: MovieOrSeriesInfo),
+    RouteDef(Routes.movieInfo, page: MovieInfo),
     RouteDef(Routes.genreMoviesScreen, page: GenreMoviesScreen),
     RouteDef(Routes.castMoviesScreen, page: CastMoviesScreen),
     RouteDef(Routes.favorites, page: Favorites),
@@ -92,10 +92,10 @@ class AppRouter extends RouterBase {
         fullscreenDialog: true,
       );
     },
-    MovieOrSeriesInfo: (data) {
-      final args = data.getArgs<MovieOrSeriesInfoArguments>(nullOk: false);
+    MovieInfo: (data) {
+      final args = data.getArgs<MovieInfoArguments>(nullOk: false);
       return CupertinoPageRoute<dynamic>(
-        builder: (context) => MovieOrSeriesInfo(
+        builder: (context) => MovieInfo(
           key: args.key,
           movie: args.movie,
         ),
@@ -162,13 +162,13 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
             key: key, appTextTheme: appTextTheme, user: user),
       );
 
-  Future<dynamic> pushMovieOrSeriesInfo({
+  Future<dynamic> pushMovieInfo({
     Key key,
     @required Movie movie,
   }) =>
       push<dynamic>(
-        Routes.movieOrSeriesInfo,
-        arguments: MovieOrSeriesInfoArguments(key: key, movie: movie),
+        Routes.movieInfo,
+        arguments: MovieInfoArguments(key: key, movie: movie),
       );
 
   Future<dynamic> pushGenreMoviesScreen({
@@ -215,11 +215,11 @@ class ProfileScreenArguments {
   ProfileScreenArguments({this.key, this.appTextTheme, this.user});
 }
 
-/// MovieOrSeriesInfo arguments holder class
-class MovieOrSeriesInfoArguments {
+/// MovieInfo arguments holder class
+class MovieInfoArguments {
   final Key key;
   final Movie movie;
-  MovieOrSeriesInfoArguments({this.key, @required this.movie});
+  MovieInfoArguments({this.key, @required this.movie});
 }
 
 /// GenreMoviesScreen arguments holder class

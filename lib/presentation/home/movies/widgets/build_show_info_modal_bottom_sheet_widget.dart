@@ -77,15 +77,15 @@ class MovieData extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               GestureDetector(
-                onTap: () => ExtendedNavigator.of(context)
-                    .pushMovieOrSeriesInfo(movie: movie),
+                onTap: () =>
+                    ExtendedNavigator.of(context).pushMovieInfo(movie: movie),
                 child: PosterBlock(movie: movie),
               ),
               const SizedBox(width: 10.0),
               Expanded(
                 child: GestureDetector(
-                  onTap: () => ExtendedNavigator.of(context)
-                      .pushMovieOrSeriesInfo(movie: movie),
+                  onTap: () =>
+                      ExtendedNavigator.of(context).pushMovieInfo(movie: movie),
                   child: TitleSubtitleBodyBlock(
                     appTextTheme: appTextTheme,
                     movie: movie,
@@ -287,7 +287,7 @@ class MoreInfoButton extends StatelessWidget {
 
     return RawMaterialButton(
       onPressed: () =>
-          ExtendedNavigator.of(context).pushMovieOrSeriesInfo(movie: movie),
+          ExtendedNavigator.of(context).pushMovieInfo(movie: movie),
       child: Container(
         padding: const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
         width: double.infinity,

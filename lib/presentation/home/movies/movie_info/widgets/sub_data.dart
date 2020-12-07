@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../domain/home/movies/movie/movie.dart';
-import '../../core/component_widgets/age_restriction_widget.dart';
-import '../../home/movies/widgets/little_favorite_sub_data_icon.dart';
+import '../../../../../domain/home/movies/movie/movie.dart';
+import '../../../../core/component_widgets/age_restriction_widget.dart';
+import '../../widgets/little_favorite_sub_data_icon.dart';
 
 class SubData extends StatelessWidget {
   final Movie movie;
