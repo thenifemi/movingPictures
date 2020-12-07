@@ -26,6 +26,7 @@ import 'application/home/series/genres/genres_bloc.dart' as movingPictures;
 import 'application/home/movies/movies/movies_bloc.dart';
 import 'domain/home/movies/movies_interface.dart';
 import 'infrastructure/home/movies/movies_repository.dart';
+import 'application/home/series/series/series_bloc.dart';
 import 'domain/home/series/series_interface.dart';
 import 'infrastructure/home/series/series_repository.dart';
 import 'application/auth/sign_in/sign_in_bloc.dart';
@@ -64,6 +65,7 @@ GetIt $initGetIt(
   gh.factory<movingPictures.GenresBloc>(
       () => movingPictures.GenresBloc(get<SeriesInterface>()));
   gh.factory<MoviesBloc>(() => MoviesBloc(get<MoviesInterface>()));
+  gh.factory<SeriesBloc>(() => SeriesBloc(get<SeriesInterface>()));
   gh.factory<SignInBloc>(() => SignInBloc(get<AuthInterface>()));
   gh.factory<UserProfileBloc>(() => UserProfileBloc(get<AuthInterface>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<AuthInterface>()));
