@@ -19,6 +19,7 @@ import 'infrastructure/home/movies/favorite_movies_repository.dart';
 import 'domain/home/series/favorite_series_interface.dart';
 import 'infrastructure/home/series/favorite_series_repository.dart';
 import 'application/home/movies/favorite_movies/favoritemovies_bloc.dart';
+import 'application/home/series/favorite_series/favoriteseries_bloc.dart';
 import 'infrastructure/auth/firebase_auth_repository.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
 import 'application/home/movies/genres/genres_bloc.dart';
@@ -61,6 +62,8 @@ GetIt $initGetIt(
       () => FavoriteSeriesRepository(get<FirebaseFirestore>()));
   gh.factory<FavoritemoviesBloc>(
       () => FavoritemoviesBloc(get<FavoriteMoviesInterface>()));
+  gh.factory<FavoriteseriesBloc>(
+      () => FavoriteseriesBloc(get<FavoriteSeriesInterface>()));
   gh.factory<GenresBloc>(() => GenresBloc(get<MoviesInterface>()));
   gh.factory<movingPictures1.GenresBloc>(
       () => movingPictures1.GenresBloc(get<SeriesInterface>()));
