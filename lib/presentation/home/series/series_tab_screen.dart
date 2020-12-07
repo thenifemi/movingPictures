@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movingPictures/presentation/home/series/widgets/series_banner_block_widget.dart';
+
+import '../../../application/home/series/series/series_bloc.dart';
+import 'widgets/series_banner_block_widget.dart';
+import 'widgets/series_regular_block_widget.dart';
 
 class SeriesTabScreen extends StatelessWidget {
   const SeriesTabScreen({Key key}) : super(key: key);
@@ -9,34 +12,40 @@ class SeriesTabScreen extends StatelessWidget {
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Column(
-        children: [
+        children: const [
           SeriesBannerBlockWidget(),
-          const SizedBox(height: 20.0),
-          // RegularBlockWidget(
-          //   blockName: trendingNow,
-          //   showInfoBottomSheet: showInfoBottomSheet,
-          // ),
-          // const SizedBox(height: 20.0),
-          // RegularBlockWidget(
-          //   blockName: action,
-          //   showInfoBottomSheet: showInfoBottomSheet,
-          // ),
-          // const SizedBox(height: 20.0),
+          SizedBox(height: 20.0),
+          SeriesRegularBlockWidget(
+            blockName: "On The Air",
+            seriesEvent: SeriesEvent.serieTypeCalled("on_the_air"),
+          ),
+          SizedBox(height: 20.0),
+          SeriesRegularBlockWidget(
+            blockName: "popular",
+            seriesEvent: SeriesEvent.serieTypeCalled("popular"),
+          ),
+          SizedBox(height: 20.0),
           // TopTenBlockWidget(
           //   moviesOrSeries: series,
           //   showInfoBottomSheet: showInfoBottomSheet,
           // ),
-          // const SizedBox(height: 20.0),
-          // RegularBlockWidget(
-          //   blockName: horror,
-          //   showInfoBottomSheet: showInfoBottomSheet,
-          // ),
-          // const SizedBox(height: 20.0),
-          // RegularBlockWidget(
-          //   blockName: comedy,
-          //   showInfoBottomSheet: showInfoBottomSheet,
-          // ),
-          const SizedBox(height: 20.0),
+          SizedBox(height: 20.0),
+          SeriesRegularBlockWidget(
+            blockName: "Comedy",
+            seriesEvent: SeriesEvent.serieByGenreCalled(35),
+          ),
+          SizedBox(height: 20.0),
+          SeriesRegularBlockWidget(
+            blockName: "Drama",
+            seriesEvent: SeriesEvent.serieByGenreCalled(18),
+          ),
+          SizedBox(height: 20.0),
+          SeriesRegularBlockWidget(
+            blockName: "Reality",
+            seriesEvent: SeriesEvent.serieByGenreCalled(10764),
+          ),
+
+          SizedBox(height: 20.0),
         ],
       ),
     );

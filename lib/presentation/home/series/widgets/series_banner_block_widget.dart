@@ -14,6 +14,7 @@ import 'series_favorite_button.dart';
 import 'series_small_buttons.dart';
 
 class SeriesBannerBlockWidget extends StatelessWidget {
+  const SeriesBannerBlockWidget() : super();
   @override
   Widget build(BuildContext context) {
     final appTextTheme = Theme.of(context).textTheme;
