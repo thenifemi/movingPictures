@@ -83,7 +83,7 @@ class CastData extends StatelessWidget {
               child: ListView.builder(
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
-                itemCount: casts.length < 3 ? 0 : 3,
+                itemCount: casts.length < 2 ? casts.length : 2,
                 itemBuilder: (context, i) {
                   final cast = casts[i];
                   return Text(
