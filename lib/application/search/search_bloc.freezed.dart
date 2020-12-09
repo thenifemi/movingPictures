@@ -161,7 +161,7 @@ class _$SearchStateTearOff {
   }
 
 // ignore: unused_element
-  _LoadSuccess loadSuccess(List<Either<MovieSub, SerieSub>> moviesOrSeries) {
+  _LoadSuccess loadSuccess(List<Search> moviesOrSeries) {
     return _LoadSuccess(
       moviesOrSeries,
     );
@@ -185,15 +185,14 @@ mixin _$SearchState {
   Result when<Result extends Object>({
     @required Result initial(),
     @required Result loading(),
-    @required
-        Result loadSuccess(List<Either<MovieSub, SerieSub>> moviesOrSeries),
+    @required Result loadSuccess(List<Search> moviesOrSeries),
     @required Result loadFailure(MovieFailure movieFailure),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loading(),
-    Result loadSuccess(List<Either<MovieSub, SerieSub>> moviesOrSeries),
+    Result loadSuccess(List<Search> moviesOrSeries),
     Result loadFailure(MovieFailure movieFailure),
     @required Result orElse(),
   });
@@ -268,8 +267,7 @@ class _$_Initial implements _Initial {
   Result when<Result extends Object>({
     @required Result initial(),
     @required Result loading(),
-    @required
-        Result loadSuccess(List<Either<MovieSub, SerieSub>> moviesOrSeries),
+    @required Result loadSuccess(List<Search> moviesOrSeries),
     @required Result loadFailure(MovieFailure movieFailure),
   }) {
     assert(initial != null);
@@ -284,7 +282,7 @@ class _$_Initial implements _Initial {
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loading(),
-    Result loadSuccess(List<Either<MovieSub, SerieSub>> moviesOrSeries),
+    Result loadSuccess(List<Search> moviesOrSeries),
     Result loadFailure(MovieFailure movieFailure),
     @required Result orElse(),
   }) {
@@ -369,8 +367,7 @@ class _$_Loading implements _Loading {
   Result when<Result extends Object>({
     @required Result initial(),
     @required Result loading(),
-    @required
-        Result loadSuccess(List<Either<MovieSub, SerieSub>> moviesOrSeries),
+    @required Result loadSuccess(List<Search> moviesOrSeries),
     @required Result loadFailure(MovieFailure movieFailure),
   }) {
     assert(initial != null);
@@ -385,7 +382,7 @@ class _$_Loading implements _Loading {
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loading(),
-    Result loadSuccess(List<Either<MovieSub, SerieSub>> moviesOrSeries),
+    Result loadSuccess(List<Search> moviesOrSeries),
     Result loadFailure(MovieFailure movieFailure),
     @required Result orElse(),
   }) {
@@ -437,7 +434,7 @@ abstract class _$LoadSuccessCopyWith<$Res> {
   factory _$LoadSuccessCopyWith(
           _LoadSuccess value, $Res Function(_LoadSuccess) then) =
       __$LoadSuccessCopyWithImpl<$Res>;
-  $Res call({List<Either<MovieSub, SerieSub>> moviesOrSeries});
+  $Res call({List<Search> moviesOrSeries});
 }
 
 /// @nodoc
@@ -457,7 +454,7 @@ class __$LoadSuccessCopyWithImpl<$Res> extends _$SearchStateCopyWithImpl<$Res>
     return _then(_LoadSuccess(
       moviesOrSeries == freezed
           ? _value.moviesOrSeries
-          : moviesOrSeries as List<Either<MovieSub, SerieSub>>,
+          : moviesOrSeries as List<Search>,
     ));
   }
 }
@@ -467,7 +464,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   const _$_LoadSuccess(this.moviesOrSeries) : assert(moviesOrSeries != null);
 
   @override
-  final List<Either<MovieSub, SerieSub>> moviesOrSeries;
+  final List<Search> moviesOrSeries;
 
   @override
   String toString() {
@@ -497,8 +494,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   Result when<Result extends Object>({
     @required Result initial(),
     @required Result loading(),
-    @required
-        Result loadSuccess(List<Either<MovieSub, SerieSub>> moviesOrSeries),
+    @required Result loadSuccess(List<Search> moviesOrSeries),
     @required Result loadFailure(MovieFailure movieFailure),
   }) {
     assert(initial != null);
@@ -513,7 +509,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loading(),
-    Result loadSuccess(List<Either<MovieSub, SerieSub>> moviesOrSeries),
+    Result loadSuccess(List<Search> moviesOrSeries),
     Result loadFailure(MovieFailure movieFailure),
     @required Result orElse(),
   }) {
@@ -557,10 +553,9 @@ class _$_LoadSuccess implements _LoadSuccess {
 }
 
 abstract class _LoadSuccess implements SearchState {
-  const factory _LoadSuccess(List<Either<MovieSub, SerieSub>> moviesOrSeries) =
-      _$_LoadSuccess;
+  const factory _LoadSuccess(List<Search> moviesOrSeries) = _$_LoadSuccess;
 
-  List<Either<MovieSub, SerieSub>> get moviesOrSeries;
+  List<Search> get moviesOrSeries;
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
 
@@ -640,8 +635,7 @@ class _$_LoadFailure implements _LoadFailure {
   Result when<Result extends Object>({
     @required Result initial(),
     @required Result loading(),
-    @required
-        Result loadSuccess(List<Either<MovieSub, SerieSub>> moviesOrSeries),
+    @required Result loadSuccess(List<Search> moviesOrSeries),
     @required Result loadFailure(MovieFailure movieFailure),
   }) {
     assert(initial != null);
@@ -656,7 +650,7 @@ class _$_LoadFailure implements _LoadFailure {
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loading(),
-    Result loadSuccess(List<Either<MovieSub, SerieSub>> moviesOrSeries),
+    Result loadSuccess(List<Search> moviesOrSeries),
     Result loadFailure(MovieFailure movieFailure),
     @required Result orElse(),
   }) {

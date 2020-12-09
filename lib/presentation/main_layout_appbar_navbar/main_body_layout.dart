@@ -9,7 +9,7 @@ import '../favorites/favorites.dart';
 import '../friends/friends.dart';
 import '../home/home.dart';
 import '../routes/router.gr.dart';
-import '../search/search.dart';
+import '../search/search_screen.dart';
 import 'main_bottom_navigation_bar_widget.dart';
 
 class MainBodyLayout extends StatefulWidget {
@@ -21,7 +21,7 @@ class _MainBodyLayoutState extends State<MainBodyLayout> {
   int _currentIndex = 0;
   final _children = [
     const Home(),
-    Search(),
+    SearchScreen(),
     const Favorites(automaticallyImplyLeading: false),
     Friends(),
   ];

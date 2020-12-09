@@ -1,15 +1,12 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/home/movies/movie/movies_failure.dart';
-import '../../domain/home/movies/movie_sub/movie_sub.dart';
-import '../../domain/home/series/serie_sub/serie_sub.dart';
+import '../../domain/search/search.dart';
 import '../../domain/search/search_interface.dart';
-import '../home/series/series/series_bloc.dart';
 
 part 'search_bloc.freezed.dart';
 part 'search_event.dart';
@@ -25,7 +22,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     SearchEvent event,
   ) async* {
     yield* event.map(trendingCalled: (e) async* {
-      yield const SeriesState.loading();
+      yield const SearchState.loading();
       final failureOrMoviesOrSeries = await searchInterface.getTrending();
 
       yield failureOrMoviesOrSeries.fold((f) => SearchState.loadFailure(f),
