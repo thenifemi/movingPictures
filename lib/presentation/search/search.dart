@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:movingPictures/presentation/core/constants/constants.dart';
 
 import '../core/app_colors.dart';
+import '../core/constants/constants.dart';
 
 class Search extends StatelessWidget {
   @override
@@ -15,12 +15,12 @@ class Search extends StatelessWidget {
           child: TextFormField(
             cursorColor: AppColors.white,
             keyboardType: TextInputType.text,
+            textInputAction: TextInputAction.search,
             style: const TextStyle(color: AppColors.white, fontSize: 18.0),
             decoration: InputDecoration(
               prefixIcon: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: SvgPicture.asset(searchIcon, color: Colors.grey),
-              ),
+                  padding: const EdgeInsets.all(12.0),
+                  child: SvgPicture.asset(searchIcon, color: Colors.grey)),
               contentPadding: const EdgeInsets.symmetric(horizontal: 25.0),
               labelText: 'Search for a movie, series or genre',
               labelStyle: const TextStyle(color: Colors.grey, fontSize: 14.0),
