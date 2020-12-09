@@ -1,8 +1,18 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../application/search/search_bloc.dart';
+import '../../domain/home/movies/movie_sub/movie_sub.dart';
+import '../../domain/home/series/serie_sub/serie_sub.dart';
+import '../../injection.dart';
 import '../core/app_colors.dart';
+import '../core/component_widgets/movie_loading_wigdet.dart';
+import '../core/component_widgets/poster_image_widget.dart';
 import '../core/constants/constants.dart';
+import '../home/movies/widgets/build_show_info_modal_bottom_sheet_widget.dart';
+import '../home/series/widgets/build_show_series_info_modal_bottom_sheet_widget.dart';
 
 class Search extends StatelessWidget {
   @override
@@ -31,6 +41,92 @@ class Search extends StatelessWidget {
             ),
           ),
         ),
+      ),
+      body: BlocProvider(
+        create: (context) =>
+            getIt<SearchBloc>()..add(const SearchEvent.trendingCalled()),
+        child: BlocBuilder<SearchBloc, SearchState>(
+          builder: (context, state) {
+            return state.map(
+              initial: (_) => const MovieLoadingWidget(),
+              loading: (_) => const MovieLoadingWidget(),
+              loadSuccess: (state) {
+                final moviesOrSeries = state.moviesOrSeries;
+                return Trending(
+                  moviesOrSeries: moviesOrSeries,
+                );
+              },
+              loadFailure: (_) => Container(
+                height: 100.0,
+                color: AppColors.red,
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class Trending extends StatelessWidget {
+  const Trending({
+    Key key,
+    @required this.moviesOrSeries,
+  }) : super(key: key);
+
+  final List<Either<MovieSub, SerieSub>> moviesOrSeries;
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
+    /*24 is for notification bar on Android*/
+    final double itemHeight = (size.height - kToolbarHeight - 24) / 2.5;
+    final double itemWidth = size.width / 2;
+
+    final appTextTheme = Theme.of(context).textTheme;
+
+    return GridView.count(
+      shrinkWrap: true,
+      childAspectRatio: itemWidth / itemHeight,
+      crossAxisSpacing: 10.0,
+      mainAxisSpacing: 10.0,
+      physics: const NeverScrollableScrollPhysics(),
+      crossAxisCount: 3,
+      children: List.generate(
+        moviesOrSeries.length < 12 ? moviesOrSeries.length : 12,
+        (i) {
+          final movieOrSerie = moviesOrSeries[i];
+          return GestureDetector(
+            onTap: () {
+              movieOrSerie.fold(
+                (movie) => buildShowInfoModalBottomSheet(
+                  appTextTheme: appTextTheme,
+                  context: context,
+                  movieId: movie.id,
+                ),
+                (serie) => buildShowSeriesInfoModalBottomSheet(
+                  appTextTheme: appTextTheme,
+                  context: context,
+                  serieId: serie.id,
+                ),
+              );
+            },
+            child: Tooltip(
+              message: movieOrSerie.fold(
+                  (movie) => movie.title, (serie) => serie.name),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(5.0),
+                child: PosterImageWidget(
+                  movieOrSeries: movieOrSerie.fold(
+                    (movie) => movie.posterPath,
+                    (serie) => serie.posterPath,
+                  ),
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
