@@ -5,8 +5,6 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/home/movies/movie/movies_failure.dart';
-import '../../domain/home/movies/movie_sub/movie_sub.dart';
-import '../../domain/home/series/serie_sub/serie_sub.dart';
 import '../../domain/search/search.dart';
 import '../../domain/search/search_interface.dart';
 import '../core/credentials.dart';
@@ -43,5 +41,32 @@ class SearchRepository extends SearchInterface {
   }
 
   @override
-  Future<Either<MovieFailure, List<Search>>> getSearchQuery() {}
+  Future<Either<MovieFailure, List<Search>>> getSearchQuery(
+      String query) async {
+    if (deviceLocal == "pt_BR") deviceLocal = "pt-BR";
+    if (deviceLocal == "en_US") deviceLocal = "en-US";
+
+    final getSearchUrl = "$tmdbUrl/search/multi";
+    final params = {
+      "api_key": apiKey,
+      "language": deviceLocal,
+      "page": 1,
+      "query": query,
+    };
+
+    try {
+      final Response<Map<String, dynamic>> response = await _dio.get(
+        getSearchUrl,
+        queryParameters: params,
+      );
+      final List<Search> movieOrSerieorPerson =
+          (response.data["results"] as List)
+              .map((i) => Search.fromJson(i as Map<String, dynamic>))
+              .toList();
+
+      return right(movieOrSerieorPerson);
+    } catch (e) {
+      return left(const MovieFailure.unexpected());
+    }
+  }
 }

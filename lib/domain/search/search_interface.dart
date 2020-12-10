@@ -5,5 +5,5 @@ import 'search.dart';
 
 abstract class SearchInterface {
   Future<Either<MovieFailure, List<Search>>> getTrending();
-  Future<Either<MovieFailure, List<Search>>> getSearchQuery();
+  Future<Either<MovieFailure, List<Search>>> getSearchQuery(String query);
 }
