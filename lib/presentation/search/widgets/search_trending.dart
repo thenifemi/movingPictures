@@ -3,13 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/search/search_bloc.dart';
 import '../../../domain/search/search.dart';
-import '../../../injection.dart';
 import '../../core/component_widgets/movie_loading_wigdet.dart';
 import 'trending_movies.dart';
 import 'trending_series.dart';
 
-class SearchTrending extends StatelessWidget {
-  const SearchTrending({
+class SearchResultsORTrending extends StatelessWidget {
+  const SearchResultsORTrending({
     Key key,
   }) : super(key: key);
 
