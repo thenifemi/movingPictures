@@ -17,6 +17,13 @@ class _$SearchEventTearOff {
   _TrendingCalled trendingCalled() {
     return const _TrendingCalled();
   }
+
+// ignore: unused_element
+  _QueryCalled queryCalled(String query) {
+    return _QueryCalled(
+      query,
+    );
+  }
 }
 
 /// @nodoc
@@ -28,19 +35,23 @@ mixin _$SearchEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result trendingCalled(),
+    @required Result queryCalled(String query),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result trendingCalled(),
+    Result queryCalled(String query),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result trendingCalled(_TrendingCalled value),
+    @required Result queryCalled(_QueryCalled value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result trendingCalled(_TrendingCalled value),
+    Result queryCalled(_QueryCalled value),
     @required Result orElse(),
   });
 }
@@ -101,8 +112,10 @@ class _$_TrendingCalled implements _TrendingCalled {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result trendingCalled(),
+    @required Result queryCalled(String query),
   }) {
     assert(trendingCalled != null);
+    assert(queryCalled != null);
     return trendingCalled();
   }
 
@@ -110,6 +123,7 @@ class _$_TrendingCalled implements _TrendingCalled {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result trendingCalled(),
+    Result queryCalled(String query),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -123,8 +137,10 @@ class _$_TrendingCalled implements _TrendingCalled {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result trendingCalled(_TrendingCalled value),
+    @required Result queryCalled(_QueryCalled value),
   }) {
     assert(trendingCalled != null);
+    assert(queryCalled != null);
     return trendingCalled(this);
   }
 
@@ -132,6 +148,7 @@ class _$_TrendingCalled implements _TrendingCalled {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result trendingCalled(_TrendingCalled value),
+    Result queryCalled(_QueryCalled value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -144,6 +161,120 @@ class _$_TrendingCalled implements _TrendingCalled {
 
 abstract class _TrendingCalled implements SearchEvent {
   const factory _TrendingCalled() = _$_TrendingCalled;
+}
+
+/// @nodoc
+abstract class _$QueryCalledCopyWith<$Res> {
+  factory _$QueryCalledCopyWith(
+          _QueryCalled value, $Res Function(_QueryCalled) then) =
+      __$QueryCalledCopyWithImpl<$Res>;
+  $Res call({String query});
+}
+
+/// @nodoc
+class __$QueryCalledCopyWithImpl<$Res> extends _$SearchEventCopyWithImpl<$Res>
+    implements _$QueryCalledCopyWith<$Res> {
+  __$QueryCalledCopyWithImpl(
+      _QueryCalled _value, $Res Function(_QueryCalled) _then)
+      : super(_value, (v) => _then(v as _QueryCalled));
+
+  @override
+  _QueryCalled get _value => super._value as _QueryCalled;
+
+  @override
+  $Res call({
+    Object query = freezed,
+  }) {
+    return _then(_QueryCalled(
+      query == freezed ? _value.query : query as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_QueryCalled implements _QueryCalled {
+  const _$_QueryCalled(this.query) : assert(query != null);
+
+  @override
+  final String query;
+
+  @override
+  String toString() {
+    return 'SearchEvent.queryCalled(query: $query)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _QueryCalled &&
+            (identical(other.query, query) ||
+                const DeepCollectionEquality().equals(other.query, query)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(query);
+
+  @override
+  _$QueryCalledCopyWith<_QueryCalled> get copyWith =>
+      __$QueryCalledCopyWithImpl<_QueryCalled>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result trendingCalled(),
+    @required Result queryCalled(String query),
+  }) {
+    assert(trendingCalled != null);
+    assert(queryCalled != null);
+    return queryCalled(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result trendingCalled(),
+    Result queryCalled(String query),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (queryCalled != null) {
+      return queryCalled(query);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result trendingCalled(_TrendingCalled value),
+    @required Result queryCalled(_QueryCalled value),
+  }) {
+    assert(trendingCalled != null);
+    assert(queryCalled != null);
+    return queryCalled(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result trendingCalled(_TrendingCalled value),
+    Result queryCalled(_QueryCalled value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (queryCalled != null) {
+      return queryCalled(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _QueryCalled implements SearchEvent {
+  const factory _QueryCalled(String query) = _$_QueryCalled;
+
+  String get query;
+  _$QueryCalledCopyWith<_QueryCalled> get copyWith;
 }
 
 /// @nodoc
@@ -168,6 +299,14 @@ class _$SearchStateTearOff {
   }
 
 // ignore: unused_element
+  _LoadSuccessforQuery loadSuccessforQuery(
+      List<Search> moviesOrSeriesorPerson) {
+    return _LoadSuccessforQuery(
+      moviesOrSeriesorPerson,
+    );
+  }
+
+// ignore: unused_element
   _LoadFailure loadFailure(MovieFailure movieFailure) {
     return _LoadFailure(
       movieFailure,
@@ -186,6 +325,7 @@ mixin _$SearchState {
     @required Result initial(),
     @required Result loading(),
     @required Result loadSuccess(List<Search> moviesOrSeries),
+    @required Result loadSuccessforQuery(List<Search> moviesOrSeriesorPerson),
     @required Result loadFailure(MovieFailure movieFailure),
   });
   @optionalTypeArgs
@@ -193,6 +333,7 @@ mixin _$SearchState {
     Result initial(),
     Result loading(),
     Result loadSuccess(List<Search> moviesOrSeries),
+    Result loadSuccessforQuery(List<Search> moviesOrSeriesorPerson),
     Result loadFailure(MovieFailure movieFailure),
     @required Result orElse(),
   });
@@ -201,6 +342,7 @@ mixin _$SearchState {
     @required Result initial(_Initial value),
     @required Result loading(_Loading value),
     @required Result loadSuccess(_LoadSuccess value),
+    @required Result loadSuccessforQuery(_LoadSuccessforQuery value),
     @required Result loadFailure(_LoadFailure value),
   });
   @optionalTypeArgs
@@ -208,6 +350,7 @@ mixin _$SearchState {
     Result initial(_Initial value),
     Result loading(_Loading value),
     Result loadSuccess(_LoadSuccess value),
+    Result loadSuccessforQuery(_LoadSuccessforQuery value),
     Result loadFailure(_LoadFailure value),
     @required Result orElse(),
   });
@@ -268,11 +411,13 @@ class _$_Initial implements _Initial {
     @required Result initial(),
     @required Result loading(),
     @required Result loadSuccess(List<Search> moviesOrSeries),
+    @required Result loadSuccessforQuery(List<Search> moviesOrSeriesorPerson),
     @required Result loadFailure(MovieFailure movieFailure),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
+    assert(loadSuccessforQuery != null);
     assert(loadFailure != null);
     return initial();
   }
@@ -283,6 +428,7 @@ class _$_Initial implements _Initial {
     Result initial(),
     Result loading(),
     Result loadSuccess(List<Search> moviesOrSeries),
+    Result loadSuccessforQuery(List<Search> moviesOrSeriesorPerson),
     Result loadFailure(MovieFailure movieFailure),
     @required Result orElse(),
   }) {
@@ -299,11 +445,13 @@ class _$_Initial implements _Initial {
     @required Result initial(_Initial value),
     @required Result loading(_Loading value),
     @required Result loadSuccess(_LoadSuccess value),
+    @required Result loadSuccessforQuery(_LoadSuccessforQuery value),
     @required Result loadFailure(_LoadFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
+    assert(loadSuccessforQuery != null);
     assert(loadFailure != null);
     return initial(this);
   }
@@ -314,6 +462,7 @@ class _$_Initial implements _Initial {
     Result initial(_Initial value),
     Result loading(_Loading value),
     Result loadSuccess(_LoadSuccess value),
+    Result loadSuccessforQuery(_LoadSuccessforQuery value),
     Result loadFailure(_LoadFailure value),
     @required Result orElse(),
   }) {
@@ -368,11 +517,13 @@ class _$_Loading implements _Loading {
     @required Result initial(),
     @required Result loading(),
     @required Result loadSuccess(List<Search> moviesOrSeries),
+    @required Result loadSuccessforQuery(List<Search> moviesOrSeriesorPerson),
     @required Result loadFailure(MovieFailure movieFailure),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
+    assert(loadSuccessforQuery != null);
     assert(loadFailure != null);
     return loading();
   }
@@ -383,6 +534,7 @@ class _$_Loading implements _Loading {
     Result initial(),
     Result loading(),
     Result loadSuccess(List<Search> moviesOrSeries),
+    Result loadSuccessforQuery(List<Search> moviesOrSeriesorPerson),
     Result loadFailure(MovieFailure movieFailure),
     @required Result orElse(),
   }) {
@@ -399,11 +551,13 @@ class _$_Loading implements _Loading {
     @required Result initial(_Initial value),
     @required Result loading(_Loading value),
     @required Result loadSuccess(_LoadSuccess value),
+    @required Result loadSuccessforQuery(_LoadSuccessforQuery value),
     @required Result loadFailure(_LoadFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
+    assert(loadSuccessforQuery != null);
     assert(loadFailure != null);
     return loading(this);
   }
@@ -414,6 +568,7 @@ class _$_Loading implements _Loading {
     Result initial(_Initial value),
     Result loading(_Loading value),
     Result loadSuccess(_LoadSuccess value),
+    Result loadSuccessforQuery(_LoadSuccessforQuery value),
     Result loadFailure(_LoadFailure value),
     @required Result orElse(),
   }) {
@@ -495,11 +650,13 @@ class _$_LoadSuccess implements _LoadSuccess {
     @required Result initial(),
     @required Result loading(),
     @required Result loadSuccess(List<Search> moviesOrSeries),
+    @required Result loadSuccessforQuery(List<Search> moviesOrSeriesorPerson),
     @required Result loadFailure(MovieFailure movieFailure),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
+    assert(loadSuccessforQuery != null);
     assert(loadFailure != null);
     return loadSuccess(moviesOrSeries);
   }
@@ -510,6 +667,7 @@ class _$_LoadSuccess implements _LoadSuccess {
     Result initial(),
     Result loading(),
     Result loadSuccess(List<Search> moviesOrSeries),
+    Result loadSuccessforQuery(List<Search> moviesOrSeriesorPerson),
     Result loadFailure(MovieFailure movieFailure),
     @required Result orElse(),
   }) {
@@ -526,11 +684,13 @@ class _$_LoadSuccess implements _LoadSuccess {
     @required Result initial(_Initial value),
     @required Result loading(_Loading value),
     @required Result loadSuccess(_LoadSuccess value),
+    @required Result loadSuccessforQuery(_LoadSuccessforQuery value),
     @required Result loadFailure(_LoadFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
+    assert(loadSuccessforQuery != null);
     assert(loadFailure != null);
     return loadSuccess(this);
   }
@@ -541,6 +701,7 @@ class _$_LoadSuccess implements _LoadSuccess {
     Result initial(_Initial value),
     Result loading(_Loading value),
     Result loadSuccess(_LoadSuccess value),
+    Result loadSuccessforQuery(_LoadSuccessforQuery value),
     Result loadFailure(_LoadFailure value),
     @required Result orElse(),
   }) {
@@ -557,6 +718,146 @@ abstract class _LoadSuccess implements SearchState {
 
   List<Search> get moviesOrSeries;
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
+}
+
+/// @nodoc
+abstract class _$LoadSuccessforQueryCopyWith<$Res> {
+  factory _$LoadSuccessforQueryCopyWith(_LoadSuccessforQuery value,
+          $Res Function(_LoadSuccessforQuery) then) =
+      __$LoadSuccessforQueryCopyWithImpl<$Res>;
+  $Res call({List<Search> moviesOrSeriesorPerson});
+}
+
+/// @nodoc
+class __$LoadSuccessforQueryCopyWithImpl<$Res>
+    extends _$SearchStateCopyWithImpl<$Res>
+    implements _$LoadSuccessforQueryCopyWith<$Res> {
+  __$LoadSuccessforQueryCopyWithImpl(
+      _LoadSuccessforQuery _value, $Res Function(_LoadSuccessforQuery) _then)
+      : super(_value, (v) => _then(v as _LoadSuccessforQuery));
+
+  @override
+  _LoadSuccessforQuery get _value => super._value as _LoadSuccessforQuery;
+
+  @override
+  $Res call({
+    Object moviesOrSeriesorPerson = freezed,
+  }) {
+    return _then(_LoadSuccessforQuery(
+      moviesOrSeriesorPerson == freezed
+          ? _value.moviesOrSeriesorPerson
+          : moviesOrSeriesorPerson as List<Search>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_LoadSuccessforQuery implements _LoadSuccessforQuery {
+  const _$_LoadSuccessforQuery(this.moviesOrSeriesorPerson)
+      : assert(moviesOrSeriesorPerson != null);
+
+  @override
+  final List<Search> moviesOrSeriesorPerson;
+
+  @override
+  String toString() {
+    return 'SearchState.loadSuccessforQuery(moviesOrSeriesorPerson: $moviesOrSeriesorPerson)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _LoadSuccessforQuery &&
+            (identical(other.moviesOrSeriesorPerson, moviesOrSeriesorPerson) ||
+                const DeepCollectionEquality().equals(
+                    other.moviesOrSeriesorPerson, moviesOrSeriesorPerson)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(moviesOrSeriesorPerson);
+
+  @override
+  _$LoadSuccessforQueryCopyWith<_LoadSuccessforQuery> get copyWith =>
+      __$LoadSuccessforQueryCopyWithImpl<_LoadSuccessforQuery>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result initial(),
+    @required Result loading(),
+    @required Result loadSuccess(List<Search> moviesOrSeries),
+    @required Result loadSuccessforQuery(List<Search> moviesOrSeriesorPerson),
+    @required Result loadFailure(MovieFailure movieFailure),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loadSuccess != null);
+    assert(loadSuccessforQuery != null);
+    assert(loadFailure != null);
+    return loadSuccessforQuery(moviesOrSeriesorPerson);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result initial(),
+    Result loading(),
+    Result loadSuccess(List<Search> moviesOrSeries),
+    Result loadSuccessforQuery(List<Search> moviesOrSeriesorPerson),
+    Result loadFailure(MovieFailure movieFailure),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (loadSuccessforQuery != null) {
+      return loadSuccessforQuery(moviesOrSeriesorPerson);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result initial(_Initial value),
+    @required Result loading(_Loading value),
+    @required Result loadSuccess(_LoadSuccess value),
+    @required Result loadSuccessforQuery(_LoadSuccessforQuery value),
+    @required Result loadFailure(_LoadFailure value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loadSuccess != null);
+    assert(loadSuccessforQuery != null);
+    assert(loadFailure != null);
+    return loadSuccessforQuery(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result initial(_Initial value),
+    Result loading(_Loading value),
+    Result loadSuccess(_LoadSuccess value),
+    Result loadSuccessforQuery(_LoadSuccessforQuery value),
+    Result loadFailure(_LoadFailure value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (loadSuccessforQuery != null) {
+      return loadSuccessforQuery(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadSuccessforQuery implements SearchState {
+  const factory _LoadSuccessforQuery(List<Search> moviesOrSeriesorPerson) =
+      _$_LoadSuccessforQuery;
+
+  List<Search> get moviesOrSeriesorPerson;
+  _$LoadSuccessforQueryCopyWith<_LoadSuccessforQuery> get copyWith;
 }
 
 /// @nodoc
@@ -636,11 +937,13 @@ class _$_LoadFailure implements _LoadFailure {
     @required Result initial(),
     @required Result loading(),
     @required Result loadSuccess(List<Search> moviesOrSeries),
+    @required Result loadSuccessforQuery(List<Search> moviesOrSeriesorPerson),
     @required Result loadFailure(MovieFailure movieFailure),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
+    assert(loadSuccessforQuery != null);
     assert(loadFailure != null);
     return loadFailure(movieFailure);
   }
@@ -651,6 +954,7 @@ class _$_LoadFailure implements _LoadFailure {
     Result initial(),
     Result loading(),
     Result loadSuccess(List<Search> moviesOrSeries),
+    Result loadSuccessforQuery(List<Search> moviesOrSeriesorPerson),
     Result loadFailure(MovieFailure movieFailure),
     @required Result orElse(),
   }) {
@@ -667,11 +971,13 @@ class _$_LoadFailure implements _LoadFailure {
     @required Result initial(_Initial value),
     @required Result loading(_Loading value),
     @required Result loadSuccess(_LoadSuccess value),
+    @required Result loadSuccessforQuery(_LoadSuccessforQuery value),
     @required Result loadFailure(_LoadFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
+    assert(loadSuccessforQuery != null);
     assert(loadFailure != null);
     return loadFailure(this);
   }
@@ -682,6 +988,7 @@ class _$_LoadFailure implements _LoadFailure {
     Result initial(_Initial value),
     Result loading(_Loading value),
     Result loadSuccess(_LoadSuccess value),
+    Result loadSuccessforQuery(_LoadSuccessforQuery value),
     Result loadFailure(_LoadFailure value),
     @required Result orElse(),
   }) {

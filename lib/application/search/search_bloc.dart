@@ -21,12 +21,24 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   Stream<SearchState> mapEventToState(
     SearchEvent event,
   ) async* {
-    yield* event.map(trendingCalled: (e) async* {
-      yield const SearchState.loading();
-      final failureOrMoviesOrSeries = await searchInterface.getTrending();
+    yield* event.map(
+      trendingCalled: (e) async* {
+        yield const SearchState.loading();
+        final failureOrMoviesOrSeries = await searchInterface.getTrending();
 
-      yield failureOrMoviesOrSeries.fold((f) => SearchState.loadFailure(f),
-          (moviesOrSeries) => SearchState.loadSuccess(moviesOrSeries));
-    });
+        yield failureOrMoviesOrSeries.fold((f) => SearchState.loadFailure(f),
+            (moviesOrSeries) => SearchState.loadSuccess(moviesOrSeries));
+      },
+      queryCalled: (e) async* {
+        yield const SearchState.loading();
+        final failureOrMoviesOrSeriesorPerson =
+            await searchInterface.getSearchQuery(e.query);
+
+        yield failureOrMoviesOrSeriesorPerson.fold(
+            (f) => SearchState.loadFailure(f),
+            (moviesOrSeriesOrPerson) =>
+                SearchState.loadSuccessforQuery(moviesOrSeriesOrPerson));
+      },
+    );
   }
 }
