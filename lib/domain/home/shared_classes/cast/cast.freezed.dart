@@ -17,10 +17,12 @@ class _$CastTearOff {
   const _$CastTearOff();
 
 // ignore: unused_element
-  _Cast call({@required int id, @required String name}) {
+  _Cast call(
+      {@required int id, @required String name, @required String profilePath}) {
     return _Cast(
       id: id,
       name: name,
+      profilePath: profilePath,
     );
   }
 
@@ -38,6 +40,7 @@ const $Cast = _$CastTearOff();
 mixin _$Cast {
   int get id;
   String get name;
+  String get profilePath;
 
   Map<String, dynamic> toJson();
   $CastCopyWith<Cast> get copyWith;
@@ -47,7 +50,7 @@ mixin _$Cast {
 abstract class $CastCopyWith<$Res> {
   factory $CastCopyWith(Cast value, $Res Function(Cast) then) =
       _$CastCopyWithImpl<$Res>;
-  $Res call({int id, String name});
+  $Res call({int id, String name, String profilePath});
 }
 
 /// @nodoc
@@ -62,10 +65,13 @@ class _$CastCopyWithImpl<$Res> implements $CastCopyWith<$Res> {
   $Res call({
     Object id = freezed,
     Object name = freezed,
+    Object profilePath = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as int,
       name: name == freezed ? _value.name : name as String,
+      profilePath:
+          profilePath == freezed ? _value.profilePath : profilePath as String,
     ));
   }
 }
@@ -75,7 +81,7 @@ abstract class _$CastCopyWith<$Res> implements $CastCopyWith<$Res> {
   factory _$CastCopyWith(_Cast value, $Res Function(_Cast) then) =
       __$CastCopyWithImpl<$Res>;
   @override
-  $Res call({int id, String name});
+  $Res call({int id, String name, String profilePath});
 }
 
 /// @nodoc
@@ -91,10 +97,13 @@ class __$CastCopyWithImpl<$Res> extends _$CastCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object name = freezed,
+    Object profilePath = freezed,
   }) {
     return _then(_Cast(
       id: id == freezed ? _value.id : id as int,
       name: name == freezed ? _value.name : name as String,
+      profilePath:
+          profilePath == freezed ? _value.profilePath : profilePath as String,
     ));
   }
 }
@@ -103,9 +112,11 @@ class __$CastCopyWithImpl<$Res> extends _$CastCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_Cast extends _Cast {
-  const _$_Cast({@required this.id, @required this.name})
+  const _$_Cast(
+      {@required this.id, @required this.name, @required this.profilePath})
       : assert(id != null),
         assert(name != null),
+        assert(profilePath != null),
         super._();
 
   factory _$_Cast.fromJson(Map<String, dynamic> json) =>
@@ -115,10 +126,12 @@ class _$_Cast extends _Cast {
   final int id;
   @override
   final String name;
+  @override
+  final String profilePath;
 
   @override
   String toString() {
-    return 'Cast(id: $id, name: $name)';
+    return 'Cast(id: $id, name: $name, profilePath: $profilePath)';
   }
 
   @override
@@ -128,14 +141,18 @@ class _$_Cast extends _Cast {
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.profilePath, profilePath) ||
+                const DeepCollectionEquality()
+                    .equals(other.profilePath, profilePath)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(name);
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(profilePath);
 
   @override
   _$CastCopyWith<_Cast> get copyWith =>
@@ -149,7 +166,10 @@ class _$_Cast extends _Cast {
 
 abstract class _Cast extends Cast {
   const _Cast._() : super._();
-  const factory _Cast({@required int id, @required String name}) = _$_Cast;
+  const factory _Cast(
+      {@required int id,
+      @required String name,
+      @required String profilePath}) = _$_Cast;
 
   factory _Cast.fromJson(Map<String, dynamic> json) = _$_Cast.fromJson;
 
@@ -157,6 +177,8 @@ abstract class _Cast extends Cast {
   int get id;
   @override
   String get name;
+  @override
+  String get profilePath;
   @override
   _$CastCopyWith<_Cast> get copyWith;
 }
