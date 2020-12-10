@@ -1,13 +1,13 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movingPictures/application/home/movies/casts/casts_bloc.dart';
 
-import '../../../application/home/movies/movies/movies_bloc.dart';
+import '../../../application/home/casts/casts_bloc.dart';
 import '../../../domain/search/search.dart';
+import '../../../infrastructure/core/credentials.dart';
 import '../../../injection.dart';
 import '../../core/component_widgets/movie_loading_wigdet.dart';
-import '../../core/component_widgets/poster_image_widget.dart';
-import '../../home/movies/widgets/build_show_info_modal_bottom_sheet_widget.dart';
+import '../../routes/router.gr.dart';
 
 class SearchCast extends StatelessWidget {
   const SearchCast({
@@ -19,8 +19,6 @@ class SearchCast extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appTextTheme = Theme.of(context).textTheme;
-
     return BlocProvider(
       create: (context) =>
           getIt<CastsBloc>()..add(CastsEvent.getCastCalled(movieOrSerie.id)),
@@ -31,19 +29,32 @@ class SearchCast extends StatelessWidget {
             initial: (_) => const MovieLoadingWidget(),
             loading: (_) => const MovieLoadingWidget(),
             loadSuccess: (state) {
-              final movie = state.casts;
+              final person = state.cast;
 
               return GestureDetector(
-                onTap: () => buildShowInfoModalBottomSheet(
-                  appTextTheme: appTextTheme,
-                  context: context,
-                  // movieId: movie.id,
-                ),
+                onTap: () => ExtendedNavigator.of(context)
+                    .pushCastMoviesScreen(cast: person),
                 child: Tooltip(
-                  // message: movie.title,
+                  message: person.name,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(5.0),
-                    child: PosterImageWidget(movieOrSeries: movie),
+                    child: Image.network(
+                      "$MOVIE_POSTER_PATH${person.profilePath}",
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, e, error) =>
+                          const Center(child: Icon(Icons.image_outlined)),
+                      loadingBuilder: (context, child, loadingProgress) {
+                        if (loadingProgress == null) return child;
+                        return Center(
+                          child: CircularProgressIndicator(
+                            value: loadingProgress.expectedTotalBytes != null
+                                ? loadingProgress.cumulativeBytesLoaded /
+                                    loadingProgress.expectedTotalBytes
+                                : null,
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ),
               );

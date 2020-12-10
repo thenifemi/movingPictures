@@ -4,5 +4,5 @@ import 'cast.dart';
 import 'cast_failure.dart';
 
 abstract class CastInterface {
-  Future<Either<CastFailure, Cast>> getMovie(int castId);
+  Future<Either<CastFailure, Cast>> getPerson(int castId);
 }

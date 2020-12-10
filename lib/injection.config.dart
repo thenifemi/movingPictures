@@ -12,8 +12,11 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 import 'application/auth/auth_bloc.dart';
 import 'domain/auth/auth_repository_interface.dart';
+import 'domain/home/shared_classes/cast/cast_interface.dart';
+import 'infrastructure/home/casts/casts_repository.dart';
 import 'application/home/movies/casts/casts_bloc.dart';
 import 'application/home/series/casts/casts_bloc.dart' as movingPictures;
+import 'application/home/casts/casts_bloc.dart' as movingPictures2;
 import 'domain/home/movies/favorite_movies_interface.dart';
 import 'infrastructure/home/movies/favorite_movies_repository.dart';
 import 'domain/home/series/favorite_series_interface.dart';
@@ -46,6 +49,9 @@ GetIt $initGetIt(
 }) {
   final gh = GetItHelper(get, environment, environmentFilter);
   final firebaseinjectableModule = _$FirebaseinjectableModule();
+  gh.lazySingleton<CastInterface>(() => CastRepository());
+  gh.factory<movingPictures2.CastsBloc>(
+      () => movingPictures2.CastsBloc(get<CastInterface>()));
   gh.lazySingleton<FirebaseAuth>(() => firebaseinjectableModule.firebaseAuth);
   gh.lazySingleton<FirebaseFirestore>(() => firebaseinjectableModule.firestore);
   gh.lazySingleton<GoogleSignIn>(() => firebaseinjectableModule.googleSignIn);

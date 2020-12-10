@@ -1,12 +1,13 @@
 import 'dart:io';
 
+import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:movingPictures/domain/home/shared_classes/cast/cast_failure.dart';
-import 'package:movingPictures/domain/home/shared_classes/cast/cast.dart';
-import 'package:dartz/dartz.dart';
-import 'package:movingPictures/domain/home/shared_classes/cast/cast_interface.dart';
-import 'package:movingPictures/infrastructure/core/credentials.dart';
+
+import '../../../domain/home/shared_classes/cast/cast.dart';
+import '../../../domain/home/shared_classes/cast/cast_failure.dart';
+import '../../../domain/home/shared_classes/cast/cast_interface.dart';
+import '../../core/credentials.dart';
 
 @LazySingleton(as: CastInterface)
 class CastRepository extends CastInterface {
@@ -16,7 +17,7 @@ class CastRepository extends CastInterface {
   String deviceLocal = Platform.localeName;
 
   @override
-  Future<Either<CastFailure, Cast>> getMovie(int castId) async {
+  Future<Either<CastFailure, Cast>> getPerson(int castId) async {
     if (deviceLocal == "pt_BR") deviceLocal = "pt-BR";
     if (deviceLocal == "en_US") deviceLocal = "en-US";
 
