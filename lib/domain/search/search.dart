@@ -8,4 +8,9 @@ class Search {
         id: json['id'] as int ?? -0,
         mediaType: json['media_type'] as String,
       );
+
+  factory Search.toDomain(Search search) => Search(
+        id: search.id,
+        mediaType: search.mediaType,
+      );
 }

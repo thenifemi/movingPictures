@@ -8,6 +8,8 @@ import '../../injection.dart';
 import '../core/app_colors.dart';
 import '../core/component_widgets/movie_loading_wigdet.dart';
 import '../core/constants/constants.dart';
+import 'widgets/trending_movies.dart';
+import 'widgets/trending_series.dart';
 
 class SearchScreen extends StatelessWidget {
   @override
@@ -76,52 +78,19 @@ class Trending extends StatelessWidget {
     final double itemHeight = (size.height - kToolbarHeight - 24) / 2.5;
     final double itemWidth = size.width / 2;
 
-    final appTextTheme = Theme.of(context).textTheme;
-
     return GridView.count(
       shrinkWrap: true,
       childAspectRatio: itemWidth / itemHeight,
       crossAxisSpacing: 10.0,
       mainAxisSpacing: 10.0,
-      physics: const NeverScrollableScrollPhysics(),
       crossAxisCount: 3,
       children: List.generate(
-        moviesOrSeries.length < 12 ? moviesOrSeries.length : 12,
+        moviesOrSeries.length,
         (i) {
           final movieOrSerie = moviesOrSeries[i];
-
-          print(movieOrSerie.id);
-          return Container();
-
-          // return GestureDetector(
-          //   onTap: () {
-          //     movieOrSerie.fold(
-          //       (movie) => buildShowInfoModalBottomSheet(
-          //         appTextTheme: appTextTheme,
-          //         context: context,
-          //         movieId: movie.id,
-          //       ),
-          //       (serie) => buildShowSeriesInfoModalBottomSheet(
-          //         appTextTheme: appTextTheme,
-          //         context: context,
-          //         serieId: serie.id,
-          //       ),
-          //     );
-          //   },
-          //   child: Tooltip(
-          //     message: movieOrSerie.fold(
-          //         (movie) => movie.title, (serie) => serie.name),
-          //     child: ClipRRect(
-          //       borderRadius: BorderRadius.circular(5.0),
-          //       child: PosterImageWidget(
-          //         movieOrSeries: movieOrSerie.fold(
-          //           (movie) => movie.posterPath,
-          //           (serie) => serie.posterPath,
-          //         ),
-          //       ),
-          //     ),
-          //   ),
-          // );
+          return movieOrSerie.mediaType == "movie"
+              ? TrendingMovies(movieOrSerie: movieOrSerie)
+              : TrendingSeries(movieOrSerie: movieOrSerie);
         },
       ),
     );
