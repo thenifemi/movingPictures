@@ -15,20 +15,23 @@ class SearchTrending extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) =>
-          getIt<SearchBloc>()..add(const SearchEvent.trendingCalled()),
-      child: BlocBuilder<SearchBloc, SearchState>(
-        builder: (context, state) {
-          return state.map(
-            initial: (_) => const MovieLoadingWidget(),
-            loading: (_) => const MovieLoadingWidget(),
-            loadSuccess: (state) =>
-                Trending(moviesOrSeries: state.moviesOrSeries),
-            loadFailure: (_) => const MovieErrorWidget(),
-          );
-        },
-      ),
+    return BlocBuilder<SearchBloc, SearchState>(
+      builder: (context, state) {
+        return state.map(
+          initial: (_) => const MovieLoadingWidget(),
+          loading: (_) => const MovieLoadingWidget(),
+          loadSuccess: (state) =>
+              Trending(moviesOrSeries: state.moviesOrSeries),
+          loadFailure: (_) => const MovieErrorWidget(),
+          loadSuccessforQuery: (state) {
+            return Container(
+              height: double.infinity,
+              width: double.infinity,
+              color: Colors.green,
+            );
+          },
+        );
+      },
     );
   }
 }
