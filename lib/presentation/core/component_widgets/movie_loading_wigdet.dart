@@ -24,3 +24,25 @@ class MovieLoadingWidget extends StatelessWidget {
     );
   }
 }
+
+class MovieErrorWidget extends StatelessWidget {
+  const MovieErrorWidget({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: AppColors.gray,
+        borderRadius: BorderRadius.circular(5.0),
+      ),
+      child: const Center(
+        child: Icon(
+          Icons.error_outline,
+          color: AppColors.red,
+        ),
+      ),
+    );
+  }
+}

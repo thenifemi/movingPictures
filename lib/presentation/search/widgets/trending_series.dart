@@ -31,10 +31,7 @@ class TrendingSeries extends StatelessWidget {
             initial: (_) => const MovieLoadingWidget(),
             loading: (_) => const MovieLoadingWidget(),
             loadSuccess: (_) => null,
-            loadFailure: (_) => Container(
-              height: 100.0,
-              color: AppColors.red,
-            ),
+            loadFailure: (_) => const MovieErrorWidget(),
             loadSuccessforSerie: (state) {
               final serie = state.serie;
 

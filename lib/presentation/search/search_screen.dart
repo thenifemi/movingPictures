@@ -47,13 +47,9 @@ class SearchScreen extends StatelessWidget {
             return state.map(
               initial: (_) => const MovieLoadingWidget(),
               loading: (_) => const MovieLoadingWidget(),
-              loadSuccess: (state) => Trending(
-                moviesOrSeries: state.moviesOrSeries,
-              ),
-              loadFailure: (_) => Container(
-                height: 100.0,
-                color: AppColors.red,
-              ),
+              loadSuccess: (state) =>
+                  Trending(moviesOrSeries: state.moviesOrSeries),
+              loadFailure: (_) => const MovieErrorWidget(),
             );
           },
         ),
@@ -72,27 +68,45 @@ class Trending extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    // final lang = AppLocalizations.of(context);
+    final appTextTheme = Theme.of(context).textTheme;
 
+    final size = MediaQuery.of(context).size;
     /*24 is for notification bar on Android*/
     final double itemHeight = (size.height - kToolbarHeight - 24) / 2.5;
     final double itemWidth = size.width / 2;
 
-    return GridView.count(
-      shrinkWrap: true,
-      childAspectRatio: itemWidth / itemHeight,
-      crossAxisSpacing: 10.0,
-      mainAxisSpacing: 10.0,
-      crossAxisCount: 3,
-      children: List.generate(
-        moviesOrSeries.length,
-        (i) {
-          final movieOrSerie = moviesOrSeries[i];
-          return movieOrSerie.mediaType == "movie"
-              ? TrendingMovies(movieOrSerie: movieOrSerie)
-              : TrendingSeries(movieOrSerie: movieOrSerie);
-        },
-      ),
+    return Column(
+      children: [
+        Align(
+          alignment: Alignment.topLeft,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              "Top Trending",
+              style: appTextTheme.headline5,
+            ),
+          ),
+        ),
+        Expanded(
+          child: GridView.count(
+            shrinkWrap: true,
+            childAspectRatio: itemWidth / itemHeight,
+            crossAxisSpacing: 10.0,
+            mainAxisSpacing: 10.0,
+            crossAxisCount: 3,
+            children: List.generate(
+              moviesOrSeries.length,
+              (i) {
+                final movieOrSerie = moviesOrSeries[i];
+                return movieOrSerie.mediaType == "movie"
+                    ? TrendingMovies(movieOrSerie: movieOrSerie)
+                    : TrendingSeries(movieOrSerie: movieOrSerie);
+              },
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
