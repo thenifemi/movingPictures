@@ -23,6 +23,12 @@ extension FirestoreX on FirebaseFirestore {
 
     return userDoc.collection('series').doc(serieId.toString());
   }
+
+  Future<DocumentReference> peopleDocument(String personEmail) async {
+    final userDoc = await userDocument();
+
+    return userDoc.collection('people').doc(personEmail);
+  }
 }
 
 // extension DocumentReferenceX on DocumentReference {

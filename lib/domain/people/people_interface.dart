@@ -7,5 +7,6 @@ abstract class PeopleInterface {
   Stream<Either<PeopleFailure, List<Person>>> watchPeople();
   Future<Either<PeopleFailure, Unit>> followPerson(String personEmail);
   Future<Either<PeopleFailure, Unit>> unFollowPerson(String personEmail);
-  Future<Either<PeopleFailure, Unit>> getPersonSearchQuery(String personEmail);
+  Future<Either<PeopleFailure, Person>> getPersonSearchQuery(
+      String personEmail);
 }
