@@ -30,6 +30,8 @@ import 'application/home/series/genres/genres_bloc.dart' as movingPictures1;
 import 'application/home/movies/movies/movies_bloc.dart';
 import 'domain/home/movies/movies_interface.dart';
 import 'infrastructure/home/movies/movies_repository.dart';
+import 'domain/people/people_interface.dart';
+import 'infrastructure/people/people_repository.dart';
 import 'application/search/search_bloc.dart';
 import 'domain/search/search_interface.dart';
 import 'infrastructure/search/search_repository.dart';
@@ -56,6 +58,8 @@ GetIt $initGetIt(
   gh.lazySingleton<FirebaseFirestore>(() => firebaseinjectableModule.firestore);
   gh.lazySingleton<GoogleSignIn>(() => firebaseinjectableModule.googleSignIn);
   gh.lazySingleton<MoviesInterface>(() => MoviesRepository());
+  gh.lazySingleton<PeopleInterface>(
+      () => PeopleRepsitory(get<FirebaseFirestore>()));
   gh.lazySingleton<SearchInterface>(() => SearchRepository());
   gh.lazySingleton<SeriesInterface>(() => SeriesRepository());
   gh.lazySingleton<AuthInterface>(() => FirebaseAuthRepository(
