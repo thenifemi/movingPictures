@@ -8,8 +8,8 @@ class Person {
   final String email;
   final String name;
   final String photoURL;
-  final List<FavoriteMovie> favoriteMovies;
-  final List<FavoriteSerie> favoriteSeries;
+  final FavoriteMovie favoriteMovies;
+  final FavoriteSerie favoriteSeries;
 
   Person({
     @required this.email,
@@ -23,8 +23,10 @@ class Person {
         email: json['email'] as String,
         name: json['name'] as String,
         photoURL: json['photoURL'] as String,
-        favoriteMovies: json['movies'] as List<FavoriteMovie>,
-        favoriteSeries: json['series'] as List<FavoriteSerie>,
+        favoriteMovies: FavoriteMovie.fromJsonData(
+            json['movies'] as Map<String, dynamic> ?? {}),
+        favoriteSeries: FavoriteSerie.fromJsonData(
+            json['series'] as Map<String, dynamic> ?? {}),
       );
 
   factory Person.fromFirebase(DocumentSnapshot doc) =>
