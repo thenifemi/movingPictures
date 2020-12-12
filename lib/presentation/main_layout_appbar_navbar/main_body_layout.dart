@@ -6,8 +6,8 @@ import '../../application/auth/auth_bloc.dart';
 import '../../application/auth/user_profile/user_profile_bloc.dart';
 import '../../injection.dart';
 import '../favorites/favorites.dart';
-import '../friends/friends.dart';
 import '../home/home.dart';
+import '../people/people.dart';
 import '../routes/router.gr.dart';
 import '../search/search_screen.dart';
 import 'main_bottom_navigation_bar_widget.dart';
@@ -23,7 +23,7 @@ class _MainBodyLayoutState extends State<MainBodyLayout> {
     const Home(),
     SearchScreen(),
     const Favorites(automaticallyImplyLeading: false),
-    Friends(),
+    People(),
   ];
 
   void onTabTapped(int index) {
