@@ -14,15 +14,15 @@ class _$PeopleEventTearOff {
   const _$PeopleEventTearOff();
 
 // ignore: unused_element
-  _PersonFollowed personFollowed(String personEmail) {
-    return _PersonFollowed(
+  _Followed followed(String personEmail) {
+    return _Followed(
       personEmail,
     );
   }
 
 // ignore: unused_element
-  _PersonUnFollowed personUnFollowed(String personEmail) {
-    return _PersonUnFollowed(
+  _Unfollowed unfollowed(String personEmail) {
+    return _Unfollowed(
       personEmail,
     );
   }
@@ -33,16 +33,15 @@ class _$PeopleEventTearOff {
   }
 
 // ignore: unused_element
-  _PeopleReceived peopleReceived(
-      Either<PeopleFailure, List<Person>> failureOrPeople) {
-    return _PeopleReceived(
+  _PeopleRecieved peopleRecieved(dynamic failureOrPeople) {
+    return _PeopleRecieved(
       failureOrPeople,
     );
   }
 
 // ignore: unused_element
-  _PersonSearchQueryCalled personSearchQueryCalled(String personEmail) {
-    return _PersonSearchQueryCalled(
+  _PersonSearchQuery personSearchQuery(String personEmail) {
+    return _PersonSearchQuery(
       personEmail,
     );
   }
@@ -56,38 +55,36 @@ const $PeopleEvent = _$PeopleEventTearOff();
 mixin _$PeopleEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result personFollowed(String personEmail),
-    @required Result personUnFollowed(String personEmail),
+    @required Result followed(String personEmail),
+    @required Result unfollowed(String personEmail),
     @required Result watchPeople(),
-    @required
-        Result peopleReceived(
-            Either<PeopleFailure, List<Person>> failureOrPeople),
-    @required Result personSearchQueryCalled(String personEmail),
+    @required Result peopleRecieved(dynamic failureOrPeople),
+    @required Result personSearchQuery(String personEmail),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result personFollowed(String personEmail),
-    Result personUnFollowed(String personEmail),
+    Result followed(String personEmail),
+    Result unfollowed(String personEmail),
     Result watchPeople(),
-    Result peopleReceived(Either<PeopleFailure, List<Person>> failureOrPeople),
-    Result personSearchQueryCalled(String personEmail),
+    Result peopleRecieved(dynamic failureOrPeople),
+    Result personSearchQuery(String personEmail),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result personFollowed(_PersonFollowed value),
-    @required Result personUnFollowed(_PersonUnFollowed value),
+    @required Result followed(_Followed value),
+    @required Result unfollowed(_Unfollowed value),
     @required Result watchPeople(_WatchPeople value),
-    @required Result peopleReceived(_PeopleReceived value),
-    @required Result personSearchQueryCalled(_PersonSearchQueryCalled value),
+    @required Result peopleRecieved(_PeopleRecieved value),
+    @required Result personSearchQuery(_PersonSearchQuery value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result personFollowed(_PersonFollowed value),
-    Result personUnFollowed(_PersonUnFollowed value),
+    Result followed(_Followed value),
+    Result unfollowed(_Unfollowed value),
     Result watchPeople(_WatchPeople value),
-    Result peopleReceived(_PeopleReceived value),
-    Result personSearchQueryCalled(_PersonSearchQueryCalled value),
+    Result peopleRecieved(_PeopleRecieved value),
+    Result personSearchQuery(_PersonSearchQuery value),
     @required Result orElse(),
   });
 }
@@ -109,50 +106,47 @@ class _$PeopleEventCopyWithImpl<$Res> implements $PeopleEventCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$PersonFollowedCopyWith<$Res> {
-  factory _$PersonFollowedCopyWith(
-          _PersonFollowed value, $Res Function(_PersonFollowed) then) =
-      __$PersonFollowedCopyWithImpl<$Res>;
+abstract class _$FollowedCopyWith<$Res> {
+  factory _$FollowedCopyWith(_Followed value, $Res Function(_Followed) then) =
+      __$FollowedCopyWithImpl<$Res>;
   $Res call({String personEmail});
 }
 
 /// @nodoc
-class __$PersonFollowedCopyWithImpl<$Res>
-    extends _$PeopleEventCopyWithImpl<$Res>
-    implements _$PersonFollowedCopyWith<$Res> {
-  __$PersonFollowedCopyWithImpl(
-      _PersonFollowed _value, $Res Function(_PersonFollowed) _then)
-      : super(_value, (v) => _then(v as _PersonFollowed));
+class __$FollowedCopyWithImpl<$Res> extends _$PeopleEventCopyWithImpl<$Res>
+    implements _$FollowedCopyWith<$Res> {
+  __$FollowedCopyWithImpl(_Followed _value, $Res Function(_Followed) _then)
+      : super(_value, (v) => _then(v as _Followed));
 
   @override
-  _PersonFollowed get _value => super._value as _PersonFollowed;
+  _Followed get _value => super._value as _Followed;
 
   @override
   $Res call({
     Object personEmail = freezed,
   }) {
-    return _then(_PersonFollowed(
+    return _then(_Followed(
       personEmail == freezed ? _value.personEmail : personEmail as String,
     ));
   }
 }
 
 /// @nodoc
-class _$_PersonFollowed implements _PersonFollowed {
-  const _$_PersonFollowed(this.personEmail) : assert(personEmail != null);
+class _$_Followed implements _Followed {
+  const _$_Followed(this.personEmail) : assert(personEmail != null);
 
   @override
   final String personEmail;
 
   @override
   String toString() {
-    return 'PeopleEvent.personFollowed(personEmail: $personEmail)';
+    return 'PeopleEvent.followed(personEmail: $personEmail)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PersonFollowed &&
+        (other is _Followed &&
             (identical(other.personEmail, personEmail) ||
                 const DeepCollectionEquality()
                     .equals(other.personEmail, personEmail)));
@@ -163,41 +157,39 @@ class _$_PersonFollowed implements _PersonFollowed {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(personEmail);
 
   @override
-  _$PersonFollowedCopyWith<_PersonFollowed> get copyWith =>
-      __$PersonFollowedCopyWithImpl<_PersonFollowed>(this, _$identity);
+  _$FollowedCopyWith<_Followed> get copyWith =>
+      __$FollowedCopyWithImpl<_Followed>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result personFollowed(String personEmail),
-    @required Result personUnFollowed(String personEmail),
+    @required Result followed(String personEmail),
+    @required Result unfollowed(String personEmail),
     @required Result watchPeople(),
-    @required
-        Result peopleReceived(
-            Either<PeopleFailure, List<Person>> failureOrPeople),
-    @required Result personSearchQueryCalled(String personEmail),
+    @required Result peopleRecieved(dynamic failureOrPeople),
+    @required Result personSearchQuery(String personEmail),
   }) {
-    assert(personFollowed != null);
-    assert(personUnFollowed != null);
+    assert(followed != null);
+    assert(unfollowed != null);
     assert(watchPeople != null);
-    assert(peopleReceived != null);
-    assert(personSearchQueryCalled != null);
-    return personFollowed(personEmail);
+    assert(peopleRecieved != null);
+    assert(personSearchQuery != null);
+    return followed(personEmail);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result personFollowed(String personEmail),
-    Result personUnFollowed(String personEmail),
+    Result followed(String personEmail),
+    Result unfollowed(String personEmail),
     Result watchPeople(),
-    Result peopleReceived(Either<PeopleFailure, List<Person>> failureOrPeople),
-    Result personSearchQueryCalled(String personEmail),
+    Result peopleRecieved(dynamic failureOrPeople),
+    Result personSearchQuery(String personEmail),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (personFollowed != null) {
-      return personFollowed(personEmail);
+    if (followed != null) {
+      return followed(personEmail);
     }
     return orElse();
   }
@@ -205,90 +197,89 @@ class _$_PersonFollowed implements _PersonFollowed {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result personFollowed(_PersonFollowed value),
-    @required Result personUnFollowed(_PersonUnFollowed value),
+    @required Result followed(_Followed value),
+    @required Result unfollowed(_Unfollowed value),
     @required Result watchPeople(_WatchPeople value),
-    @required Result peopleReceived(_PeopleReceived value),
-    @required Result personSearchQueryCalled(_PersonSearchQueryCalled value),
+    @required Result peopleRecieved(_PeopleRecieved value),
+    @required Result personSearchQuery(_PersonSearchQuery value),
   }) {
-    assert(personFollowed != null);
-    assert(personUnFollowed != null);
+    assert(followed != null);
+    assert(unfollowed != null);
     assert(watchPeople != null);
-    assert(peopleReceived != null);
-    assert(personSearchQueryCalled != null);
-    return personFollowed(this);
+    assert(peopleRecieved != null);
+    assert(personSearchQuery != null);
+    return followed(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result personFollowed(_PersonFollowed value),
-    Result personUnFollowed(_PersonUnFollowed value),
+    Result followed(_Followed value),
+    Result unfollowed(_Unfollowed value),
     Result watchPeople(_WatchPeople value),
-    Result peopleReceived(_PeopleReceived value),
-    Result personSearchQueryCalled(_PersonSearchQueryCalled value),
+    Result peopleRecieved(_PeopleRecieved value),
+    Result personSearchQuery(_PersonSearchQuery value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (personFollowed != null) {
-      return personFollowed(this);
+    if (followed != null) {
+      return followed(this);
     }
     return orElse();
   }
 }
 
-abstract class _PersonFollowed implements PeopleEvent {
-  const factory _PersonFollowed(String personEmail) = _$_PersonFollowed;
+abstract class _Followed implements PeopleEvent {
+  const factory _Followed(String personEmail) = _$_Followed;
 
   String get personEmail;
-  _$PersonFollowedCopyWith<_PersonFollowed> get copyWith;
+  _$FollowedCopyWith<_Followed> get copyWith;
 }
 
 /// @nodoc
-abstract class _$PersonUnFollowedCopyWith<$Res> {
-  factory _$PersonUnFollowedCopyWith(
-          _PersonUnFollowed value, $Res Function(_PersonUnFollowed) then) =
-      __$PersonUnFollowedCopyWithImpl<$Res>;
+abstract class _$UnfollowedCopyWith<$Res> {
+  factory _$UnfollowedCopyWith(
+          _Unfollowed value, $Res Function(_Unfollowed) then) =
+      __$UnfollowedCopyWithImpl<$Res>;
   $Res call({String personEmail});
 }
 
 /// @nodoc
-class __$PersonUnFollowedCopyWithImpl<$Res>
-    extends _$PeopleEventCopyWithImpl<$Res>
-    implements _$PersonUnFollowedCopyWith<$Res> {
-  __$PersonUnFollowedCopyWithImpl(
-      _PersonUnFollowed _value, $Res Function(_PersonUnFollowed) _then)
-      : super(_value, (v) => _then(v as _PersonUnFollowed));
+class __$UnfollowedCopyWithImpl<$Res> extends _$PeopleEventCopyWithImpl<$Res>
+    implements _$UnfollowedCopyWith<$Res> {
+  __$UnfollowedCopyWithImpl(
+      _Unfollowed _value, $Res Function(_Unfollowed) _then)
+      : super(_value, (v) => _then(v as _Unfollowed));
 
   @override
-  _PersonUnFollowed get _value => super._value as _PersonUnFollowed;
+  _Unfollowed get _value => super._value as _Unfollowed;
 
   @override
   $Res call({
     Object personEmail = freezed,
   }) {
-    return _then(_PersonUnFollowed(
+    return _then(_Unfollowed(
       personEmail == freezed ? _value.personEmail : personEmail as String,
     ));
   }
 }
 
 /// @nodoc
-class _$_PersonUnFollowed implements _PersonUnFollowed {
-  const _$_PersonUnFollowed(this.personEmail) : assert(personEmail != null);
+class _$_Unfollowed implements _Unfollowed {
+  const _$_Unfollowed(this.personEmail) : assert(personEmail != null);
 
   @override
   final String personEmail;
 
   @override
   String toString() {
-    return 'PeopleEvent.personUnFollowed(personEmail: $personEmail)';
+    return 'PeopleEvent.unfollowed(personEmail: $personEmail)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PersonUnFollowed &&
+        (other is _Unfollowed &&
             (identical(other.personEmail, personEmail) ||
                 const DeepCollectionEquality()
                     .equals(other.personEmail, personEmail)));
@@ -299,41 +290,39 @@ class _$_PersonUnFollowed implements _PersonUnFollowed {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(personEmail);
 
   @override
-  _$PersonUnFollowedCopyWith<_PersonUnFollowed> get copyWith =>
-      __$PersonUnFollowedCopyWithImpl<_PersonUnFollowed>(this, _$identity);
+  _$UnfollowedCopyWith<_Unfollowed> get copyWith =>
+      __$UnfollowedCopyWithImpl<_Unfollowed>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result personFollowed(String personEmail),
-    @required Result personUnFollowed(String personEmail),
+    @required Result followed(String personEmail),
+    @required Result unfollowed(String personEmail),
     @required Result watchPeople(),
-    @required
-        Result peopleReceived(
-            Either<PeopleFailure, List<Person>> failureOrPeople),
-    @required Result personSearchQueryCalled(String personEmail),
+    @required Result peopleRecieved(dynamic failureOrPeople),
+    @required Result personSearchQuery(String personEmail),
   }) {
-    assert(personFollowed != null);
-    assert(personUnFollowed != null);
+    assert(followed != null);
+    assert(unfollowed != null);
     assert(watchPeople != null);
-    assert(peopleReceived != null);
-    assert(personSearchQueryCalled != null);
-    return personUnFollowed(personEmail);
+    assert(peopleRecieved != null);
+    assert(personSearchQuery != null);
+    return unfollowed(personEmail);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result personFollowed(String personEmail),
-    Result personUnFollowed(String personEmail),
+    Result followed(String personEmail),
+    Result unfollowed(String personEmail),
     Result watchPeople(),
-    Result peopleReceived(Either<PeopleFailure, List<Person>> failureOrPeople),
-    Result personSearchQueryCalled(String personEmail),
+    Result peopleRecieved(dynamic failureOrPeople),
+    Result personSearchQuery(String personEmail),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (personUnFollowed != null) {
-      return personUnFollowed(personEmail);
+    if (unfollowed != null) {
+      return unfollowed(personEmail);
     }
     return orElse();
   }
@@ -341,43 +330,43 @@ class _$_PersonUnFollowed implements _PersonUnFollowed {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result personFollowed(_PersonFollowed value),
-    @required Result personUnFollowed(_PersonUnFollowed value),
+    @required Result followed(_Followed value),
+    @required Result unfollowed(_Unfollowed value),
     @required Result watchPeople(_WatchPeople value),
-    @required Result peopleReceived(_PeopleReceived value),
-    @required Result personSearchQueryCalled(_PersonSearchQueryCalled value),
+    @required Result peopleRecieved(_PeopleRecieved value),
+    @required Result personSearchQuery(_PersonSearchQuery value),
   }) {
-    assert(personFollowed != null);
-    assert(personUnFollowed != null);
+    assert(followed != null);
+    assert(unfollowed != null);
     assert(watchPeople != null);
-    assert(peopleReceived != null);
-    assert(personSearchQueryCalled != null);
-    return personUnFollowed(this);
+    assert(peopleRecieved != null);
+    assert(personSearchQuery != null);
+    return unfollowed(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result personFollowed(_PersonFollowed value),
-    Result personUnFollowed(_PersonUnFollowed value),
+    Result followed(_Followed value),
+    Result unfollowed(_Unfollowed value),
     Result watchPeople(_WatchPeople value),
-    Result peopleReceived(_PeopleReceived value),
-    Result personSearchQueryCalled(_PersonSearchQueryCalled value),
+    Result peopleRecieved(_PeopleRecieved value),
+    Result personSearchQuery(_PersonSearchQuery value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (personUnFollowed != null) {
-      return personUnFollowed(this);
+    if (unfollowed != null) {
+      return unfollowed(this);
     }
     return orElse();
   }
 }
 
-abstract class _PersonUnFollowed implements PeopleEvent {
-  const factory _PersonUnFollowed(String personEmail) = _$_PersonUnFollowed;
+abstract class _Unfollowed implements PeopleEvent {
+  const factory _Unfollowed(String personEmail) = _$_Unfollowed;
 
   String get personEmail;
-  _$PersonUnFollowedCopyWith<_PersonUnFollowed> get copyWith;
+  _$UnfollowedCopyWith<_Unfollowed> get copyWith;
 }
 
 /// @nodoc
@@ -418,30 +407,28 @@ class _$_WatchPeople implements _WatchPeople {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result personFollowed(String personEmail),
-    @required Result personUnFollowed(String personEmail),
+    @required Result followed(String personEmail),
+    @required Result unfollowed(String personEmail),
     @required Result watchPeople(),
-    @required
-        Result peopleReceived(
-            Either<PeopleFailure, List<Person>> failureOrPeople),
-    @required Result personSearchQueryCalled(String personEmail),
+    @required Result peopleRecieved(dynamic failureOrPeople),
+    @required Result personSearchQuery(String personEmail),
   }) {
-    assert(personFollowed != null);
-    assert(personUnFollowed != null);
+    assert(followed != null);
+    assert(unfollowed != null);
     assert(watchPeople != null);
-    assert(peopleReceived != null);
-    assert(personSearchQueryCalled != null);
+    assert(peopleRecieved != null);
+    assert(personSearchQuery != null);
     return watchPeople();
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result personFollowed(String personEmail),
-    Result personUnFollowed(String personEmail),
+    Result followed(String personEmail),
+    Result unfollowed(String personEmail),
     Result watchPeople(),
-    Result peopleReceived(Either<PeopleFailure, List<Person>> failureOrPeople),
-    Result personSearchQueryCalled(String personEmail),
+    Result peopleRecieved(dynamic failureOrPeople),
+    Result personSearchQuery(String personEmail),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -454,28 +441,28 @@ class _$_WatchPeople implements _WatchPeople {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result personFollowed(_PersonFollowed value),
-    @required Result personUnFollowed(_PersonUnFollowed value),
+    @required Result followed(_Followed value),
+    @required Result unfollowed(_Unfollowed value),
     @required Result watchPeople(_WatchPeople value),
-    @required Result peopleReceived(_PeopleReceived value),
-    @required Result personSearchQueryCalled(_PersonSearchQueryCalled value),
+    @required Result peopleRecieved(_PeopleRecieved value),
+    @required Result personSearchQuery(_PersonSearchQuery value),
   }) {
-    assert(personFollowed != null);
-    assert(personUnFollowed != null);
+    assert(followed != null);
+    assert(unfollowed != null);
     assert(watchPeople != null);
-    assert(peopleReceived != null);
-    assert(personSearchQueryCalled != null);
+    assert(peopleRecieved != null);
+    assert(personSearchQuery != null);
     return watchPeople(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result personFollowed(_PersonFollowed value),
-    Result personUnFollowed(_PersonUnFollowed value),
+    Result followed(_Followed value),
+    Result unfollowed(_Unfollowed value),
     Result watchPeople(_WatchPeople value),
-    Result peopleReceived(_PeopleReceived value),
-    Result personSearchQueryCalled(_PersonSearchQueryCalled value),
+    Result peopleRecieved(_PeopleRecieved value),
+    Result personSearchQuery(_PersonSearchQuery value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -491,53 +478,51 @@ abstract class _WatchPeople implements PeopleEvent {
 }
 
 /// @nodoc
-abstract class _$PeopleReceivedCopyWith<$Res> {
-  factory _$PeopleReceivedCopyWith(
-          _PeopleReceived value, $Res Function(_PeopleReceived) then) =
-      __$PeopleReceivedCopyWithImpl<$Res>;
-  $Res call({Either<PeopleFailure, List<Person>> failureOrPeople});
+abstract class _$PeopleRecievedCopyWith<$Res> {
+  factory _$PeopleRecievedCopyWith(
+          _PeopleRecieved value, $Res Function(_PeopleRecieved) then) =
+      __$PeopleRecievedCopyWithImpl<$Res>;
+  $Res call({dynamic failureOrPeople});
 }
 
 /// @nodoc
-class __$PeopleReceivedCopyWithImpl<$Res>
+class __$PeopleRecievedCopyWithImpl<$Res>
     extends _$PeopleEventCopyWithImpl<$Res>
-    implements _$PeopleReceivedCopyWith<$Res> {
-  __$PeopleReceivedCopyWithImpl(
-      _PeopleReceived _value, $Res Function(_PeopleReceived) _then)
-      : super(_value, (v) => _then(v as _PeopleReceived));
+    implements _$PeopleRecievedCopyWith<$Res> {
+  __$PeopleRecievedCopyWithImpl(
+      _PeopleRecieved _value, $Res Function(_PeopleRecieved) _then)
+      : super(_value, (v) => _then(v as _PeopleRecieved));
 
   @override
-  _PeopleReceived get _value => super._value as _PeopleReceived;
+  _PeopleRecieved get _value => super._value as _PeopleRecieved;
 
   @override
   $Res call({
     Object failureOrPeople = freezed,
   }) {
-    return _then(_PeopleReceived(
-      failureOrPeople == freezed
-          ? _value.failureOrPeople
-          : failureOrPeople as Either<PeopleFailure, List<Person>>,
+    return _then(_PeopleRecieved(
+      failureOrPeople == freezed ? _value.failureOrPeople : failureOrPeople,
     ));
   }
 }
 
 /// @nodoc
-class _$_PeopleReceived implements _PeopleReceived {
-  const _$_PeopleReceived(this.failureOrPeople)
+class _$_PeopleRecieved implements _PeopleRecieved {
+  const _$_PeopleRecieved(this.failureOrPeople)
       : assert(failureOrPeople != null);
 
   @override
-  final Either<PeopleFailure, List<Person>> failureOrPeople;
+  final dynamic failureOrPeople;
 
   @override
   String toString() {
-    return 'PeopleEvent.peopleReceived(failureOrPeople: $failureOrPeople)';
+    return 'PeopleEvent.peopleRecieved(failureOrPeople: $failureOrPeople)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PeopleReceived &&
+        (other is _PeopleRecieved &&
             (identical(other.failureOrPeople, failureOrPeople) ||
                 const DeepCollectionEquality()
                     .equals(other.failureOrPeople, failureOrPeople)));
@@ -549,41 +534,39 @@ class _$_PeopleReceived implements _PeopleReceived {
       const DeepCollectionEquality().hash(failureOrPeople);
 
   @override
-  _$PeopleReceivedCopyWith<_PeopleReceived> get copyWith =>
-      __$PeopleReceivedCopyWithImpl<_PeopleReceived>(this, _$identity);
+  _$PeopleRecievedCopyWith<_PeopleRecieved> get copyWith =>
+      __$PeopleRecievedCopyWithImpl<_PeopleRecieved>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result personFollowed(String personEmail),
-    @required Result personUnFollowed(String personEmail),
+    @required Result followed(String personEmail),
+    @required Result unfollowed(String personEmail),
     @required Result watchPeople(),
-    @required
-        Result peopleReceived(
-            Either<PeopleFailure, List<Person>> failureOrPeople),
-    @required Result personSearchQueryCalled(String personEmail),
+    @required Result peopleRecieved(dynamic failureOrPeople),
+    @required Result personSearchQuery(String personEmail),
   }) {
-    assert(personFollowed != null);
-    assert(personUnFollowed != null);
+    assert(followed != null);
+    assert(unfollowed != null);
     assert(watchPeople != null);
-    assert(peopleReceived != null);
-    assert(personSearchQueryCalled != null);
-    return peopleReceived(failureOrPeople);
+    assert(peopleRecieved != null);
+    assert(personSearchQuery != null);
+    return peopleRecieved(failureOrPeople);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result personFollowed(String personEmail),
-    Result personUnFollowed(String personEmail),
+    Result followed(String personEmail),
+    Result unfollowed(String personEmail),
     Result watchPeople(),
-    Result peopleReceived(Either<PeopleFailure, List<Person>> failureOrPeople),
-    Result personSearchQueryCalled(String personEmail),
+    Result peopleRecieved(dynamic failureOrPeople),
+    Result personSearchQuery(String personEmail),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (peopleReceived != null) {
-      return peopleReceived(failureOrPeople);
+    if (peopleRecieved != null) {
+      return peopleRecieved(failureOrPeople);
     }
     return orElse();
   }
@@ -591,93 +574,90 @@ class _$_PeopleReceived implements _PeopleReceived {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result personFollowed(_PersonFollowed value),
-    @required Result personUnFollowed(_PersonUnFollowed value),
+    @required Result followed(_Followed value),
+    @required Result unfollowed(_Unfollowed value),
     @required Result watchPeople(_WatchPeople value),
-    @required Result peopleReceived(_PeopleReceived value),
-    @required Result personSearchQueryCalled(_PersonSearchQueryCalled value),
+    @required Result peopleRecieved(_PeopleRecieved value),
+    @required Result personSearchQuery(_PersonSearchQuery value),
   }) {
-    assert(personFollowed != null);
-    assert(personUnFollowed != null);
+    assert(followed != null);
+    assert(unfollowed != null);
     assert(watchPeople != null);
-    assert(peopleReceived != null);
-    assert(personSearchQueryCalled != null);
-    return peopleReceived(this);
+    assert(peopleRecieved != null);
+    assert(personSearchQuery != null);
+    return peopleRecieved(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result personFollowed(_PersonFollowed value),
-    Result personUnFollowed(_PersonUnFollowed value),
+    Result followed(_Followed value),
+    Result unfollowed(_Unfollowed value),
     Result watchPeople(_WatchPeople value),
-    Result peopleReceived(_PeopleReceived value),
-    Result personSearchQueryCalled(_PersonSearchQueryCalled value),
+    Result peopleRecieved(_PeopleRecieved value),
+    Result personSearchQuery(_PersonSearchQuery value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (peopleReceived != null) {
-      return peopleReceived(this);
+    if (peopleRecieved != null) {
+      return peopleRecieved(this);
     }
     return orElse();
   }
 }
 
-abstract class _PeopleReceived implements PeopleEvent {
-  const factory _PeopleReceived(
-      Either<PeopleFailure, List<Person>> failureOrPeople) = _$_PeopleReceived;
+abstract class _PeopleRecieved implements PeopleEvent {
+  const factory _PeopleRecieved(dynamic failureOrPeople) = _$_PeopleRecieved;
 
-  Either<PeopleFailure, List<Person>> get failureOrPeople;
-  _$PeopleReceivedCopyWith<_PeopleReceived> get copyWith;
+  dynamic get failureOrPeople;
+  _$PeopleRecievedCopyWith<_PeopleRecieved> get copyWith;
 }
 
 /// @nodoc
-abstract class _$PersonSearchQueryCalledCopyWith<$Res> {
-  factory _$PersonSearchQueryCalledCopyWith(_PersonSearchQueryCalled value,
-          $Res Function(_PersonSearchQueryCalled) then) =
-      __$PersonSearchQueryCalledCopyWithImpl<$Res>;
+abstract class _$PersonSearchQueryCopyWith<$Res> {
+  factory _$PersonSearchQueryCopyWith(
+          _PersonSearchQuery value, $Res Function(_PersonSearchQuery) then) =
+      __$PersonSearchQueryCopyWithImpl<$Res>;
   $Res call({String personEmail});
 }
 
 /// @nodoc
-class __$PersonSearchQueryCalledCopyWithImpl<$Res>
+class __$PersonSearchQueryCopyWithImpl<$Res>
     extends _$PeopleEventCopyWithImpl<$Res>
-    implements _$PersonSearchQueryCalledCopyWith<$Res> {
-  __$PersonSearchQueryCalledCopyWithImpl(_PersonSearchQueryCalled _value,
-      $Res Function(_PersonSearchQueryCalled) _then)
-      : super(_value, (v) => _then(v as _PersonSearchQueryCalled));
+    implements _$PersonSearchQueryCopyWith<$Res> {
+  __$PersonSearchQueryCopyWithImpl(
+      _PersonSearchQuery _value, $Res Function(_PersonSearchQuery) _then)
+      : super(_value, (v) => _then(v as _PersonSearchQuery));
 
   @override
-  _PersonSearchQueryCalled get _value =>
-      super._value as _PersonSearchQueryCalled;
+  _PersonSearchQuery get _value => super._value as _PersonSearchQuery;
 
   @override
   $Res call({
     Object personEmail = freezed,
   }) {
-    return _then(_PersonSearchQueryCalled(
+    return _then(_PersonSearchQuery(
       personEmail == freezed ? _value.personEmail : personEmail as String,
     ));
   }
 }
 
 /// @nodoc
-class _$_PersonSearchQueryCalled implements _PersonSearchQueryCalled {
-  const _$_PersonSearchQueryCalled(this.personEmail)
-      : assert(personEmail != null);
+class _$_PersonSearchQuery implements _PersonSearchQuery {
+  const _$_PersonSearchQuery(this.personEmail) : assert(personEmail != null);
 
   @override
   final String personEmail;
 
   @override
   String toString() {
-    return 'PeopleEvent.personSearchQueryCalled(personEmail: $personEmail)';
+    return 'PeopleEvent.personSearchQuery(personEmail: $personEmail)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PersonSearchQueryCalled &&
+        (other is _PersonSearchQuery &&
             (identical(other.personEmail, personEmail) ||
                 const DeepCollectionEquality()
                     .equals(other.personEmail, personEmail)));
@@ -688,42 +668,39 @@ class _$_PersonSearchQueryCalled implements _PersonSearchQueryCalled {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(personEmail);
 
   @override
-  _$PersonSearchQueryCalledCopyWith<_PersonSearchQueryCalled> get copyWith =>
-      __$PersonSearchQueryCalledCopyWithImpl<_PersonSearchQueryCalled>(
-          this, _$identity);
+  _$PersonSearchQueryCopyWith<_PersonSearchQuery> get copyWith =>
+      __$PersonSearchQueryCopyWithImpl<_PersonSearchQuery>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result personFollowed(String personEmail),
-    @required Result personUnFollowed(String personEmail),
+    @required Result followed(String personEmail),
+    @required Result unfollowed(String personEmail),
     @required Result watchPeople(),
-    @required
-        Result peopleReceived(
-            Either<PeopleFailure, List<Person>> failureOrPeople),
-    @required Result personSearchQueryCalled(String personEmail),
+    @required Result peopleRecieved(dynamic failureOrPeople),
+    @required Result personSearchQuery(String personEmail),
   }) {
-    assert(personFollowed != null);
-    assert(personUnFollowed != null);
+    assert(followed != null);
+    assert(unfollowed != null);
     assert(watchPeople != null);
-    assert(peopleReceived != null);
-    assert(personSearchQueryCalled != null);
-    return personSearchQueryCalled(personEmail);
+    assert(peopleRecieved != null);
+    assert(personSearchQuery != null);
+    return personSearchQuery(personEmail);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result personFollowed(String personEmail),
-    Result personUnFollowed(String personEmail),
+    Result followed(String personEmail),
+    Result unfollowed(String personEmail),
     Result watchPeople(),
-    Result peopleReceived(Either<PeopleFailure, List<Person>> failureOrPeople),
-    Result personSearchQueryCalled(String personEmail),
+    Result peopleRecieved(dynamic failureOrPeople),
+    Result personSearchQuery(String personEmail),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (personSearchQueryCalled != null) {
-      return personSearchQueryCalled(personEmail);
+    if (personSearchQuery != null) {
+      return personSearchQuery(personEmail);
     }
     return orElse();
   }
@@ -731,44 +708,43 @@ class _$_PersonSearchQueryCalled implements _PersonSearchQueryCalled {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result personFollowed(_PersonFollowed value),
-    @required Result personUnFollowed(_PersonUnFollowed value),
+    @required Result followed(_Followed value),
+    @required Result unfollowed(_Unfollowed value),
     @required Result watchPeople(_WatchPeople value),
-    @required Result peopleReceived(_PeopleReceived value),
-    @required Result personSearchQueryCalled(_PersonSearchQueryCalled value),
+    @required Result peopleRecieved(_PeopleRecieved value),
+    @required Result personSearchQuery(_PersonSearchQuery value),
   }) {
-    assert(personFollowed != null);
-    assert(personUnFollowed != null);
+    assert(followed != null);
+    assert(unfollowed != null);
     assert(watchPeople != null);
-    assert(peopleReceived != null);
-    assert(personSearchQueryCalled != null);
-    return personSearchQueryCalled(this);
+    assert(peopleRecieved != null);
+    assert(personSearchQuery != null);
+    return personSearchQuery(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result personFollowed(_PersonFollowed value),
-    Result personUnFollowed(_PersonUnFollowed value),
+    Result followed(_Followed value),
+    Result unfollowed(_Unfollowed value),
     Result watchPeople(_WatchPeople value),
-    Result peopleReceived(_PeopleReceived value),
-    Result personSearchQueryCalled(_PersonSearchQueryCalled value),
+    Result peopleRecieved(_PeopleRecieved value),
+    Result personSearchQuery(_PersonSearchQuery value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (personSearchQueryCalled != null) {
-      return personSearchQueryCalled(this);
+    if (personSearchQuery != null) {
+      return personSearchQuery(this);
     }
     return orElse();
   }
 }
 
-abstract class _PersonSearchQueryCalled implements PeopleEvent {
-  const factory _PersonSearchQueryCalled(String personEmail) =
-      _$_PersonSearchQueryCalled;
+abstract class _PersonSearchQuery implements PeopleEvent {
+  const factory _PersonSearchQuery(String personEmail) = _$_PersonSearchQuery;
 
   String get personEmail;
-  _$PersonSearchQueryCalledCopyWith<_PersonSearchQueryCalled> get copyWith;
+  _$PersonSearchQueryCopyWith<_PersonSearchQuery> get copyWith;
 }
 
 /// @nodoc
@@ -778,11 +754,6 @@ class _$PeopleStateTearOff {
 // ignore: unused_element
   _Initial initial() {
     return const _Initial();
-  }
-
-// ignore: unused_element
-  _Loading loading() {
-    return const _Loading();
   }
 
 // ignore: unused_element
@@ -798,20 +769,20 @@ class _$PeopleStateTearOff {
   }
 
 // ignore: unused_element
-  _UnFollowSuccess unfollowSuccess() {
-    return const _UnFollowSuccess();
+  _UnfollowSuccess unfollowSuccess() {
+    return const _UnfollowSuccess();
   }
 
 // ignore: unused_element
-  _WatchSuccess watchSuccess(List<Person> people) {
-    return _WatchSuccess(
+  _WatchPeopleSuccess watchPeopleSuccess(List<Person> people) {
+    return _WatchPeopleSuccess(
       people,
     );
   }
 
 // ignore: unused_element
-  _PersonSearchSuccess personSearchSuccess(Person person) {
-    return _PersonSearchSuccess(
+  _LoadSuccessforSearchQuery loadSuccessforSearchQuery(Person person) {
+    return _LoadSuccessforSearchQuery(
       person,
     );
   }
@@ -826,43 +797,40 @@ mixin _$PeopleState {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
-    @required Result loading(),
     @required Result failure(PeopleFailure peopleFailure),
     @required Result followSuccess(),
     @required Result unfollowSuccess(),
-    @required Result watchSuccess(List<Person> people),
-    @required Result personSearchSuccess(Person person),
+    @required Result watchPeopleSuccess(List<Person> people),
+    @required Result loadSuccessforSearchQuery(Person person),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
-    Result loading(),
     Result failure(PeopleFailure peopleFailure),
     Result followSuccess(),
     Result unfollowSuccess(),
-    Result watchSuccess(List<Person> people),
-    Result personSearchSuccess(Person person),
+    Result watchPeopleSuccess(List<Person> people),
+    Result loadSuccessforSearchQuery(Person person),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
-    @required Result loading(_Loading value),
     @required Result failure(_Failure value),
     @required Result followSuccess(_FollowSuccess value),
-    @required Result unfollowSuccess(_UnFollowSuccess value),
-    @required Result watchSuccess(_WatchSuccess value),
-    @required Result personSearchSuccess(_PersonSearchSuccess value),
+    @required Result unfollowSuccess(_UnfollowSuccess value),
+    @required Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    @required
+        Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
-    Result loading(_Loading value),
     Result failure(_Failure value),
     Result followSuccess(_FollowSuccess value),
-    Result unfollowSuccess(_UnFollowSuccess value),
-    Result watchSuccess(_WatchSuccess value),
-    Result personSearchSuccess(_PersonSearchSuccess value),
+    Result unfollowSuccess(_UnfollowSuccess value),
+    Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
     @required Result orElse(),
   });
 }
@@ -920,20 +888,18 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
-    @required Result loading(),
     @required Result failure(PeopleFailure peopleFailure),
     @required Result followSuccess(),
     @required Result unfollowSuccess(),
-    @required Result watchSuccess(List<Person> people),
-    @required Result personSearchSuccess(Person person),
+    @required Result watchPeopleSuccess(List<Person> people),
+    @required Result loadSuccessforSearchQuery(Person person),
   }) {
     assert(initial != null);
-    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
-    assert(watchSuccess != null);
-    assert(personSearchSuccess != null);
+    assert(watchPeopleSuccess != null);
+    assert(loadSuccessforSearchQuery != null);
     return initial();
   }
 
@@ -941,12 +907,11 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
-    Result loading(),
     Result failure(PeopleFailure peopleFailure),
     Result followSuccess(),
     Result unfollowSuccess(),
-    Result watchSuccess(List<Person> people),
-    Result personSearchSuccess(Person person),
+    Result watchPeopleSuccess(List<Person> people),
+    Result loadSuccessforSearchQuery(Person person),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -960,20 +925,19 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
-    @required Result loading(_Loading value),
     @required Result failure(_Failure value),
     @required Result followSuccess(_FollowSuccess value),
-    @required Result unfollowSuccess(_UnFollowSuccess value),
-    @required Result watchSuccess(_WatchSuccess value),
-    @required Result personSearchSuccess(_PersonSearchSuccess value),
+    @required Result unfollowSuccess(_UnfollowSuccess value),
+    @required Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    @required
+        Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
   }) {
     assert(initial != null);
-    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
-    assert(watchSuccess != null);
-    assert(personSearchSuccess != null);
+    assert(watchPeopleSuccess != null);
+    assert(loadSuccessforSearchQuery != null);
     return initial(this);
   }
 
@@ -981,12 +945,11 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
-    Result loading(_Loading value),
     Result failure(_Failure value),
     Result followSuccess(_FollowSuccess value),
-    Result unfollowSuccess(_UnFollowSuccess value),
-    Result watchSuccess(_WatchSuccess value),
-    Result personSearchSuccess(_PersonSearchSuccess value),
+    Result unfollowSuccess(_UnfollowSuccess value),
+    Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1002,130 +965,10 @@ abstract class _Initial implements PeopleState {
 }
 
 /// @nodoc
-abstract class _$LoadingCopyWith<$Res> {
-  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
-      __$LoadingCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$LoadingCopyWithImpl<$Res> extends _$PeopleStateCopyWithImpl<$Res>
-    implements _$LoadingCopyWith<$Res> {
-  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
-      : super(_value, (v) => _then(v as _Loading));
-
-  @override
-  _Loading get _value => super._value as _Loading;
-}
-
-/// @nodoc
-class _$_Loading implements _Loading {
-  const _$_Loading();
-
-  @override
-  String toString() {
-    return 'PeopleState.loading()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Loading);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loading(),
-    @required Result failure(PeopleFailure peopleFailure),
-    @required Result followSuccess(),
-    @required Result unfollowSuccess(),
-    @required Result watchSuccess(List<Person> people),
-    @required Result personSearchSuccess(Person person),
-  }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(failure != null);
-    assert(followSuccess != null);
-    assert(unfollowSuccess != null);
-    assert(watchSuccess != null);
-    assert(personSearchSuccess != null);
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loading(),
-    Result failure(PeopleFailure peopleFailure),
-    Result followSuccess(),
-    Result unfollowSuccess(),
-    Result watchSuccess(List<Person> people),
-    Result personSearchSuccess(Person person),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_Initial value),
-    @required Result loading(_Loading value),
-    @required Result failure(_Failure value),
-    @required Result followSuccess(_FollowSuccess value),
-    @required Result unfollowSuccess(_UnFollowSuccess value),
-    @required Result watchSuccess(_WatchSuccess value),
-    @required Result personSearchSuccess(_PersonSearchSuccess value),
-  }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(failure != null);
-    assert(followSuccess != null);
-    assert(unfollowSuccess != null);
-    assert(watchSuccess != null);
-    assert(personSearchSuccess != null);
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_Initial value),
-    Result loading(_Loading value),
-    Result failure(_Failure value),
-    Result followSuccess(_FollowSuccess value),
-    Result unfollowSuccess(_UnFollowSuccess value),
-    Result watchSuccess(_WatchSuccess value),
-    Result personSearchSuccess(_PersonSearchSuccess value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Loading implements PeopleState {
-  const factory _Loading() = _$_Loading;
-}
-
-/// @nodoc
 abstract class _$FailureCopyWith<$Res> {
   factory _$FailureCopyWith(_Failure value, $Res Function(_Failure) then) =
       __$FailureCopyWithImpl<$Res>;
   $Res call({PeopleFailure peopleFailure});
-
-  $PeopleFailureCopyWith<$Res> get peopleFailure;
 }
 
 /// @nodoc
@@ -1146,16 +989,6 @@ class __$FailureCopyWithImpl<$Res> extends _$PeopleStateCopyWithImpl<$Res>
           ? _value.peopleFailure
           : peopleFailure as PeopleFailure,
     ));
-  }
-
-  @override
-  $PeopleFailureCopyWith<$Res> get peopleFailure {
-    if (_value.peopleFailure == null) {
-      return null;
-    }
-    return $PeopleFailureCopyWith<$Res>(_value.peopleFailure, (value) {
-      return _then(_value.copyWith(peopleFailure: value));
-    });
   }
 }
 
@@ -1192,20 +1025,18 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
-    @required Result loading(),
     @required Result failure(PeopleFailure peopleFailure),
     @required Result followSuccess(),
     @required Result unfollowSuccess(),
-    @required Result watchSuccess(List<Person> people),
-    @required Result personSearchSuccess(Person person),
+    @required Result watchPeopleSuccess(List<Person> people),
+    @required Result loadSuccessforSearchQuery(Person person),
   }) {
     assert(initial != null);
-    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
-    assert(watchSuccess != null);
-    assert(personSearchSuccess != null);
+    assert(watchPeopleSuccess != null);
+    assert(loadSuccessforSearchQuery != null);
     return failure(peopleFailure);
   }
 
@@ -1213,12 +1044,11 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
-    Result loading(),
     Result failure(PeopleFailure peopleFailure),
     Result followSuccess(),
     Result unfollowSuccess(),
-    Result watchSuccess(List<Person> people),
-    Result personSearchSuccess(Person person),
+    Result watchPeopleSuccess(List<Person> people),
+    Result loadSuccessforSearchQuery(Person person),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1232,20 +1062,19 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
-    @required Result loading(_Loading value),
     @required Result failure(_Failure value),
     @required Result followSuccess(_FollowSuccess value),
-    @required Result unfollowSuccess(_UnFollowSuccess value),
-    @required Result watchSuccess(_WatchSuccess value),
-    @required Result personSearchSuccess(_PersonSearchSuccess value),
+    @required Result unfollowSuccess(_UnfollowSuccess value),
+    @required Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    @required
+        Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
   }) {
     assert(initial != null);
-    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
-    assert(watchSuccess != null);
-    assert(personSearchSuccess != null);
+    assert(watchPeopleSuccess != null);
+    assert(loadSuccessforSearchQuery != null);
     return failure(this);
   }
 
@@ -1253,12 +1082,11 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
-    Result loading(_Loading value),
     Result failure(_Failure value),
     Result followSuccess(_FollowSuccess value),
-    Result unfollowSuccess(_UnFollowSuccess value),
-    Result watchSuccess(_WatchSuccess value),
-    Result personSearchSuccess(_PersonSearchSuccess value),
+    Result unfollowSuccess(_UnfollowSuccess value),
+    Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1315,20 +1143,18 @@ class _$_FollowSuccess implements _FollowSuccess {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
-    @required Result loading(),
     @required Result failure(PeopleFailure peopleFailure),
     @required Result followSuccess(),
     @required Result unfollowSuccess(),
-    @required Result watchSuccess(List<Person> people),
-    @required Result personSearchSuccess(Person person),
+    @required Result watchPeopleSuccess(List<Person> people),
+    @required Result loadSuccessforSearchQuery(Person person),
   }) {
     assert(initial != null);
-    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
-    assert(watchSuccess != null);
-    assert(personSearchSuccess != null);
+    assert(watchPeopleSuccess != null);
+    assert(loadSuccessforSearchQuery != null);
     return followSuccess();
   }
 
@@ -1336,12 +1162,11 @@ class _$_FollowSuccess implements _FollowSuccess {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
-    Result loading(),
     Result failure(PeopleFailure peopleFailure),
     Result followSuccess(),
     Result unfollowSuccess(),
-    Result watchSuccess(List<Person> people),
-    Result personSearchSuccess(Person person),
+    Result watchPeopleSuccess(List<Person> people),
+    Result loadSuccessforSearchQuery(Person person),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1355,20 +1180,19 @@ class _$_FollowSuccess implements _FollowSuccess {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
-    @required Result loading(_Loading value),
     @required Result failure(_Failure value),
     @required Result followSuccess(_FollowSuccess value),
-    @required Result unfollowSuccess(_UnFollowSuccess value),
-    @required Result watchSuccess(_WatchSuccess value),
-    @required Result personSearchSuccess(_PersonSearchSuccess value),
+    @required Result unfollowSuccess(_UnfollowSuccess value),
+    @required Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    @required
+        Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
   }) {
     assert(initial != null);
-    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
-    assert(watchSuccess != null);
-    assert(personSearchSuccess != null);
+    assert(watchPeopleSuccess != null);
+    assert(loadSuccessforSearchQuery != null);
     return followSuccess(this);
   }
 
@@ -1376,12 +1200,11 @@ class _$_FollowSuccess implements _FollowSuccess {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
-    Result loading(_Loading value),
     Result failure(_Failure value),
     Result followSuccess(_FollowSuccess value),
-    Result unfollowSuccess(_UnFollowSuccess value),
-    Result watchSuccess(_WatchSuccess value),
-    Result personSearchSuccess(_PersonSearchSuccess value),
+    Result unfollowSuccess(_UnfollowSuccess value),
+    Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1397,27 +1220,27 @@ abstract class _FollowSuccess implements PeopleState {
 }
 
 /// @nodoc
-abstract class _$UnFollowSuccessCopyWith<$Res> {
-  factory _$UnFollowSuccessCopyWith(
-          _UnFollowSuccess value, $Res Function(_UnFollowSuccess) then) =
-      __$UnFollowSuccessCopyWithImpl<$Res>;
+abstract class _$UnfollowSuccessCopyWith<$Res> {
+  factory _$UnfollowSuccessCopyWith(
+          _UnfollowSuccess value, $Res Function(_UnfollowSuccess) then) =
+      __$UnfollowSuccessCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$UnFollowSuccessCopyWithImpl<$Res>
+class __$UnfollowSuccessCopyWithImpl<$Res>
     extends _$PeopleStateCopyWithImpl<$Res>
-    implements _$UnFollowSuccessCopyWith<$Res> {
-  __$UnFollowSuccessCopyWithImpl(
-      _UnFollowSuccess _value, $Res Function(_UnFollowSuccess) _then)
-      : super(_value, (v) => _then(v as _UnFollowSuccess));
+    implements _$UnfollowSuccessCopyWith<$Res> {
+  __$UnfollowSuccessCopyWithImpl(
+      _UnfollowSuccess _value, $Res Function(_UnfollowSuccess) _then)
+      : super(_value, (v) => _then(v as _UnfollowSuccess));
 
   @override
-  _UnFollowSuccess get _value => super._value as _UnFollowSuccess;
+  _UnfollowSuccess get _value => super._value as _UnfollowSuccess;
 }
 
 /// @nodoc
-class _$_UnFollowSuccess implements _UnFollowSuccess {
-  const _$_UnFollowSuccess();
+class _$_UnfollowSuccess implements _UnfollowSuccess {
+  const _$_UnfollowSuccess();
 
   @override
   String toString() {
@@ -1426,7 +1249,7 @@ class _$_UnFollowSuccess implements _UnFollowSuccess {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _UnFollowSuccess);
+    return identical(this, other) || (other is _UnfollowSuccess);
   }
 
   @override
@@ -1436,20 +1259,18 @@ class _$_UnFollowSuccess implements _UnFollowSuccess {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
-    @required Result loading(),
     @required Result failure(PeopleFailure peopleFailure),
     @required Result followSuccess(),
     @required Result unfollowSuccess(),
-    @required Result watchSuccess(List<Person> people),
-    @required Result personSearchSuccess(Person person),
+    @required Result watchPeopleSuccess(List<Person> people),
+    @required Result loadSuccessforSearchQuery(Person person),
   }) {
     assert(initial != null);
-    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
-    assert(watchSuccess != null);
-    assert(personSearchSuccess != null);
+    assert(watchPeopleSuccess != null);
+    assert(loadSuccessforSearchQuery != null);
     return unfollowSuccess();
   }
 
@@ -1457,12 +1278,11 @@ class _$_UnFollowSuccess implements _UnFollowSuccess {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
-    Result loading(),
     Result failure(PeopleFailure peopleFailure),
     Result followSuccess(),
     Result unfollowSuccess(),
-    Result watchSuccess(List<Person> people),
-    Result personSearchSuccess(Person person),
+    Result watchPeopleSuccess(List<Person> people),
+    Result loadSuccessforSearchQuery(Person person),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1476,20 +1296,19 @@ class _$_UnFollowSuccess implements _UnFollowSuccess {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
-    @required Result loading(_Loading value),
     @required Result failure(_Failure value),
     @required Result followSuccess(_FollowSuccess value),
-    @required Result unfollowSuccess(_UnFollowSuccess value),
-    @required Result watchSuccess(_WatchSuccess value),
-    @required Result personSearchSuccess(_PersonSearchSuccess value),
+    @required Result unfollowSuccess(_UnfollowSuccess value),
+    @required Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    @required
+        Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
   }) {
     assert(initial != null);
-    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
-    assert(watchSuccess != null);
-    assert(personSearchSuccess != null);
+    assert(watchPeopleSuccess != null);
+    assert(loadSuccessforSearchQuery != null);
     return unfollowSuccess(this);
   }
 
@@ -1497,12 +1316,11 @@ class _$_UnFollowSuccess implements _UnFollowSuccess {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
-    Result loading(_Loading value),
     Result failure(_Failure value),
     Result followSuccess(_FollowSuccess value),
-    Result unfollowSuccess(_UnFollowSuccess value),
-    Result watchSuccess(_WatchSuccess value),
-    Result personSearchSuccess(_PersonSearchSuccess value),
+    Result unfollowSuccess(_UnfollowSuccess value),
+    Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1513,54 +1331,55 @@ class _$_UnFollowSuccess implements _UnFollowSuccess {
   }
 }
 
-abstract class _UnFollowSuccess implements PeopleState {
-  const factory _UnFollowSuccess() = _$_UnFollowSuccess;
+abstract class _UnfollowSuccess implements PeopleState {
+  const factory _UnfollowSuccess() = _$_UnfollowSuccess;
 }
 
 /// @nodoc
-abstract class _$WatchSuccessCopyWith<$Res> {
-  factory _$WatchSuccessCopyWith(
-          _WatchSuccess value, $Res Function(_WatchSuccess) then) =
-      __$WatchSuccessCopyWithImpl<$Res>;
+abstract class _$WatchPeopleSuccessCopyWith<$Res> {
+  factory _$WatchPeopleSuccessCopyWith(
+          _WatchPeopleSuccess value, $Res Function(_WatchPeopleSuccess) then) =
+      __$WatchPeopleSuccessCopyWithImpl<$Res>;
   $Res call({List<Person> people});
 }
 
 /// @nodoc
-class __$WatchSuccessCopyWithImpl<$Res> extends _$PeopleStateCopyWithImpl<$Res>
-    implements _$WatchSuccessCopyWith<$Res> {
-  __$WatchSuccessCopyWithImpl(
-      _WatchSuccess _value, $Res Function(_WatchSuccess) _then)
-      : super(_value, (v) => _then(v as _WatchSuccess));
+class __$WatchPeopleSuccessCopyWithImpl<$Res>
+    extends _$PeopleStateCopyWithImpl<$Res>
+    implements _$WatchPeopleSuccessCopyWith<$Res> {
+  __$WatchPeopleSuccessCopyWithImpl(
+      _WatchPeopleSuccess _value, $Res Function(_WatchPeopleSuccess) _then)
+      : super(_value, (v) => _then(v as _WatchPeopleSuccess));
 
   @override
-  _WatchSuccess get _value => super._value as _WatchSuccess;
+  _WatchPeopleSuccess get _value => super._value as _WatchPeopleSuccess;
 
   @override
   $Res call({
     Object people = freezed,
   }) {
-    return _then(_WatchSuccess(
+    return _then(_WatchPeopleSuccess(
       people == freezed ? _value.people : people as List<Person>,
     ));
   }
 }
 
 /// @nodoc
-class _$_WatchSuccess implements _WatchSuccess {
-  const _$_WatchSuccess(this.people) : assert(people != null);
+class _$_WatchPeopleSuccess implements _WatchPeopleSuccess {
+  const _$_WatchPeopleSuccess(this.people) : assert(people != null);
 
   @override
   final List<Person> people;
 
   @override
   String toString() {
-    return 'PeopleState.watchSuccess(people: $people)';
+    return 'PeopleState.watchPeopleSuccess(people: $people)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _WatchSuccess &&
+        (other is _WatchPeopleSuccess &&
             (identical(other.people, people) ||
                 const DeepCollectionEquality().equals(other.people, people)));
   }
@@ -1570,45 +1389,42 @@ class _$_WatchSuccess implements _WatchSuccess {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(people);
 
   @override
-  _$WatchSuccessCopyWith<_WatchSuccess> get copyWith =>
-      __$WatchSuccessCopyWithImpl<_WatchSuccess>(this, _$identity);
+  _$WatchPeopleSuccessCopyWith<_WatchPeopleSuccess> get copyWith =>
+      __$WatchPeopleSuccessCopyWithImpl<_WatchPeopleSuccess>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
-    @required Result loading(),
     @required Result failure(PeopleFailure peopleFailure),
     @required Result followSuccess(),
     @required Result unfollowSuccess(),
-    @required Result watchSuccess(List<Person> people),
-    @required Result personSearchSuccess(Person person),
+    @required Result watchPeopleSuccess(List<Person> people),
+    @required Result loadSuccessforSearchQuery(Person person),
   }) {
     assert(initial != null);
-    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
-    assert(watchSuccess != null);
-    assert(personSearchSuccess != null);
-    return watchSuccess(people);
+    assert(watchPeopleSuccess != null);
+    assert(loadSuccessforSearchQuery != null);
+    return watchPeopleSuccess(people);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
-    Result loading(),
     Result failure(PeopleFailure peopleFailure),
     Result followSuccess(),
     Result unfollowSuccess(),
-    Result watchSuccess(List<Person> people),
-    Result personSearchSuccess(Person person),
+    Result watchPeopleSuccess(List<Person> people),
+    Result loadSuccessforSearchQuery(Person person),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (watchSuccess != null) {
-      return watchSuccess(people);
+    if (watchPeopleSuccess != null) {
+      return watchPeopleSuccess(people);
     }
     return orElse();
   }
@@ -1617,95 +1433,95 @@ class _$_WatchSuccess implements _WatchSuccess {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
-    @required Result loading(_Loading value),
     @required Result failure(_Failure value),
     @required Result followSuccess(_FollowSuccess value),
-    @required Result unfollowSuccess(_UnFollowSuccess value),
-    @required Result watchSuccess(_WatchSuccess value),
-    @required Result personSearchSuccess(_PersonSearchSuccess value),
+    @required Result unfollowSuccess(_UnfollowSuccess value),
+    @required Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    @required
+        Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
   }) {
     assert(initial != null);
-    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
-    assert(watchSuccess != null);
-    assert(personSearchSuccess != null);
-    return watchSuccess(this);
+    assert(watchPeopleSuccess != null);
+    assert(loadSuccessforSearchQuery != null);
+    return watchPeopleSuccess(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
-    Result loading(_Loading value),
     Result failure(_Failure value),
     Result followSuccess(_FollowSuccess value),
-    Result unfollowSuccess(_UnFollowSuccess value),
-    Result watchSuccess(_WatchSuccess value),
-    Result personSearchSuccess(_PersonSearchSuccess value),
+    Result unfollowSuccess(_UnfollowSuccess value),
+    Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (watchSuccess != null) {
-      return watchSuccess(this);
+    if (watchPeopleSuccess != null) {
+      return watchPeopleSuccess(this);
     }
     return orElse();
   }
 }
 
-abstract class _WatchSuccess implements PeopleState {
-  const factory _WatchSuccess(List<Person> people) = _$_WatchSuccess;
+abstract class _WatchPeopleSuccess implements PeopleState {
+  const factory _WatchPeopleSuccess(List<Person> people) =
+      _$_WatchPeopleSuccess;
 
   List<Person> get people;
-  _$WatchSuccessCopyWith<_WatchSuccess> get copyWith;
+  _$WatchPeopleSuccessCopyWith<_WatchPeopleSuccess> get copyWith;
 }
 
 /// @nodoc
-abstract class _$PersonSearchSuccessCopyWith<$Res> {
-  factory _$PersonSearchSuccessCopyWith(_PersonSearchSuccess value,
-          $Res Function(_PersonSearchSuccess) then) =
-      __$PersonSearchSuccessCopyWithImpl<$Res>;
+abstract class _$LoadSuccessforSearchQueryCopyWith<$Res> {
+  factory _$LoadSuccessforSearchQueryCopyWith(_LoadSuccessforSearchQuery value,
+          $Res Function(_LoadSuccessforSearchQuery) then) =
+      __$LoadSuccessforSearchQueryCopyWithImpl<$Res>;
   $Res call({Person person});
 }
 
 /// @nodoc
-class __$PersonSearchSuccessCopyWithImpl<$Res>
+class __$LoadSuccessforSearchQueryCopyWithImpl<$Res>
     extends _$PeopleStateCopyWithImpl<$Res>
-    implements _$PersonSearchSuccessCopyWith<$Res> {
-  __$PersonSearchSuccessCopyWithImpl(
-      _PersonSearchSuccess _value, $Res Function(_PersonSearchSuccess) _then)
-      : super(_value, (v) => _then(v as _PersonSearchSuccess));
+    implements _$LoadSuccessforSearchQueryCopyWith<$Res> {
+  __$LoadSuccessforSearchQueryCopyWithImpl(_LoadSuccessforSearchQuery _value,
+      $Res Function(_LoadSuccessforSearchQuery) _then)
+      : super(_value, (v) => _then(v as _LoadSuccessforSearchQuery));
 
   @override
-  _PersonSearchSuccess get _value => super._value as _PersonSearchSuccess;
+  _LoadSuccessforSearchQuery get _value =>
+      super._value as _LoadSuccessforSearchQuery;
 
   @override
   $Res call({
     Object person = freezed,
   }) {
-    return _then(_PersonSearchSuccess(
+    return _then(_LoadSuccessforSearchQuery(
       person == freezed ? _value.person : person as Person,
     ));
   }
 }
 
 /// @nodoc
-class _$_PersonSearchSuccess implements _PersonSearchSuccess {
-  const _$_PersonSearchSuccess(this.person) : assert(person != null);
+class _$_LoadSuccessforSearchQuery implements _LoadSuccessforSearchQuery {
+  const _$_LoadSuccessforSearchQuery(this.person) : assert(person != null);
 
   @override
   final Person person;
 
   @override
   String toString() {
-    return 'PeopleState.personSearchSuccess(person: $person)';
+    return 'PeopleState.loadSuccessforSearchQuery(person: $person)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PersonSearchSuccess &&
+        (other is _LoadSuccessforSearchQuery &&
             (identical(other.person, person) ||
                 const DeepCollectionEquality().equals(other.person, person)));
   }
@@ -1715,46 +1531,44 @@ class _$_PersonSearchSuccess implements _PersonSearchSuccess {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(person);
 
   @override
-  _$PersonSearchSuccessCopyWith<_PersonSearchSuccess> get copyWith =>
-      __$PersonSearchSuccessCopyWithImpl<_PersonSearchSuccess>(
-          this, _$identity);
+  _$LoadSuccessforSearchQueryCopyWith<_LoadSuccessforSearchQuery>
+      get copyWith =>
+          __$LoadSuccessforSearchQueryCopyWithImpl<_LoadSuccessforSearchQuery>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
-    @required Result loading(),
     @required Result failure(PeopleFailure peopleFailure),
     @required Result followSuccess(),
     @required Result unfollowSuccess(),
-    @required Result watchSuccess(List<Person> people),
-    @required Result personSearchSuccess(Person person),
+    @required Result watchPeopleSuccess(List<Person> people),
+    @required Result loadSuccessforSearchQuery(Person person),
   }) {
     assert(initial != null);
-    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
-    assert(watchSuccess != null);
-    assert(personSearchSuccess != null);
-    return personSearchSuccess(person);
+    assert(watchPeopleSuccess != null);
+    assert(loadSuccessforSearchQuery != null);
+    return loadSuccessforSearchQuery(person);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
-    Result loading(),
     Result failure(PeopleFailure peopleFailure),
     Result followSuccess(),
     Result unfollowSuccess(),
-    Result watchSuccess(List<Person> people),
-    Result personSearchSuccess(Person person),
+    Result watchPeopleSuccess(List<Person> people),
+    Result loadSuccessforSearchQuery(Person person),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (personSearchSuccess != null) {
-      return personSearchSuccess(person);
+    if (loadSuccessforSearchQuery != null) {
+      return loadSuccessforSearchQuery(person);
     }
     return orElse();
   }
@@ -1763,46 +1577,45 @@ class _$_PersonSearchSuccess implements _PersonSearchSuccess {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
-    @required Result loading(_Loading value),
     @required Result failure(_Failure value),
     @required Result followSuccess(_FollowSuccess value),
-    @required Result unfollowSuccess(_UnFollowSuccess value),
-    @required Result watchSuccess(_WatchSuccess value),
-    @required Result personSearchSuccess(_PersonSearchSuccess value),
+    @required Result unfollowSuccess(_UnfollowSuccess value),
+    @required Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    @required
+        Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
   }) {
     assert(initial != null);
-    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
-    assert(watchSuccess != null);
-    assert(personSearchSuccess != null);
-    return personSearchSuccess(this);
+    assert(watchPeopleSuccess != null);
+    assert(loadSuccessforSearchQuery != null);
+    return loadSuccessforSearchQuery(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
-    Result loading(_Loading value),
     Result failure(_Failure value),
     Result followSuccess(_FollowSuccess value),
-    Result unfollowSuccess(_UnFollowSuccess value),
-    Result watchSuccess(_WatchSuccess value),
-    Result personSearchSuccess(_PersonSearchSuccess value),
+    Result unfollowSuccess(_UnfollowSuccess value),
+    Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (personSearchSuccess != null) {
-      return personSearchSuccess(this);
+    if (loadSuccessforSearchQuery != null) {
+      return loadSuccessforSearchQuery(this);
     }
     return orElse();
   }
 }
 
-abstract class _PersonSearchSuccess implements PeopleState {
-  const factory _PersonSearchSuccess(Person person) = _$_PersonSearchSuccess;
+abstract class _LoadSuccessforSearchQuery implements PeopleState {
+  const factory _LoadSuccessforSearchQuery(Person person) =
+      _$_LoadSuccessforSearchQuery;
 
   Person get person;
-  _$PersonSearchSuccessCopyWith<_PersonSearchSuccess> get copyWith;
+  _$LoadSuccessforSearchQueryCopyWith<_LoadSuccessforSearchQuery> get copyWith;
 }

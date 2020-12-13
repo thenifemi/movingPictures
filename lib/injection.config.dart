@@ -14,9 +14,9 @@ import 'application/auth/auth_bloc.dart';
 import 'domain/auth/auth_repository_interface.dart';
 import 'domain/home/shared_classes/cast/cast_interface.dart';
 import 'infrastructure/home/casts/casts_repository.dart';
-import 'application/home/movies/casts/casts_bloc.dart';
-import 'application/home/series/casts/casts_bloc.dart' as movingPictures;
-import 'application/home/casts/casts_bloc.dart' as movingPictures2;
+import 'application/home/casts/casts_bloc.dart';
+import 'application/home/movies/casts/casts_bloc.dart' as movingPictures;
+import 'application/home/series/casts/casts_bloc.dart' as movingPictures1;
 import 'domain/home/movies/favorite_movies_interface.dart';
 import 'infrastructure/home/movies/favorite_movies_repository.dart';
 import 'domain/home/series/favorite_series_interface.dart';
@@ -26,10 +26,11 @@ import 'application/home/series/favorite_series/favoriteseries_bloc.dart';
 import 'infrastructure/auth/firebase_auth_repository.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
 import 'application/home/movies/genres/genres_bloc.dart';
-import 'application/home/series/genres/genres_bloc.dart' as movingPictures1;
+import 'application/home/series/genres/genres_bloc.dart' as movingPictures2;
 import 'application/home/movies/movies/movies_bloc.dart';
 import 'domain/home/movies/movies_interface.dart';
 import 'infrastructure/home/movies/movies_repository.dart';
+import 'application/people/people_bloc.dart';
 import 'domain/people/people_interface.dart';
 import 'infrastructure/people/people_repository.dart';
 import 'application/search/search_bloc.dart';
@@ -52,12 +53,12 @@ GetIt $initGetIt(
   final gh = GetItHelper(get, environment, environmentFilter);
   final firebaseinjectableModule = _$FirebaseinjectableModule();
   gh.lazySingleton<CastInterface>(() => CastRepository());
-  gh.factory<movingPictures2.CastsBloc>(
-      () => movingPictures2.CastsBloc(get<CastInterface>()));
+  gh.factory<CastsBloc>(() => CastsBloc(get<CastInterface>()));
   gh.lazySingleton<FirebaseAuth>(() => firebaseinjectableModule.firebaseAuth);
   gh.lazySingleton<FirebaseFirestore>(() => firebaseinjectableModule.firestore);
   gh.lazySingleton<GoogleSignIn>(() => firebaseinjectableModule.googleSignIn);
   gh.lazySingleton<MoviesInterface>(() => MoviesRepository());
+  gh.factory<PeopleBloc>(() => PeopleBloc());
   gh.lazySingleton<PeopleInterface>(
       () => PeopleRepsitory(get<FirebaseFirestore>()));
   gh.lazySingleton<SearchInterface>(() => SearchRepository());
@@ -67,9 +68,10 @@ GetIt $initGetIt(
         get<GoogleSignIn>(),
         get<FirebaseFirestore>(),
       ));
-  gh.factory<CastsBloc>(() => CastsBloc(get<MoviesInterface>()));
   gh.factory<movingPictures.CastsBloc>(
-      () => movingPictures.CastsBloc(get<SeriesInterface>()));
+      () => movingPictures.CastsBloc(get<MoviesInterface>()));
+  gh.factory<movingPictures1.CastsBloc>(
+      () => movingPictures1.CastsBloc(get<SeriesInterface>()));
   gh.lazySingleton<FavoriteMoviesInterface>(
       () => FavoriteMoviesRepository(get<FirebaseFirestore>()));
   gh.lazySingleton<FavoriteSeriesInterface>(
@@ -79,8 +81,8 @@ GetIt $initGetIt(
   gh.factory<FavoriteseriesBloc>(
       () => FavoriteseriesBloc(get<FavoriteSeriesInterface>()));
   gh.factory<GenresBloc>(() => GenresBloc(get<MoviesInterface>()));
-  gh.factory<movingPictures1.GenresBloc>(
-      () => movingPictures1.GenresBloc(get<SeriesInterface>()));
+  gh.factory<movingPictures2.GenresBloc>(
+      () => movingPictures2.GenresBloc(get<SeriesInterface>()));
   gh.factory<MoviesBloc>(() => MoviesBloc(get<MoviesInterface>()));
   gh.factory<SearchBloc>(() => SearchBloc(get<SearchInterface>()));
   gh.factory<SeriesBloc>(() => SeriesBloc(get<SeriesInterface>()));
