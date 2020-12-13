@@ -50,6 +50,7 @@ class PeopleRepsitory extends PeopleInterface {
   @override
   Stream<Either<PeopleFailure, List<Person>>> watchPeople() async* {
     final userDoc = await _firestore.userDocument();
+
     yield* userDoc
         .collection('people')
         .snapshots()
@@ -58,10 +59,13 @@ class PeopleRepsitory extends PeopleInterface {
             snapshot.docs.map((doc) => Person.fromFirebase(doc)).toList(),
           ),
         )
-        .handleError((e) {
+        .handleError((e, s) {
       if (e is FirebaseException && e.message.contains('PERMISSION_DENIED')) {
         return left(const PeopleFailure.insufficientPermissions());
       } else {
+        print(e);
+        print(s);
+
         return left(const PeopleFailure.unexpected());
       }
     });

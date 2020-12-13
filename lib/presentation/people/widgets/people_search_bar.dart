@@ -16,6 +16,9 @@ class PeopleSearchBar extends StatelessWidget implements PreferredSizeWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 10.0),
       child: TextFormField(
+        onChanged: (value) => value.isEmpty
+            ? context.read<PeopleBloc>().add(const PeopleEvent.watchPeople())
+            : null,
         onSaved: (value) => value.isEmpty
             ? context.read<PeopleBloc>().add(const PeopleEvent.watchPeople())
             : context

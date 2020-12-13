@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movingPictures/application/people/people_bloc.dart';
 import 'package:movingPictures/injection.dart';
+import 'package:movingPictures/presentation/core/app_colors.dart';
+import 'package:movingPictures/presentation/core/component_widgets/movie_loading_wigdet.dart';
 
 import '../core/app_localizations.dart';
 import '../core/component_widgets/cancel_button_widget.dart';
@@ -34,9 +36,47 @@ class PeopleScreen extends StatelessWidget {
                   Text(lang.translate(people), style: appTextTheme.headline5),
               bottom: const PeopleSearchBar(),
             ),
+            body: PeopleYouFollowOrSearchResults(),
           );
         },
       ),
+    );
+  }
+}
+
+class PeopleYouFollowOrSearchResults extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<PeopleBloc, PeopleState>(
+      builder: (context, state) {
+        return state.maybeMap(
+          initial: (_) => const MovieLoadingWidget(),
+          loading: (_) => const MovieLoadingWidget(),
+          failure: (_) => const MovieErrorWidget(),
+          watchPeopleSuccess: (state) {
+            if (state.people.isEmpty) {
+              return Container(
+                color: AppColors.gray,
+                height: 100.0,
+                width: double.infinity,
+              );
+            }
+            return Container(
+              color: AppColors.white,
+              height: 100.0,
+              width: double.infinity,
+            );
+          },
+          loadSuccessforSearchQuery: (state) {
+            return Container(
+              color: AppColors.red,
+              height: 100.0,
+              width: double.infinity,
+            );
+          },
+          orElse: () => null,
+        );
+      },
     );
   }
 }
