@@ -58,7 +58,6 @@ GetIt $initGetIt(
   gh.lazySingleton<FirebaseFirestore>(() => firebaseinjectableModule.firestore);
   gh.lazySingleton<GoogleSignIn>(() => firebaseinjectableModule.googleSignIn);
   gh.lazySingleton<MoviesInterface>(() => MoviesRepository());
-  gh.factory<PeopleBloc>(() => PeopleBloc());
   gh.lazySingleton<PeopleInterface>(
       () => PeopleRepsitory(get<FirebaseFirestore>()));
   gh.lazySingleton<SearchInterface>(() => SearchRepository());
@@ -84,6 +83,7 @@ GetIt $initGetIt(
   gh.factory<movingPictures2.GenresBloc>(
       () => movingPictures2.GenresBloc(get<SeriesInterface>()));
   gh.factory<MoviesBloc>(() => MoviesBloc(get<MoviesInterface>()));
+  gh.factory<PeopleBloc>(() => PeopleBloc(get<PeopleInterface>()));
   gh.factory<SearchBloc>(() => SearchBloc(get<SearchInterface>()));
   gh.factory<SeriesBloc>(() => SeriesBloc(get<SeriesInterface>()));
   gh.factory<SignInBloc>(() => SignInBloc(get<AuthInterface>()));

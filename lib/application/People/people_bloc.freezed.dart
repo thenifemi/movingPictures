@@ -33,7 +33,8 @@ class _$PeopleEventTearOff {
   }
 
 // ignore: unused_element
-  _PeopleRecieved peopleRecieved(dynamic failureOrPeople) {
+  _PeopleRecieved peopleRecieved(
+      Either<PeopleFailure, List<Person>> failureOrPeople) {
     return _PeopleRecieved(
       failureOrPeople,
     );
@@ -58,7 +59,9 @@ mixin _$PeopleEvent {
     @required Result followed(String personEmail),
     @required Result unfollowed(String personEmail),
     @required Result watchPeople(),
-    @required Result peopleRecieved(dynamic failureOrPeople),
+    @required
+        Result peopleRecieved(
+            Either<PeopleFailure, List<Person>> failureOrPeople),
     @required Result personSearchQuery(String personEmail),
   });
   @optionalTypeArgs
@@ -66,7 +69,7 @@ mixin _$PeopleEvent {
     Result followed(String personEmail),
     Result unfollowed(String personEmail),
     Result watchPeople(),
-    Result peopleRecieved(dynamic failureOrPeople),
+    Result peopleRecieved(Either<PeopleFailure, List<Person>> failureOrPeople),
     Result personSearchQuery(String personEmail),
     @required Result orElse(),
   });
@@ -166,7 +169,9 @@ class _$_Followed implements _Followed {
     @required Result followed(String personEmail),
     @required Result unfollowed(String personEmail),
     @required Result watchPeople(),
-    @required Result peopleRecieved(dynamic failureOrPeople),
+    @required
+        Result peopleRecieved(
+            Either<PeopleFailure, List<Person>> failureOrPeople),
     @required Result personSearchQuery(String personEmail),
   }) {
     assert(followed != null);
@@ -183,7 +188,7 @@ class _$_Followed implements _Followed {
     Result followed(String personEmail),
     Result unfollowed(String personEmail),
     Result watchPeople(),
-    Result peopleRecieved(dynamic failureOrPeople),
+    Result peopleRecieved(Either<PeopleFailure, List<Person>> failureOrPeople),
     Result personSearchQuery(String personEmail),
     @required Result orElse(),
   }) {
@@ -299,7 +304,9 @@ class _$_Unfollowed implements _Unfollowed {
     @required Result followed(String personEmail),
     @required Result unfollowed(String personEmail),
     @required Result watchPeople(),
-    @required Result peopleRecieved(dynamic failureOrPeople),
+    @required
+        Result peopleRecieved(
+            Either<PeopleFailure, List<Person>> failureOrPeople),
     @required Result personSearchQuery(String personEmail),
   }) {
     assert(followed != null);
@@ -316,7 +323,7 @@ class _$_Unfollowed implements _Unfollowed {
     Result followed(String personEmail),
     Result unfollowed(String personEmail),
     Result watchPeople(),
-    Result peopleRecieved(dynamic failureOrPeople),
+    Result peopleRecieved(Either<PeopleFailure, List<Person>> failureOrPeople),
     Result personSearchQuery(String personEmail),
     @required Result orElse(),
   }) {
@@ -410,7 +417,9 @@ class _$_WatchPeople implements _WatchPeople {
     @required Result followed(String personEmail),
     @required Result unfollowed(String personEmail),
     @required Result watchPeople(),
-    @required Result peopleRecieved(dynamic failureOrPeople),
+    @required
+        Result peopleRecieved(
+            Either<PeopleFailure, List<Person>> failureOrPeople),
     @required Result personSearchQuery(String personEmail),
   }) {
     assert(followed != null);
@@ -427,7 +436,7 @@ class _$_WatchPeople implements _WatchPeople {
     Result followed(String personEmail),
     Result unfollowed(String personEmail),
     Result watchPeople(),
-    Result peopleRecieved(dynamic failureOrPeople),
+    Result peopleRecieved(Either<PeopleFailure, List<Person>> failureOrPeople),
     Result personSearchQuery(String personEmail),
     @required Result orElse(),
   }) {
@@ -482,7 +491,7 @@ abstract class _$PeopleRecievedCopyWith<$Res> {
   factory _$PeopleRecievedCopyWith(
           _PeopleRecieved value, $Res Function(_PeopleRecieved) then) =
       __$PeopleRecievedCopyWithImpl<$Res>;
-  $Res call({dynamic failureOrPeople});
+  $Res call({Either<PeopleFailure, List<Person>> failureOrPeople});
 }
 
 /// @nodoc
@@ -501,7 +510,9 @@ class __$PeopleRecievedCopyWithImpl<$Res>
     Object failureOrPeople = freezed,
   }) {
     return _then(_PeopleRecieved(
-      failureOrPeople == freezed ? _value.failureOrPeople : failureOrPeople,
+      failureOrPeople == freezed
+          ? _value.failureOrPeople
+          : failureOrPeople as Either<PeopleFailure, List<Person>>,
     ));
   }
 }
@@ -512,7 +523,7 @@ class _$_PeopleRecieved implements _PeopleRecieved {
       : assert(failureOrPeople != null);
 
   @override
-  final dynamic failureOrPeople;
+  final Either<PeopleFailure, List<Person>> failureOrPeople;
 
   @override
   String toString() {
@@ -543,7 +554,9 @@ class _$_PeopleRecieved implements _PeopleRecieved {
     @required Result followed(String personEmail),
     @required Result unfollowed(String personEmail),
     @required Result watchPeople(),
-    @required Result peopleRecieved(dynamic failureOrPeople),
+    @required
+        Result peopleRecieved(
+            Either<PeopleFailure, List<Person>> failureOrPeople),
     @required Result personSearchQuery(String personEmail),
   }) {
     assert(followed != null);
@@ -560,7 +573,7 @@ class _$_PeopleRecieved implements _PeopleRecieved {
     Result followed(String personEmail),
     Result unfollowed(String personEmail),
     Result watchPeople(),
-    Result peopleRecieved(dynamic failureOrPeople),
+    Result peopleRecieved(Either<PeopleFailure, List<Person>> failureOrPeople),
     Result personSearchQuery(String personEmail),
     @required Result orElse(),
   }) {
@@ -607,9 +620,10 @@ class _$_PeopleRecieved implements _PeopleRecieved {
 }
 
 abstract class _PeopleRecieved implements PeopleEvent {
-  const factory _PeopleRecieved(dynamic failureOrPeople) = _$_PeopleRecieved;
+  const factory _PeopleRecieved(
+      Either<PeopleFailure, List<Person>> failureOrPeople) = _$_PeopleRecieved;
 
-  dynamic get failureOrPeople;
+  Either<PeopleFailure, List<Person>> get failureOrPeople;
   _$PeopleRecievedCopyWith<_PeopleRecieved> get copyWith;
 }
 
@@ -677,7 +691,9 @@ class _$_PersonSearchQuery implements _PersonSearchQuery {
     @required Result followed(String personEmail),
     @required Result unfollowed(String personEmail),
     @required Result watchPeople(),
-    @required Result peopleRecieved(dynamic failureOrPeople),
+    @required
+        Result peopleRecieved(
+            Either<PeopleFailure, List<Person>> failureOrPeople),
     @required Result personSearchQuery(String personEmail),
   }) {
     assert(followed != null);
@@ -694,7 +710,7 @@ class _$_PersonSearchQuery implements _PersonSearchQuery {
     Result followed(String personEmail),
     Result unfollowed(String personEmail),
     Result watchPeople(),
-    Result peopleRecieved(dynamic failureOrPeople),
+    Result peopleRecieved(Either<PeopleFailure, List<Person>> failureOrPeople),
     Result personSearchQuery(String personEmail),
     @required Result orElse(),
   }) {
@@ -757,6 +773,11 @@ class _$PeopleStateTearOff {
   }
 
 // ignore: unused_element
+  _Loading loading() {
+    return const _Loading();
+  }
+
+// ignore: unused_element
   _Failure failure(PeopleFailure peopleFailure) {
     return _Failure(
       peopleFailure,
@@ -797,6 +818,7 @@ mixin _$PeopleState {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
+    @required Result loading(),
     @required Result failure(PeopleFailure peopleFailure),
     @required Result followSuccess(),
     @required Result unfollowSuccess(),
@@ -806,6 +828,7 @@ mixin _$PeopleState {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
+    Result loading(),
     Result failure(PeopleFailure peopleFailure),
     Result followSuccess(),
     Result unfollowSuccess(),
@@ -816,6 +839,7 @@ mixin _$PeopleState {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
+    @required Result loading(_Loading value),
     @required Result failure(_Failure value),
     @required Result followSuccess(_FollowSuccess value),
     @required Result unfollowSuccess(_UnfollowSuccess value),
@@ -826,6 +850,7 @@ mixin _$PeopleState {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
+    Result loading(_Loading value),
     Result failure(_Failure value),
     Result followSuccess(_FollowSuccess value),
     Result unfollowSuccess(_UnfollowSuccess value),
@@ -888,6 +913,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
+    @required Result loading(),
     @required Result failure(PeopleFailure peopleFailure),
     @required Result followSuccess(),
     @required Result unfollowSuccess(),
@@ -895,6 +921,7 @@ class _$_Initial implements _Initial {
     @required Result loadSuccessforSearchQuery(Person person),
   }) {
     assert(initial != null);
+    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
@@ -907,6 +934,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
+    Result loading(),
     Result failure(PeopleFailure peopleFailure),
     Result followSuccess(),
     Result unfollowSuccess(),
@@ -925,6 +953,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
+    @required Result loading(_Loading value),
     @required Result failure(_Failure value),
     @required Result followSuccess(_FollowSuccess value),
     @required Result unfollowSuccess(_UnfollowSuccess value),
@@ -933,6 +962,7 @@ class _$_Initial implements _Initial {
         Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
   }) {
     assert(initial != null);
+    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
@@ -945,6 +975,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
+    Result loading(_Loading value),
     Result failure(_Failure value),
     Result followSuccess(_FollowSuccess value),
     Result unfollowSuccess(_UnfollowSuccess value),
@@ -965,10 +996,131 @@ abstract class _Initial implements PeopleState {
 }
 
 /// @nodoc
+abstract class _$LoadingCopyWith<$Res> {
+  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
+      __$LoadingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$LoadingCopyWithImpl<$Res> extends _$PeopleStateCopyWithImpl<$Res>
+    implements _$LoadingCopyWith<$Res> {
+  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
+      : super(_value, (v) => _then(v as _Loading));
+
+  @override
+  _Loading get _value => super._value as _Loading;
+}
+
+/// @nodoc
+class _$_Loading implements _Loading {
+  const _$_Loading();
+
+  @override
+  String toString() {
+    return 'PeopleState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _Loading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result initial(),
+    @required Result loading(),
+    @required Result failure(PeopleFailure peopleFailure),
+    @required Result followSuccess(),
+    @required Result unfollowSuccess(),
+    @required Result watchPeopleSuccess(List<Person> people),
+    @required Result loadSuccessforSearchQuery(Person person),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(failure != null);
+    assert(followSuccess != null);
+    assert(unfollowSuccess != null);
+    assert(watchPeopleSuccess != null);
+    assert(loadSuccessforSearchQuery != null);
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result initial(),
+    Result loading(),
+    Result failure(PeopleFailure peopleFailure),
+    Result followSuccess(),
+    Result unfollowSuccess(),
+    Result watchPeopleSuccess(List<Person> people),
+    Result loadSuccessforSearchQuery(Person person),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result initial(_Initial value),
+    @required Result loading(_Loading value),
+    @required Result failure(_Failure value),
+    @required Result followSuccess(_FollowSuccess value),
+    @required Result unfollowSuccess(_UnfollowSuccess value),
+    @required Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    @required
+        Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(failure != null);
+    assert(followSuccess != null);
+    assert(unfollowSuccess != null);
+    assert(watchPeopleSuccess != null);
+    assert(loadSuccessforSearchQuery != null);
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result initial(_Initial value),
+    Result loading(_Loading value),
+    Result failure(_Failure value),
+    Result followSuccess(_FollowSuccess value),
+    Result unfollowSuccess(_UnfollowSuccess value),
+    Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Loading implements PeopleState {
+  const factory _Loading() = _$_Loading;
+}
+
+/// @nodoc
 abstract class _$FailureCopyWith<$Res> {
   factory _$FailureCopyWith(_Failure value, $Res Function(_Failure) then) =
       __$FailureCopyWithImpl<$Res>;
   $Res call({PeopleFailure peopleFailure});
+
+  $PeopleFailureCopyWith<$Res> get peopleFailure;
 }
 
 /// @nodoc
@@ -989,6 +1141,16 @@ class __$FailureCopyWithImpl<$Res> extends _$PeopleStateCopyWithImpl<$Res>
           ? _value.peopleFailure
           : peopleFailure as PeopleFailure,
     ));
+  }
+
+  @override
+  $PeopleFailureCopyWith<$Res> get peopleFailure {
+    if (_value.peopleFailure == null) {
+      return null;
+    }
+    return $PeopleFailureCopyWith<$Res>(_value.peopleFailure, (value) {
+      return _then(_value.copyWith(peopleFailure: value));
+    });
   }
 }
 
@@ -1025,6 +1187,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
+    @required Result loading(),
     @required Result failure(PeopleFailure peopleFailure),
     @required Result followSuccess(),
     @required Result unfollowSuccess(),
@@ -1032,6 +1195,7 @@ class _$_Failure implements _Failure {
     @required Result loadSuccessforSearchQuery(Person person),
   }) {
     assert(initial != null);
+    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
@@ -1044,6 +1208,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
+    Result loading(),
     Result failure(PeopleFailure peopleFailure),
     Result followSuccess(),
     Result unfollowSuccess(),
@@ -1062,6 +1227,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
+    @required Result loading(_Loading value),
     @required Result failure(_Failure value),
     @required Result followSuccess(_FollowSuccess value),
     @required Result unfollowSuccess(_UnfollowSuccess value),
@@ -1070,6 +1236,7 @@ class _$_Failure implements _Failure {
         Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
   }) {
     assert(initial != null);
+    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
@@ -1082,6 +1249,7 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
+    Result loading(_Loading value),
     Result failure(_Failure value),
     Result followSuccess(_FollowSuccess value),
     Result unfollowSuccess(_UnfollowSuccess value),
@@ -1143,6 +1311,7 @@ class _$_FollowSuccess implements _FollowSuccess {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
+    @required Result loading(),
     @required Result failure(PeopleFailure peopleFailure),
     @required Result followSuccess(),
     @required Result unfollowSuccess(),
@@ -1150,6 +1319,7 @@ class _$_FollowSuccess implements _FollowSuccess {
     @required Result loadSuccessforSearchQuery(Person person),
   }) {
     assert(initial != null);
+    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
@@ -1162,6 +1332,7 @@ class _$_FollowSuccess implements _FollowSuccess {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
+    Result loading(),
     Result failure(PeopleFailure peopleFailure),
     Result followSuccess(),
     Result unfollowSuccess(),
@@ -1180,6 +1351,7 @@ class _$_FollowSuccess implements _FollowSuccess {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
+    @required Result loading(_Loading value),
     @required Result failure(_Failure value),
     @required Result followSuccess(_FollowSuccess value),
     @required Result unfollowSuccess(_UnfollowSuccess value),
@@ -1188,6 +1360,7 @@ class _$_FollowSuccess implements _FollowSuccess {
         Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
   }) {
     assert(initial != null);
+    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
@@ -1200,6 +1373,7 @@ class _$_FollowSuccess implements _FollowSuccess {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
+    Result loading(_Loading value),
     Result failure(_Failure value),
     Result followSuccess(_FollowSuccess value),
     Result unfollowSuccess(_UnfollowSuccess value),
@@ -1259,6 +1433,7 @@ class _$_UnfollowSuccess implements _UnfollowSuccess {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
+    @required Result loading(),
     @required Result failure(PeopleFailure peopleFailure),
     @required Result followSuccess(),
     @required Result unfollowSuccess(),
@@ -1266,6 +1441,7 @@ class _$_UnfollowSuccess implements _UnfollowSuccess {
     @required Result loadSuccessforSearchQuery(Person person),
   }) {
     assert(initial != null);
+    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
@@ -1278,6 +1454,7 @@ class _$_UnfollowSuccess implements _UnfollowSuccess {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
+    Result loading(),
     Result failure(PeopleFailure peopleFailure),
     Result followSuccess(),
     Result unfollowSuccess(),
@@ -1296,6 +1473,7 @@ class _$_UnfollowSuccess implements _UnfollowSuccess {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
+    @required Result loading(_Loading value),
     @required Result failure(_Failure value),
     @required Result followSuccess(_FollowSuccess value),
     @required Result unfollowSuccess(_UnfollowSuccess value),
@@ -1304,6 +1482,7 @@ class _$_UnfollowSuccess implements _UnfollowSuccess {
         Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
   }) {
     assert(initial != null);
+    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
@@ -1316,6 +1495,7 @@ class _$_UnfollowSuccess implements _UnfollowSuccess {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
+    Result loading(_Loading value),
     Result failure(_Failure value),
     Result followSuccess(_FollowSuccess value),
     Result unfollowSuccess(_UnfollowSuccess value),
@@ -1396,6 +1576,7 @@ class _$_WatchPeopleSuccess implements _WatchPeopleSuccess {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
+    @required Result loading(),
     @required Result failure(PeopleFailure peopleFailure),
     @required Result followSuccess(),
     @required Result unfollowSuccess(),
@@ -1403,6 +1584,7 @@ class _$_WatchPeopleSuccess implements _WatchPeopleSuccess {
     @required Result loadSuccessforSearchQuery(Person person),
   }) {
     assert(initial != null);
+    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
@@ -1415,6 +1597,7 @@ class _$_WatchPeopleSuccess implements _WatchPeopleSuccess {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
+    Result loading(),
     Result failure(PeopleFailure peopleFailure),
     Result followSuccess(),
     Result unfollowSuccess(),
@@ -1433,6 +1616,7 @@ class _$_WatchPeopleSuccess implements _WatchPeopleSuccess {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
+    @required Result loading(_Loading value),
     @required Result failure(_Failure value),
     @required Result followSuccess(_FollowSuccess value),
     @required Result unfollowSuccess(_UnfollowSuccess value),
@@ -1441,6 +1625,7 @@ class _$_WatchPeopleSuccess implements _WatchPeopleSuccess {
         Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
   }) {
     assert(initial != null);
+    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
@@ -1453,6 +1638,7 @@ class _$_WatchPeopleSuccess implements _WatchPeopleSuccess {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
+    Result loading(_Loading value),
     Result failure(_Failure value),
     Result followSuccess(_FollowSuccess value),
     Result unfollowSuccess(_UnfollowSuccess value),
@@ -1540,6 +1726,7 @@ class _$_LoadSuccessforSearchQuery implements _LoadSuccessforSearchQuery {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
+    @required Result loading(),
     @required Result failure(PeopleFailure peopleFailure),
     @required Result followSuccess(),
     @required Result unfollowSuccess(),
@@ -1547,6 +1734,7 @@ class _$_LoadSuccessforSearchQuery implements _LoadSuccessforSearchQuery {
     @required Result loadSuccessforSearchQuery(Person person),
   }) {
     assert(initial != null);
+    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
@@ -1559,6 +1747,7 @@ class _$_LoadSuccessforSearchQuery implements _LoadSuccessforSearchQuery {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
+    Result loading(),
     Result failure(PeopleFailure peopleFailure),
     Result followSuccess(),
     Result unfollowSuccess(),
@@ -1577,6 +1766,7 @@ class _$_LoadSuccessforSearchQuery implements _LoadSuccessforSearchQuery {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
+    @required Result loading(_Loading value),
     @required Result failure(_Failure value),
     @required Result followSuccess(_FollowSuccess value),
     @required Result unfollowSuccess(_UnfollowSuccess value),
@@ -1585,6 +1775,7 @@ class _$_LoadSuccessforSearchQuery implements _LoadSuccessforSearchQuery {
         Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
   }) {
     assert(initial != null);
+    assert(loading != null);
     assert(failure != null);
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
@@ -1597,6 +1788,7 @@ class _$_LoadSuccessforSearchQuery implements _LoadSuccessforSearchQuery {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
+    Result loading(_Loading value),
     Result failure(_Failure value),
     Result followSuccess(_FollowSuccess value),
     Result unfollowSuccess(_UnfollowSuccess value),
