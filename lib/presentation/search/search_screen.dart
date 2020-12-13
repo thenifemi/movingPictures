@@ -18,8 +18,7 @@ class _SearchScreenState extends State<SearchScreen> {
     return BlocProvider(
       create: (context) =>
           getIt<SearchBloc>()..add(const SearchEvent.trendingCalled()),
-      child: BlocConsumer<SearchBloc, SearchState>(
-        listener: (context, state) {},
+      child: BlocBuilder<SearchBloc, SearchState>(
         buildWhen: (previous, current) => previous != current,
         builder: (context, state) {
           return Scaffold(
