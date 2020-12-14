@@ -17,7 +17,7 @@ class Person {
   });
 
   factory Person.fromJsonData(Map<String, dynamic> json) => Person(
-        email: json['email'] as String,
+        email: json['personEmail'] as String,
         name: json['name'] as String,
         photoURL: json['photoURL'] as String,
         // favoriteMovies: List<PersonFavMovie>.from(json['movies'].map(

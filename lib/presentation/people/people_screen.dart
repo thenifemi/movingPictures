@@ -61,6 +61,8 @@ class PeopleYouFollowOrSearchResults extends StatelessWidget {
                 width: double.infinity,
               );
             }
+
+            print(state.people[0].email);
             return Container(
               color: AppColors.white,
               height: 100.0,
