@@ -17,7 +17,7 @@ class PeopleRepsitory extends PeopleInterface {
   Future<Either<PeopleFailure, Unit>> followPerson(String personEmail) async {
     try {
       final peopleDoc = await _firestore.peopleDocument(personEmail);
-      await peopleDoc.set({"personEmail": personEmail});
+      await peopleDoc.set({"email": personEmail});
 
       return right(unit);
     } on FirebaseException catch (e) {

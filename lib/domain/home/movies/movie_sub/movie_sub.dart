@@ -18,11 +18,13 @@ abstract class MovieSub implements _$MovieSub {
         title: json['title'] as String ?? "n/a",
         posterPath: json['poster_path'] as String ?? "",
       );
+
   Map<String, dynamic> toJson() => {
         "id": id,
         "title": title,
         "poster_path": posterPath,
       };
+
   factory MovieSub.fromFirebase(DocumentSnapshot doc) =>
       MovieSub.fromJsonData(doc.data());
 }

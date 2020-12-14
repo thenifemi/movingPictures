@@ -17,7 +17,7 @@ class Person {
   });
 
   factory Person.fromJsonData(Map<String, dynamic> json) => Person(
-        email: json['personEmail'] as String,
+        email: json['email'] as String,
         name: json['name'] as String,
         photoURL: json['photoURL'] as String,
         // favoriteMovies: List<PersonFavMovie>.from(json['movies'].map(
@@ -27,6 +27,12 @@ class Person {
         //   (x) => PersonFavSerie.fromJsonData(x as Map<String, dynamic>),
         // ) as Iterable),
       );
+
+  Map<String, dynamic> toJson() => {
+        "email": email,
+        "name": name,
+        "photoURL": photoURL,
+      };
 
   factory Person.fromFirebase(DocumentSnapshot doc) =>
       Person.fromJsonData(doc.data());
