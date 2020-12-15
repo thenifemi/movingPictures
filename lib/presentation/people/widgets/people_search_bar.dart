@@ -5,23 +5,17 @@ import 'package:flutter_svg/svg.dart';
 import '../../../application/people/people_bloc.dart';
 import '../../core/app_colors.dart';
 import '../../core/constants/constants.dart';
-import '../../core/constants/language_constants.dart';
 
 class PeopleSearchBar extends StatelessWidget implements PreferredSizeWidget {
-  PeopleSearchBar({
+  const PeopleSearchBar({
     Key key,
   }) : super(key: key);
 
-  final _formKey = GlobalKey();
-
   @override
   Widget build(BuildContext context) {
-    final appTextTheme = Theme.of(context).textTheme;
-
     return Padding(
       padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 10.0),
       child: TextFormField(
-        key: _formKey,
         onFieldSubmitted: (value) => value.isEmpty
             ? context.read<PeopleBloc>().add(const PeopleEvent.watchPeople())
             : context

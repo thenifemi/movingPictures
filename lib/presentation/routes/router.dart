@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route_annotations.dart';
-import 'package:movingPictures/presentation/home/series/cast_series_screen.dart';
-import 'package:movingPictures/presentation/home/series/genre_series_screen.dart';
 
 import '../favorites/favorites.dart';
 import '../home/movies/cast_movies_screen.dart';
 import '../home/movies/genre_movies_screen.dart';
 import '../home/movies/movie_info/movie_info.dart';
+import '../home/series/cast_series_screen.dart';
+import '../home/series/genre_series_screen.dart';
 import '../home/series/serie_info/serie_info.dart';
 import '../main_layout_appbar_navbar/main_body_layout.dart';
 import '../profile/profile_screen.dart';
