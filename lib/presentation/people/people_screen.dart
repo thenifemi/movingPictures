@@ -35,7 +35,7 @@ class PeopleScreen extends StatelessWidget {
               leading: automaticallyImplyLeading ? const CancelButton() : null,
               title:
                   Text(lang.translate(people), style: appTextTheme.headline5),
-              bottom: PeopleSearchBar(),
+              bottom: const PeopleSearchBar(),
             ),
             body: PeopleYouFollowOrSearchResults(),
           );
