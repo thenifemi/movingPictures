@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movingPictures/application/people/people_bloc.dart';
-import 'package:movingPictures/injection.dart';
-import 'package:movingPictures/presentation/core/app_colors.dart';
-import 'package:movingPictures/presentation/core/component_widgets/movie_loading_wigdet.dart';
-import 'package:movingPictures/presentation/core/component_widgets/primary_button_widget.dart';
 
+import '../../application/people/people_bloc.dart';
+import '../../injection.dart';
+import '../core/app_colors.dart';
 import '../core/app_localizations.dart';
 import '../core/component_widgets/cancel_button_widget.dart';
+import '../core/component_widgets/movie_loading_wigdet.dart';
+import '../core/component_widgets/primary_button_widget.dart';
 import '../core/constants/language_constants.dart';
 import 'widgets/people_search_bar.dart';
 
