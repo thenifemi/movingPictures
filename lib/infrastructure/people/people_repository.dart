@@ -63,9 +63,6 @@ class PeopleRepsitory extends PeopleInterface {
       if (e is FirebaseException && e.message.contains('PERMISSION_DENIED')) {
         return left(const PeopleFailure.insufficientPermissions());
       } else {
-        print(e);
-        print(s);
-
         return left(const PeopleFailure.unexpected());
       }
     });
@@ -87,5 +84,30 @@ class PeopleRepsitory extends PeopleInterface {
         return left(const PeopleFailure.unexpected());
       }
     }
+  }
+
+  @override
+  Stream<Either<PeopleFailure, List<Person>>> watchPeopleList(
+      String email) async* {
+    yield* _firestore
+        .collection('users')
+        .snapshots()
+        .map(
+          (snapshot) => right<PeopleFailure, List<Person>>(
+            snapshot.docs
+                .map((doc) => Person.fromFirebase(doc))
+                .where((element) => element.email == email)
+                .toList(),
+          ),
+        )
+        .handleError(
+      (e, s) {
+        if (e is FirebaseException && e.message.contains('PERMISSION_DENIED')) {
+          return left(const PeopleFailure.insufficientPermissions());
+        } else {
+          return left(const PeopleFailure.unexpected());
+        }
+      },
+    );
   }
 }
