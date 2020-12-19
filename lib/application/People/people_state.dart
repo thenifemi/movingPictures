@@ -9,6 +9,8 @@ abstract class PeopleState with _$PeopleState {
   const factory PeopleState.unfollowSuccess() = _UnfollowSuccess;
   const factory PeopleState.watchPeopleSuccess(List<Person> people) =
       _WatchPeopleSuccess;
+  const factory PeopleState.watchFullPeopleSuccess(List<Person> people) =
+      _WatchFullPeopleSuccess;
   const factory PeopleState.loadSuccessforSearchQuery(Person person) =
       _LoadSuccessforSearchQuery;
 }

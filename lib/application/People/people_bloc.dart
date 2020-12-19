@@ -63,6 +63,22 @@ class PeopleBloc extends Bloc<PeopleEvent, PeopleState> {
           (people) => PeopleState.watchPeopleSuccess(people),
         );
       },
+      watchFullPeople: (e) async* {
+        yield const PeopleState.loading();
+        await peopleStream?.cancel();
+
+        peopleStream = peopleInterface.watchFullPeople(e.personEmail).listen(
+              (failureOrPeople) => add(
+                PeopleEvent.fullPeopleRecieved(failureOrPeople),
+              ),
+            );
+      },
+      fullPeopleRecieved: (e) async* {
+        yield e.failureOrPeople.fold(
+          (f) => PeopleState.failure(f),
+          (people) => PeopleState.watchFullPeopleSuccess(people),
+        );
+      },
 
       //* SEARCH FOR PEOPLE
       personSearchQuery: (e) async* {

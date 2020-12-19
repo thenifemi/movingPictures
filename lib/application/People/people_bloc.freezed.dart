@@ -41,6 +41,21 @@ class _$PeopleEventTearOff {
   }
 
 // ignore: unused_element
+  _WatchFullPeople watchFullPeople(String personEmail) {
+    return _WatchFullPeople(
+      personEmail,
+    );
+  }
+
+// ignore: unused_element
+  _FullPeopleRecieved fullPeopleRecieved(
+      Either<PeopleFailure, List<Person>> failureOrPeople) {
+    return _FullPeopleRecieved(
+      failureOrPeople,
+    );
+  }
+
+// ignore: unused_element
   _PersonSearchQuery personSearchQuery(String personEmail) {
     return _PersonSearchQuery(
       personEmail,
@@ -62,6 +77,10 @@ mixin _$PeopleEvent {
     @required
         Result peopleRecieved(
             Either<PeopleFailure, List<Person>> failureOrPeople),
+    @required Result watchFullPeople(String personEmail),
+    @required
+        Result fullPeopleRecieved(
+            Either<PeopleFailure, List<Person>> failureOrPeople),
     @required Result personSearchQuery(String personEmail),
   });
   @optionalTypeArgs
@@ -70,6 +89,9 @@ mixin _$PeopleEvent {
     Result unfollowed(String personEmail),
     Result watchPeople(),
     Result peopleRecieved(Either<PeopleFailure, List<Person>> failureOrPeople),
+    Result watchFullPeople(String personEmail),
+    Result fullPeopleRecieved(
+        Either<PeopleFailure, List<Person>> failureOrPeople),
     Result personSearchQuery(String personEmail),
     @required Result orElse(),
   });
@@ -79,6 +101,8 @@ mixin _$PeopleEvent {
     @required Result unfollowed(_Unfollowed value),
     @required Result watchPeople(_WatchPeople value),
     @required Result peopleRecieved(_PeopleRecieved value),
+    @required Result watchFullPeople(_WatchFullPeople value),
+    @required Result fullPeopleRecieved(_FullPeopleRecieved value),
     @required Result personSearchQuery(_PersonSearchQuery value),
   });
   @optionalTypeArgs
@@ -87,6 +111,8 @@ mixin _$PeopleEvent {
     Result unfollowed(_Unfollowed value),
     Result watchPeople(_WatchPeople value),
     Result peopleRecieved(_PeopleRecieved value),
+    Result watchFullPeople(_WatchFullPeople value),
+    Result fullPeopleRecieved(_FullPeopleRecieved value),
     Result personSearchQuery(_PersonSearchQuery value),
     @required Result orElse(),
   });
@@ -172,12 +198,18 @@ class _$_Followed implements _Followed {
     @required
         Result peopleRecieved(
             Either<PeopleFailure, List<Person>> failureOrPeople),
+    @required Result watchFullPeople(String personEmail),
+    @required
+        Result fullPeopleRecieved(
+            Either<PeopleFailure, List<Person>> failureOrPeople),
     @required Result personSearchQuery(String personEmail),
   }) {
     assert(followed != null);
     assert(unfollowed != null);
     assert(watchPeople != null);
     assert(peopleRecieved != null);
+    assert(watchFullPeople != null);
+    assert(fullPeopleRecieved != null);
     assert(personSearchQuery != null);
     return followed(personEmail);
   }
@@ -189,6 +221,9 @@ class _$_Followed implements _Followed {
     Result unfollowed(String personEmail),
     Result watchPeople(),
     Result peopleRecieved(Either<PeopleFailure, List<Person>> failureOrPeople),
+    Result watchFullPeople(String personEmail),
+    Result fullPeopleRecieved(
+        Either<PeopleFailure, List<Person>> failureOrPeople),
     Result personSearchQuery(String personEmail),
     @required Result orElse(),
   }) {
@@ -206,12 +241,16 @@ class _$_Followed implements _Followed {
     @required Result unfollowed(_Unfollowed value),
     @required Result watchPeople(_WatchPeople value),
     @required Result peopleRecieved(_PeopleRecieved value),
+    @required Result watchFullPeople(_WatchFullPeople value),
+    @required Result fullPeopleRecieved(_FullPeopleRecieved value),
     @required Result personSearchQuery(_PersonSearchQuery value),
   }) {
     assert(followed != null);
     assert(unfollowed != null);
     assert(watchPeople != null);
     assert(peopleRecieved != null);
+    assert(watchFullPeople != null);
+    assert(fullPeopleRecieved != null);
     assert(personSearchQuery != null);
     return followed(this);
   }
@@ -223,6 +262,8 @@ class _$_Followed implements _Followed {
     Result unfollowed(_Unfollowed value),
     Result watchPeople(_WatchPeople value),
     Result peopleRecieved(_PeopleRecieved value),
+    Result watchFullPeople(_WatchFullPeople value),
+    Result fullPeopleRecieved(_FullPeopleRecieved value),
     Result personSearchQuery(_PersonSearchQuery value),
     @required Result orElse(),
   }) {
@@ -307,12 +348,18 @@ class _$_Unfollowed implements _Unfollowed {
     @required
         Result peopleRecieved(
             Either<PeopleFailure, List<Person>> failureOrPeople),
+    @required Result watchFullPeople(String personEmail),
+    @required
+        Result fullPeopleRecieved(
+            Either<PeopleFailure, List<Person>> failureOrPeople),
     @required Result personSearchQuery(String personEmail),
   }) {
     assert(followed != null);
     assert(unfollowed != null);
     assert(watchPeople != null);
     assert(peopleRecieved != null);
+    assert(watchFullPeople != null);
+    assert(fullPeopleRecieved != null);
     assert(personSearchQuery != null);
     return unfollowed(personEmail);
   }
@@ -324,6 +371,9 @@ class _$_Unfollowed implements _Unfollowed {
     Result unfollowed(String personEmail),
     Result watchPeople(),
     Result peopleRecieved(Either<PeopleFailure, List<Person>> failureOrPeople),
+    Result watchFullPeople(String personEmail),
+    Result fullPeopleRecieved(
+        Either<PeopleFailure, List<Person>> failureOrPeople),
     Result personSearchQuery(String personEmail),
     @required Result orElse(),
   }) {
@@ -341,12 +391,16 @@ class _$_Unfollowed implements _Unfollowed {
     @required Result unfollowed(_Unfollowed value),
     @required Result watchPeople(_WatchPeople value),
     @required Result peopleRecieved(_PeopleRecieved value),
+    @required Result watchFullPeople(_WatchFullPeople value),
+    @required Result fullPeopleRecieved(_FullPeopleRecieved value),
     @required Result personSearchQuery(_PersonSearchQuery value),
   }) {
     assert(followed != null);
     assert(unfollowed != null);
     assert(watchPeople != null);
     assert(peopleRecieved != null);
+    assert(watchFullPeople != null);
+    assert(fullPeopleRecieved != null);
     assert(personSearchQuery != null);
     return unfollowed(this);
   }
@@ -358,6 +412,8 @@ class _$_Unfollowed implements _Unfollowed {
     Result unfollowed(_Unfollowed value),
     Result watchPeople(_WatchPeople value),
     Result peopleRecieved(_PeopleRecieved value),
+    Result watchFullPeople(_WatchFullPeople value),
+    Result fullPeopleRecieved(_FullPeopleRecieved value),
     Result personSearchQuery(_PersonSearchQuery value),
     @required Result orElse(),
   }) {
@@ -420,12 +476,18 @@ class _$_WatchPeople implements _WatchPeople {
     @required
         Result peopleRecieved(
             Either<PeopleFailure, List<Person>> failureOrPeople),
+    @required Result watchFullPeople(String personEmail),
+    @required
+        Result fullPeopleRecieved(
+            Either<PeopleFailure, List<Person>> failureOrPeople),
     @required Result personSearchQuery(String personEmail),
   }) {
     assert(followed != null);
     assert(unfollowed != null);
     assert(watchPeople != null);
     assert(peopleRecieved != null);
+    assert(watchFullPeople != null);
+    assert(fullPeopleRecieved != null);
     assert(personSearchQuery != null);
     return watchPeople();
   }
@@ -437,6 +499,9 @@ class _$_WatchPeople implements _WatchPeople {
     Result unfollowed(String personEmail),
     Result watchPeople(),
     Result peopleRecieved(Either<PeopleFailure, List<Person>> failureOrPeople),
+    Result watchFullPeople(String personEmail),
+    Result fullPeopleRecieved(
+        Either<PeopleFailure, List<Person>> failureOrPeople),
     Result personSearchQuery(String personEmail),
     @required Result orElse(),
   }) {
@@ -454,12 +519,16 @@ class _$_WatchPeople implements _WatchPeople {
     @required Result unfollowed(_Unfollowed value),
     @required Result watchPeople(_WatchPeople value),
     @required Result peopleRecieved(_PeopleRecieved value),
+    @required Result watchFullPeople(_WatchFullPeople value),
+    @required Result fullPeopleRecieved(_FullPeopleRecieved value),
     @required Result personSearchQuery(_PersonSearchQuery value),
   }) {
     assert(followed != null);
     assert(unfollowed != null);
     assert(watchPeople != null);
     assert(peopleRecieved != null);
+    assert(watchFullPeople != null);
+    assert(fullPeopleRecieved != null);
     assert(personSearchQuery != null);
     return watchPeople(this);
   }
@@ -471,6 +540,8 @@ class _$_WatchPeople implements _WatchPeople {
     Result unfollowed(_Unfollowed value),
     Result watchPeople(_WatchPeople value),
     Result peopleRecieved(_PeopleRecieved value),
+    Result watchFullPeople(_WatchFullPeople value),
+    Result fullPeopleRecieved(_FullPeopleRecieved value),
     Result personSearchQuery(_PersonSearchQuery value),
     @required Result orElse(),
   }) {
@@ -557,12 +628,18 @@ class _$_PeopleRecieved implements _PeopleRecieved {
     @required
         Result peopleRecieved(
             Either<PeopleFailure, List<Person>> failureOrPeople),
+    @required Result watchFullPeople(String personEmail),
+    @required
+        Result fullPeopleRecieved(
+            Either<PeopleFailure, List<Person>> failureOrPeople),
     @required Result personSearchQuery(String personEmail),
   }) {
     assert(followed != null);
     assert(unfollowed != null);
     assert(watchPeople != null);
     assert(peopleRecieved != null);
+    assert(watchFullPeople != null);
+    assert(fullPeopleRecieved != null);
     assert(personSearchQuery != null);
     return peopleRecieved(failureOrPeople);
   }
@@ -574,6 +651,9 @@ class _$_PeopleRecieved implements _PeopleRecieved {
     Result unfollowed(String personEmail),
     Result watchPeople(),
     Result peopleRecieved(Either<PeopleFailure, List<Person>> failureOrPeople),
+    Result watchFullPeople(String personEmail),
+    Result fullPeopleRecieved(
+        Either<PeopleFailure, List<Person>> failureOrPeople),
     Result personSearchQuery(String personEmail),
     @required Result orElse(),
   }) {
@@ -591,12 +671,16 @@ class _$_PeopleRecieved implements _PeopleRecieved {
     @required Result unfollowed(_Unfollowed value),
     @required Result watchPeople(_WatchPeople value),
     @required Result peopleRecieved(_PeopleRecieved value),
+    @required Result watchFullPeople(_WatchFullPeople value),
+    @required Result fullPeopleRecieved(_FullPeopleRecieved value),
     @required Result personSearchQuery(_PersonSearchQuery value),
   }) {
     assert(followed != null);
     assert(unfollowed != null);
     assert(watchPeople != null);
     assert(peopleRecieved != null);
+    assert(watchFullPeople != null);
+    assert(fullPeopleRecieved != null);
     assert(personSearchQuery != null);
     return peopleRecieved(this);
   }
@@ -608,6 +692,8 @@ class _$_PeopleRecieved implements _PeopleRecieved {
     Result unfollowed(_Unfollowed value),
     Result watchPeople(_WatchPeople value),
     Result peopleRecieved(_PeopleRecieved value),
+    Result watchFullPeople(_WatchFullPeople value),
+    Result fullPeopleRecieved(_FullPeopleRecieved value),
     Result personSearchQuery(_PersonSearchQuery value),
     @required Result orElse(),
   }) {
@@ -625,6 +711,314 @@ abstract class _PeopleRecieved implements PeopleEvent {
 
   Either<PeopleFailure, List<Person>> get failureOrPeople;
   _$PeopleRecievedCopyWith<_PeopleRecieved> get copyWith;
+}
+
+/// @nodoc
+abstract class _$WatchFullPeopleCopyWith<$Res> {
+  factory _$WatchFullPeopleCopyWith(
+          _WatchFullPeople value, $Res Function(_WatchFullPeople) then) =
+      __$WatchFullPeopleCopyWithImpl<$Res>;
+  $Res call({String personEmail});
+}
+
+/// @nodoc
+class __$WatchFullPeopleCopyWithImpl<$Res>
+    extends _$PeopleEventCopyWithImpl<$Res>
+    implements _$WatchFullPeopleCopyWith<$Res> {
+  __$WatchFullPeopleCopyWithImpl(
+      _WatchFullPeople _value, $Res Function(_WatchFullPeople) _then)
+      : super(_value, (v) => _then(v as _WatchFullPeople));
+
+  @override
+  _WatchFullPeople get _value => super._value as _WatchFullPeople;
+
+  @override
+  $Res call({
+    Object personEmail = freezed,
+  }) {
+    return _then(_WatchFullPeople(
+      personEmail == freezed ? _value.personEmail : personEmail as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_WatchFullPeople implements _WatchFullPeople {
+  const _$_WatchFullPeople(this.personEmail) : assert(personEmail != null);
+
+  @override
+  final String personEmail;
+
+  @override
+  String toString() {
+    return 'PeopleEvent.watchFullPeople(personEmail: $personEmail)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _WatchFullPeople &&
+            (identical(other.personEmail, personEmail) ||
+                const DeepCollectionEquality()
+                    .equals(other.personEmail, personEmail)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(personEmail);
+
+  @override
+  _$WatchFullPeopleCopyWith<_WatchFullPeople> get copyWith =>
+      __$WatchFullPeopleCopyWithImpl<_WatchFullPeople>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result followed(String personEmail),
+    @required Result unfollowed(String personEmail),
+    @required Result watchPeople(),
+    @required
+        Result peopleRecieved(
+            Either<PeopleFailure, List<Person>> failureOrPeople),
+    @required Result watchFullPeople(String personEmail),
+    @required
+        Result fullPeopleRecieved(
+            Either<PeopleFailure, List<Person>> failureOrPeople),
+    @required Result personSearchQuery(String personEmail),
+  }) {
+    assert(followed != null);
+    assert(unfollowed != null);
+    assert(watchPeople != null);
+    assert(peopleRecieved != null);
+    assert(watchFullPeople != null);
+    assert(fullPeopleRecieved != null);
+    assert(personSearchQuery != null);
+    return watchFullPeople(personEmail);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result followed(String personEmail),
+    Result unfollowed(String personEmail),
+    Result watchPeople(),
+    Result peopleRecieved(Either<PeopleFailure, List<Person>> failureOrPeople),
+    Result watchFullPeople(String personEmail),
+    Result fullPeopleRecieved(
+        Either<PeopleFailure, List<Person>> failureOrPeople),
+    Result personSearchQuery(String personEmail),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (watchFullPeople != null) {
+      return watchFullPeople(personEmail);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result followed(_Followed value),
+    @required Result unfollowed(_Unfollowed value),
+    @required Result watchPeople(_WatchPeople value),
+    @required Result peopleRecieved(_PeopleRecieved value),
+    @required Result watchFullPeople(_WatchFullPeople value),
+    @required Result fullPeopleRecieved(_FullPeopleRecieved value),
+    @required Result personSearchQuery(_PersonSearchQuery value),
+  }) {
+    assert(followed != null);
+    assert(unfollowed != null);
+    assert(watchPeople != null);
+    assert(peopleRecieved != null);
+    assert(watchFullPeople != null);
+    assert(fullPeopleRecieved != null);
+    assert(personSearchQuery != null);
+    return watchFullPeople(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result followed(_Followed value),
+    Result unfollowed(_Unfollowed value),
+    Result watchPeople(_WatchPeople value),
+    Result peopleRecieved(_PeopleRecieved value),
+    Result watchFullPeople(_WatchFullPeople value),
+    Result fullPeopleRecieved(_FullPeopleRecieved value),
+    Result personSearchQuery(_PersonSearchQuery value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (watchFullPeople != null) {
+      return watchFullPeople(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WatchFullPeople implements PeopleEvent {
+  const factory _WatchFullPeople(String personEmail) = _$_WatchFullPeople;
+
+  String get personEmail;
+  _$WatchFullPeopleCopyWith<_WatchFullPeople> get copyWith;
+}
+
+/// @nodoc
+abstract class _$FullPeopleRecievedCopyWith<$Res> {
+  factory _$FullPeopleRecievedCopyWith(
+          _FullPeopleRecieved value, $Res Function(_FullPeopleRecieved) then) =
+      __$FullPeopleRecievedCopyWithImpl<$Res>;
+  $Res call({Either<PeopleFailure, List<Person>> failureOrPeople});
+}
+
+/// @nodoc
+class __$FullPeopleRecievedCopyWithImpl<$Res>
+    extends _$PeopleEventCopyWithImpl<$Res>
+    implements _$FullPeopleRecievedCopyWith<$Res> {
+  __$FullPeopleRecievedCopyWithImpl(
+      _FullPeopleRecieved _value, $Res Function(_FullPeopleRecieved) _then)
+      : super(_value, (v) => _then(v as _FullPeopleRecieved));
+
+  @override
+  _FullPeopleRecieved get _value => super._value as _FullPeopleRecieved;
+
+  @override
+  $Res call({
+    Object failureOrPeople = freezed,
+  }) {
+    return _then(_FullPeopleRecieved(
+      failureOrPeople == freezed
+          ? _value.failureOrPeople
+          : failureOrPeople as Either<PeopleFailure, List<Person>>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_FullPeopleRecieved implements _FullPeopleRecieved {
+  const _$_FullPeopleRecieved(this.failureOrPeople)
+      : assert(failureOrPeople != null);
+
+  @override
+  final Either<PeopleFailure, List<Person>> failureOrPeople;
+
+  @override
+  String toString() {
+    return 'PeopleEvent.fullPeopleRecieved(failureOrPeople: $failureOrPeople)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _FullPeopleRecieved &&
+            (identical(other.failureOrPeople, failureOrPeople) ||
+                const DeepCollectionEquality()
+                    .equals(other.failureOrPeople, failureOrPeople)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failureOrPeople);
+
+  @override
+  _$FullPeopleRecievedCopyWith<_FullPeopleRecieved> get copyWith =>
+      __$FullPeopleRecievedCopyWithImpl<_FullPeopleRecieved>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result followed(String personEmail),
+    @required Result unfollowed(String personEmail),
+    @required Result watchPeople(),
+    @required
+        Result peopleRecieved(
+            Either<PeopleFailure, List<Person>> failureOrPeople),
+    @required Result watchFullPeople(String personEmail),
+    @required
+        Result fullPeopleRecieved(
+            Either<PeopleFailure, List<Person>> failureOrPeople),
+    @required Result personSearchQuery(String personEmail),
+  }) {
+    assert(followed != null);
+    assert(unfollowed != null);
+    assert(watchPeople != null);
+    assert(peopleRecieved != null);
+    assert(watchFullPeople != null);
+    assert(fullPeopleRecieved != null);
+    assert(personSearchQuery != null);
+    return fullPeopleRecieved(failureOrPeople);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result followed(String personEmail),
+    Result unfollowed(String personEmail),
+    Result watchPeople(),
+    Result peopleRecieved(Either<PeopleFailure, List<Person>> failureOrPeople),
+    Result watchFullPeople(String personEmail),
+    Result fullPeopleRecieved(
+        Either<PeopleFailure, List<Person>> failureOrPeople),
+    Result personSearchQuery(String personEmail),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fullPeopleRecieved != null) {
+      return fullPeopleRecieved(failureOrPeople);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result followed(_Followed value),
+    @required Result unfollowed(_Unfollowed value),
+    @required Result watchPeople(_WatchPeople value),
+    @required Result peopleRecieved(_PeopleRecieved value),
+    @required Result watchFullPeople(_WatchFullPeople value),
+    @required Result fullPeopleRecieved(_FullPeopleRecieved value),
+    @required Result personSearchQuery(_PersonSearchQuery value),
+  }) {
+    assert(followed != null);
+    assert(unfollowed != null);
+    assert(watchPeople != null);
+    assert(peopleRecieved != null);
+    assert(watchFullPeople != null);
+    assert(fullPeopleRecieved != null);
+    assert(personSearchQuery != null);
+    return fullPeopleRecieved(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result followed(_Followed value),
+    Result unfollowed(_Unfollowed value),
+    Result watchPeople(_WatchPeople value),
+    Result peopleRecieved(_PeopleRecieved value),
+    Result watchFullPeople(_WatchFullPeople value),
+    Result fullPeopleRecieved(_FullPeopleRecieved value),
+    Result personSearchQuery(_PersonSearchQuery value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fullPeopleRecieved != null) {
+      return fullPeopleRecieved(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FullPeopleRecieved implements PeopleEvent {
+  const factory _FullPeopleRecieved(
+          Either<PeopleFailure, List<Person>> failureOrPeople) =
+      _$_FullPeopleRecieved;
+
+  Either<PeopleFailure, List<Person>> get failureOrPeople;
+  _$FullPeopleRecievedCopyWith<_FullPeopleRecieved> get copyWith;
 }
 
 /// @nodoc
@@ -694,12 +1088,18 @@ class _$_PersonSearchQuery implements _PersonSearchQuery {
     @required
         Result peopleRecieved(
             Either<PeopleFailure, List<Person>> failureOrPeople),
+    @required Result watchFullPeople(String personEmail),
+    @required
+        Result fullPeopleRecieved(
+            Either<PeopleFailure, List<Person>> failureOrPeople),
     @required Result personSearchQuery(String personEmail),
   }) {
     assert(followed != null);
     assert(unfollowed != null);
     assert(watchPeople != null);
     assert(peopleRecieved != null);
+    assert(watchFullPeople != null);
+    assert(fullPeopleRecieved != null);
     assert(personSearchQuery != null);
     return personSearchQuery(personEmail);
   }
@@ -711,6 +1111,9 @@ class _$_PersonSearchQuery implements _PersonSearchQuery {
     Result unfollowed(String personEmail),
     Result watchPeople(),
     Result peopleRecieved(Either<PeopleFailure, List<Person>> failureOrPeople),
+    Result watchFullPeople(String personEmail),
+    Result fullPeopleRecieved(
+        Either<PeopleFailure, List<Person>> failureOrPeople),
     Result personSearchQuery(String personEmail),
     @required Result orElse(),
   }) {
@@ -728,12 +1131,16 @@ class _$_PersonSearchQuery implements _PersonSearchQuery {
     @required Result unfollowed(_Unfollowed value),
     @required Result watchPeople(_WatchPeople value),
     @required Result peopleRecieved(_PeopleRecieved value),
+    @required Result watchFullPeople(_WatchFullPeople value),
+    @required Result fullPeopleRecieved(_FullPeopleRecieved value),
     @required Result personSearchQuery(_PersonSearchQuery value),
   }) {
     assert(followed != null);
     assert(unfollowed != null);
     assert(watchPeople != null);
     assert(peopleRecieved != null);
+    assert(watchFullPeople != null);
+    assert(fullPeopleRecieved != null);
     assert(personSearchQuery != null);
     return personSearchQuery(this);
   }
@@ -745,6 +1152,8 @@ class _$_PersonSearchQuery implements _PersonSearchQuery {
     Result unfollowed(_Unfollowed value),
     Result watchPeople(_WatchPeople value),
     Result peopleRecieved(_PeopleRecieved value),
+    Result watchFullPeople(_WatchFullPeople value),
+    Result fullPeopleRecieved(_FullPeopleRecieved value),
     Result personSearchQuery(_PersonSearchQuery value),
     @required Result orElse(),
   }) {
@@ -802,6 +1211,13 @@ class _$PeopleStateTearOff {
   }
 
 // ignore: unused_element
+  _WatchFullPeopleSuccess watchFullPeopleSuccess(List<Person> people) {
+    return _WatchFullPeopleSuccess(
+      people,
+    );
+  }
+
+// ignore: unused_element
   _LoadSuccessforSearchQuery loadSuccessforSearchQuery(Person person) {
     return _LoadSuccessforSearchQuery(
       person,
@@ -823,6 +1239,7 @@ mixin _$PeopleState {
     @required Result followSuccess(),
     @required Result unfollowSuccess(),
     @required Result watchPeopleSuccess(List<Person> people),
+    @required Result watchFullPeopleSuccess(List<Person> people),
     @required Result loadSuccessforSearchQuery(Person person),
   });
   @optionalTypeArgs
@@ -833,6 +1250,7 @@ mixin _$PeopleState {
     Result followSuccess(),
     Result unfollowSuccess(),
     Result watchPeopleSuccess(List<Person> people),
+    Result watchFullPeopleSuccess(List<Person> people),
     Result loadSuccessforSearchQuery(Person person),
     @required Result orElse(),
   });
@@ -844,6 +1262,7 @@ mixin _$PeopleState {
     @required Result followSuccess(_FollowSuccess value),
     @required Result unfollowSuccess(_UnfollowSuccess value),
     @required Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    @required Result watchFullPeopleSuccess(_WatchFullPeopleSuccess value),
     @required
         Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
   });
@@ -855,6 +1274,7 @@ mixin _$PeopleState {
     Result followSuccess(_FollowSuccess value),
     Result unfollowSuccess(_UnfollowSuccess value),
     Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    Result watchFullPeopleSuccess(_WatchFullPeopleSuccess value),
     Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
     @required Result orElse(),
   });
@@ -918,6 +1338,7 @@ class _$_Initial implements _Initial {
     @required Result followSuccess(),
     @required Result unfollowSuccess(),
     @required Result watchPeopleSuccess(List<Person> people),
+    @required Result watchFullPeopleSuccess(List<Person> people),
     @required Result loadSuccessforSearchQuery(Person person),
   }) {
     assert(initial != null);
@@ -926,6 +1347,7 @@ class _$_Initial implements _Initial {
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
     assert(watchPeopleSuccess != null);
+    assert(watchFullPeopleSuccess != null);
     assert(loadSuccessforSearchQuery != null);
     return initial();
   }
@@ -939,6 +1361,7 @@ class _$_Initial implements _Initial {
     Result followSuccess(),
     Result unfollowSuccess(),
     Result watchPeopleSuccess(List<Person> people),
+    Result watchFullPeopleSuccess(List<Person> people),
     Result loadSuccessforSearchQuery(Person person),
     @required Result orElse(),
   }) {
@@ -958,6 +1381,7 @@ class _$_Initial implements _Initial {
     @required Result followSuccess(_FollowSuccess value),
     @required Result unfollowSuccess(_UnfollowSuccess value),
     @required Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    @required Result watchFullPeopleSuccess(_WatchFullPeopleSuccess value),
     @required
         Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
   }) {
@@ -967,6 +1391,7 @@ class _$_Initial implements _Initial {
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
     assert(watchPeopleSuccess != null);
+    assert(watchFullPeopleSuccess != null);
     assert(loadSuccessforSearchQuery != null);
     return initial(this);
   }
@@ -980,6 +1405,7 @@ class _$_Initial implements _Initial {
     Result followSuccess(_FollowSuccess value),
     Result unfollowSuccess(_UnfollowSuccess value),
     Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    Result watchFullPeopleSuccess(_WatchFullPeopleSuccess value),
     Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
     @required Result orElse(),
   }) {
@@ -1037,6 +1463,7 @@ class _$_Loading implements _Loading {
     @required Result followSuccess(),
     @required Result unfollowSuccess(),
     @required Result watchPeopleSuccess(List<Person> people),
+    @required Result watchFullPeopleSuccess(List<Person> people),
     @required Result loadSuccessforSearchQuery(Person person),
   }) {
     assert(initial != null);
@@ -1045,6 +1472,7 @@ class _$_Loading implements _Loading {
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
     assert(watchPeopleSuccess != null);
+    assert(watchFullPeopleSuccess != null);
     assert(loadSuccessforSearchQuery != null);
     return loading();
   }
@@ -1058,6 +1486,7 @@ class _$_Loading implements _Loading {
     Result followSuccess(),
     Result unfollowSuccess(),
     Result watchPeopleSuccess(List<Person> people),
+    Result watchFullPeopleSuccess(List<Person> people),
     Result loadSuccessforSearchQuery(Person person),
     @required Result orElse(),
   }) {
@@ -1077,6 +1506,7 @@ class _$_Loading implements _Loading {
     @required Result followSuccess(_FollowSuccess value),
     @required Result unfollowSuccess(_UnfollowSuccess value),
     @required Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    @required Result watchFullPeopleSuccess(_WatchFullPeopleSuccess value),
     @required
         Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
   }) {
@@ -1086,6 +1516,7 @@ class _$_Loading implements _Loading {
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
     assert(watchPeopleSuccess != null);
+    assert(watchFullPeopleSuccess != null);
     assert(loadSuccessforSearchQuery != null);
     return loading(this);
   }
@@ -1099,6 +1530,7 @@ class _$_Loading implements _Loading {
     Result followSuccess(_FollowSuccess value),
     Result unfollowSuccess(_UnfollowSuccess value),
     Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    Result watchFullPeopleSuccess(_WatchFullPeopleSuccess value),
     Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
     @required Result orElse(),
   }) {
@@ -1192,6 +1624,7 @@ class _$_Failure implements _Failure {
     @required Result followSuccess(),
     @required Result unfollowSuccess(),
     @required Result watchPeopleSuccess(List<Person> people),
+    @required Result watchFullPeopleSuccess(List<Person> people),
     @required Result loadSuccessforSearchQuery(Person person),
   }) {
     assert(initial != null);
@@ -1200,6 +1633,7 @@ class _$_Failure implements _Failure {
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
     assert(watchPeopleSuccess != null);
+    assert(watchFullPeopleSuccess != null);
     assert(loadSuccessforSearchQuery != null);
     return failure(peopleFailure);
   }
@@ -1213,6 +1647,7 @@ class _$_Failure implements _Failure {
     Result followSuccess(),
     Result unfollowSuccess(),
     Result watchPeopleSuccess(List<Person> people),
+    Result watchFullPeopleSuccess(List<Person> people),
     Result loadSuccessforSearchQuery(Person person),
     @required Result orElse(),
   }) {
@@ -1232,6 +1667,7 @@ class _$_Failure implements _Failure {
     @required Result followSuccess(_FollowSuccess value),
     @required Result unfollowSuccess(_UnfollowSuccess value),
     @required Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    @required Result watchFullPeopleSuccess(_WatchFullPeopleSuccess value),
     @required
         Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
   }) {
@@ -1241,6 +1677,7 @@ class _$_Failure implements _Failure {
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
     assert(watchPeopleSuccess != null);
+    assert(watchFullPeopleSuccess != null);
     assert(loadSuccessforSearchQuery != null);
     return failure(this);
   }
@@ -1254,6 +1691,7 @@ class _$_Failure implements _Failure {
     Result followSuccess(_FollowSuccess value),
     Result unfollowSuccess(_UnfollowSuccess value),
     Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    Result watchFullPeopleSuccess(_WatchFullPeopleSuccess value),
     Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
     @required Result orElse(),
   }) {
@@ -1316,6 +1754,7 @@ class _$_FollowSuccess implements _FollowSuccess {
     @required Result followSuccess(),
     @required Result unfollowSuccess(),
     @required Result watchPeopleSuccess(List<Person> people),
+    @required Result watchFullPeopleSuccess(List<Person> people),
     @required Result loadSuccessforSearchQuery(Person person),
   }) {
     assert(initial != null);
@@ -1324,6 +1763,7 @@ class _$_FollowSuccess implements _FollowSuccess {
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
     assert(watchPeopleSuccess != null);
+    assert(watchFullPeopleSuccess != null);
     assert(loadSuccessforSearchQuery != null);
     return followSuccess();
   }
@@ -1337,6 +1777,7 @@ class _$_FollowSuccess implements _FollowSuccess {
     Result followSuccess(),
     Result unfollowSuccess(),
     Result watchPeopleSuccess(List<Person> people),
+    Result watchFullPeopleSuccess(List<Person> people),
     Result loadSuccessforSearchQuery(Person person),
     @required Result orElse(),
   }) {
@@ -1356,6 +1797,7 @@ class _$_FollowSuccess implements _FollowSuccess {
     @required Result followSuccess(_FollowSuccess value),
     @required Result unfollowSuccess(_UnfollowSuccess value),
     @required Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    @required Result watchFullPeopleSuccess(_WatchFullPeopleSuccess value),
     @required
         Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
   }) {
@@ -1365,6 +1807,7 @@ class _$_FollowSuccess implements _FollowSuccess {
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
     assert(watchPeopleSuccess != null);
+    assert(watchFullPeopleSuccess != null);
     assert(loadSuccessforSearchQuery != null);
     return followSuccess(this);
   }
@@ -1378,6 +1821,7 @@ class _$_FollowSuccess implements _FollowSuccess {
     Result followSuccess(_FollowSuccess value),
     Result unfollowSuccess(_UnfollowSuccess value),
     Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    Result watchFullPeopleSuccess(_WatchFullPeopleSuccess value),
     Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
     @required Result orElse(),
   }) {
@@ -1438,6 +1882,7 @@ class _$_UnfollowSuccess implements _UnfollowSuccess {
     @required Result followSuccess(),
     @required Result unfollowSuccess(),
     @required Result watchPeopleSuccess(List<Person> people),
+    @required Result watchFullPeopleSuccess(List<Person> people),
     @required Result loadSuccessforSearchQuery(Person person),
   }) {
     assert(initial != null);
@@ -1446,6 +1891,7 @@ class _$_UnfollowSuccess implements _UnfollowSuccess {
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
     assert(watchPeopleSuccess != null);
+    assert(watchFullPeopleSuccess != null);
     assert(loadSuccessforSearchQuery != null);
     return unfollowSuccess();
   }
@@ -1459,6 +1905,7 @@ class _$_UnfollowSuccess implements _UnfollowSuccess {
     Result followSuccess(),
     Result unfollowSuccess(),
     Result watchPeopleSuccess(List<Person> people),
+    Result watchFullPeopleSuccess(List<Person> people),
     Result loadSuccessforSearchQuery(Person person),
     @required Result orElse(),
   }) {
@@ -1478,6 +1925,7 @@ class _$_UnfollowSuccess implements _UnfollowSuccess {
     @required Result followSuccess(_FollowSuccess value),
     @required Result unfollowSuccess(_UnfollowSuccess value),
     @required Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    @required Result watchFullPeopleSuccess(_WatchFullPeopleSuccess value),
     @required
         Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
   }) {
@@ -1487,6 +1935,7 @@ class _$_UnfollowSuccess implements _UnfollowSuccess {
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
     assert(watchPeopleSuccess != null);
+    assert(watchFullPeopleSuccess != null);
     assert(loadSuccessforSearchQuery != null);
     return unfollowSuccess(this);
   }
@@ -1500,6 +1949,7 @@ class _$_UnfollowSuccess implements _UnfollowSuccess {
     Result followSuccess(_FollowSuccess value),
     Result unfollowSuccess(_UnfollowSuccess value),
     Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    Result watchFullPeopleSuccess(_WatchFullPeopleSuccess value),
     Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
     @required Result orElse(),
   }) {
@@ -1581,6 +2031,7 @@ class _$_WatchPeopleSuccess implements _WatchPeopleSuccess {
     @required Result followSuccess(),
     @required Result unfollowSuccess(),
     @required Result watchPeopleSuccess(List<Person> people),
+    @required Result watchFullPeopleSuccess(List<Person> people),
     @required Result loadSuccessforSearchQuery(Person person),
   }) {
     assert(initial != null);
@@ -1589,6 +2040,7 @@ class _$_WatchPeopleSuccess implements _WatchPeopleSuccess {
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
     assert(watchPeopleSuccess != null);
+    assert(watchFullPeopleSuccess != null);
     assert(loadSuccessforSearchQuery != null);
     return watchPeopleSuccess(people);
   }
@@ -1602,6 +2054,7 @@ class _$_WatchPeopleSuccess implements _WatchPeopleSuccess {
     Result followSuccess(),
     Result unfollowSuccess(),
     Result watchPeopleSuccess(List<Person> people),
+    Result watchFullPeopleSuccess(List<Person> people),
     Result loadSuccessforSearchQuery(Person person),
     @required Result orElse(),
   }) {
@@ -1621,6 +2074,7 @@ class _$_WatchPeopleSuccess implements _WatchPeopleSuccess {
     @required Result followSuccess(_FollowSuccess value),
     @required Result unfollowSuccess(_UnfollowSuccess value),
     @required Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    @required Result watchFullPeopleSuccess(_WatchFullPeopleSuccess value),
     @required
         Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
   }) {
@@ -1630,6 +2084,7 @@ class _$_WatchPeopleSuccess implements _WatchPeopleSuccess {
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
     assert(watchPeopleSuccess != null);
+    assert(watchFullPeopleSuccess != null);
     assert(loadSuccessforSearchQuery != null);
     return watchPeopleSuccess(this);
   }
@@ -1643,6 +2098,7 @@ class _$_WatchPeopleSuccess implements _WatchPeopleSuccess {
     Result followSuccess(_FollowSuccess value),
     Result unfollowSuccess(_UnfollowSuccess value),
     Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    Result watchFullPeopleSuccess(_WatchFullPeopleSuccess value),
     Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
     @required Result orElse(),
   }) {
@@ -1660,6 +2116,160 @@ abstract class _WatchPeopleSuccess implements PeopleState {
 
   List<Person> get people;
   _$WatchPeopleSuccessCopyWith<_WatchPeopleSuccess> get copyWith;
+}
+
+/// @nodoc
+abstract class _$WatchFullPeopleSuccessCopyWith<$Res> {
+  factory _$WatchFullPeopleSuccessCopyWith(_WatchFullPeopleSuccess value,
+          $Res Function(_WatchFullPeopleSuccess) then) =
+      __$WatchFullPeopleSuccessCopyWithImpl<$Res>;
+  $Res call({List<Person> people});
+}
+
+/// @nodoc
+class __$WatchFullPeopleSuccessCopyWithImpl<$Res>
+    extends _$PeopleStateCopyWithImpl<$Res>
+    implements _$WatchFullPeopleSuccessCopyWith<$Res> {
+  __$WatchFullPeopleSuccessCopyWithImpl(_WatchFullPeopleSuccess _value,
+      $Res Function(_WatchFullPeopleSuccess) _then)
+      : super(_value, (v) => _then(v as _WatchFullPeopleSuccess));
+
+  @override
+  _WatchFullPeopleSuccess get _value => super._value as _WatchFullPeopleSuccess;
+
+  @override
+  $Res call({
+    Object people = freezed,
+  }) {
+    return _then(_WatchFullPeopleSuccess(
+      people == freezed ? _value.people : people as List<Person>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_WatchFullPeopleSuccess implements _WatchFullPeopleSuccess {
+  const _$_WatchFullPeopleSuccess(this.people) : assert(people != null);
+
+  @override
+  final List<Person> people;
+
+  @override
+  String toString() {
+    return 'PeopleState.watchFullPeopleSuccess(people: $people)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _WatchFullPeopleSuccess &&
+            (identical(other.people, people) ||
+                const DeepCollectionEquality().equals(other.people, people)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(people);
+
+  @override
+  _$WatchFullPeopleSuccessCopyWith<_WatchFullPeopleSuccess> get copyWith =>
+      __$WatchFullPeopleSuccessCopyWithImpl<_WatchFullPeopleSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result initial(),
+    @required Result loading(),
+    @required Result failure(PeopleFailure peopleFailure),
+    @required Result followSuccess(),
+    @required Result unfollowSuccess(),
+    @required Result watchPeopleSuccess(List<Person> people),
+    @required Result watchFullPeopleSuccess(List<Person> people),
+    @required Result loadSuccessforSearchQuery(Person person),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(failure != null);
+    assert(followSuccess != null);
+    assert(unfollowSuccess != null);
+    assert(watchPeopleSuccess != null);
+    assert(watchFullPeopleSuccess != null);
+    assert(loadSuccessforSearchQuery != null);
+    return watchFullPeopleSuccess(people);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result initial(),
+    Result loading(),
+    Result failure(PeopleFailure peopleFailure),
+    Result followSuccess(),
+    Result unfollowSuccess(),
+    Result watchPeopleSuccess(List<Person> people),
+    Result watchFullPeopleSuccess(List<Person> people),
+    Result loadSuccessforSearchQuery(Person person),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (watchFullPeopleSuccess != null) {
+      return watchFullPeopleSuccess(people);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result initial(_Initial value),
+    @required Result loading(_Loading value),
+    @required Result failure(_Failure value),
+    @required Result followSuccess(_FollowSuccess value),
+    @required Result unfollowSuccess(_UnfollowSuccess value),
+    @required Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    @required Result watchFullPeopleSuccess(_WatchFullPeopleSuccess value),
+    @required
+        Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(failure != null);
+    assert(followSuccess != null);
+    assert(unfollowSuccess != null);
+    assert(watchPeopleSuccess != null);
+    assert(watchFullPeopleSuccess != null);
+    assert(loadSuccessforSearchQuery != null);
+    return watchFullPeopleSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result initial(_Initial value),
+    Result loading(_Loading value),
+    Result failure(_Failure value),
+    Result followSuccess(_FollowSuccess value),
+    Result unfollowSuccess(_UnfollowSuccess value),
+    Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    Result watchFullPeopleSuccess(_WatchFullPeopleSuccess value),
+    Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (watchFullPeopleSuccess != null) {
+      return watchFullPeopleSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WatchFullPeopleSuccess implements PeopleState {
+  const factory _WatchFullPeopleSuccess(List<Person> people) =
+      _$_WatchFullPeopleSuccess;
+
+  List<Person> get people;
+  _$WatchFullPeopleSuccessCopyWith<_WatchFullPeopleSuccess> get copyWith;
 }
 
 /// @nodoc
@@ -1731,6 +2341,7 @@ class _$_LoadSuccessforSearchQuery implements _LoadSuccessforSearchQuery {
     @required Result followSuccess(),
     @required Result unfollowSuccess(),
     @required Result watchPeopleSuccess(List<Person> people),
+    @required Result watchFullPeopleSuccess(List<Person> people),
     @required Result loadSuccessforSearchQuery(Person person),
   }) {
     assert(initial != null);
@@ -1739,6 +2350,7 @@ class _$_LoadSuccessforSearchQuery implements _LoadSuccessforSearchQuery {
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
     assert(watchPeopleSuccess != null);
+    assert(watchFullPeopleSuccess != null);
     assert(loadSuccessforSearchQuery != null);
     return loadSuccessforSearchQuery(person);
   }
@@ -1752,6 +2364,7 @@ class _$_LoadSuccessforSearchQuery implements _LoadSuccessforSearchQuery {
     Result followSuccess(),
     Result unfollowSuccess(),
     Result watchPeopleSuccess(List<Person> people),
+    Result watchFullPeopleSuccess(List<Person> people),
     Result loadSuccessforSearchQuery(Person person),
     @required Result orElse(),
   }) {
@@ -1771,6 +2384,7 @@ class _$_LoadSuccessforSearchQuery implements _LoadSuccessforSearchQuery {
     @required Result followSuccess(_FollowSuccess value),
     @required Result unfollowSuccess(_UnfollowSuccess value),
     @required Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    @required Result watchFullPeopleSuccess(_WatchFullPeopleSuccess value),
     @required
         Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
   }) {
@@ -1780,6 +2394,7 @@ class _$_LoadSuccessforSearchQuery implements _LoadSuccessforSearchQuery {
     assert(followSuccess != null);
     assert(unfollowSuccess != null);
     assert(watchPeopleSuccess != null);
+    assert(watchFullPeopleSuccess != null);
     assert(loadSuccessforSearchQuery != null);
     return loadSuccessforSearchQuery(this);
   }
@@ -1793,6 +2408,7 @@ class _$_LoadSuccessforSearchQuery implements _LoadSuccessforSearchQuery {
     Result followSuccess(_FollowSuccess value),
     Result unfollowSuccess(_UnfollowSuccess value),
     Result watchPeopleSuccess(_WatchPeopleSuccess value),
+    Result watchFullPeopleSuccess(_WatchFullPeopleSuccess value),
     Result loadSuccessforSearchQuery(_LoadSuccessforSearchQuery value),
     @required Result orElse(),
   }) {

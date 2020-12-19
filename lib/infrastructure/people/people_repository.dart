@@ -87,7 +87,7 @@ class PeopleRepsitory extends PeopleInterface {
   }
 
   @override
-  Stream<Either<PeopleFailure, List<Person>>> watchPeopleList(
+  Stream<Either<PeopleFailure, List<Person>>> watchFullPeople(
       String email) async* {
     yield* _firestore
         .collection('users')
