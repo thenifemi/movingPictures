@@ -52,7 +52,7 @@ ThemeData appTheme() {
         color: AppColors.white,
       ),
 
-      //*[Headline4] For "Nifemi Recommends" texts.
+      //*[Headline4] For "Recommends" texts.
       headline4: base.button.copyWith(
         fontFamily: 'Montez',
         fontWeight: FontWeight.w500,
