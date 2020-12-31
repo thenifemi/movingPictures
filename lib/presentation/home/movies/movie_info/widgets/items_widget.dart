@@ -32,8 +32,7 @@ class Items extends StatelessWidget {
     final heightSize = MediaQuery.of(context).size.height;
     final lang = AppLocalizations.of(context);
 
-    // ignore: avoid_void_async
-    void _launchURL() async {
+    Future _launchURL() async {
       final url = movie.homepage;
       if (await canLaunch(url)) {
         await launch(url);
@@ -42,8 +41,7 @@ class Items extends StatelessWidget {
       }
     }
 
-    // ignore: avoid_void_async
-    void _launchTrailerURL() async {
+    Future _launchTrailerURL() async {
       final url = movie.video.results
               .where((e) => e.site == "YouTube" && e.type == "Trailer")
               .isEmpty
