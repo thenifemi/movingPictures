@@ -31,7 +31,7 @@ class MoreLikeThisBlock extends StatelessWidget {
     final lang = AppLocalizations.of(context);
 
     return Container(
-      height: MediaQuery.of(context).size.height / 1.8,
+      height: MediaQuery.of(context).size.height,
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       color: AppColors.black,
       child: Column(
@@ -62,6 +62,29 @@ class MoreLikeThisBlock extends StatelessWidget {
                     loading: (_) => const MovieLoadingWidget(),
                     loadSuccess: (state) {
                       final series = state.series;
+
+                      if (series.isEmpty) {
+                        return Container(
+                          color: AppColors.gray,
+                          width: double.infinity,
+                          child: Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Column(
+                              children: [
+                                Text(
+                                  "Aw! There are similar titles to this title.",
+                                  style: appTextTheme.headline5,
+                                ),
+                                const SizedBox(height: 10.0),
+                                const Text(
+                                  "😔",
+                                  style: TextStyle(fontSize: 100.0),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      }
                       return Series(
                         itemWidth: itemWidth,
                         itemHeight: itemHeight,
@@ -109,7 +132,7 @@ class Series extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       crossAxisCount: 3,
       children: List.generate(
-        movies.length < 12 ? movies.length : 12,
+        series.length < 12 ? series.length : 12,
         (i) {
           final serie = series[i];
           return GestureDetector(

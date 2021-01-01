@@ -62,6 +62,29 @@ class MoreLikeThisBlock extends StatelessWidget {
                     loading: (_) => const MovieLoadingWidget(),
                     loadSuccess: (state) {
                       final movies = state.movies;
+
+                      if (movies.isEmpty) {
+                        return Container(
+                          color: AppColors.gray,
+                          width: double.infinity,
+                          child: Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Column(
+                              children: [
+                                Text(
+                                  "Aw! There are similar titles to this title.",
+                                  style: appTextTheme.headline5,
+                                ),
+                                const SizedBox(height: 10.0),
+                                const Text(
+                                  "😔",
+                                  style: TextStyle(fontSize: 100.0),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      }
                       return Movies(
                         itemWidth: itemWidth,
                         itemHeight: itemHeight,

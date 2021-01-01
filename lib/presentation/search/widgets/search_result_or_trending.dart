@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/search/search_bloc.dart';
 import '../../../domain/search/search.dart';
+import '../../core/app_colors.dart';
 import '../../core/component_widgets/movie_loading_wigdet.dart';
 import 'search_cast.dart';
 import 'search_movies.dart';
@@ -103,6 +104,29 @@ class SearchResults extends StatelessWidget {
     /*24 is for notification bar on Android*/
     final double itemHeight = (size.height - kToolbarHeight - 24) / 2.5;
     final double itemWidth = size.width / 2;
+
+    if (moviesOrSeriesOrPerson.isEmpty) {
+      return Container(
+        color: AppColors.gray,
+        width: double.infinity,
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              Text(
+                "Aw! No results for this search.",
+                style: appTextTheme.headline5,
+              ),
+              const SizedBox(height: 10.0),
+              const Text(
+                "😔",
+                style: TextStyle(fontSize: 100.0),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
 
     return Column(
       children: [
