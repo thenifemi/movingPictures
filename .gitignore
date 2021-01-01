@@ -42,4 +42,6 @@ app.*.map.json
 
 google-services.json
 credentials.dart
+*android/key.properties
+
 
