@@ -14,4 +14,35 @@
   
 </p>
 
-Real-world movie database mobile application with the Flutter SDK and DDD clean architecture and other amazing Flutter libraries..
+Moving Pictures is a mobile application built with the Flutter SDK for Android and iOS. It’s an application that gets the information of thousands of movies, series, and even actors. 
+
+Users are able to view all movies and series, trending, top, according to the genre, and even add movies and series to “Favorites”. They will be able to log in to their account and view their personal “Favorites”. Users can also search for any movie, serie or actor.
+
+This project uses the TMDB API but is NOT endorsed or certified by TMDB.
+
+## Development 🛰🚢
+
+- Domain Driven Development clean architecture (DDD)
+- FirebaseAuth for authentication
+- Firebase Cloud Firestore as backend database
+- Movies, Series and Actors information from the TMDB API
+- Other amazing Flutter libraries... (BLoC Library for state management, GetIt for dependency injection, Freezed Library for Unions etc...)
+
+## Building 🏢🚀
+
+1. Clone the repo to your local computer
+2. Make sure you have Flutter and firebase installed.
+3. Please add your google-services.json file.
+4. Make sure you have FirebaseAuth and Firestore activated in your Firebase
+5. The credentials.dart file is intentionaly not included. Create your own credentials file with your own API Keys (TMDB API key).
+6. Open and run the the project with VS Code or Android Studio 3.x
+
+## Contribution 🍕🗺
+
+Feature requests, issues, pull requests and questions are welcome.
+
+## Bugs 😭🐛
+
+If you encounter any bugs or are facing any issues with the code, please don't hesitate to reach out to me. email : thenifemi@gmail.com
+
+### NIFEMI
