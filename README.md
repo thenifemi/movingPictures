@@ -27,6 +27,7 @@ This project uses the TMDB API but is NOT endorsed or certified by TMDB.
 - Firebase Cloud Firestore as backend database
 - Movies, Series and Actors information from the TMDB API
 - Other amazing Flutter libraries... (BLoC Library for state management, GetIt for dependency injection, Freezed Library for Unions etc...)
+- Design inspiration from Netflix
 
 ## Building 🏢🚀
 
