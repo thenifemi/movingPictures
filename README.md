@@ -1,7 +1,6 @@
 ## Moving Pictures
 
-
-[![Header](https://raw.githubusercontent.com/thenifemi/movingPictures/main/screenshots/MP-Banner.png "Header")]()
+[![Header](https://raw.githubusercontent.com/thenifemi/movingPictures/main/screenshots/MP-Banner.png "Header")](https://play.google.com/store/apps/details?id=com.nifemi.movingPictures)
 
 <p>
     <img src="https://raw.githubusercontent.com/thenifemi/movingPictures/main/screenshots/1.png" width="150px" height="auto" hspace="5" vspace="20"/>
@@ -14,11 +13,13 @@
   
 </p>
 
-Moving Pictures is a mobile application built with the Flutter SDK for Android and iOS. It’s an application that gets the information of thousands of movies, series, and even actors. 
+Moving Pictures is a mobile application built with the Flutter SDK for Android and iOS. It’s an application that gets the information of thousands of movies, series, and even actors.
 
 Users are able to view all movies and series, trending, top, according to the genre, and even add movies and series to “Favorites”. They will be able to log in to their account and view their personal “Favorites”. Users can also search for any movie, serie or actor.
 
 This project uses the TMDB API but is NOT endorsed or certified by TMDB.
+
+Available on the [Google Play Store](https://play.google.com/store/apps/details?id=com.nifemi.movingPictures)
 
 ## Development 🛰🚢
 
