@@ -23,12 +23,12 @@ Available on the [Google Play Store](https://play.google.com/store/apps/details?
 
 ## Development 🛰🚢
 
-- Domain Driven Development clean architecture (DDD)
-- FirebaseAuth for authentication
-- Firebase Cloud Firestore as backend database
-- Movies, Series and Actors information from the TMDB API
+- Domain Driven Development clean architecture (DDD).
+- FirebaseAuth for authentication.
+- Firebase Cloud Firestore as backend .
+- Movies, Series and Actors information from the TMDB API.
 - Other amazing Flutter libraries... (BLoC Library for state management, GetIt for dependency injection, Freezed Library for Unions etc...)
-- Design inspiration from Netflix
+- Design inspiration from Netflix.
 
 ## Building 🏢🚀
 
