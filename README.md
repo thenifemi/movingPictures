@@ -35,7 +35,7 @@ Available on the [Google Play Store](https://play.google.com/store/apps/details?
 1. Clone the repo to your local computer.
 2. Make sure you have Flutter and firebase installed.
 3. Please add your google-services.json file.
-4. Make sure you have FirebaseAuth and Firestore activated in your Firebase
+4. Make sure you have FirebaseAuth and Firestore activated in your Firebase.
 5. The credentials.dart file is intentionaly not included. Create your own credentials file with your own API Keys (TMDB API key).
 6. Open and run the the project with VS Code or Android Studio 3.x.
 
