@@ -13,7 +13,7 @@
   
 </p>
 
-Moving Pictures is a mobile application built with the Flutter SDK for Android and iOS. It’s an application that gets the information of thousands of movies, series, and even actors.
+Moving Pictures is a mobile application built with the Flutter SDK for Android and iOS. It’s an application that gets the information of thousands of movies, series, and, actors.
 
 Users can view all movies and series, trending, top, according to the genre, and even add movies and series to “Favorites”. They will be able to log in to their account and view their personal “Favorites”. Users can also search for any movie, serie or actor.
 
