@@ -1,4 +1,4 @@
-## Moving Pictures
+# Moving Pictures
 
 [![Header](https://raw.githubusercontent.com/thenifemi/movingPictures/main/screenshots/MP-Banner.png "Header")](https://play.google.com/store/apps/details?id=com.nifemi.movingPictures)
 
