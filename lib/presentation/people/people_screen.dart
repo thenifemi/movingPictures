@@ -6,11 +6,8 @@ import '../../injection.dart';
 import '../core/app_colors.dart';
 import '../core/app_localizations.dart';
 import '../core/component_widgets/cancel_button_widget.dart';
-import '../core/component_widgets/movie_loading_wigdet.dart';
-import '../core/component_widgets/primary_button_widget.dart';
 import '../core/constants/language_constants.dart';
 import 'widgets/people_search_bar.dart';
-import 'widgets/people_you_follow_widget.dart';
 
 class PeopleScreen extends StatelessWidget {
   final bool automaticallyImplyLeading;
