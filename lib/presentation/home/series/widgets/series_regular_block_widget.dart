@@ -5,7 +5,6 @@ import '../../../../application/home/series/series/series_bloc.dart';
 import '../../../../domain/home/series/serie_sub/serie_sub.dart';
 import '../../../../injection.dart';
 import '../../../core/app_colors.dart';
-import '../../../core/app_localizations.dart';
 import '../../../core/component_widgets/movie_loading_wigdet.dart';
 import '../../../core/component_widgets/poster_image_widget.dart';
 import 'build_show_series_info_modal_bottom_sheet_widget.dart';
