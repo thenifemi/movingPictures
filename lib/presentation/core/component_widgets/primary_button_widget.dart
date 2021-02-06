@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../app_colors.dart';
 
 class PrimaryButton extends StatelessWidget {
-  final state;
+  final dynamic state;
   final TextTheme appTextTheme;
   final String name;
   final Color color;
