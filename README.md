@@ -19,7 +19,7 @@ Users can view all movies and series, trending, top, according to the genre, and
 
 This project uses the TMDB API but is NOT endorsed or certified by TMDB.
 
-Available on the [Google Play Store](https://play.google.com/store/apps/details?id=com.nifemi.movingPictures)
+Available on the [Google Play Store](https://play.google.com/store/apps/details?id=com.nifemi.movingPictures).
 
 ## Development 🛰🚢
 
