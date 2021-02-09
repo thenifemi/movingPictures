@@ -19,17 +19,16 @@ class SearchResultsORTrending extends StatelessWidget {
     return BlocBuilder<SearchBloc, SearchState>(
       builder: (context, state) {
         return state.map(
-          initial: (_) => const MovieLoadingWidget(),
-          loading: (_) => const MovieLoadingWidget(),
-          loadSuccess: (state) =>
-              Trending(moviesOrSeries: state.moviesOrSeries),
-          loadFailure: (_) => const MovieErrorWidget(),
-          loadSuccessforQuery: (state) {
-            return SearchResults(
-              moviesOrSeriesOrPerson: state.moviesOrSeriesorPerson,
-            );
-          },
-        );
+            initial: (_) => const MovieLoadingWidget(),
+            loading: (_) => const MovieLoadingWidget(),
+            loadSuccess: (state) =>
+                Trending(moviesOrSeries: state.moviesOrSeries),
+            loadFailure: (_) => const MovieErrorWidget(),
+            loadSuccessforQuery: (state) {
+              return SearchResults(
+                moviesOrSeriesOrPerson: state.moviesOrSeriesorPerson,
+              );
+            });
       },
     );
   }
