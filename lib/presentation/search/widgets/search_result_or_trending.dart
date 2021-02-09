@@ -45,7 +45,6 @@ class Trending extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final lang = AppLocalizations.of(context);
     final appTextTheme = Theme.of(context).textTheme;
 
     final size = MediaQuery.of(context).size;
