@@ -75,13 +75,12 @@ class BackgroundImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height,
-      child: Image.asset(
-        signInScreenBackgroundImage,
-        fit: BoxFit.fill,
-        width: MediaQuery.of(context).size.width,
-      ),
-    );
+        height: MediaQuery.of(context).size.height,
+        child: Image.asset(
+          signInScreenBackgroundImage,
+          fit: BoxFit.fill,
+          width: MediaQuery.of(context).size.width,
+        ));
   }
 }
 
