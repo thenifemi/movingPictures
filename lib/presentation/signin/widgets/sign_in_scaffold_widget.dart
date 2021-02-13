@@ -123,7 +123,6 @@ class DarkOverlayWidget extends StatelessWidget {
                 fontWeight: FontWeight.w700,
                 fontSize: 40.0,
               ),
-              // textAlign: TextAlign.end,
             ),
             const SizedBox(height: 20.0),
             PrimaryButton(
