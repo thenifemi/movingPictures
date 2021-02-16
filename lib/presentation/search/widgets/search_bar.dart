@@ -14,25 +14,24 @@ class SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      onChanged: (value) => value.isEmpty
-          ? context.read<SearchBloc>().add(const SearchEvent.trendingCalled())
-          : context.read<SearchBloc>().add(SearchEvent.queryCalled(value)),
-      cursorColor: AppColors.white,
-      keyboardType: TextInputType.text,
-      textInputAction: TextInputAction.done,
-      style: const TextStyle(color: AppColors.white, fontSize: 18.0),
-      decoration: InputDecoration(
-        prefixIcon: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: SvgPicture.asset(searchIcon, color: Colors.grey)),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 25.0),
-        labelText: 'Search for a movie, series or genre',
-        labelStyle: const TextStyle(color: Colors.grey, fontSize: 14.0),
-        floatingLabelBehavior: FloatingLabelBehavior.never,
-        fillColor: AppColors.gray,
-        filled: true,
-        border: InputBorder.none,
-      ),
-    );
+        onChanged: (value) => value.isEmpty
+            ? context.read<SearchBloc>().add(const SearchEvent.trendingCalled())
+            : context.read<SearchBloc>().add(SearchEvent.queryCalled(value)),
+        cursorColor: AppColors.white,
+        keyboardType: TextInputType.text,
+        textInputAction: TextInputAction.done,
+        style: const TextStyle(color: AppColors.white, fontSize: 18.0),
+        decoration: InputDecoration(
+          prefixIcon: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: SvgPicture.asset(searchIcon, color: Colors.grey)),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 25.0),
+          labelText: 'Search for a movie, series or genre',
+          labelStyle: const TextStyle(color: Colors.grey, fontSize: 14.0),
+          floatingLabelBehavior: FloatingLabelBehavior.never,
+          fillColor: AppColors.gray,
+          filled: true,
+          border: InputBorder.none,
+        ));
   }
 }
