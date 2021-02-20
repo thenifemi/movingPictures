@@ -24,7 +24,10 @@ class SearchBar extends StatelessWidget {
       decoration: InputDecoration(
         prefixIcon: Padding(
             padding: const EdgeInsets.all(12.0),
-            child: SvgPicture.asset(searchIcon, color: Colors.grey)),
+            child: SvgPicture.asset(
+              searchIcon,
+              color: Colors.grey,
+            )),
         contentPadding: const EdgeInsets.symmetric(horizontal: 25.0),
         labelText: 'Search for a movie, series or genre',
         labelStyle: const TextStyle(color: Colors.grey, fontSize: 14.0),
