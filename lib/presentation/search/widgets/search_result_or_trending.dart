@@ -28,7 +28,7 @@ class SearchResultsORTrending extends StatelessWidget {
               return SearchResults(
                 moviesOrSeriesOrPerson: state.moviesOrSeriesorPerson,
               );
-            });
+            },);
       },
     );
   }
