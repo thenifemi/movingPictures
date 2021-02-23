@@ -47,7 +47,10 @@ class _MainBodyLayoutState extends State<MainBodyLayout> {
             listener: (context, state) {
               state.maybeMap(
                 unAuthenticated: (_) => ExtendedNavigator.of(context)
-                  ..pushAndRemoveUntil(Routes.signInScreen, (route) => false),
+                  ..pushAndRemoveUntil(
+                    Routes.signInScreen,
+                    (route) => false,
+                  ),
                 orElse: () {},
               );
             },
