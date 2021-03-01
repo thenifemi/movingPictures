@@ -18,6 +18,7 @@ class App extends StatelessWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
+
     return MultiBlocProvider(
       providers: [
         BlocProvider(
